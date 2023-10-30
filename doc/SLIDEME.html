@@ -1,0 +1,1775 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>reactful&period;js</title>
+        <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+/* From extension marp-team.marp-vscode */
+#__marp-vscode {
+  all: initial;
+}
+
+/* Override VS Code default CSS rules reverting to initial
+   https://github.com/microsoft/vscode/blob/master/src/vs/workbench/contrib/webview/browser/pre/main.js#L53 */
+body.marp-vscode {
+  padding: 0;
+}
+
+body.marp-vscode img {
+  max-width: unset;
+  max-height: unset;
+}
+
+body.marp-vscode a,
+body.marp-vscode a:hover,
+body.marp-vscode code {
+  color: unset;
+}
+
+body.marp-vscode blockquote {
+  background: unset;
+  border-color: unset;
+}
+
+@media screen {
+  body.marp-vscode {
+    overflow-y: scroll;
+  }
+
+  #__marp-vscode [data-marp-vscode-slide-wrapper] {
+    margin: 20px;
+  }
+
+  #__marp-vscode svg[data-marpit-svg] {
+    box-shadow: 0 5px 10px rgb(0 0 0 / 25%);
+    display: block;
+    margin: 0;
+  }
+
+  /* Based on https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+  #code-csp-warning {
+    background-color: #444;
+    box-shadow: 1px 1px 1px rgb(0 0 0 / 25%);
+    color: white;
+    cursor: pointer;
+    font-family: sans-serif;
+    font-size: 12px;
+    line-height: 22px;
+    margin: 16px;
+    padding: 6px;
+    position: fixed;
+    right: 0;
+    text-align: center;
+    top: 0;
+    word-wrap: break-word;
+  }
+
+  #code-csp-warning:hover {
+    text-decoration: none;
+    background-color: #007acc;
+    box-shadow: 2px 2px 2px rgb(0 0 0 / 25%);
+  }
+}
+
+@media print {
+  body.marp-vscode #code-csp-warning {
+    display: none;
+  }
+}
+
+</style>
+        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 13px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+        <style>
+* { font-style: normal !important } 
+</style>
+    </head>
+    <body class="vscode-body vscode-dark">
+        <style id="__marp-vscode-style">@import url("./SLIDEME.css");div#__marp-vscode > div > svg > foreignObject > section {
+  width: 1280px;
+  height: 720px;
+
+  box-sizing: border-box;
+  overflow: hidden;
+  position: relative;
+
+  scroll-snap-align: center center;
+}div#__marp-vscode > div > svg > foreignObject > section::after {
+  bottom: 0;
+  content: attr(data-marpit-pagination);
+  padding: inherit;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+}div#__marp-vscode > div > svg > foreignObject > section:not([data-marpit-pagination])::after {
+  display: none;
+}/* Normalization */div#__marp-vscode > div > svg > foreignObject > section :is(h1, marp-h1) {
+  font-size: 2em;
+  margin: 0.67em 0;
+}div#__marp-vscode > div > svg > foreignObject > section video::-webkit-media-controls {
+  will-change: transform;
+}@page {
+  size: 1280px 720px;
+  margin: 0;
+}@media print {html, body {
+  background-color: #fff;
+  margin: 0;
+  page-break-inside: avoid;
+  break-inside: avoid-page;
+}
+  div#__marp-vscode > div > svg > foreignObject > section {
+    page-break-before: always;
+    break-before: page;
+  }
+
+  div#__marp-vscode > div > svg > foreignObject > section, div#__marp-vscode > div > svg > foreignObject > section * {
+    -webkit-print-color-adjust: exact !important;
+    animation-delay: 0s !important;
+    animation-duration: 0s !important;
+    color-adjust: exact !important;
+    transition: none !important;
+  }
+
+  div#__marp-vscode > div > svg[data-marpit-svg] {
+    display: block;
+    height: 100vh;
+    width: 100vw;
+  }
+}
+div#__marp-vscode > div > svg > foreignObject > section img[data-marp-twemoji]{
+  background:transparent;
+  height:1em;
+  margin:0 .05em 0 .1em;
+  vertical-align:-.1em;
+  width:1em;
+}
+/*!
+ * Marp default theme.
+ *
+ * @theme default
+ * @author Yuki Hattori
+ *
+ * @auto-scaling true
+ * @size 16:9 1280px 720px
+ * @size 4:3 960px 720px
+ */
+div#__marp-vscode > div > svg > foreignObject > section{
+    --color-prettylights-syntax-comment:#6e7781;
+    --color-prettylights-syntax-constant:#0550ae;
+    --color-prettylights-syntax-entity:#8250df;
+    --color-prettylights-syntax-storage-modifier-import:#24292f;
+    --color-prettylights-syntax-entity-tag:#116329;
+    --color-prettylights-syntax-keyword:#cf222e;
+    --color-prettylights-syntax-string:#0a3069;
+    --color-prettylights-syntax-variable:#953800;
+    --color-prettylights-syntax-brackethighlighter-unmatched:#82071e;
+    --color-prettylights-syntax-invalid-illegal-text:#f6f8fa;
+    --color-prettylights-syntax-invalid-illegal-bg:#82071e;
+    --color-prettylights-syntax-carriage-return-text:#f6f8fa;
+    --color-prettylights-syntax-carriage-return-bg:#cf222e;
+    --color-prettylights-syntax-string-regexp:#116329;
+    --color-prettylights-syntax-markup-list:#3b2300;
+    --color-prettylights-syntax-markup-heading:#0550ae;
+    --color-prettylights-syntax-markup-italic:#24292f;
+    --color-prettylights-syntax-markup-bold:#24292f;
+    --color-prettylights-syntax-markup-deleted-text:#82071e;
+    --color-prettylights-syntax-markup-deleted-bg:#ffebe9;
+    --color-prettylights-syntax-markup-inserted-text:#116329;
+    --color-prettylights-syntax-markup-inserted-bg:#dafbe1;
+    --color-prettylights-syntax-markup-changed-text:#953800;
+    --color-prettylights-syntax-markup-changed-bg:#ffd8b5;
+    --color-prettylights-syntax-markup-ignored-text:#eaeef2;
+    --color-prettylights-syntax-markup-ignored-bg:#0550ae;
+    --color-prettylights-syntax-meta-diff-range:#8250df;
+    --color-prettylights-syntax-brackethighlighter-angle:#57606a;
+    --color-prettylights-syntax-sublimelinter-gutter-mark:#8c959f;
+    --color-prettylights-syntax-constant-other-reference-link:#0a3069;
+    --color-fg-default:#24292f;
+    --color-fg-muted:#57606a;
+    --color-fg-subtle:#6e7781;
+    --color-canvas-default:#fff;
+    --color-canvas-subtle:#f6f8fa;
+    --color-border-default:#d0d7de;
+    --color-border-muted:#d8dee4;
+    --color-neutral-muted:rgba(175,184,193,.2);
+    --color-accent-fg:#0969da;
+    --color-accent-emphasis:#0969da;
+    --color-attention-subtle:#fff8c5;
+    --color-danger-fg:#cf222e;
+    color-scheme:light;
+  }
+div#__marp-vscode > div > svg > foreignObject > section:where(.invert){
+    --color-prettylights-syntax-comment:#8b949e;
+    --color-prettylights-syntax-constant:#79c0ff;
+    --color-prettylights-syntax-entity:#d2a8ff;
+    --color-prettylights-syntax-storage-modifier-import:#c9d1d9;
+    --color-prettylights-syntax-entity-tag:#7ee787;
+    --color-prettylights-syntax-keyword:#ff7b72;
+    --color-prettylights-syntax-string:#a5d6ff;
+    --color-prettylights-syntax-variable:#ffa657;
+    --color-prettylights-syntax-brackethighlighter-unmatched:#f85149;
+    --color-prettylights-syntax-invalid-illegal-text:#f0f6fc;
+    --color-prettylights-syntax-invalid-illegal-bg:#8e1519;
+    --color-prettylights-syntax-carriage-return-text:#f0f6fc;
+    --color-prettylights-syntax-carriage-return-bg:#b62324;
+    --color-prettylights-syntax-string-regexp:#7ee787;
+    --color-prettylights-syntax-markup-list:#f2cc60;
+    --color-prettylights-syntax-markup-heading:#1f6feb;
+    --color-prettylights-syntax-markup-italic:#c9d1d9;
+    --color-prettylights-syntax-markup-bold:#c9d1d9;
+    --color-prettylights-syntax-markup-deleted-text:#ffdcd7;
+    --color-prettylights-syntax-markup-deleted-bg:#67060c;
+    --color-prettylights-syntax-markup-inserted-text:#aff5b4;
+    --color-prettylights-syntax-markup-inserted-bg:#033a16;
+    --color-prettylights-syntax-markup-changed-text:#ffdfb6;
+    --color-prettylights-syntax-markup-changed-bg:#5a1e02;
+    --color-prettylights-syntax-markup-ignored-text:#c9d1d9;
+    --color-prettylights-syntax-markup-ignored-bg:#1158c7;
+    --color-prettylights-syntax-meta-diff-range:#d2a8ff;
+    --color-prettylights-syntax-brackethighlighter-angle:#8b949e;
+    --color-prettylights-syntax-sublimelinter-gutter-mark:#484f58;
+    --color-prettylights-syntax-constant-other-reference-link:#a5d6ff;
+    --color-fg-default:#c9d1d9;
+    --color-fg-muted:#8b949e;
+    --color-fg-subtle:#6e7681;
+    --color-canvas-default:#0d1117;
+    --color-canvas-subtle:#161b22;
+    --color-border-default:#30363d;
+    --color-border-muted:#21262d;
+    --color-neutral-muted:hsla(215,8%,47%,.4);
+    --color-accent-fg:#58a6ff;
+    --color-accent-emphasis:#1f6feb;
+    --color-attention-subtle:rgba(187,128,9,.15);
+    --color-danger-fg:#f85149;
+    color-scheme:dark;
+  }
+div#__marp-vscode > div > svg > foreignObject > section{
+  -ms-text-size-adjust:100%;
+  -webkit-text-size-adjust:100%;
+  word-wrap:break-word;
+  background-color:var(--color-canvas-default);
+  color:var(--color-fg-default);
+  font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Noto Sans,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+  font-size:16px;
+  line-height:1.5;
+  margin:0;
+}
+div#__marp-vscode > div > svg > foreignObject > section {
+  --marpit-root-font-size:16px;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section :is(h1, marp-h1):hover .anchor .octicon-link:before,div#__marp-vscode > div > svg > foreignObject > section :is(h2, marp-h2):hover .anchor .octicon-link:before,div#__marp-vscode > div > svg > foreignObject > section :is(h3, marp-h3):hover .anchor .octicon-link:before,div#__marp-vscode > div > svg > foreignObject > section :is(h4, marp-h4):hover .anchor .octicon-link:before,div#__marp-vscode > div > svg > foreignObject > section :is(h5, marp-h5):hover .anchor .octicon-link:before,div#__marp-vscode > div > svg > foreignObject > section :is(h6, marp-h6):hover .anchor .octicon-link:before{
+  background-color:currentColor;
+  content:" ";
+  display:inline-block;
+  height:16px;
+  -webkit-mask-image:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 0 0 1.06 1.06l1.25-1.25a2 2 0 1 1 2.83 2.83l-2.5 2.5a2 2 0 0 1-2.83 0 .75.75 0 0 0-1.06 1.06 3.5 3.5 0 0 0 4.95 0l2.5-2.5a3.5 3.5 0 0 0-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 0 1 0-2.83l2.5-2.5a2 2 0 0 1 2.83 0 .75.75 0 0 0 1.06-1.06 3.5 3.5 0 0 0-4.95 0l-2.5 2.5a3.5 3.5 0 0 0 4.95 4.95l1.25-1.25a.75.75 0 0 0-1.06-1.06l-1.25 1.25a2 2 0 0 1-2.83 0z"/></svg>');
+  mask-image:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 0 0 1.06 1.06l1.25-1.25a2 2 0 1 1 2.83 2.83l-2.5 2.5a2 2 0 0 1-2.83 0 .75.75 0 0 0-1.06 1.06 3.5 3.5 0 0 0 4.95 0l2.5-2.5a3.5 3.5 0 0 0-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 0 1 0-2.83l2.5-2.5a2 2 0 0 1 2.83 0 .75.75 0 0 0 1.06-1.06 3.5 3.5 0 0 0-4.95 0l-2.5 2.5a3.5 3.5 0 0 0 4.95 4.95l1.25-1.25a.75.75 0 0 0-1.06-1.06l-1.25 1.25a2 2 0 0 1-2.83 0z"/></svg>');
+  width:16px;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section details,div#__marp-vscode > div > svg > foreignObject > section figcaption,div#__marp-vscode > div > svg > foreignObject > section figure{
+  display:block;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section summary{
+  display:list-item;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section [hidden]{
+  display:none !important;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section a{
+  background-color:transparent;
+  color:var(--color-accent-fg);
+  text-decoration:none;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section abbr[title]{
+  border-bottom:none;
+  -webkit-text-decoration:underline dotted;
+          text-decoration:underline dotted;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section b,div#__marp-vscode > div > svg > foreignObject > section strong{
+  font-weight:var(--base-text-weight-semibold, 600);
+}
+
+div#__marp-vscode > div > svg > foreignObject > section dfn{
+  font-style:italic;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section :is(h1, marp-h1){
+  border-bottom:1px solid var(--color-border-muted);
+  font-size:2em;
+  font-weight:var(--base-text-weight-semibold, 600);
+  margin:.67em 0;
+  padding-bottom:.3em;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section mark{
+  background-color:var(--color-attention-subtle);
+  color:var(--color-fg-default);
+}
+
+div#__marp-vscode > div > svg > foreignObject > section small{
+  font-size:90%;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section sub,div#__marp-vscode > div > svg > foreignObject > section sup{
+  font-size:75%;
+  line-height:0;
+  position:relative;
+  vertical-align:baseline;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section sub{
+  bottom:-.25em;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section sup{
+  top:-.5em;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section img{
+  background-color:var(--color-canvas-default);
+  border-style:none;
+  box-sizing:content-box;
+  max-width:100%;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section code,div#__marp-vscode > div > svg > foreignObject > section kbd,div#__marp-vscode > div > svg > foreignObject > section :is(pre, marp-pre),div#__marp-vscode > div > svg > foreignObject > section samp{
+  font-family:monospace;
+  font-size:1em;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section figure{
+  margin:1em 40px;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section hr{
+  background:transparent;
+  background-color:var(--color-border-default);
+  border:0;
+  box-sizing:content-box;
+  height:.25em;
+  margin:24px 0;
+  overflow:hidden;
+  padding:0;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section input{
+  font:inherit;
+  font-family:inherit;
+  font-size:inherit;
+  line-height:inherit;
+  margin:0;
+  overflow:visible;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section [type=button],div#__marp-vscode > div > svg > foreignObject > section [type=reset],div#__marp-vscode > div > svg > foreignObject > section [type=submit]{
+  -webkit-appearance:button;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section [type=checkbox],div#__marp-vscode > div > svg > foreignObject > section [type=radio]{
+  box-sizing:border-box;
+  padding:0;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section [type=number]::-webkit-inner-spin-button,div#__marp-vscode > div > svg > foreignObject > section [type=number]::-webkit-outer-spin-button{
+  height:auto;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section [type=search]::-webkit-search-cancel-button,div#__marp-vscode > div > svg > foreignObject > section [type=search]::-webkit-search-decoration{
+  -webkit-appearance:none;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section ::-webkit-input-placeholder{
+  color:inherit;
+  opacity:.54;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section ::-webkit-file-upload-button{
+  -webkit-appearance:button;
+  font:inherit;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section a:hover{
+  text-decoration:underline;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section ::-moz-placeholder{
+  color:var(--color-fg-subtle);
+  opacity:1;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section ::placeholder{
+  color:var(--color-fg-subtle);
+  opacity:1;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section hr::after,div#__marp-vscode > div > svg > foreignObject > section hr::before{
+  content:"";
+  display:table;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section hr::after{
+  clear:both;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section table{
+  border-collapse:collapse;
+  border-spacing:0;
+  display:block;
+  max-width:100%;
+  overflow:auto;
+  width:-moz-max-content;
+  width:max-content;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section td,div#__marp-vscode > div > svg > foreignObject > section th{
+  padding:0;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section details summary{
+  cursor:pointer;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section details:not([open]) > *:not(summary){
+  display:none !important;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section [role=button]:focus,div#__marp-vscode > div > svg > foreignObject > section a:focus,div#__marp-vscode > div > svg > foreignObject > section input[type=checkbox]:focus,div#__marp-vscode > div > svg > foreignObject > section input[type=radio]:focus{
+  box-shadow:none;
+  outline:2px solid var(--color-accent-fg);
+  outline-offset:-2px;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section [role=button]:focus:not(:focus-visible),div#__marp-vscode > div > svg > foreignObject > section a:focus:not(:focus-visible),div#__marp-vscode > div > svg > foreignObject > section input[type=checkbox]:focus:not(:focus-visible),div#__marp-vscode > div > svg > foreignObject > section input[type=radio]:focus:not(:focus-visible){
+  outline:1px solid transparent;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section [role=button]:focus-visible,div#__marp-vscode > div > svg > foreignObject > section a:focus-visible,div#__marp-vscode > div > svg > foreignObject > section input[type=checkbox]:focus-visible,div#__marp-vscode > div > svg > foreignObject > section input[type=radio]:focus-visible{
+  box-shadow:none;
+  outline:2px solid var(--color-accent-fg);
+  outline-offset:-2px;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section a:not([class]):focus,div#__marp-vscode > div > svg > foreignObject > section a:not([class]):focus-visible,div#__marp-vscode > div > svg > foreignObject > section input[type=checkbox]:focus,div#__marp-vscode > div > svg > foreignObject > section input[type=checkbox]:focus-visible,div#__marp-vscode > div > svg > foreignObject > section input[type=radio]:focus,div#__marp-vscode > div > svg > foreignObject > section input[type=radio]:focus-visible{
+  outline-offset:0;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section kbd{
+  background-color:var(--color-canvas-subtle);
+  border-bottom-color:var(--color-neutral-muted);
+  border:1px solid var(--color-neutral-muted);
+  border-radius:6px;
+  box-shadow:inset 0 -1px 0 var(--color-neutral-muted);
+  color:var(--color-fg-default);
+  display:inline-block;
+  font:11px ui-monospace,SFMono-Regular,SF Mono,Menlo,Consolas,Liberation Mono,monospace;
+  line-height:10px;
+  padding:3px 5px;
+  vertical-align:middle;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section :is(h1, marp-h1),div#__marp-vscode > div > svg > foreignObject > section :is(h2, marp-h2),div#__marp-vscode > div > svg > foreignObject > section :is(h3, marp-h3),div#__marp-vscode > div > svg > foreignObject > section :is(h4, marp-h4),div#__marp-vscode > div > svg > foreignObject > section :is(h5, marp-h5),div#__marp-vscode > div > svg > foreignObject > section :is(h6, marp-h6){
+  font-weight:var(--base-text-weight-semibold, 600);
+  line-height:1.25;
+  margin-bottom:16px;
+  margin-top:24px;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section :is(h2, marp-h2){
+  border-bottom:1px solid var(--color-border-muted);
+  font-size:1.5em;
+  padding-bottom:.3em;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section :is(h2, marp-h2),div#__marp-vscode > div > svg > foreignObject > section :is(h3, marp-h3){
+  font-weight:var(--base-text-weight-semibold, 600);
+}
+
+div#__marp-vscode > div > svg > foreignObject > section :is(h3, marp-h3){
+  font-size:1.25em;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section :is(h4, marp-h4){
+  font-size:1em;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section :is(h4, marp-h4),div#__marp-vscode > div > svg > foreignObject > section :is(h5, marp-h5){
+  font-weight:var(--base-text-weight-semibold, 600);
+}
+
+div#__marp-vscode > div > svg > foreignObject > section :is(h5, marp-h5){
+  font-size:.875em;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section :is(h6, marp-h6){
+  color:var(--color-fg-muted);
+  font-size:.85em;
+  font-weight:var(--base-text-weight-semibold, 600);
+}
+
+div#__marp-vscode > div > svg > foreignObject > section p{
+  margin-bottom:10px;
+  margin-top:0;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section blockquote{
+  border-left:.25em solid var(--color-border-default);
+  color:var(--color-fg-muted);
+  margin:0;
+  padding:0 1em;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section ol,div#__marp-vscode > div > svg > foreignObject > section ul{
+  margin-bottom:0;
+  margin-top:0;
+  padding-left:2em;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section ol ol,div#__marp-vscode > div > svg > foreignObject > section ul ol{
+  list-style-type:lower-roman;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section ol ol ol,div#__marp-vscode > div > svg > foreignObject > section ol ul ol,div#__marp-vscode > div > svg > foreignObject > section ul ol ol,div#__marp-vscode > div > svg > foreignObject > section ul ul ol{
+  list-style-type:lower-alpha;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section dd{
+  margin-left:0;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section code,div#__marp-vscode > div > svg > foreignObject > section :is(pre, marp-pre),div#__marp-vscode > div > svg > foreignObject > section samp,div#__marp-vscode > div > svg > foreignObject > section tt{
+  font-family:ui-monospace,SFMono-Regular,SF Mono,Menlo,Consolas,Liberation Mono,monospace;
+  font-size:12px;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section :is(pre, marp-pre){
+  word-wrap:normal;
+  margin-bottom:0;
+  margin-top:0;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section .octicon{
+  fill:currentColor;
+  display:inline-block;
+  overflow:visible !important;
+  vertical-align:text-bottom;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section input::-webkit-inner-spin-button,div#__marp-vscode > div > svg > foreignObject > section input::-webkit-outer-spin-button{
+  -webkit-appearance:none;
+  appearance:none;
+  margin:0;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section::after,div#__marp-vscode > div > svg > foreignObject > section::before{
+  /* content:""; */
+  display:table;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section::after{
+  clear:both;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section > *:first-child{
+  margin-top:0 !important;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section > *:last-child{
+  margin-bottom:0 !important;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section a:not([href]){
+  color:inherit;
+  text-decoration:none;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section .absent{
+  color:var(--color-danger-fg);
+}
+
+div#__marp-vscode > div > svg > foreignObject > section .anchor{
+  float:left;
+  line-height:1;
+  margin-left:-20px;
+  padding-right:4px;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section .anchor:focus{
+  outline:none;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section blockquote,div#__marp-vscode > div > svg > foreignObject > section details,div#__marp-vscode > div > svg > foreignObject > section dl,div#__marp-vscode > div > svg > foreignObject > section ol,div#__marp-vscode > div > svg > foreignObject > section p,div#__marp-vscode > div > svg > foreignObject > section :is(pre, marp-pre),div#__marp-vscode > div > svg > foreignObject > section table,div#__marp-vscode > div > svg > foreignObject > section ul{
+  margin-bottom:16px;
+  margin-top:0;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section blockquote > :first-child{
+  margin-top:0;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section blockquote > :last-child{
+  margin-bottom:0;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section :is(h1, marp-h1) .octicon-link,div#__marp-vscode > div > svg > foreignObject > section :is(h2, marp-h2) .octicon-link,div#__marp-vscode > div > svg > foreignObject > section :is(h3, marp-h3) .octicon-link,div#__marp-vscode > div > svg > foreignObject > section :is(h4, marp-h4) .octicon-link,div#__marp-vscode > div > svg > foreignObject > section :is(h5, marp-h5) .octicon-link,div#__marp-vscode > div > svg > foreignObject > section :is(h6, marp-h6) .octicon-link{
+  color:var(--color-fg-default);
+  vertical-align:middle;
+  visibility:hidden;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section :is(h1, marp-h1):hover .anchor,div#__marp-vscode > div > svg > foreignObject > section :is(h2, marp-h2):hover .anchor,div#__marp-vscode > div > svg > foreignObject > section :is(h3, marp-h3):hover .anchor,div#__marp-vscode > div > svg > foreignObject > section :is(h4, marp-h4):hover .anchor,div#__marp-vscode > div > svg > foreignObject > section :is(h5, marp-h5):hover .anchor,div#__marp-vscode > div > svg > foreignObject > section :is(h6, marp-h6):hover .anchor{
+  text-decoration:none;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section :is(h1, marp-h1):hover .anchor .octicon-link,div#__marp-vscode > div > svg > foreignObject > section :is(h2, marp-h2):hover .anchor .octicon-link,div#__marp-vscode > div > svg > foreignObject > section :is(h3, marp-h3):hover .anchor .octicon-link,div#__marp-vscode > div > svg > foreignObject > section :is(h4, marp-h4):hover .anchor .octicon-link,div#__marp-vscode > div > svg > foreignObject > section :is(h5, marp-h5):hover .anchor .octicon-link,div#__marp-vscode > div > svg > foreignObject > section :is(h6, marp-h6):hover .anchor .octicon-link{
+  visibility:visible;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section :is(h1, marp-h1) code,div#__marp-vscode > div > svg > foreignObject > section :is(h1, marp-h1) tt,div#__marp-vscode > div > svg > foreignObject > section :is(h2, marp-h2) code,div#__marp-vscode > div > svg > foreignObject > section :is(h2, marp-h2) tt,div#__marp-vscode > div > svg > foreignObject > section :is(h3, marp-h3) code,div#__marp-vscode > div > svg > foreignObject > section :is(h3, marp-h3) tt,div#__marp-vscode > div > svg > foreignObject > section :is(h4, marp-h4) code,div#__marp-vscode > div > svg > foreignObject > section :is(h4, marp-h4) tt,div#__marp-vscode > div > svg > foreignObject > section :is(h5, marp-h5) code,div#__marp-vscode > div > svg > foreignObject > section :is(h5, marp-h5) tt,div#__marp-vscode > div > svg > foreignObject > section :is(h6, marp-h6) code,div#__marp-vscode > div > svg > foreignObject > section :is(h6, marp-h6) tt{
+  font-size:inherit;
+  padding:0 .2em;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section summary :is(h1, marp-h1),div#__marp-vscode > div > svg > foreignObject > section summary :is(h2, marp-h2),div#__marp-vscode > div > svg > foreignObject > section summary :is(h3, marp-h3),div#__marp-vscode > div > svg > foreignObject > section summary :is(h4, marp-h4),div#__marp-vscode > div > svg > foreignObject > section summary :is(h5, marp-h5),div#__marp-vscode > div > svg > foreignObject > section summary :is(h6, marp-h6){
+  display:inline-block;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section summary :is(h1, marp-h1) .anchor,div#__marp-vscode > div > svg > foreignObject > section summary :is(h2, marp-h2) .anchor,div#__marp-vscode > div > svg > foreignObject > section summary :is(h3, marp-h3) .anchor,div#__marp-vscode > div > svg > foreignObject > section summary :is(h4, marp-h4) .anchor,div#__marp-vscode > div > svg > foreignObject > section summary :is(h5, marp-h5) .anchor,div#__marp-vscode > div > svg > foreignObject > section summary :is(h6, marp-h6) .anchor{
+  margin-left:-40px;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section summary :is(h1, marp-h1),div#__marp-vscode > div > svg > foreignObject > section summary :is(h2, marp-h2){
+  border-bottom:0;
+  padding-bottom:0;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section ol.no-list,div#__marp-vscode > div > svg > foreignObject > section ul.no-list{
+  list-style-type:none;
+  padding:0;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section ol[type=a]{
+  list-style-type:lower-alpha;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section ol[type=A]{
+  list-style-type:upper-alpha;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section ol[type=i]{
+  list-style-type:lower-roman;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section ol[type=I]{
+  list-style-type:upper-roman;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section div > ol:not([type]),div#__marp-vscode > div > svg > foreignObject > section ol[type="1"]{
+  list-style-type:decimal;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section ol ol,div#__marp-vscode > div > svg > foreignObject > section ol ul,div#__marp-vscode > div > svg > foreignObject > section ul ol,div#__marp-vscode > div > svg > foreignObject > section ul ul{
+  margin-bottom:0;
+  margin-top:0;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section li > p{
+  margin-top:16px;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section li + li{
+  margin-top:.25em;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section dl{
+  padding:0;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section dl dt{
+  font-size:1em;
+  font-style:italic;
+  font-weight:var(--base-text-weight-semibold, 600);
+  margin-top:16px;
+  padding:0;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section dl dd{
+  margin-bottom:16px;
+  padding:0 16px;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section table th{
+  font-weight:var(--base-text-weight-semibold, 600);
+}
+
+div#__marp-vscode > div > svg > foreignObject > section table td,div#__marp-vscode > div > svg > foreignObject > section table th{
+  border:1px solid var(--color-border-default);
+  padding:6px 13px;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section table tr{
+  background-color:var(--color-canvas-default);
+  border-top:1px solid var(--color-border-muted);
+}
+
+div#__marp-vscode > div > svg > foreignObject > section table tr:nth-child(2n){
+  background-color:var(--color-canvas-subtle);
+}
+
+div#__marp-vscode > div > svg > foreignObject > section table img{
+  background-color:transparent;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section img[align=right]{
+  padding-left:20px;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section img[align=left]{
+  padding-right:20px;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section .emoji{
+  background-color:transparent;
+  max-width:none;
+  vertical-align:text-top;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section :is(span, marp-span).frame,div#__marp-vscode > div > svg > foreignObject > section :is(span, marp-span).frame > :is(span, marp-span){
+  display:block;
+  overflow:hidden;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section :is(span, marp-span).frame > :is(span, marp-span){
+  border:1px solid var(--color-border-default);
+  float:left;
+  margin:13px 0 0;
+  padding:7px;
+  width:auto;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section :is(span, marp-span).frame :is(span, marp-span) img{
+  display:block;
+  float:left;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section :is(span, marp-span).frame :is(span, marp-span) :is(span, marp-span){
+  clear:both;
+  color:var(--color-fg-default);
+  display:block;
+  padding:5px 0 0;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section :is(span, marp-span).align-center{
+  clear:both;
+  display:block;
+  overflow:hidden;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section :is(span, marp-span).align-center > :is(span, marp-span){
+  display:block;
+  margin:13px auto 0;
+  overflow:hidden;
+  text-align:center;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section :is(span, marp-span).align-center :is(span, marp-span) img{
+  margin:0 auto;
+  text-align:center;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section :is(span, marp-span).align-right{
+  clear:both;
+  display:block;
+  overflow:hidden;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section :is(span, marp-span).align-right > :is(span, marp-span){
+  display:block;
+  margin:13px 0 0;
+  overflow:hidden;
+  text-align:right;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section :is(span, marp-span).align-right :is(span, marp-span) img{
+  margin:0;
+  text-align:right;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section :is(span, marp-span).float-left{
+  display:block;
+  float:left;
+  margin-right:13px;
+  overflow:hidden;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section :is(span, marp-span).float-left :is(span, marp-span){
+  margin:13px 0 0;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section :is(span, marp-span).float-right{
+  display:block;
+  float:right;
+  margin-left:13px;
+  overflow:hidden;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section :is(span, marp-span).float-right > :is(span, marp-span){
+  display:block;
+  margin:13px auto 0;
+  overflow:hidden;
+  text-align:right;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section code,div#__marp-vscode > div > svg > foreignObject > section tt{
+  background-color:var(--color-neutral-muted);
+  border-radius:6px;
+  font-size:85%;
+  margin:0;
+  padding:.2em .4em;
+  white-space:break-spaces;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section code br,div#__marp-vscode > div > svg > foreignObject > section tt br{
+  display:none;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section del code{
+  text-decoration:inherit;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section samp{
+  font-size:85%;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section :is(pre, marp-pre) code{
+  font-size:100%;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section :is(pre, marp-pre) > code{
+  background:transparent;
+  border:0;
+  margin:0;
+  padding:0;
+  white-space:pre;
+  word-break:normal;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section .highlight{
+  margin-bottom:16px;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section .highlight :is(pre, marp-pre){
+  margin-bottom:0;
+  word-break:normal;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section :is(pre, marp-pre){
+  background-color:var(--color-canvas-subtle);
+  border-radius:6px;
+  font-size:85%;
+  line-height:1.45;
+  overflow:auto;
+  padding:16px;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section :is(pre, marp-pre) code,div#__marp-vscode > div > svg > foreignObject > section :is(pre, marp-pre) tt{
+  word-wrap:normal;
+  background-color:transparent;
+  border:0;
+  display:inline;
+  line-height:inherit;
+  margin:0;
+  max-width:auto;
+  overflow:visible;
+  padding:0;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section .csv-data td,div#__marp-vscode > div > svg > foreignObject > section .csv-data th{
+  font-size:12px;
+  line-height:1;
+  overflow:hidden;
+  padding:5px;
+  text-align:left;
+  white-space:nowrap;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section .csv-data .blob-num{
+  background:var(--color-canvas-default);
+  border:0;
+  padding:10px 8px 9px;
+  text-align:right;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section .csv-data tr{
+  border-top:0;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section .csv-data th{
+  background:var(--color-canvas-subtle);
+  border-top:0;
+  font-weight:var(--base-text-weight-semibold, 600);
+}
+
+div#__marp-vscode > div > svg > foreignObject > section [data-footnote-ref]::before{
+  content:"[";
+}
+
+div#__marp-vscode > div > svg > foreignObject > section [data-footnote-ref]::after{
+  content:"]";
+}
+
+div#__marp-vscode > div > svg > foreignObject > section .footnotes{
+  border-top:1px solid var(--color-border-default);
+  color:var(--color-fg-muted);
+  font-size:12px;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section div#__marp-vscode > div > svg > foreignObject > section section.footnotes {
+  --marpit-root-font-size:12px;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section .footnotes ol{
+  padding-left:16px;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section .footnotes ol ul{
+  display:inline-block;
+  margin-top:16px;
+  padding-left:16px;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section .footnotes li{
+  position:relative;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section .footnotes li:target::before{
+  border:2px solid var(--color-accent-emphasis);
+  border-radius:6px;
+  bottom:-8px;
+  content:"";
+  left:-24px;
+  pointer-events:none;
+  position:absolute;
+  right:-8px;
+  top:-8px;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section .footnotes li:target{
+  color:var(--color-fg-default);
+}
+
+div#__marp-vscode > div > svg > foreignObject > section .footnotes .data-footnote-backref g-emoji{
+  font-family:monospace;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section .pl-c{
+  color:var(--color-prettylights-syntax-comment);
+}
+
+div#__marp-vscode > div > svg > foreignObject > section .pl-c1,div#__marp-vscode > div > svg > foreignObject > section .pl-s .pl-v{
+  color:var(--color-prettylights-syntax-constant);
+}
+
+div#__marp-vscode > div > svg > foreignObject > section .pl-e,div#__marp-vscode > div > svg > foreignObject > section .pl-en{
+  color:var(--color-prettylights-syntax-entity);
+}
+
+div#__marp-vscode > div > svg > foreignObject > section .pl-s .pl-s1,div#__marp-vscode > div > svg > foreignObject > section .pl-smi{
+  color:var(--color-prettylights-syntax-storage-modifier-import);
+}
+
+div#__marp-vscode > div > svg > foreignObject > section .pl-ent{
+  color:var(--color-prettylights-syntax-entity-tag);
+}
+
+div#__marp-vscode > div > svg > foreignObject > section .pl-k{
+  color:var(--color-prettylights-syntax-keyword);
+}
+
+div#__marp-vscode > div > svg > foreignObject > section .pl-pds,div#__marp-vscode > div > svg > foreignObject > section .pl-s,div#__marp-vscode > div > svg > foreignObject > section .pl-s .pl-pse .pl-s1,div#__marp-vscode > div > svg > foreignObject > section .pl-sr,div#__marp-vscode > div > svg > foreignObject > section .pl-sr .pl-cce,div#__marp-vscode > div > svg > foreignObject > section .pl-sr .pl-sra,div#__marp-vscode > div > svg > foreignObject > section .pl-sr .pl-sre{
+  color:var(--color-prettylights-syntax-string);
+}
+
+div#__marp-vscode > div > svg > foreignObject > section .pl-smw,div#__marp-vscode > div > svg > foreignObject > section .pl-v{
+  color:var(--color-prettylights-syntax-variable);
+}
+
+div#__marp-vscode > div > svg > foreignObject > section .pl-bu{
+  color:var(--color-prettylights-syntax-brackethighlighter-unmatched);
+}
+
+div#__marp-vscode > div > svg > foreignObject > section .pl-ii{
+  background-color:var(--color-prettylights-syntax-invalid-illegal-bg);
+  color:var(--color-prettylights-syntax-invalid-illegal-text);
+}
+
+div#__marp-vscode > div > svg > foreignObject > section .pl-c2{
+  background-color:var(--color-prettylights-syntax-carriage-return-bg);
+  color:var(--color-prettylights-syntax-carriage-return-text);
+}
+
+div#__marp-vscode > div > svg > foreignObject > section .pl-sr .pl-cce{
+  color:var(--color-prettylights-syntax-string-regexp);
+  font-weight:700;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section .pl-ml{
+  color:var(--color-prettylights-syntax-markup-list);
+}
+
+div#__marp-vscode > div > svg > foreignObject > section .pl-mh,div#__marp-vscode > div > svg > foreignObject > section .pl-mh .pl-en,div#__marp-vscode > div > svg > foreignObject > section .pl-ms{
+  color:var(--color-prettylights-syntax-markup-heading);
+  font-weight:700;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section .pl-mi{
+  color:var(--color-prettylights-syntax-markup-italic);
+  font-style:italic;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section .pl-mb{
+  color:var(--color-prettylights-syntax-markup-bold);
+  font-weight:700;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section .pl-md{
+  background-color:var(--color-prettylights-syntax-markup-deleted-bg);
+  color:var(--color-prettylights-syntax-markup-deleted-text);
+}
+
+div#__marp-vscode > div > svg > foreignObject > section .pl-mi1{
+  background-color:var(--color-prettylights-syntax-markup-inserted-bg);
+  color:var(--color-prettylights-syntax-markup-inserted-text);
+}
+
+div#__marp-vscode > div > svg > foreignObject > section .pl-mc{
+  background-color:var(--color-prettylights-syntax-markup-changed-bg);
+  color:var(--color-prettylights-syntax-markup-changed-text);
+}
+
+div#__marp-vscode > div > svg > foreignObject > section .pl-mi2{
+  background-color:var(--color-prettylights-syntax-markup-ignored-bg);
+  color:var(--color-prettylights-syntax-markup-ignored-text);
+}
+
+div#__marp-vscode > div > svg > foreignObject > section .pl-mdr{
+  color:var(--color-prettylights-syntax-meta-diff-range);
+  font-weight:700;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section .pl-ba{
+  color:var(--color-prettylights-syntax-brackethighlighter-angle);
+}
+
+div#__marp-vscode > div > svg > foreignObject > section .pl-sg{
+  color:var(--color-prettylights-syntax-sublimelinter-gutter-mark);
+}
+
+div#__marp-vscode > div > svg > foreignObject > section .pl-corl{
+  color:var(--color-prettylights-syntax-constant-other-reference-link);
+  text-decoration:underline;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section g-emoji{
+  display:inline-block;
+  font-family:Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
+  font-size:1em;
+  font-style:normal !important;
+  font-weight:var(--base-text-weight-normal, 400);
+  line-height:1;
+  min-width:1ch;
+  vertical-align:-.075em;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section g-emoji img{
+  height:1em;
+  width:1em;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section .task-list-item{
+  list-style-type:none;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section .task-list-item label{
+  font-weight:var(--base-text-weight-normal, 400);
+}
+
+div#__marp-vscode > div > svg > foreignObject > section .task-list-item.enabled label{
+  cursor:pointer;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section .task-list-item + .task-list-item{
+  margin-top:4px;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section .task-list-item .handle{
+  display:none;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section .task-list-item-checkbox{
+  margin:0 .2em .25em -1.4em;
+  vertical-align:middle;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section .contains-task-list:dir(rtl) .task-list-item-checkbox{
+  margin:0 -1.6em .25em .2em;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section .contains-task-list{
+  position:relative;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section .contains-task-list:focus-within .task-list-item-convert-container,div#__marp-vscode > div > svg > foreignObject > section .contains-task-list:hover .task-list-item-convert-container{
+  clip:auto;
+  display:block;
+  height:24px;
+  overflow:visible;
+  width:auto;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section ::-webkit-calendar-picker-indicator{
+  filter:invert(50%);
+}
+
+div#__marp-vscode > div > svg > foreignObject > section :is(h1, marp-h1){
+  color:var(--h1-color);
+  font-size:1.6em;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section :is(h1, marp-h1),div#__marp-vscode > div > svg > foreignObject > section :is(h2, marp-h2){
+  border-bottom:none;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section :is(h2, marp-h2){
+  font-size:1.3em;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section :is(h3, marp-h3){
+  font-size:1.1em;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section :is(h4, marp-h4){
+  font-size:1.05em;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section :is(h5, marp-h5){
+  font-size:1em;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section :is(h6, marp-h6){
+  font-size:.9em;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section :is(h1, marp-h1) strong,div#__marp-vscode > div > svg > foreignObject > section :is(h2, marp-h2) strong,div#__marp-vscode > div > svg > foreignObject > section :is(h3, marp-h3) strong,div#__marp-vscode > div > svg > foreignObject > section :is(h4, marp-h4) strong,div#__marp-vscode > div > svg > foreignObject > section :is(h5, marp-h5) strong,div#__marp-vscode > div > svg > foreignObject > section :is(h6, marp-h6) strong{
+  color:var(--heading-strong-color);
+  font-weight:inherit;
+}
+div#__marp-vscode > div > svg > foreignObject > section :is(h1, marp-h1)::part(auto-scaling),div#__marp-vscode > div > svg > foreignObject > section :is(h2, marp-h2)::part(auto-scaling),div#__marp-vscode > div > svg > foreignObject > section :is(h3, marp-h3)::part(auto-scaling),div#__marp-vscode > div > svg > foreignObject > section :is(h4, marp-h4)::part(auto-scaling),div#__marp-vscode > div > svg > foreignObject > section :is(h5, marp-h5)::part(auto-scaling),div#__marp-vscode > div > svg > foreignObject > section :is(h6, marp-h6)::part(auto-scaling){
+  max-height:563px;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section hr{
+  height:0;
+  padding-top:.25em;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section :is(pre, marp-pre){
+  border:1px solid var(--color-border-default);
+  line-height:1.15;
+  overflow:visible;
+}
+div#__marp-vscode > div > svg > foreignObject > section :is(pre, marp-pre)::part(auto-scaling){
+  max-height:529px;
+}
+div#__marp-vscode > div > svg > foreignObject > section :is(pre, marp-pre) :where(.hljs){
+  color:var(--color-prettylights-syntax-storage-modifier-import);
+}
+div#__marp-vscode > div > svg > foreignObject > section :is(pre, marp-pre) :where(.hljs-doctag),div#__marp-vscode > div > svg > foreignObject > section :is(pre, marp-pre) :where(.hljs-keyword),div#__marp-vscode > div > svg > foreignObject > section :is(pre, marp-pre) :where(.hljs-meta .hljs-keyword),div#__marp-vscode > div > svg > foreignObject > section :is(pre, marp-pre) :where(.hljs-template-tag),div#__marp-vscode > div > svg > foreignObject > section :is(pre, marp-pre) :where(.hljs-template-variable),div#__marp-vscode > div > svg > foreignObject > section :is(pre, marp-pre) :where(.hljs-type),div#__marp-vscode > div > svg > foreignObject > section :is(pre, marp-pre) :where(.hljs-variable.language_){
+  color:var(--color-prettylights-syntax-keyword);
+}
+div#__marp-vscode > div > svg > foreignObject > section :is(pre, marp-pre) :where(.hljs-title),div#__marp-vscode > div > svg > foreignObject > section :is(pre, marp-pre) :where(.hljs-title.class_),div#__marp-vscode > div > svg > foreignObject > section :is(pre, marp-pre) :where(.hljs-title.class_.inherited__),div#__marp-vscode > div > svg > foreignObject > section :is(pre, marp-pre) :where(.hljs-title.function_){
+  color:var(--color-prettylights-syntax-entity);
+}
+div#__marp-vscode > div > svg > foreignObject > section :is(pre, marp-pre) :where(.hljs-attr),div#__marp-vscode > div > svg > foreignObject > section :is(pre, marp-pre) :where(.hljs-attribute),div#__marp-vscode > div > svg > foreignObject > section :is(pre, marp-pre) :where(.hljs-literal),div#__marp-vscode > div > svg > foreignObject > section :is(pre, marp-pre) :where(.hljs-meta),div#__marp-vscode > div > svg > foreignObject > section :is(pre, marp-pre) :where(.hljs-number),div#__marp-vscode > div > svg > foreignObject > section :is(pre, marp-pre) :where(.hljs-operator),div#__marp-vscode > div > svg > foreignObject > section :is(pre, marp-pre) :where(.hljs-selector-attr),div#__marp-vscode > div > svg > foreignObject > section :is(pre, marp-pre) :where(.hljs-selector-class),div#__marp-vscode > div > svg > foreignObject > section :is(pre, marp-pre) :where(.hljs-selector-id),div#__marp-vscode > div > svg > foreignObject > section :is(pre, marp-pre) :where(.hljs-variable){
+  color:var(--color-prettylights-syntax-constant);
+}
+div#__marp-vscode > div > svg > foreignObject > section :is(pre, marp-pre) :where(.hljs-meta .hljs-string),div#__marp-vscode > div > svg > foreignObject > section :is(pre, marp-pre) :where(.hljs-regexp),div#__marp-vscode > div > svg > foreignObject > section :is(pre, marp-pre) :where(.hljs-string){
+  color:var(--color-prettylights-syntax-string);
+}
+div#__marp-vscode > div > svg > foreignObject > section :is(pre, marp-pre) :where(.hljs-built_in),div#__marp-vscode > div > svg > foreignObject > section :is(pre, marp-pre) :where(.hljs-symbol){
+  color:var(--color-prettylights-syntax-variable);
+}
+div#__marp-vscode > div > svg > foreignObject > section :is(pre, marp-pre) :where(.hljs-code),div#__marp-vscode > div > svg > foreignObject > section :is(pre, marp-pre) :where(.hljs-comment),div#__marp-vscode > div > svg > foreignObject > section :is(pre, marp-pre) :where(.hljs-formula){
+  color:var(--color-prettylights-syntax-comment);
+}
+div#__marp-vscode > div > svg > foreignObject > section :is(pre, marp-pre) :where(.hljs-name),div#__marp-vscode > div > svg > foreignObject > section :is(pre, marp-pre) :where(.hljs-quote),div#__marp-vscode > div > svg > foreignObject > section :is(pre, marp-pre) :where(.hljs-selector-pseudo),div#__marp-vscode > div > svg > foreignObject > section :is(pre, marp-pre) :where(.hljs-selector-tag){
+  color:var(--color-prettylights-syntax-entity-tag);
+}
+div#__marp-vscode > div > svg > foreignObject > section :is(pre, marp-pre) :where(.hljs-subst){
+  color:var(--color-prettylights-syntax-storage-modifier-import);
+}
+div#__marp-vscode > div > svg > foreignObject > section :is(pre, marp-pre) :where(.hljs-section){
+  color:var(--color-prettylights-syntax-markup-heading);
+  font-weight:700;
+}
+div#__marp-vscode > div > svg > foreignObject > section :is(pre, marp-pre) :where(.hljs-bullet){
+  color:var(--color-prettylights-syntax-markup-list);
+}
+div#__marp-vscode > div > svg > foreignObject > section :is(pre, marp-pre) :where(.hljs-emphasis){
+  color:var(--color-prettylights-syntax-markup-italic);
+  font-style:italic;
+}
+div#__marp-vscode > div > svg > foreignObject > section :is(pre, marp-pre) :where(.hljs-strong){
+  color:var(--color-prettylights-syntax-markup-bold);
+  font-weight:700;
+}
+div#__marp-vscode > div > svg > foreignObject > section :is(pre, marp-pre) :where(.hljs-addition){
+  background-color:var(--color-prettylights-syntax-markup-inserted-bg);
+  color:var(--color-prettylights-syntax-markup-inserted-text);
+}
+div#__marp-vscode > div > svg > foreignObject > section :is(pre, marp-pre) :where(.hljs-deletion){
+  background-color:var(--color-prettylights-syntax-markup-deleted-bg);
+  color:var(--color-prettylights-syntax-markup-deleted-text);
+}
+
+div#__marp-vscode > div > svg > foreignObject > section footer,div#__marp-vscode > div > svg > foreignObject > section header{
+  color:var(--header-footer-color);
+  font-size:18px;
+  left:30px;
+  margin:0;
+  position:absolute;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section header{
+  top:21px;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section footer{
+  bottom:21px;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section{
+  --h1-color:#246;
+  --header-footer-color:hsla(0,0%,40%,.75);
+  --heading-strong-color:#48c;
+  --paginate-color:#777;
+  align-items:stretch;
+  display:flex;
+  flex-flow:column nowrap;
+  font-size:29px;
+  height:720px;
+  justify-content:center;
+  padding:78.5px;
+  width:1280px;
+}
+
+div#__marp-vscode > div > svg > foreignObject > section {
+  --marpit-root-font-size:29px;
+}
+div#__marp-vscode > div > svg > foreignObject > section:where(.invert){
+  --h1-color:#cee7ff;
+  --header-footer-color:hsla(0,0%,60%,.75);
+  --heading-strong-color:#7bf;
+  --paginate-color:#999;
+}
+div#__marp-vscode > div > svg > foreignObject > section > *:last-child,div#__marp-vscode > div > svg > foreignObject > section[data-footer] > :nth-last-child(2){
+  margin-bottom:0;
+}
+div#__marp-vscode > div > svg > foreignObject > section > *:first-child,div#__marp-vscode > div > svg > foreignObject > section > header:first-child + *{
+  margin-top:0;
+}
+div#__marp-vscode > div > svg > foreignObject > section::after{
+  bottom:21px;
+  color:var(--paginate-color);
+  font-size:24px;
+  padding:0;
+  position:absolute;
+  right:30px;
+}
+div#__marp-vscode > div > svg > foreignObject > section::after {
+  --marpit-root-font-size:24px;
+}
+div#__marp-vscode > div > svg > foreignObject > section[data-color] :is(h1, marp-h1),div#__marp-vscode > div > svg > foreignObject > section[data-color] :is(h2, marp-h2),div#__marp-vscode > div > svg > foreignObject > section[data-color] :is(h3, marp-h3),div#__marp-vscode > div > svg > foreignObject > section[data-color] :is(h4, marp-h4),div#__marp-vscode > div > svg > foreignObject > section[data-color] :is(h5, marp-h5),div#__marp-vscode > div > svg > foreignObject > section[data-color] :is(h6, marp-h6){
+  color:currentcolor;
+}
+div#__marp-vscode > div > svg > foreignObject > section[data-marpit-scope-Tm8eSbLJ], div#__marp-vscode > div > svg > foreignObject > section[data-marpit-scope-Tm8eSbLJ] :is(h1, marp-h1), div#__marp-vscode > div > svg > foreignObject > section[data-marpit-scope-Tm8eSbLJ] center { font-weight:1 !important; }
+div#__marp-vscode > div > svg > foreignObject > section[data-marpit-scope-Tm8eSbLJ] :is(h3, marp-h3) { font-size: calc(var(--marpit-root-font-size, 1rem) * 2); padding-bottom:0; }
+div#__marp-vscode > div > svg > foreignObject > section[data-marpit-scope-Tm8eSbLJ] :is(h3, marp-h3) { color: wheat;  }
+div#__marp-vscode > div > svg > foreignObject > section[data-marpit-scope-Tm8eSbLJ] center { 
+      zoom:1.2;
+      opacity: 0.8;
+      padding-top: 99px;
+      background-size: 123px;
+      background-repeat: no-repeat;
+      background-position: top center;
+   }
+div#__marp-vscode > div > svg > foreignObject > section[data-marpit-scope-01T6r9Cd] { filter:invert(0.1) }
+div#__marp-vscode > div > svg > foreignObject > section[data-marpit-scope-xl5eMKvm] :is(h3, marp-h3), div#__marp-vscode > div > svg > foreignObject > section[data-marpit-scope-xl5eMKvm] li { margin-bottom:30px; }
+div#__marp-vscode > div > svg > foreignObject > section[data-marpit-scope-xl5eMKvm] code { padding:0; margin:0; zoom:1.2; color:silver; }
+div#__marp-vscode > div > svg > foreignObject > section[data-marpit-scope-ypmUWlYr] li { list-style-type: none !important; }
+div#__marp-vscode > div > svg > foreignObject > section[data-marpit-scope-ypmUWlYr] li {  margin-left:-50px; }
+div#__marp-vscode > div > svg > foreignObject > section[data-marpit-scope-ypmUWlYr] strong { font-size: calc(var(--marpit-root-font-size, 1rem) * 1.1); }
+div#__marp-vscode > div > svg > foreignObject > section[data-marpit-scope-fyV62ByJ] { filter:invert(0.1) }
+div#__marp-vscode > div > svg > foreignObject > section[data-marpit-scope-fyV62ByJ] div[zoom] { zoom:0.75; background: #000; }
+div#__marp-vscode > div > svg > foreignObject > section[data-marpit-scope-fyV62ByJ] div[zoom] :is(span, marp-span) { 
+      display:inline;
+      font-size: calc(var(--marpit-root-font-size, 1rem) * 1.7);
+   }
+div#__marp-vscode > div > svg > foreignObject > section[data-marpit-scope-8REzcJBY] { filter:invert(0.1) }
+div#__marp-vscode > div > svg > foreignObject > section[data-marpit-scope-1EHWOaHx] li strong { font-size: calc(var(--marpit-root-font-size, 1rem) * 1.3); }
+div#__marp-vscode > div > svg > foreignObject > section[data-marpit-scope-1EHWOaHx] li { 
+      font-size: calc(var(--marpit-root-font-size, 1rem) * 1.1);
+      list-style-type: none  
+   }
+div#__marp-vscode > div > svg > foreignObject > section[data-marpit-scope-1EHWOaHx] :is(h1, marp-h1) {      
+      margin-bottom:0;
+      padding-bottom:0;
+   }
+div#__marp-vscode > div > svg > foreignObject > section[data-marpit-scope-FFrvexvR] { filter:invert(0.1) }
+div#__marp-vscode > div > svg > foreignObject > section[data-marpit-scope-FFrvexvR] :is(h1, marp-h1) { font-size:calc(var(--marpit-root-font-size, 1rem) * 3) !important }
+div#__marp-vscode > div > svg > foreignObject > section[data-marpit-advanced-background="background"] {
+  columns: initial !important;
+  display: block !important;
+  padding: 0 !important;
+}
+div#__marp-vscode > div > svg > foreignObject > section[data-marpit-advanced-background="background"]::before,
+div#__marp-vscode > div > svg > foreignObject > section[data-marpit-advanced-background="background"]::after,
+div#__marp-vscode > div > svg > foreignObject > section[data-marpit-advanced-background="content"]::before,
+div#__marp-vscode > div > svg > foreignObject > section[data-marpit-advanced-background="content"]::after {
+  display: none !important;
+}
+div#__marp-vscode > div > svg > foreignObject > section[data-marpit-advanced-background="background"] > div[data-marpit-advanced-background-container] {
+  all: initial;
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  overflow: hidden;
+  width: 100%;
+}
+div#__marp-vscode > div > svg > foreignObject > section[data-marpit-advanced-background="background"] > div[data-marpit-advanced-background-container][data-marpit-advanced-background-direction="vertical"] {
+  flex-direction: column;
+}
+div#__marp-vscode > div > svg > foreignObject > section[data-marpit-advanced-background="background"][data-marpit-advanced-background-split] > div[data-marpit-advanced-background-container] {
+  width: var(--marpit-advanced-background-split, 50%);
+}
+div#__marp-vscode > div > svg > foreignObject > section[data-marpit-advanced-background="background"][data-marpit-advanced-background-split="right"] > div[data-marpit-advanced-background-container] {
+  margin-left: calc(100% - var(--marpit-advanced-background-split, 50%));
+}
+div#__marp-vscode > div > svg > foreignObject > section[data-marpit-advanced-background="background"] > div[data-marpit-advanced-background-container] > figure {
+  all: initial;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  flex: auto;
+  margin: 0;
+}
+div#__marp-vscode > div > svg > foreignObject > section[data-marpit-advanced-background="content"],
+div#__marp-vscode > div > svg > foreignObject > section[data-marpit-advanced-background="pseudo"] {
+  background: transparent !important;
+}
+div#__marp-vscode > div > svg > foreignObject > section[data-marpit-advanced-background="pseudo"],
+div#__marp-vscode > div > svg[data-marpit-svg] > foreignObject[data-marpit-advanced-background="pseudo"] {
+  pointer-events: none !important;
+}
+div#__marp-vscode > div > svg > foreignObject > section[data-marpit-advanced-background-split] {
+  width: 100%;
+  height: 100%;
+}</style><div id="__marp-vscode"><div data-marp-vscode-slide-wrapper="" class="code-line" data-line="0"><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720">
+<section id="1" data-marpit-scope-Tm8eSbLJ="" data-class="invert" data-theme="default" class="invert" style="--class:invert;--theme:default;"><center class='logo'>
+<h3 id="reactfuljs" class="code-line" data-line="12">reactful.js</h3>
+
+<p class="code-line" data-line="16">Comprehensive stateless-driven React SPA framework<br />
+<code>@jsenaribeiro | software architect | MCS degree</code></p>
+</section>
+</foreignObject></svg></div><div data-marp-vscode-slide-wrapper="" class="code-line" data-line="34"><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720">
+<section id="2" data-marpit-scope-01T6r9Cd="" data-class="invert" data-theme="default" class="invert" style="--class:invert;--theme:default;">
+<center overview>
+<h2 id="overview" class="code-line" data-line="38">OVERVIEW</h2>
+<p class="code-line" data-line="40">designs, concepts and features</p>
+</center>
+</section>
+</foreignObject></svg></div><div data-marp-vscode-slide-wrapper="" class="code-line" data-line="47"><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720">
+<section id="3" data-marpit-fragments="6" data-class="invert" data-theme="default" class="invert" style="--class:invert;--theme:default;"><center>
+<h3 id="weaknesses" class="code-line" data-line="52">WEAKNESSES</h3>
+<article cols='2' none splitted>
+<aside right>
+<h3 id="reactjs" class="code-line" data-line="57"><code>react</code>.js</h3>
+<ul class="code-line" data-line="59">
+<li data-marpit-fragment="1" class="code-line" data-line="59">scopeless CSS</li>
+<li data-marpit-fragment="2" class="code-line" data-line="60">over-wrapping</li>
+<li data-marpit-fragment="3" class="code-line" data-line="61">state verbosity</li>
+</ul>
+</aside><aside left>
+<h3 id="nextjs" class="code-line" data-line="65"><code>next</code>.js</h3>
+<ul class="code-line" data-line="67">
+<li data-marpit-fragment="4" class="code-line" data-line="67">over-conventions</li>
+<li data-marpit-fragment="5" class="code-line" data-line="68">adds learning curve</li>
+<li data-marpit-fragment="6" class="code-line" data-line="69">non-modular features</li>
+</ul>
+</aside>
+</article>
+</center>
+</section>
+</foreignObject></svg></div><div data-marp-vscode-slide-wrapper="" class="code-line" data-line="75"><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720">
+<section id="4" data-marpit-scope-xl5eMKvm="" data-marpit-fragments="3" data-class="invert" data-theme="default" class="invert" style="--class:invert;--theme:default;">
+<center none>
+<h3 id="designing" class="code-line" data-line="79">DESIGNING</h3>
+<div top="-43">
+   design-driven solutions<br /><br />
+</div>
+<ul class="code-line" data-line="85">
+<li data-marpit-fragment="1" class="code-line" data-line="85">
+<p class="code-line" data-line="85"><strong>STATELESS</strong> <br /><code>const clean = props =&gt; &lt;h1&gt;stateless&lt;/h1&gt;</code></p>
+</li>
+<li data-marpit-fragment="2" class="code-line" data-line="87">
+<p class="code-line" data-line="87"><strong>DRY</strong> | <strong>KISS</strong> | <strong>YAGNI</strong> <br />low-level vanilla abstrations with modular packages</p>
+</li>
+<li data-marpit-fragment="3" class="code-line" data-line="89">
+<p class="code-line" data-line="89"><strong>create</strong> | <strong>server</strong> | <strong>render</strong> | <strong>styler</strong> | <strong>router</strong> | <strong>syncer</strong> | <strong>binder</strong> <br />comprehensive SPA framework features with enhanced new features.</p>
+</li>
+</ul>
+</center>
+</section>
+</foreignObject></svg></div><div data-marp-vscode-slide-wrapper="" class="code-line" data-line="98"><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720">
+<section id="5" data-marpit-scope-ypmUWlYr="" data-class="invert" data-theme="default" class="invert" style="--class:invert;--theme:default;">
+<center>
+<h3 id="inovations" class="code-line" data-line="102">INOVATIONS</h3>
+<p class="code-line" data-line="104"><strong>dual binding</strong> | <strong>IoC container</strong> | <strong>props directives</strong> | <strong>self-render</strong> <br />new React expandend development ways with new capabilities</p>
+</center>
+</section>
+</foreignObject></svg></div><div data-marp-vscode-slide-wrapper="" class="code-line" data-line="115"><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720">
+<section id="6" data-marpit-scope-fyV62ByJ="" data-class="invert" data-theme="default" class="invert" style="--class:invert;--theme:default;">
+<center>
+<h2 id="preview" class="code-line" data-line="119">PREVIEW</h2>
+<section preview>
+<p class="code-line" data-line="123">some sampling codes of main features</p>
+<div hidden zoom>
+<h3 id="feature-contexts---span-alternativealternativespan" class="code-line" data-line="126"><code>feature</code> contexts - <span> alternative|alternative</span></h3>
+</div>
+</center>
+</section>
+</foreignObject></svg></div><div data-marp-vscode-slide-wrapper="" class="code-line" data-line="141"><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720">
+<section id="7" data-class="invert" data-theme="default" class="invert" style="--class:invert;--theme:default;">
+<h3 id="create-tool" class="code-line" data-line="145"><code>create</code> tool</h3>
+<main cols='2:5'><div>
+<p class="code-line" data-line="149">CLI project setup starter</p>
+<section alternative>
+<ul class="code-line" data-line="153">
+<li class="code-line" data-line="153">create-next-app</li>
+<li class="code-line" data-line="154">create-react-app</li>
+<li class="code-line" data-line="155">create-vite-extra</li>
+</ul>
+<section>
+</div><div>
+<pre is="marp-pre" data-auto-scaling="downscale-only"><code class="code-line language-tsx" data-line="161">npm create <span class="hljs-meta">@reactful</span>/create<span class="hljs-meta">@latest</span>
+deno -A <span class="hljs-attr">npm</span>:<span class="hljs-meta">@reactful</span>/create<span class="hljs-meta">@latest</span>
+</code></pre>
+</div></main>
+</section>
+</foreignObject></svg></div><div data-marp-vscode-slide-wrapper="" class="code-line" data-line="168"><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720">
+<section id="8" data-class="invert" data-theme="default" class="invert" style="--class:invert;--theme:default;">
+<h3 id="server-root" class="code-line" data-line="170"><code>server</code> root</h3>
+<main cols='2:5'><div>
+<p class="code-line" data-line="174">Lite webserver for SSR with React Server Components support</p>
+<section alternative>
+<ul class="code-line" data-line="178">
+<li class="code-line" data-line="178">next.js</li>
+<li class="code-line" data-line="179">qwik.js</li>
+<li class="code-line" data-line="180">fresh.js</li>
+</ul>
+<section>
+</div><div>
+<pre is="marp-pre" data-auto-scaling="downscale-only"><code class="code-line language-tsx" data-line="186"><span class="hljs-keyword">import</span> <span class="hljs-string">&#x27;@reactful/server&#x27;</span>
+<span class="hljs-keyword">import</span> <span class="hljs-title class_">React</span> <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;react&#x27;</span>
+
+<span class="hljs-title class_">React</span>.<span class="hljs-title function_">server</span>(<span class="hljs-literal">true</span>, <span class="hljs-string">&quot;index.html&quot;</span>)
+     .<span class="hljs-title function_">render</span>(<span class="hljs-title class_">App</span>, <span class="hljs-string">&quot;#root&quot;</span>)
+</code></pre>
+</div></main>
+</section>
+</foreignObject></svg></div><div data-marp-vscode-slide-wrapper="" class="code-line" data-line="196"><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720">
+<section id="9" data-class="invert" data-theme="default" class="invert" style="--class:invert;--theme:default;">
+<h3 id="render-ioc" class="code-line" data-line="198"><code>render</code> IoC</h3>
+<main cols='2:5'><div>
+<p class="code-line" data-line="202">IoC container with built-in property directives.</p>
+</div><div>
+<pre is="marp-pre" data-auto-scaling="downscale-only"><code class="code-line language-tsx" data-line="206"><span class="hljs-keyword">const</span> <span class="hljs-title function_">show</span> = p =&gt; ({...p, p.<span class="hljs-property">hidden</span>: !p.<span class="hljs-property">show</span>})
+
+<span class="hljs-title class_">React</span>.<span class="hljs-title function_">server</span>(<span class="hljs-literal">true</span>).<span class="hljs-title function_">inject</span>(show).<span class="hljs-title function_">render</span>(<span class="hljs-title class_">App</span>)
+</code></pre>
+</div></main>
+</section>
+</foreignObject></svg></div><div data-marp-vscode-slide-wrapper="" class="code-line" data-line="214"><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720">
+<section id="10" data-class="invert" data-theme="default" class="invert" style="--class:invert;--theme:default;">
+<h3 id="styler-plugin" class="code-line" data-line="216"><code>styler</code> plugin</h3>
+<main cols='2:5'><div>
+<p class="code-line" data-line="221">Scoped modular CSS imports with className component tag</p>
+<section alternative cancel>
+<ul class="code-line" data-line="225">
+<li class="code-line" data-line="225">React.js</li>
+<li class="code-line" data-line="226">CSS modules</li>
+<li class="code-line" data-line="227">styled components</li>
+</ul>
+<section>
+</div><div>
+<pre is="marp-pre" data-auto-scaling="downscale-only"><code class="code-line language-css" data-line="233"><span class="hljs-selector-tag">button</span><span class="hljs-selector-class">.App</span> { <span class="hljs-attribute">background-color</span>: <span class="hljs-string">&#x27;yellow&#x27;</span> } 
+</code></pre>
+<pre is="marp-pre" data-auto-scaling="downscale-only"><code class="code-line language-tsx" data-line="237"><span class="hljs-keyword">import</span> <span class="hljs-string">&#x27;./App.css&#x27;</span> <span class="hljs-comment">// only applied here!</span>
+
+<span class="hljs-keyword">const</span> <span class="hljs-title function_">App</span> = props =&gt; <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Only here<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span>
+</code></pre>
+</div></main>
+</section>
+</foreignObject></svg></div><div data-marp-vscode-slide-wrapper="" class="code-line" data-line="245"><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720">
+<section id="11" data-class="invert" data-theme="default" class="invert" style="--class:invert;--theme:default;">
+<h3 id="router-props" class="code-line" data-line="247"><code>router</code> props</h3>
+<main cols='2:5'><div>
+<p class="code-line" data-line="251">Simple folder-based with props routing using semantic web.</p>
+<section alternative>
+<ul class="code-line" data-line="255">
+<li class="code-line" data-line="255">next.js</li>
+<li class="code-line" data-line="256">react-router</li>
+</ul>
+<section>
+</div><div>
+<pre is="marp-pre" data-auto-scaling="downscale-only"><code class="code-line language-tsx" data-line="261"><span class="hljs-keyword">const</span> <span class="hljs-title class_">Hello</span> = <span class="hljs-title class_">React</span>.<span class="hljs-title function_">useLazy</span>(<span class="hljs-string">&#x27;./hello&#x27;</span>)
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> <span class="hljs-title function_">Menu</span> = (<span class="hljs-params">props, { route }</span>) =&gt; <span class="language-xml"><span class="hljs-tag">&lt;&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">link</span>=<span class="hljs-string">&#x27;/hello&#x27;</span>&gt;</span>Hello<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">link</span>=<span class="hljs-string">&#x27;/about&#x27;</span>&gt;</span>About<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+
+   <span class="hljs-tag">&lt;<span class="hljs-name">Hello</span> <span class="hljs-attr">route</span>=<span class="hljs-string">&#x27;/hello&#x27;</span> &gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">route</span>=<span class="hljs-string">&#x27;/about&#x27;</span>&gt;</span>About...<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+   
+   <span class="hljs-tag">&lt;<span class="hljs-name">embed</span> <span class="hljs-attr">src</span>=<span class="hljs-string">{route.now}</span> /&gt;</span>
+<span class="hljs-tag">&lt;/&gt;</span>
+</span></code></pre>
+</div></main>
+</section>
+</foreignObject></svg></div><div data-marp-vscode-slide-wrapper="" class="code-line" data-line="277"><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720">
+<section id="12" data-class="invert" data-theme="default" class="invert" style="--class:invert;--theme:default;">
+<h3 id="syncer-fetching" class="code-line" data-line="279"><code>syncer</code> fetching</h3>
+<main cols='2:5'><div>
+<p class="code-line" data-line="283">Fully SWR async shared states based in sync semantics</p>
+<section alternative>
+<ul class="code-line" data-line="287">
+<li class="code-line" data-line="287">fetch | axios</li>
+<li class="code-line" data-line="288">react-query</li>
+<li class="code-line" data-line="289">next.js</li>
+</ul>
+<section>
+</div><div>
+<pre is="marp-pre" data-auto-scaling="downscale-only"><code class="code-line language-tsx" data-line="294"><span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">Fact</span>(<span class="hljs-params"></span>) {
+   <span class="hljs-keyword">const</span> [fact, factSync] = <span class="hljs-keyword">await</span> <span class="hljs-title function_">syncer</span>(<span class="hljs-string">&quot;&quot;</span>)
+      .<span class="hljs-title function_">fetch</span>(<span class="hljs-string">&quot;https://fact-cats&quot;</span>)
+      .<span class="hljs-title function_">retry</span>(<span class="hljs-number">3</span>, <span class="hljs-number">1000</span>)
+      .<span class="hljs-title function_">catch</span>(<span class="hljs-number">3000</span>)
+      .<span class="hljs-title function_">match</span>(<span class="hljs-string">&quot;GET&quot;</span>, <span class="hljs-function"><span class="hljs-params">x</span> =&gt;</span> x.<span class="hljs-title function_">toUpperCase</span>())
+
+   <span class="hljs-title function_">factSync</span>(<span class="hljs-literal">false</span>) <span class="hljs-comment">// revalidating</span>
+
+   <span class="hljs-keyword">return</span> <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Fact cat: { fact }<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span>
+}
+</code></pre>
+</div></main>
+</section>
+</foreignObject></svg></div><div data-marp-vscode-slide-wrapper="" class="code-line" data-line="310"><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720">
+<section id="13" data-class="invert" data-theme="default" class="invert" style="--class:invert;--theme:default;">
+<h3 id="binder-states" class="code-line" data-line="312"><code>binder</code> states</h3>
+<main cols='2:5'><div>
+<p class="code-line" data-line="316">Dual bindable props, injectable store and reactive forms with new two way data binding props</p>
+<section alternative>
+<ul class="code-line" data-line="320">
+<li class="code-line" data-line="320">useState | useContext</li>
+<li class="code-line" data-line="321">next.js (server actions)</li>
+<li class="code-line" data-line="322">react-hook-forms</li>
+<li class="code-line" data-line="323">formix</li>
+</ul>
+<section>
+</div><div>
+<pre is="marp-pre" data-auto-scaling="downscale-only"><code class="code-line language-js" data-line="329"><span class="hljs-keyword">const</span> <span class="hljs-title function_">App</span> = (<span class="hljs-params">props, { store }</span>) =&gt; <span class="language-xml"><span class="hljs-tag">&lt;&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>{ store.title }<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+
+   <span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span> Hello { props.name }!<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">data</span>=<span class="hljs-string">{props}</span> <span class="hljs-attr">bind</span>=<span class="hljs-string">&quot;name&quot;</span> /&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">data</span>=<span class="hljs-string">{props}</span> <span class="hljs-attr">onSubmit</span>=<span class="hljs-string">{...}</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">required</span> <span class="hljs-attr">bind</span>=<span class="hljs-string">&quot;name&quot;</span> /&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&#x27;submit&#x27;</span>&gt;</span>Ok<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+   <span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
+<span class="hljs-tag">&lt;/&gt;</span></span>
+
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Store</span> { title = <span class="hljs-string">&quot;Welcome!&quot;</span> }
+
+<span class="hljs-title class_">React</span>.<span class="hljs-title function_">server</span>(<span class="hljs-literal">true</span>).<span class="hljs-title function_">inject</span>(<span class="hljs-title class_">Store</span>).<span class="hljs-title function_">render</span>(<span class="hljs-title class_">App</span>)
+</code></pre>
+</div></main>
+</section>
+</foreignObject></svg></div><div data-marp-vscode-slide-wrapper="" class="code-line" data-line="349"><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720">
+<section id="14" data-class="invert" data-theme="default" class="invert" style="--class:invert;--theme:default;">
+<h3 id="binder-states-1" class="code-line" data-line="351"><code>binder</code> states</h3>
+<blockquote class="code-line" data-line="352">
+<p class="code-line" data-line="352">statetul props</p>
+</blockquote>
+<main cols='2:5'><div>
+<p class="code-line" data-line="356">Self-rendering stateful props that encapsulates an useState</p>
+<section alternative>
+<ul class="code-line" data-line="360">
+<li class="code-line" data-line="360">useState</li>
+</ul>
+<section></div><div>
+<pre is="marp-pre" data-auto-scaling="downscale-only"><code class="code-line language-js" data-line="364"><span class="hljs-keyword">const</span> <span class="hljs-title function_">App</span> = props =&gt; <span class="language-xml"><span class="hljs-tag">&lt;&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span> Hello { props.name }!<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">value</span>=<span class="hljs-string">{props.name}</span> <span class="hljs-attr">onChange</span>=<span class="hljs-string">{e</span> =&gt;</span> 
+      props.name=e.target.value} /&gt;
+<span class="hljs-tag">&lt;/&gt;</span></span>
+</code></pre>
+</div></main>
+</section>
+</foreignObject></svg></div><div data-marp-vscode-slide-wrapper="" class="code-line" data-line="374"><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720">
+<section id="15" data-class="invert" data-theme="default" class="invert" style="--class:invert;--theme:default;">
+<h3 id="binder-states-2" class="code-line" data-line="376"><code>binder</code> states</h3>
+<blockquote class="code-line" data-line="377">
+<p class="code-line" data-line="377">store injection</p>
+</blockquote>
+<main cols='2:5'><div>
+<p class="code-line" data-line="381">Self-rendering stateful store that is injected by IoC container</p>
+<section alternative>
+<ul class="code-line" data-line="385">
+<li class="code-line" data-line="385">useContext</li>
+<li class="code-line" data-line="386">createContext</li>
+<li class="code-line" data-line="387">Context.Provider</li>
+</ul>
+<section></div><div>
+<pre is="marp-pre" data-auto-scaling="downscale-only"><code class="code-line language-js" data-line="391"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Store</span> { title = <span class="hljs-string">&quot;Welcome!&quot;</span> }
+
+<span class="hljs-keyword">const</span> <span class="hljs-title class_">App</span> = props, <span class="hljs-function">(<span class="hljs-params">{ store }</span>) =&gt;</span> <span class="language-xml"><span class="hljs-tag">&lt;&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span> { store.title } <span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">value</span>=<span class="hljs-string">{store.title}</span> <span class="hljs-attr">onChange</span>=<span class="hljs-string">{e</span> =&gt;</span> 
+      props.title=e.target.value} /&gt;
+<span class="hljs-tag">&lt;/&gt;</span></span>
+
+<span class="hljs-title class_">React</span>.<span class="hljs-title function_">server</span>(<span class="hljs-literal">true</span>).<span class="hljs-title function_">inject</span>(<span class="hljs-title class_">Store</span>).<span class="hljs-title function_">render</span>(<span class="hljs-title class_">App</span>)
+</code></pre>
+</div></main>
+</section>
+</foreignObject></svg></div><div data-marp-vscode-slide-wrapper="" class="code-line" data-line="405"><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720">
+<section id="16" data-class="invert" data-theme="default" class="invert" style="--class:invert;--theme:default;">
+<h3 id="binder-states-3" class="code-line" data-line="407"><code>binder</code> states</h3>
+<blockquote class="code-line" data-line="408">
+<p class="code-line" data-line="408">dual binding</p>
+</blockquote>
+<main cols='2:5'><div>
+<p class="code-line" data-line="412">New <code>[data]</code> and <code>[bind]</code> props handle the data bindings.</p>
+<section alternative>
+<section></div><div>
+<pre is="marp-pre" data-auto-scaling="downscale-only"><code class="code-line language-js" data-line="419"><span class="hljs-keyword">const</span> <span class="hljs-title function_">App</span> = props =&gt; <span class="language-xml"><span class="hljs-tag">&lt;&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span> Hello { props.name }!<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">data</span>=<span class="hljs-string">{props}</span> <span class="hljs-attr">bind</span>=<span class="hljs-string">&quot;name&quot;</span> /&gt;</span>
+<span class="hljs-tag">&lt;/&gt;</span></span>
+</code></pre>
+</div></main>
+</section>
+</foreignObject></svg></div><div data-marp-vscode-slide-wrapper="" class="code-line" data-line="428"><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720">
+<section id="17" data-class="invert" data-theme="default" class="invert" style="--class:invert;--theme:default;">
+<h3 id="binder-states-4" class="code-line" data-line="430"><code>binder</code> states</h3>
+<blockquote class="code-line" data-line="431">
+<p class="code-line" data-line="431">statetul props</p>
+</blockquote>
+<main cols='2:5'><div>
+<p class="code-line" data-line="435">Self-rendering stateful props that encapsulates an useState</p>
+<section alternative>
+<ul class="code-line" data-line="439">
+<li class="code-line" data-line="439">useState</li>
+</ul>
+<section></div><div>
+<pre is="marp-pre" data-auto-scaling="downscale-only"><code class="code-line language-js" data-line="443"><span class="hljs-keyword">const</span> <span class="hljs-title function_">App</span> = props =&gt; <span class="language-xml"><span class="hljs-tag">&lt;&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span> Hello { props.name }!<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">value</span>=<span class="hljs-string">{props.name}</span> <span class="hljs-attr">onChange</span>=<span class="hljs-string">{e</span> =&gt;</span> 
+      props.name=e.target.value} /&gt;
+<span class="hljs-tag">&lt;/&gt;</span></span>
+</code></pre>
+</div></main>
+</section> <!--preview -->
+</section>
+</foreignObject></svg></div><div data-marp-vscode-slide-wrapper="" class="code-line" data-line="456"><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720">
+<section id="18" data-marpit-scope-8REzcJBY="" data-class="invert" data-theme="default" class="invert" style="--class:invert;--theme:default;">
+<center>
+<h2 id="review" class="code-line" data-line="460">REVIEW</h2>
+<p class="code-line" data-line="462">Reviewin features, concepts and design principles.</p>
+</center>
+</section>
+</foreignObject></svg></div><div data-marp-vscode-slide-wrapper="" class="code-line" data-line="467"><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720">
+<section id="19" data-marpit-scope-1EHWOaHx="" data-marpit-fragments="5" data-class="invert" data-theme="default" class="invert" style="--class:invert;--theme:default;"></center>
+<h2 id="highlights" class="code-line" data-line="472">HIGHLIGHTS</h2>
+<ul class="code-line" data-line="474">
+<li data-marpit-fragment="1" class="code-line" data-line="474"><strong>ADDS</strong> | self-render, IoC container and custom attribute</li>
+<li data-marpit-fragment="2" class="code-line" data-line="475"><strong>SOLVES</strong> | scopeless CSS, stateful verbosity and over-wrappings</li>
+<li data-marpit-fragment="3" class="code-line" data-line="476"><strong>EVOLVES</strong> | fully react.js SPA framework transformation</li>
+<li data-marpit-fragment="4" class="code-line" data-line="477"><strong>REDUCES</strong> | stateful learning curve with binder module</li>
+<li data-marpit-fragment="5" class="code-line" data-line="478"><strong>SUPPORTS</strong> | stateless-driven components style</li>
+</ul>
+</center>
+</section>
+</foreignObject></svg></div><div data-marp-vscode-slide-wrapper="" class="code-line" data-line="494"><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720">
+<section id="20" data-marpit-scope-FFrvexvR="" data-class="invert" data-theme="default" class="invert" style="--class:invert;--theme:default;">
+<center>
+<h1 id="thanks" class="code-line" data-line="498"><code>THANKS!</code></h1>
+<p class="code-line" data-line="500">working in progress...</p>
+</center></section>
+</foreignObject></svg></div></div>
+        
+        <script async type="text/javascript">
+/* From extension marp-team.marp-vscode */
+(()=>{var U=Object.defineProperty;var d=($,E)=>U($,"name",{value:E,configurable:!0});(()=>{var $={676:(w,b,g)=>{w.exports=g(185)},185:(w,b)=>{"use strict";var g;g={value:!0};const x={h1:{proto:()=>HTMLHeadingElement,attrs:{role:"heading","aria-level":"1"},style:"display: block; font-size: 2em; margin-block-start: 0.67em; margin-block-end: 0.67em; margin-inline-start: 0px; margin-inline-end: 0px; font-weight: bold;"},h2:{proto:()=>HTMLHeadingElement,attrs:{role:"heading","aria-level":"2"},style:"display: block; font-size: 1.5em; margin-block-start: 0.83em; margin-block-end: 0.83em; margin-inline-start: 0px; margin-inline-end: 0px; font-weight: bold;"},h3:{proto:()=>HTMLHeadingElement,attrs:{role:"heading","aria-level":"3"},style:"display: block; font-size: 1.17em; margin-block-start: 1em; margin-block-end: 1em; margin-inline-start: 0px; margin-inline-end: 0px; font-weight: bold;"},h4:{proto:()=>HTMLHeadingElement,attrs:{role:"heading","aria-level":"4"},style:"display: block; margin-block-start: 1.33em; margin-block-end: 1.33em; margin-inline-start: 0px; margin-inline-end: 0px; font-weight: bold;"},h5:{proto:()=>HTMLHeadingElement,attrs:{role:"heading","aria-level":"5"},style:"display: block; font-size: 0.83em; margin-block-start: 1.67em; margin-block-end: 1.67em; margin-inline-start: 0px; margin-inline-end: 0px; font-weight: bold;"},h6:{proto:()=>HTMLHeadingElement,attrs:{role:"heading","aria-level":"6"},style:"display: block; font-size: 0.67em; margin-block-start: 2.33em; margin-block-end: 2.33em; margin-inline-start: 0px; margin-inline-end: 0px; font-weight: bold;"},span:{proto:()=>HTMLSpanElement},pre:{proto:()=>HTMLElement,style:"display: block; font-family: monospace; white-space: pre; margin: 1em 0; --marp-auto-scaling-white-space: pre;"}},k="data-marp-auto-scaling-wrapper",u="data-marp-auto-scaling-svg",c="data-marp-auto-scaling-container",T=class T extends HTMLElement{constructor(){super(),this.svgPreserveAspectRatio="xMinYMid meet";const s=d(i=>([n])=>{const{width:e,height:t}=n.contentRect;this[i]={width:e,height:t},this.updateSVGRect()},"t");this.attachShadow({mode:"open"}),this.containerObserver=new ResizeObserver(s("containerSize")),this.wrapperObserver=new ResizeObserver((...i)=>{s("wrapperSize")(...i),this.flushSvgDisplay()})}static get observedAttributes(){return["data-downscale-only"]}connectedCallback(){var s,i,n,e,t;this.shadowRoot.innerHTML=`
+<style>
+  svg[${u}] { display: block; width: 100%; height: auto; vertical-align: top; }
+  span[${c}] { display: table; white-space: var(--marp-auto-scaling-white-space, nowrap); width: max-content; }
+</style>
+<div ${k}>
+  <svg part="svg" ${u}>
+    <foreignObject><span ${c}><slot></slot></span></foreignObject>
+  </svg>
+</div>
+    `.split(/\n\s*/).join(""),this.wrapper=(s=this.shadowRoot.querySelector(`div[${k}]`))!==null&&s!==void 0?s:void 0;const o=this.svg;this.svg=(n=(i=this.wrapper)===null||i===void 0?void 0:i.querySelector(`svg[${u}]`))!==null&&n!==void 0?n:void 0,this.svg!==o&&(this.svgComputedStyle=this.svg?window.getComputedStyle(this.svg):void 0),this.container=(t=(e=this.svg)===null||e===void 0?void 0:e.querySelector(`span[${c}]`))!==null&&t!==void 0?t:void 0,this.observe()}disconnectedCallback(){this.svg=void 0,this.svgComputedStyle=void 0,this.wrapper=void 0,this.container=void 0,this.observe()}attributeChangedCallback(){this.observe()}flushSvgDisplay(){const{svg:s}=this;s&&(s.style.display="inline",requestAnimationFrame(()=>{s.style.display=""}))}observe(){this.containerObserver.disconnect(),this.wrapperObserver.disconnect(),this.wrapper&&this.wrapperObserver.observe(this.wrapper),this.container&&this.containerObserver.observe(this.container),this.svgComputedStyle&&this.observeSVGStyle(this.svgComputedStyle)}observeSVGStyle(s){const i=d(()=>{const n=(()=>{const e=s.getPropertyValue("--preserve-aspect-ratio");return e?e.trim():`x${(({textAlign:t,direction:o})=>{if(t.endsWith("left"))return"Min";if(t.endsWith("right"))return"Max";if(t==="start"||t==="end"){let a=o==="rtl";return t==="end"&&(a=!a),a?"Max":"Min"}return"Mid"})(s)}YMid meet`})();n!==this.svgPreserveAspectRatio&&(this.svgPreserveAspectRatio=n,this.updateSVGRect()),s===this.svgComputedStyle&&requestAnimationFrame(i)},"e");i()}updateSVGRect(){var s,i,n,e,t,o,a;let p=Math.ceil((i=(s=this.containerSize)===null||s===void 0?void 0:s.width)!==null&&i!==void 0?i:0);const h=Math.ceil((e=(n=this.containerSize)===null||n===void 0?void 0:n.height)!==null&&e!==void 0?e:0);this.dataset.downscaleOnly!==void 0&&(p=Math.max(p,(o=(t=this.wrapperSize)===null||t===void 0?void 0:t.width)!==null&&o!==void 0?o:0));const f=(a=this.svg)===null||a===void 0?void 0:a.querySelector(":scope > foreignObject");if(f?.setAttribute("width",`${p}`),f?.setAttribute("height",`${h}`),this.svg&&(this.svg.setAttribute("viewBox",`0 0 ${p} ${h}`),this.svg.setAttribute("preserveAspectRatio",this.svgPreserveAspectRatio),this.svg.style.height=p<=0||h<=0?"0":""),this.container){const _=this.svgPreserveAspectRatio.toLowerCase();this.container.style.marginLeft=_.startsWith("xmid")||_.startsWith("xmax")?"auto":"0",this.container.style.marginRight=_.startsWith("xmi")?"auto":"0"}}};d(T,"s");let r=T;const m=d((l,{attrs:s={},style:i})=>class extends l{constructor(...n){super(...n);for(const[e,t]of Object.entries(s))this.hasAttribute(e)||this.setAttribute(e,t);this.attachShadow({mode:"open"})}static get observedAttributes(){return["data-auto-scaling"]}connectedCallback(){this._update()}attributeChangedCallback(){this._update()}_update(){const n=i?`<style>:host { ${i} }</style>`:"";let e="<slot></slot>";const{autoScaling:t}=this.dataset;t!==void 0&&(e=`<marp-auto-scaling exportparts="svg:auto-scaling" ${t==="downscale-only"?"data-downscale-only":""}>${e}</marp-auto-scaling>`),this.shadowRoot.innerHTML=n+e}},"o");let v;const j=Symbol();let C;const z="marpitSVGPolyfill:setZoomFactor,",A=Symbol(),D=Symbol(),W=d(()=>{const l=navigator.vendor==="Apple Computer, Inc.",s=l?[B]:[],i={then:n=>(l?(async()=>{if(C===void 0){const e=document.createElement("canvas");e.width=10,e.height=10;const t=e.getContext("2d"),o=new Image(10,10),a=new Promise(p=>{o.addEventListener("load",()=>p())});o.crossOrigin="anonymous",o.src="data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2210%22%20height%3D%2210%22%20viewBox%3D%220%200%201%201%22%3E%3CforeignObject%20width%3D%221%22%20height%3D%221%22%20requiredExtensions%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxhtml%22%3E%3Cdiv%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxhtml%22%20style%3D%22width%3A%201px%3B%20height%3A%201px%3B%20background%3A%20red%3B%20position%3A%20relative%22%3E%3C%2Fdiv%3E%3C%2FforeignObject%3E%3C%2Fsvg%3E",await a,t.drawImage(o,0,0),C=t.getImageData(5,5,1,1).data[3]<128}return C})().then(e=>{n?.(e?[B]:[])}):n?.([]),i)};return Object.assign(s,i)},"h");let H,O;function B(l){const s=typeof l=="object"&&l.target||document,i=typeof l=="object"?l.zoom:l;window[D]||(Object.defineProperty(window,D,{configurable:!0,value:!0}),document.body.style.zoom=1.0001,document.body.offsetHeight,document.body.style.zoom=1,window.addEventListener("message",({data:e,origin:t})=>{if(t===window.origin)try{if(e&&typeof e=="string"&&e.startsWith(z)){const[,o]=e.split(","),a=Number.parseFloat(o);Number.isNaN(a)||(O=a)}}catch(o){console.error(o)}}));let n=!1;Array.from(s.querySelectorAll("svg[data-marpit-svg]"),e=>{var t,o,a,p;e.style.transform||(e.style.transform="translateZ(0)");const h=i||O||e.currentScale||1;H!==h&&(H=h,n=h);const f=e.getBoundingClientRect(),{length:_}=e.children;for(let F=0;F<_;F+=1){const S=e.children[F];if(S.getScreenCTM){const y=S.getScreenCTM();if(y){const I=(o=(t=S.x)===null||t===void 0?void 0:t.baseVal.value)!==null&&o!==void 0?o:0,Z=(p=(a=S.y)===null||a===void 0?void 0:a.baseVal.value)!==null&&p!==void 0?p:0,Y=S.children.length;for(let R=0;R<Y;R+=1){const N=S.children[R];if(N.tagName==="SECTION"){const{style:q}=N;q.transformOrigin||(q.transformOrigin=`${-I}px ${-Z}px`),q.transform=`scale(${h}) matrix(${y.a}, ${y.b}, ${y.c}, ${y.d}, ${y.e-f.left}, ${y.f-f.top}) translateZ(0.0001px)`;break}}}}}}),n!==!1&&Array.from(s.querySelectorAll("iframe"),({contentWindow:e})=>{e?.postMessage(`${z}${n}`,window.origin==="null"?"*":window.origin)})}d(B,"u");function P({once:l=!1,target:s=document}={}){const i=function(n=document){if(n[A])return n[A];let e=!0;const t=d(()=>{e=!1,delete n[A]},"i");Object.defineProperty(n,A,{configurable:!0,value:t});let o=[],a=!1;(async()=>{try{o=await W()}finally{a=!0}})();const p=d(()=>{for(const h of o)h({target:n});a&&o.length===0||e&&window.requestAnimationFrame(p)},"o");return p(),t}(s);return l?(i(),()=>{}):i}d(P,"v"),H=1,O=void 0;const G=P,M=Symbol(),L=d((l=document)=>{if(typeof window>"u")throw new Error("Marp Core's browser script is valid only in browser context.");if(((e=document)=>{const t=window[j];t||customElements.define("marp-auto-scaling",r);for(const o of Object.keys(x)){const a=`marp-${o}`,p=x[o].proto();v!=null||(v=!!document.createElement("div",{is:"marp-auto-scaling"}).outerHTML.startsWith("<div is")),v&&p!==HTMLElement?t||customElements.define(a,m(p,{style:x[o].style}),{extends:o}):(t||customElements.define(a,m(HTMLElement,x[o])),e.querySelectorAll(`${o}[is="${a}"]`).forEach(h=>{h.outerHTML=h.outerHTML.replace(new RegExp(`^<${o}`,"i"),`<${a}`).replace(new RegExp(`</${o}>$`,"i"),`</${a}>`)}))}window[j]=!0})(l),l[M])return l[M];const s=P({target:l}),i=d(()=>{s(),delete l[M]},"n"),n=Object.assign(i,{cleanup:i,update:()=>L(l)});return Object.defineProperty(l,M,{configurable:!0,value:n}),n},"y");b.browser=L,g=L,g=G}},E={};function V(w){var b=E[w];if(b!==void 0)return b.exports;var g=E[w]={exports:{}};return $[w](g,g.exports,V),g.exports}d(V,"__webpack_require__");var J={};(()=>{"use strict";var w=V(676);function b(){let u,c;const r=d(()=>{const m=document.getElementById("__marp-vscode"),v=!!m;u!==v?(document.body.classList.toggle("marp-vscode",v),v?c=(0,w.browser)():(c?.cleanup(),c=void 0),u=v):v&&c?.update(),u?(m&&g(m),x()):k()},"updateCallback");window.addEventListener("load",()=>window.setTimeout(r,100)),window.addEventListener("vscode.markdown.updateContent",r),r()}d(b,"preview");const g=d(u=>{u.querySelectorAll("[is]").forEach(c=>{if(c.nodeName.includes("-")||document.createElement(c.nodeName).constructor!==c.constructor)return;const{outerHTML:m}=c;c.outerHTML=m,console.debug("[marp-vscode] Custom element has been upgraded forcibly:",m.slice(0,m.indexOf(">")+1||void 0))})},"forceUpgradeCustomElements"),x=d(()=>{const u=document.querySelectorAll("style:not(#__marp-vscode-style,#_defaultStyles,[data-marp-vscode-body])"),c=document.querySelectorAll('link[rel="stylesheet"][href]:not([href*="marp-vscode"])');u.forEach(r=>{r.closest("#__marp-vscode")||(r.dataset.marpVscodeBody=r.textContent??"",r.textContent="")}),c.forEach(r=>{if(r.closest("#__marp-vscode"))return;const{href:m}=r;r.dataset.marpVscodeHref=m,r.removeAttribute("href")})},"removeStyles"),k=d(()=>{const u=document.querySelectorAll("style[data-marp-vscode-body]"),c=document.querySelectorAll("link[data-marp-vscode-href]");u.forEach(r=>{r.textContent=r.dataset.marpVscodeBody||"",delete r.dataset.marpVscodeBody}),c.forEach(r=>{r.href=r.dataset.marpVscodeHref||"",delete r.dataset.marpVscodeHref})},"restoreStyles");b()})()})();})();
+
+</script>
+
+    </body>
+    </html>

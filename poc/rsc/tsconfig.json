@@ -1,0 +1,13 @@
+{
+   "compilerOptions": {     
+      "strict": false,
+      "outDir": "builds",
+      "skipLibCheck": true,
+      "esModuleInterop": true,
+      "forceConsistentCasingInFileNames": true,
+      "allowSyntheticDefaultImports": true,
+      "module": "CommonJS",
+      "target": "es2016",    
+      "jsx": "react" 
+    }
+}

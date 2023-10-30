@@ -1,0 +1,18 @@
+TODO
+
+RENDERING
+* pre-rendered component in build-time (use cases)
+* serving 3 fases = for html | Loading | Error
+* <Suspense> -> [await]
+* add middleware
+
+React.server()
+     .handle(req => req)
+
+ROUTING
+* params with folder-based routing
+* 
+
+STYLING
+* layout props (cols, etc)
+* CSS framework parsings (IoC)

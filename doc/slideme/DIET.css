@@ -1,0 +1,31 @@
+@import url("./@index.css");
+
+h1 {
+   text-align: center;
+   font-weight: bold !important;
+}
+
+small { font-size: 0.7em !important; }
+
+article { 
+   display: grid;
+   grid-template-columns: 1fr 1fr;
+   gap: 30px;
+}
+
+article[cols='3:1'] { grid-template-columns: 3fr 1fr; }
+article[cols='2:1'] { grid-template-columns: 2fr 1fr; }
+article[cols='3:2'] { grid-template-columns: 3fr 2fr; }
+article[cols='4:3'] { grid-template-columns: 4fr 3fr; }
+article[cols='4:2'] { grid-template-columns: 4fr 2fr; }
+article[cols='5:3'] { grid-template-columns: 5fr 3fr; }
+article[cols='7:4'] { grid-template-columns: 7fr 4fr; }
+
+h2 { text-align:center; }
+
+li {
+   font-family: agave, monospace !important;
+   font-size: 0.9em !important;
+   margin-left: -40px;
+   padding-left: 10px;
+}
