@@ -1,13 +1,13 @@
 <style>@import url('./README.CSS');</style>
 
-# Reactive Framework
+# Reactful Framework
 
 <center top='-43' spacing='3' grey>
    Raw, easy and simple React micro-framework
 </center>
 <center top='-10' zoom='+15%'>
 
-**create** | **styler** | **server** | **render** | **router** | **binder** | **syncer**
+**runner** | **styler** | **server** | **render** | **router** | **binder** | **syncer**
 
 </center>
 

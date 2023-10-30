@@ -6,12 +6,12 @@ class:
   - invert
 ---
 
-# Reactive Diet
+# Reactful Diet
 
 ---
 <!-- transition: fade 300ms -->
 
-## Reactive Diet `#0`
+## Reactful Diet `#0`
 
 
 ```tsx
@@ -53,7 +53,7 @@ ReactDOM.createRoot(document.getElementById("root"))
 
 ---
 
-## Reactive Diet `#1`
+## Reactful Diet `#1`
 
 <article cols='5:3'><aside>
 
@@ -109,7 +109,7 @@ React.createDOM("#...").render(...)
 
 ---
 
-## Reactive Diet `#2`
+## Reactful Diet `#2`
 
 <article cols='5:3'><aside>
 
@@ -166,7 +166,7 @@ section { ... } /* tag selecting */
 
 ---
 
-## Reactive Diet `#3`
+## Reactful Diet `#3`
 
 <article cols='5:3'><aside>
 
@@ -215,7 +215,7 @@ React.createDOM("#root").render(App)
 
 ---
 
-## Reactive Diet `#4`
+## Reactful Diet `#4`
 
 <article cols='5:3'><aside>
 
@@ -264,7 +264,7 @@ React.createDOM("#root")
 
 ---
 
-## Reactive Diet `#5`
+## Reactful Diet `#5`
 
 <article cols='5:3'><aside>
 
@@ -313,7 +313,7 @@ const StatefulProps = p => <>
 
 ---
 
-## Reactive Diet `#6`
+## Reactful Diet `#6`
 
 <article cols='5:3'><aside>
 
@@ -361,7 +361,7 @@ React.createDOM("#root").addStore(AppStore).render(App)
 
 ---
 
-## Reactive Diet `versus` (<small>-41% lines | -52% chars </small>)
+## Reactful Diet `versus` (<small>-41% lines | -52% chars </small>)
 
 <article cols='7:4'><aside>
 

@@ -2,7 +2,7 @@
     <html>
     <head>
         <meta charset="UTF-8">
-        <title>creating</title>
+        <title>runner</title>
         <style>
 /* From extension vscode.github */
 /*---------------------------------------------------------------------------------------------
@@ -116,20 +116,34 @@ body.marp-vscode blockquote {
     </head>
     <body class="vscode-body vscode-dark">
         <style>@import url('../README.CSS');</style>
-<h2 id="creating">creating</h2>
+<h2 id="runner">runner</h2>
+<center top='-15'>
+<p>project creator, folder structure and script runner</p>
+</center>
 <h3 id="installation">Installation</h3>
-<p>To start a new project its needs deno installed.</p>
-<pre><code class="language-properties"><span class="hljs-attr">deno</span> <span class="hljs-string">-A npm:reactful/create</span>
-<span class="hljs-attr">name?</span> <span class="hljs-string">my-project</span>
-<span class="hljs-attr">OS?</span> <span class="hljs-string">windows | linux | mac?</span>
+<p>Reactful has a script creation based in deno + vite, but all defaults could be replaceable with manual instalation.</p>
+<pre><code class="language-cmd">&gt; deno run -A npm:create-reactful@latest
+</code></pre>
+<p>The CLI will install 3 dependencies: react, reactful and typescript.</p>
+<pre><code>-------------------------------------------
+          @reactful CLI creator
+-------------------------------------------
+= project name? my-first-reactful-project
+= OS (windows=1 | linux=2 | mac=2)? 1
+  
+installing packages...
+- react
+- reactful
+- typescript
 </code></pre>
 <p>After started will show a basic tutorial</p>
-<pre><code class="language-properties">   <span class="hljs-attr">cd</span> <span class="hljs-string">sample</span>
-   <span class="hljs-attr">run</span> <span class="hljs-string">dev    -- debug watching</span>
-   <span class="hljs-attr">run</span> <span class="hljs-string">build  -- build release</span>
-   <span class="hljs-attr">run</span> <span class="hljs-string">server -- run release</span>
+<pre><code class="language-properties"><span class="hljs-attr">cd</span> <span class="hljs-string">my-first-reactful-project</span>
+<span class="hljs-attr">run</span> <span class="hljs-string">dev    -- debug watching</span>
+<span class="hljs-attr">run</span> <span class="hljs-string">build  -- build release</span>
+<span class="hljs-attr">run</span> <span class="hljs-string">server -- run release</span>
 </code></pre>
-<p>The run script is downloaded base in witch OS is chose. As a simple script, it could be freely modified or expanded as well.</p>
+<h3 id="getting-started">Getting started</h3>
+<p>The project starts with os-dependent run script with all starter command using deno and vite. As a script, it could be freely modified or extended.</p>
 <pre><code class="language-cmd"><span class="hljs-built_in">set</span> ARG=&quot;-A --node-modules-<span class="hljs-built_in">dir</span>&quot;
 
 <span class="hljs-keyword">if</span> &quot;%<span class="hljs-number">1</span>&quot;==&quot;&quot; ( deno run <span class="hljs-variable">%ARG%</span> npm:vite )
@@ -137,71 +151,11 @@ body.marp-vscode blockquote {
 
 ...etc
 </code></pre>
-<h3 id="structure">Structure</h3>
-<p>Project is simple structured with <strong>pub</strong>, <strong>lib</strong> and <strong>src</strong> folders, and with <code>.gitignore</code>, <code>server.js</code>, <code>README.md</code> and <code>run</code> files. Some folder are only enabled by specific modules, as mentioned below between parentheses.</p>
-<section folder>
-<table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>pub/</td>
-<td>optimized version for production publication</td>
-</tr>
-<tr>
-<td>lib/</td>
-<td>node_module folder alias</td>
-</tr>
-<tr>
-<td>src/</td>
-<td>project</td>
-</tr>
-<tr>
-<td> ├ assets/</td>
-<td>public content: CSS, images, etc</td>
-</tr>
-<tr>
-<td> ├ commons/</td>
-<td>shared content: types, interfaces, etc</td>
-</tr>
-<tr>
-<td> ├ components/</td>
-<td>JSX custom elements (render-only)</td>
-</tr>
-<tr>
-<td> ├ directives/</td>
-<td>custom attribute handlers</td>
-</tr>
-<tr>
-<td> ├ layouts/</td>
-<td>partial HTMLs (router-only)</td>
-</tr>
-<tr>
-<td> ├ routes/</td>
-<td>HTML pages (router-only)</td>
-</tr>
-<tr>
-<td> ├ index.html</td>
-<td>entry HTML</td>
-</tr>
-<tr>
-<td> └ index.tsx</td>
-<td>root component</td>
-</tr>
-</tbody>
-</table>
-</section>
-<h3 id="startup">Startup</h3>
-<p>New React startup by server rendering default (hybrid rendering) with support to async component in client and server side.</p>
+<p>Instead of usual importing, a anonymous @reactful import, extends React module itself, adding a the new <code>server()</code> function for server-side rendering (SSR) based in React Server Components (RSC).</p>
 <pre><code class="language-tsx"><span class="hljs-keyword">import</span> <span class="hljs-string">&#x27;@reactful/server&#x27;</span>
 <span class="hljs-keyword">import</span> <span class="hljs-title class_">React</span> <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;react&#x27;</span>
 
-<span class="hljs-title class_">React</span>.<span class="hljs-title function_">server</span>(<span class="hljs-string">&quot;/index.html&quot;</span>)
-     .<span class="hljs-title function_">render</span>(<span class="hljs-title class_">App</span>)
+<span class="hljs-title class_">React</span>.<span class="hljs-title function_">server</span>(<span class="hljs-string">&quot;routes/index.html&quot;</span>).<span class="hljs-title function_">render</span>(<span class="hljs-title class_">App</span>)
 </code></pre>
 <style>
    section[folder] {
@@ -215,15 +169,134 @@ body.marp-vscode blockquote {
    }
    section[folder] 
 </style>
-<p>Reactive is as a compreensive SPA framework features, but each package coulde be separatelly imported by <code>@reactful</code> modules.</p>
-<aside cols='2'>
-<pre><code class="language-tsx"><span class="hljs-comment">// independent packages</span>
-<span class="hljs-keyword">import</span> <span class="hljs-string">&#x27;@reactful/server&#x27;</span>
+<p>Reactful is a modular framework with SSR as core feature, it means that you could just import particular module, instead of full framework.</p>
+<aside cols='2' top='-20'><div>
+<h4 id="all-framework">all <code>framework</code></h4>
+<pre><code class="language-tsx"><span class="hljs-keyword">import</span> <span class="hljs-string">&#x27;@reactful&#x27;</span>
 </code></pre>
-<pre><code class="language-tsx"><span class="hljs-comment">// all-in-one packages</span>
-<span class="hljs-keyword">import</span> <span class="hljs-string">&#x27;@reactful&#x27;</span>
+</div><div>
+<h4 id="ssr-only"><code>SSR</code> only</h4>
+<pre><code class="language-tsx"><span class="hljs-keyword">import</span> <span class="hljs-string">&#x27;@reactful/server&#x27;</span>
 </code></pre>
-</aside>
+</div></aside>
+<h3 id="source-structure">Source structure</h3>
+<p>Project is flatten structured with configuration-only root files added with server.js startup node server.</p>
+<style>
+   section[folder] td:first-of-type { color:white !important  }
+</style>
+<h4 id="root-files">root files</h4>
+<section folder>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>.env</td>
+<td>environment files</td>
+</tr>
+<tr>
+<td>.gitignore</td>
+<td>git ignore files</td>
+</tr>
+<tr>
+<td>.deno.lock</td>
+<td>Deno lock file</td>
+</tr>
+<tr>
+<td><a href="http://README.html">README.md</a></td>
+<td>project documentatoin</td>
+</tr>
+<tr>
+<td>server.js</td>
+<td>startup node server</td>
+</tr>
+<tr>
+<td>run.bat</td>
+<td>OS dependent runner file</td>
+</tr>
+</tbody>
+</table>
+</section>
+<h4 id="root-folders">root folders</h4>
+<p>Project is flatten one-level structured without 'src' or 'app' extra folder project, the root folder project is the 'src' itself.</p>
+<section folder>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/apis</td>
+<td><strong>optional</strong> RESTful api</td>
+</tr>
+<tr>
+<td>/assets</td>
+<td>public content: CSS, images, etc</td>
+</tr>
+<tr>
+<td>/commons</td>
+<td>shared content: types, interfaces, etc</td>
+</tr>
+<tr>
+<td>/components</td>
+<td>JSX components (custom element)</td>
+</tr>
+<tr>
+<td>/directives</td>
+<td>custom attribute handlers</td>
+</tr>
+<tr>
+<td>/libraries</td>
+<td><strong>optinal</strong> NPM package content</td>
+</tr>
+<tr>
+<td>/releases</td>
+<td>build content (A.K.A. dist)</td>
+</tr>
+<tr>
+<td>/routes</td>
+<td>HTML pages (index.html)</td>
+</tr>
+</tbody>
+</table>
+</section>
+<h4 id="routes-folder"><strong>routes</strong> folder</h4>
+<p>A simple folder-based routing is served here that is complemented with component scope routing for advanced route features (like params).</p>
+<section folder>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/about</td>
+<td>sample about page</td>
+</tr>
+<tr>
+<td>/todos</td>
+<td>sample todos page</td>
+</tr>
+<tr>
+<td>index.html</td>
+<td>entry HTML</td>
+</tr>
+<tr>
+<td>header.html</td>
+<td>Deno lock file</td>
+</tr>
+</tbody>
+</table>
+</section>
         
         <script async type="text/javascript">
 /* From extension marp-team.marp-vscode */
