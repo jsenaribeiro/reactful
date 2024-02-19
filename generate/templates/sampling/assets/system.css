@@ -1,0 +1,7 @@
+h2 { 
+   color:green; 
+   font-weight: bolder; 
+   border-bottom: solid 3px dimgray;
+   font-family: 'Bebas Neue', quicksand, sans-serif !important;   
+   font-size: 50px !important;
+}

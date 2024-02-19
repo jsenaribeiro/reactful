@@ -1,0 +1,23 @@
+{
+   "exclude": ["node_modules", "npm"],
+   "compilerOptions": {
+      "types": ["bun-types"],
+      "strict": false,
+      "target": "esnext",
+      "module": "esnext",
+      "sourceMap": true,
+      "outDir": "./npm",
+      "rootDir": "./src",
+      "declaration": true,
+      "esModuleInterop": true,
+      "moduleDetection": "auto",
+      "moduleResolution": "bundler",
+      "allowJs": true,
+      "composite": true,
+      "skipLibCheck": true,
+      "noImplicitAny": false,
+      "downlevelIteration": true,
+      "allowSyntheticDefaultImports": true,
+      "forceConsistentCasingInFileNames": true
+   }
+}

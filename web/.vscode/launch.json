@@ -1,0 +1,11 @@
+{
+   "version": "0.2.0",
+   "configurations": [
+       {
+         "name": "Bun: Debug",
+         "type": "bun",
+         "request": "launch",
+         "program": "poc/index.ts"
+       }
+   ]
+}

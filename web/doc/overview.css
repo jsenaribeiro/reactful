@@ -1,0 +1,39 @@
+@import url(./index.css);
+
+[cols] { margin-top:-10px; }
+
+fieldset:not(.hidden) > legend ~ i { display:none }
+.hidden > *:not(legend,i) { display: none; }
+.hidden > *:not(legend,i) { display: none; }
+
+html { overflow: hidden !important; }
+h1 em { color:dimgrey !important }
+h1 { 
+   font-size:27px !important; 
+   letter-spacing:-1px; 
+   line-height: 51px;
+}
+
+fieldset legend:hover  { filter: hue-rotate(195deg) brightness(1.4) saturate(0.5);}
+
+article { padding: 0 20px; }
+
+h1 { padding-bottom: 0px; };
+h1 strong { color: wheat !important; }
+
+blockquote {
+   font-size: 13px !important;
+   text-align: center;
+   margin-top: -15px;
+   margin-left: -3px;   
+   line-height: 20px;
+}
+
+a[review] {
+   float: right;
+   display: block;
+   font-size: 15px;
+   background: #222;
+   margin-top: -29px;
+   font-weight: bold;
+}

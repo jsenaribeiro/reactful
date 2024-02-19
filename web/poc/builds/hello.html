@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="description" content="Home page">
+      <meta name="theme-color" content="#333">
+      <link rel="stylesheet" href="/assets/markdown.css">
+      <link rel="stylesheet" href="/assets/default.css">
+      <link rel="manifest" href="/assets/manifest.json">
+      <title>Hello</title>
+      <meta name='description' content='Hello forms...' />
+      <meta name='title' content='Hello' />
+   <script src='/mnt/b/Repositorios/reactive/poc/builds/shared.js'></script>
+      <script type='module' src='/mnt/b/Repositorios/reactive/poc/builds/bundle.js'></script></head>
+   <body>
+      <div id='root'>
+         <jsx tag="jsx" uid="2" own="default"
+            src="/mnt/b/Repositorios/reactive/poc/routes/hello.tsx" hidden class="default">
+            <h1 style="color:wheat">Hello Forms</h1>
+            <main gaps="0 10px" cols="1">
+               <label>
+                  <b>LOCAL state </b> <code>function(props)</code>
+                  <br />
+                  <input id="1" data="[object Object]" bind="value" placeholder="{props}" />
+                  <input id="1.1" bind="value" placeholder="default" />
+                  <input id="1.1.1" placeholder="inner" data="[object Object]" bind="value" />
+                  <label> = </label>
+               </label>
+               <label>
+                  <b>GLOBAL state</b> <code>function(props, <!-- -->{ store }<!-- -->)</code>
+                  <br />
+                  <input id="2" data="[object Object]" bind="value" placeholder="outer" />
+                  <input id="2.1" placeholder="inner" bind="value" />
+               </label>
+               <label>
+                  <b>ORBITAL state</b> <code>useStore(...) + @state(...) </code>
+                  <br />
+                  <input id="3" data="[object Object]" bind="value" placeholder="outer" />
+                  <input id="3.1" placeholder="inner" data="[object Object]" bind="value" />
+                  <input id="3.2" data="[object Object]" bind="value" placeholder="other" /> =
+                  <!-- -->1</label>
+            </main>
+            <br />
+            <hr />
+            <code>
+               <strong>local</strong>: <label id="l1">
+               </label>
+               <br />
+               <strong>global</strong>: <label id="l2">
+               </label>
+               <br />
+               <strong>orbital</strong>: <label id="l3">0</label>
+            </code>
+         </jsx>
+      </div>
+   </body>
+</html>

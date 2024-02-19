@@ -1,0 +1,50 @@
+"use server"
+
+import { Path, JSXON } from "@reactful/commons"
+import { response } from "@reactful/commons"
+import { stream, isStream } from "./stream"
+import { mergeHTML } from "../build"
+import { parser } from '../serve'
+import { env } from '@reactful/commons'
+import { ssg } from './static'
+
+const settings = env.settings
+
+export async function routing(request: Request) {
+   if (!isRoute(request)) return undefined
+   const route = new Path(request.url).href
+
+   // @route : dynamic site generation (decorator)   
+   const { call, href } = await env.let(route)
+   const html = call && await renderize(call, href)
+   const HTML = html && await mergeHTML(call, href, html)
+   if (HTML) return response(200, HTML, "text/html")
+
+   // dsg : dynamic site generation (folder)
+   const rendering = settings.renders.find(x => x.href == href)
+   const isDynamic = rendering?.mode == "dynamic"
+   if (isDynamic) return await stream(href, "html")
+
+   // ssg: static site generation (default)
+   return await ssg(href.replace(/\/$/, ''))
+}
+
+// rendering JSX to HTML in each routing item
+async function renderize(call: RFC, href: string) {   
+   const node = await parser(call, href)
+   const html = node && JSXON.htmlfy(node)
+   return html
+} 
+
+const isRoute = (request: Request) =>
+      isRequestRoute(request) 
+   && isPathRoute(new Path(request.url))
+   && request.url.equal(/\.[\w\d]+$/) == false
+
+const isRequestRoute = (request: Request) => isStream(request) == false
+
+const isPathRoute = (path: Path) => 
+       path.href.startsWith("/") 
+   && !path.href.startsWith("/api/")
+   && !path.href.startsWith("/assets/")
+   && !path.href.equal(/\.[\w\d]+$/)

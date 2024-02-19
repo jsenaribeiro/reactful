@@ -1,0 +1,28 @@
+{
+   "include": [
+      "src/**/*", 
+      "tmp/**/*",
+      "poc/**/*", 
+   ],
+   "compilerOptions": {
+      "types": ["bun-types"],
+      "module": "esnext",
+      "target": "esnext",
+      "jsx": "react-jsx",
+      "outDir": "./npm",
+      "rootDir": "./src",
+      "moduleDetection": "auto",
+      "moduleResolution": "bundler",
+      "noEmit": true,
+      "strict": true,
+      "allowJs": true,
+      "composite": true,
+      "skipLibCheck": true,
+      "noImplicitAny": false,
+      "esModuleInterop": true,
+      "downlevelIteration": true,
+      "allowImportingTsExtensions": true,
+      "allowSyntheticDefaultImports": true,
+      "forceConsistentCasingInFileNames": true
+   }
+}

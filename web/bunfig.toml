@@ -1,0 +1,20 @@
+[install.cache]
+dir = "~/.bun/install/cache"
+disable = false
+disableManifest = false
+preload = ["./src/plugins/index.ts"]
+
+[test]
+files = ['**/*.test.*']
+ignore = ["node_modules/**"]
+preload = [
+   "./src/happy.dom.ts", 
+   "./src/plugins/index.ts"
+]
+
+[playwright]
+typescript = true
+
+[runner]
+command = "npx ts-node"
+args = ["bun", "test"]

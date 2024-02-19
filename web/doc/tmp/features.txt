@@ -1,0 +1,105 @@
+description
+   name: reactive|vanilla|react-
+   qualities: easy fast lean lite full easy nice
+   specs: bun-based pwa-ready server-first 
+   features: partial-hydration embedded-swr streamed-ssr prefetch-route render-refocus
+   defaults: server-side first, no-cache fetch
+   concepts: props directive, function decorator, dependency injection
+   ignoreds: parallel waterfal requests
+
+
+--- library -----------
+server: md jsx html 
+        /api /assets /routes
+        static dynamic periodic 
+
+router: /route @route [route] 
+        ./nest  :param [routed]
+         @seo    @auth  @error
+
+styler: @styler .global /modular.css
+        [grid] [cols] [gaps]
+        [range] [mode] [query] ???
+
+storer: local global modular
+        route fetch build
+
+binder: [bind] [data] form[data]
+        action validation authentication
+        
+feeder: props directive
+        error handling
+        global store 
+
+auther: login logged logout
+
+helper: swr ext url
+
+--- advantages -----
+easy vanila-like low-learning curve
+fast bun-based SPA with ssr + swr + ssg
+lite minified gzip bundle.js
+lean stateful proxy objects
+full static, dynamic and periodic render
+bold di + function decorator + props directive
+nice stateless-like clean components
+
+
+
+
+
+
+
+
+
+
+
+
+SERVER-SIDE RENDERING
+   @server: stateless async
+      file: md jsx html
+      path: /api /assets /routes
+      mode: static dynamic periodic
+   @client: stateful sync
+      state
+         local props 
+         global feeds
+         modular state (?)
+      binds
+         data: [data] [bind]
+         form: form[data] [bind] + action + validation + authentication
+         auth: form[action + format='jwt/bearer'] | @auth({role: ''})
+   @hybrid   
+      css 
+         @style
+         globalTag
+         modularCSS
+      api
+         explicit: revalidate fetch.clear | fetch({ cache:time })
+         implicit: url cached + post|put|delete revalidate
+      ext
+         promise.asLazy
+         request.query request.route
+         array.distinct array.toObject Array.range            
+         string.found string.query string.toNumber
+         function.isAsync
+         JSON.scriptify
+         number.format
+
+
+------------ authentication + authorization
+const SignIn = (props, feeds: Context<{name:string}>) => <>
+   { !feeds.errors.length ? feeds.routes.goto('./') : null }
+
+   logged user: { feeds.logged.name }
+
+   <form action="http://api/login" >
+      <label>Username: <input/></label>   
+      <label>Password: <input/></label>   
+      <submit>Login</submit>
+   </form>
+</>
+
+@auth('name')
+function Profile() {}
+

@@ -1,0 +1,28 @@
+{
+   "version": "0.0.113",
+   "main": "npm/index.js",
+   "name": "@reactful/server",
+   "description": "@reactful server",
+   "author": "JonathanSR <jsenaribeiro@gmail.com> (https://github.com/jsenaribeiro)",
+   "license": "MIT",
+   "scripts": {
+      "clear": "rm -rf node_modules npm package-lock.json bun.lockb; mkdir npm; bun i; bun run build",
+      "build": "rm -rf tsconfig.tsbuildinfo; bunx tsc --declaration",
+      "deploy": "bun run build; npm publish --access public"
+   },
+   "devDependencies": {
+      "bun-types": "latest",
+      "typescript": "latest"
+   },
+   "dependencies": {
+      "@reactful/commons": "latest",
+      "@reactful/extensions": "latest",
+      "css": "^3.0.0",
+      "fs": "^0.0.1-security",
+      "html-format": "latest",
+      "jsdom": "latest",
+      "marked": "latest",
+      "react-dom": "latest",
+      "reactful/commons": "reactful/commons"
+   }
+}

@@ -1,0 +1,27 @@
+fixings
+- npm: server, framework, install
+- hot loading not working
+- fix playwright tests
+
+pendings
+- create npm package
+- export types from npm
+- npm modules /server + /extensions
+- individual suspenses?
+- mount markdown lib css
+- mutar para reactlet: github, doc, video
+- article: problems, foundations, etc
+- library propers in env.propers at start
+- link fmw client.ts with server/bundle
+
+warnings
+- function decorator intelisense warning (pending)
+- custom props directive no support imports
+- modular CSS not support pseudo-selectors
+- no inner async component intelisense 
+
+modularization
+- @reactful/install    : scafold
+- @reactful/framework  : framework
+- @reactful/extensions : prototypes
+

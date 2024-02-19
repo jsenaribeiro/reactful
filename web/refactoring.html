@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>Refactoring</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 13px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+        <style>
+
+</style>
+        </head>
+        <body class="vscode-body vscode-dark">
+            <h1 id="refactoring">Refactoring</h1>
+<h3 id="moduling">MODULING</h3>
+<table>
+<thead>
+<tr>
+<th>module</th>
+<th>resources</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>server</td>
+<td>inject, server, import</td>
+</tr>
+<tr>
+<td>router</td>
+<td>server, stream, @route, routeProps, useRoute</td>
+</tr>
+<tr>
+<td>binder</td>
+<td>bindProps, formProps, useStore</td>
+</tr>
+<tr>
+<td>render</td>
+<td>@seo, @server, @client, htmlfy, parser, proper, common, client, server</td>
+</tr>
+<tr>
+<td>styler</td>
+<td>cssProps, cssPlugin, parser, server, client</td>
+</tr>
+<tr>
+<td>runner</td>
+<td>build, client, merge, filer, validate, create</td>
+</tr>
+<tr>
+<td>either</td>
+<td>Path(FileApi), @plugin, throws, delay, response</td>
+</tr>
+</tbody>
+</table>
+<h3 id="packaging">PACKAGING</h3>
+<p>Encapsulates <code>react</code> + <code>react-dom</code> with SSR and new state handling.</p>
+<ul>
+<li><code>react-</code></li>
+<li><code>create-react-</code></li>
+<li><code>react-extensions</code></li>
+</ul>
+<pre><code class="language-tsx"><span class="hljs-keyword">import</span> <span class="hljs-title class_">React</span>, { seo, server } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;react-&#x27;</span>
+<span class="hljs-keyword">import</span> <span class="hljs-string">&#x27;react-extensions&#x27;</span>
+
+<span class="hljs-keyword">await</span> <span class="hljs-title class_">React</span>.<span class="hljs-title function_">server</span>(<span class="hljs-string">&quot;#root&quot;</span>).<span class="hljs-title function_">inject</span>(own).<span class="hljs-title function_">render</span>()
+
+@<span class="hljs-title function_">server</span>(<span class="hljs-literal">true</span>)
+@<span class="hljs-title function_">seo</span>(<span class="hljs-string">&#x27;title&#x27;</span>, <span class="hljs-string">&#x27;description...&#x27;</span>)
+<span class="hljs-keyword">const</span> <span class="hljs-title function_">Hello</span> = props =&gt; <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Hello World!<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span>
+</code></pre>
+
+            
+            
+        </body>
+        </html>

@@ -1,0 +1,13 @@
+{
+  "version": "0.1.0",
+  "main": "npm/index.js",
+  "name": "react-fmw",
+  "description": "reactive",
+  "author": "JonathanSR <jsenaribeiro@gmail.com> (https://github.com/jsenaribeiro)",
+  "license": "MIT",
+  "scripts": {
+    "clear": "rm -rf node_modules npm package-lock.json bun.lockb; mkdir npm; bun i; bun run build",
+    "build": "rm -rf tsconfig.tsbuildinfo; bunx tsc --declaration",
+    "deploy": "bun run build; npm publish --access public"
+  }
+}

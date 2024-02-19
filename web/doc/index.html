@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="./index.css">
+   <script src="./index.js"></script>
+   <title>reactive.js</title>
+</head>
+
+<body onload="startup()">
+   <style>
+      #title span { font-size: 39px }
+      a { font-size:19px; font-weight: bolder; }
+      html { overflow: hidden !important; }
+   </style>   
+
+   <main iframe hidden>
+      <iframe id="iframe"></iframe>
+   </main>
+   
+   <main index>
+      <h1 id='title'>
+         <logo></logo><code>eactive</code><span>.js</span>
+      </h1>
+      <hr />
+
+      <center style='text-align: center !important; padding: 15px;'>
+         <blockquote> minimalist full-stack React Framework
+            <br />with full SSR and simplified states
+         </blockquote>
+         <br/><a href='#' onclick="goto('./overview.html')">documentation</a>
+      </center>
+      
+      <video width="500" height="auto" autoplay loop muted>
+         <source src="./avi/intro.mp4" type="video/mp4">
+         Seu navegador não suporta o elemento de vídeo.
+     </video>
+   </main>
+
+   <script>
+   </script>
+</body>
+
+</html>

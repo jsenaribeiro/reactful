@@ -1,0 +1,14 @@
+{
+  "name": "@reactful/install",
+  "version": "0.0.3",
+  "description": "reactive scafold tool",
+  "main": "index.js",
+  "author": "jonathan de sena ribeiro <jsenaribeiro@gmail.com> (https://github.com/jsenaribeiro)",
+  "license": "MIT",
+  "devDependencies": {
+    "inquirer": "^9.2.13"
+  },
+  "dependencies": {
+    "fs": "^0.0.1-security"
+  }
+}

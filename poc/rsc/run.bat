@@ -1,1 +1,0 @@
-npm run build && node ./builds/server.js

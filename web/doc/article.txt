@@ -1,0 +1,37 @@
+destaques
+- delayed render algorithm
+
+1. Introdução:
+Tema e Contexto: Apresente o tema geral da sua dissertação e o contexto em que se insere.
+Problema de Pesquisa: Descreva o problema que sua dissertação pretende abordar e sua relevância.
+
+2. Revisão da Literatura:
+Contextualização: Revise a literatura existente relacionada ao seu tema.
+Identificação de Lacunas: Identifique lacunas na pesquisa existente que sua dissertação pretende preencher.
+
+3. Objetivos de Pesquisa:
+Objetivo Geral: Declare o objetivo geral da sua pesquisa.
+Objetivos Específicos: Enumere os objetivos específicos que ajudarão a alcançar o objetivo geral.
+
+4. Metodologia:
+Abordagem de Pesquisa: Descreva se sua pesquisa será qualitativa, quantitativa ou mista.
+Métodos de Coleta de Dados: Descreva como você pretende coletar dados (entrevistas, questionários, análise de documentos, etc.).
+Análise de Dados: Explique como você analisará os dados coletados.
+
+5. Cronograma:
+Fases do Projeto: Divida seu projeto em fases, como revisão da literatura, coleta de dados, análise, redação, etc.
+Tempo Estimado: Estime quanto tempo você precisará para cada fase.
+
+6. Recursos Necessários:
+Recursos Humanos: Liste quem estará envolvido em seu projeto (você, orientador, participantes da pesquisa, etc.).
+Recursos Materiais: Liste qualquer material específico que você precisará (software, equipamentos, etc.).
+
+7. Orçamento:
+Custos: Estime os custos associados à sua pesquisa (viagens, materiais, custos de participação, etc.).
+
+8. Contribuições Esperadas:
+Acadêmicas: Liste as contribuições acadêmicas esperadas de sua pesquisa.
+Práticas: Descreva como sua pesquisa pode ter aplicações práticas.
+
+9. Referências:
+Bibliografia: Liste todas as fontes citadas ao longo do projeto de dissertação.

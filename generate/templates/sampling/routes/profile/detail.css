@@ -1,0 +1,8 @@
+h1 {
+   color: dimgrey;
+   font-size: 1.7rem;
+}
+
+button { padding: 10px 20px; }
+
+button[routed] { background: wheat; font-weight: bolder;  }
