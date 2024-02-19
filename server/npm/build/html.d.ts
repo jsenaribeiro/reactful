@@ -1,1 +1,1 @@
-export declare function HTMLizer(request: Request): Promise<any>;
+export declare function HTMLizer(request: Request): Promise<Response>;

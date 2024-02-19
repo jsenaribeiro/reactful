@@ -1,7 +1,9 @@
+import React from 'react'
 import { Detail } from './detail'
-import { seo, route } from 'reactive'
+import { seo, route } from '../../../src/index.ts'
 import './profile.css'
 
+//@ts-ignore
 @route("/profile/:id")
 @seo('Profile', 'Profile description')
 export default () => <>

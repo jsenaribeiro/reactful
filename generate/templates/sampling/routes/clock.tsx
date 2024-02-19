@@ -1,5 +1,5 @@
 import React, { Suspense } from 'react'
-import { server, seo } from 'reactive'
+import { server, seo } from '@reactful/web'
 
 @server("dynamic") 
 @seo('Time Zone', 'Time zone clock...')

@@ -324,7 +324,7 @@ Seach Engine Optimization (SEO) is handled by function decorators with full meta
 </div><div>
 
 ```tsx
-import { seo, MetaTags } from 'reactive'
+import { seo, MetaTags } from '@reactful/web'
 
 // title + description
 @seo('Home', 'A home page...')

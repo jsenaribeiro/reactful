@@ -1,9 +1,11 @@
-// import { useStore } from 'react-/client'
-import { client } from 'reactive'
+import React from 'react'
+import { client } from '../../../src/index.ts'
+import '@reactful/extensions'
 import './detail.css'
 
 const Tester = import('./tester.tsx').asLazyComponent("Tester")
 
+//@ts-ignore
 @client(true)
 export function Detail(_, feeds: Feeds) {
    return <>

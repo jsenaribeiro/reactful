@@ -1,5 +1,6 @@
 import OS from "os"
-import { seo, style } from 'reactive'
+import React from "react"
+import { seo, style } from '../../src/index.ts'
 
 const metatags: MetaTags = { 
    charset:"UTF-16", 
@@ -7,6 +8,7 @@ const metatags: MetaTags = {
    keywords:"hello, hi" 
 }
 
+//@ts-ignore
 @seo('System', metatags)
 @style('/assets/system.css')
 export default function System() {

@@ -1,6 +1,7 @@
 import React from 'react'
-import { seo, server, error } from 'reactive'
+import { seo, server, error } from '../../src/index.ts'
 
+//@ts-ignore
 @server("periodic", "30min")
 @error(specificErrorComponent)
 @seo('Quotes', 'Philosophy quotes...')

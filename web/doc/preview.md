@@ -146,7 +146,7 @@ await server("/routes", { store })
 ```
 
 ```tsx
-import { useStore } from 'reactive'
+import { useStore } from '@reactful/web'
 const store = useStore({ name: 'world' })
 @state(store) const Hi = props => etc...
 ```
@@ -165,7 +165,7 @@ Simple SEO using function decorators by @seo decorator with metatags support.
 <aside cols=2>
 
 ```tsx
-import { seo } from 'reactive'
+import { seo } from '@reactful/web'
 
 @seo('Home', 'A home page...')
 export function Home() { ... }
@@ -240,7 +240,7 @@ const Form = (props, { errors }) => <form data={props}
 It is possible custom props directives by dependency injection.
 
 ```tsx
-import { server } from 'reactive'
+import { server } from '@reactful/web'
 const shown = props => ({ ...props, hidden: !props.shown })
 await server("#root").inject(shown).render("#root")
 

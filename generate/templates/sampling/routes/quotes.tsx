@@ -1,5 +1,5 @@
 import React from 'react'
-import { seo, server, error } from 'reactive'
+import { seo, server, error } from '@reactful/web'
 
 @server("periodic", "30min")
 @error(specificErrorComponent)

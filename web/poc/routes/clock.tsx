@@ -1,18 +1,20 @@
 import React, { Suspense } from 'react'
-import { server, seo } from 'reactive'
+import { server, seo } from '../../src/index.ts'
 
 const loading = <h1>Loading</h1>
+const address = "https://timeapi.io/api/Time/current/zone?timeZone=Europe/Amsterdam"
 
+//@ts-ignore
 @server("dynamic") 
 @seo('Time Zone', 'Time zone clock...')
 export default function(props: any) {
-   return <Suspense fallback={loading}>
+   return <Suspense fallback={loading}>      
          <TimeZone />
       </Suspense>
 }
 
-async function TimeZone() {
-   const response = await fetch("https://timeapi.io/api/Time/current/zone?timeZone=Europe/Amsterdam")
+async function TimeZone() {   
+   const response = await fetch(address)
    const { year, month, day, hour, minute, seconds } = await response.json()
    const time = `${hour}:${minute}:${seconds}`
    const date = `${year}-${month}-${day}`

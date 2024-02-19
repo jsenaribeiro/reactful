@@ -2,7 +2,7 @@
 
 export const GLOBAL_KEY = Symbol.for("settings")
 
-import { routefy } from "./utils/routefy"
+import { routefy } from "./routefy"
 import { contextualizer } from "./context"
 import '@reactful/extensions'
 

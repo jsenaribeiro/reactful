@@ -1,18 +1,18 @@
 {
    "type": "module",
-   "name": "reactlet",
+   "name": "@reactful/web",
    "author": "Jonathan de Sena Ribeiro",
-   "description": "FullStack Reactive Framework",
+   "description": "React Framework for Web",
    "version": "0.0.1",
    "main": "index.js",
    "license": "MIT",
    "dependencies": {
-      "css": "^3.0.0",
-      "html-format": "^1.1.6",
-      "jsdom": "^23.0.1",
-      "marked": "^11.1.1",
-      "react": "^18.2.0",
-      "react-dom": "^18.2.0",
-      "zlib": "^1.0.5"
-    }
+      "@reactful/server": "latest",
+      "@reactful/commons": "latest",
+      "@reactful/extensions": "latest"
+   },
+   "devDependencies": {
+      "bun-types": "^1.0.20",
+      "typescript": "^5.3.3"
+   }
 }

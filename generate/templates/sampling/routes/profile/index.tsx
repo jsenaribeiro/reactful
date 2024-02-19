@@ -1,5 +1,5 @@
 import { Detail } from './detail'
-import { seo, route } from 'reactive'
+import { seo, route } from '@reactful/web'
 import './profile.css'
 
 @route("/profile/:id")

@@ -1,8 +1,9 @@
 "use client";
 import React from "react";
-import { env, PROXY, proper, params } from "@reactful/commons";
+import { env, PROXY, params } from "@reactful/commons";
 import { mountState, refocus } from "../state";
 import { styler } from "../guest/styler";
+import { proper } from "../extra";
 var latest = {};
 const raw = x => typeof x != "object";
 const rce = fce => React.createElement(fce, {});

@@ -58,7 +58,7 @@ Normal routes starts with slash (**/**), meanwhile nesting routes starts with do
 The @route functions decorator support route params with priority above folder routing.
 
 ```tsx
-import { route } from 'reactive'
+import { route } from '@reactful/web'
 
 @route('/whatever/profile/:id')
 export default async function Profile(props, { params }) {

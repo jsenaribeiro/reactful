@@ -1,5 +1,5 @@
 // import { useStore } from 'react-/client'
-import { client } from 'reactive'
+import { client } from '@reactful/web'
 import './detail.css'
 
 const Tester = import('./tester.tsx').asLazyComponent("Tester")

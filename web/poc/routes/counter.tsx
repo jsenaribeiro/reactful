@@ -1,6 +1,7 @@
 import React from 'react'
-import { seo, client } from 'reactive'
+import { seo, client } from '../../src/index.ts'
 
+//@ts-ignore
 @seo('Counter', '...')
 export default (props: any) => <>
    <h1>Counter</h1>
@@ -9,6 +10,7 @@ export default (props: any) => <>
    <h6 shown={false}>DONT SHOW ME!</h6>
 </>
 
+//@ts-ignore
 @client(true)
 export function CountButton(props: any, feeds: any) {
    function onClick() { props.count ||= 0; props.count++ }

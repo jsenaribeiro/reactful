@@ -1,9 +1,6 @@
 {
-   "include": [
-      "src/**/*", 
-      "tmp/**/*",
-      "poc/**/*", 
-   ],
+   "include": ["src", "poc", "tst"],
+   "exclude": ["node_modules", "doc", "npm"],
    "compilerOptions": {
       "types": ["bun-types"],
       "module": "esnext",

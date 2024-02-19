@@ -1,9 +1,11 @@
-import { seo, client, useStore, state } from "reactive"
+import React from 'react'
+import { seo, client, useStore, state } from '../../src/index.ts'
 import { Header } from '../components/header'
 
 const orbital1 = useStore({ value:0 })
 const orbital2 = useStore({ value:1 })
 
+//@ts-ignore
 @client(true)
 @state(orbital1)
 @state(orbital2)
@@ -53,6 +55,7 @@ function SubLocal(props) {
    return <><input {...props} data={props} bind='value' /><label> = {props.value}</label></>
 }
 
+//@ts-ignore
 @state(orbital1)
 function SubOrbital(props) {
    return <input {...props} data={orbital1} bind='value' />

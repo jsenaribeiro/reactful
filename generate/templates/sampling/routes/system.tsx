@@ -1,5 +1,5 @@
 import OS from "os"
-import { style } from 'reactive'
+import { style } from '@reactful/web'
 
 @style('/assets/system.css')
 export default function System() {

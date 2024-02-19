@@ -12,7 +12,7 @@
 SEO is achieved by @seo function decorator with title and description.
 
 ```tsx
-import { seo } from 'reactive'
+import { seo } from '@reactful/web'
 
 @seo('title', 'description')
 export const About(props) {
@@ -25,7 +25,7 @@ export const About(props) {
 The @seo decorator overload receives the main SEO metatags as object.
 
 ```tsx
-import { seo, MetaTag } from 'reactive'
+import { seo, MetaTag } from '@reactful/web'
 
 const metatags: MetaTag = { chartset: 'UTF-8', keywords: 'key1, key2' }
 
@@ -69,7 +69,7 @@ async function Todo(props) {
 Reactive supports Open Graph Protocol metatags as metatag object and inner JSX elements.
 
 ```tsx
-import { seo } from 'reactive'
+import { seo } from '@reactful/web'
 
 const metatags: ImageMetaTagOG = { 
    chartset: 'UTF-8', 

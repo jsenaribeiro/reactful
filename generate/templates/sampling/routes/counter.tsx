@@ -1,5 +1,5 @@
 import React from 'react'
-import { seo, client } from 'reactive'
+import { seo, client } from '@reactful/web'
 
 @seo('Counter', '...')
 export default (props: any) => <>

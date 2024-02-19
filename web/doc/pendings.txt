@@ -2,8 +2,10 @@ fixings
 - npm: server, framework, install
 - hot loading not working
 - fix playwright tests
+- shown custom directive type (poc - login.tsx)
 
 pendings
+- await props
 - create npm package
 - export types from npm
 - npm modules /server + /extensions

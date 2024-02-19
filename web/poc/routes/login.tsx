@@ -1,5 +1,9 @@
-import { client } from "reactive"
+// @ts-ignore: 1206
 
+import React from 'react'
+import { client } from '../../src/index.ts'
+
+//@ts-ignore
 @client(true)
 export default (props, feeds: Feeds) => <>
    <h1>Login</h1>   

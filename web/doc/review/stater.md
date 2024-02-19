@@ -60,7 +60,7 @@ export const myStore = useStore({ guid: 0, name: 'john', date: new Date() })
 After useStore object is changed, the render only will call in components where @state maps.
 
 ```tsx
-import { state } from 'reactive'
+import { state } from '@reactful/web'
 import { myStore } from './stores'
 
 @state(myStore)
