@@ -2,7 +2,7 @@
 
 import { Path, throws } from '@reactful/commons'
 import { BunFile } from 'bun'
-import '@reactful/prototypes'
+import '@reactful/extensions'
 
 export class File /*implements IFile*/ {
    public readonly blob: BunFile

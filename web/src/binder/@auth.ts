@@ -1,5 +1,4 @@
-import { IS_CLIENT_SIDE, IS_SERVER_SIDE, STATUS_CODE } from '@reactful/commons'
-import { env } from '@reactful/commons'
+import { env, STATUS_CODE } from '@reactful/commons'
 
 const { failure, context } = env.settings
 

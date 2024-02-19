@@ -1,6 +1,6 @@
 import React from 'react'
 import { Detail } from './detail'
-import { seo, route } from '../../../src/index.ts'
+import { seo, route } from '../../../src/index'
 import './profile.css'
 
 //@ts-ignore

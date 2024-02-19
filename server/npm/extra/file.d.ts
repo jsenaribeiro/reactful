@@ -1,7 +1,7 @@
 /// <reference types="bun-types" />
 /// <reference types="bun-types" />
 import { BunFile } from 'bun';
-import '@reactful/prototypes';
+import '@reactful/extensions';
 export declare class File {
     readonly blob: BunFile;
     readonly mime: string;

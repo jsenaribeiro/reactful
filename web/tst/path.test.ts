@@ -1,5 +1,5 @@
 import { test, expect } from 'bun:test'
-import { Path } from '../../core/src/utils/path'
+import { Path } from '@reactful/commons'
 
 const scenarios = [
    ['url', '/routes', '/'],

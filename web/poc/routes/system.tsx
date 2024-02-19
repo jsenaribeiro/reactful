@@ -1,6 +1,6 @@
 import OS from "os"
 import React from "react"
-import { seo, style } from '../../src/index.ts'
+import { seo, style } from '../../src/index'
 
 const metatags: MetaTags = { 
    charset:"UTF-16", 

@@ -1,5 +1,4 @@
 /// <reference lib="dom" />
-import '@reactful/extensions';
 export declare const GLOBAL_KEY: unique symbol;
 import '@reactful/extensions';
 interface IEnv {

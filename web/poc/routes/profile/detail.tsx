@@ -1,9 +1,9 @@
 import React from 'react'
-import { client } from '../../../src/index.ts'
+import { client } from '../../../src/index'
 import '@reactful/extensions'
 import './detail.css'
 
-const Tester = import('./tester.tsx').asLazyComponent("Tester")
+const Tester = import('./tester').asLazyComponent("Tester")
 
 //@ts-ignore
 @client(true)

@@ -1,7 +1,7 @@
 // @ts-ignore: 1206
 
 import React from 'react'
-import { client } from '../../src/index.ts'
+import { client } from '../../src/index'
 
 //@ts-ignore
 @client(true)

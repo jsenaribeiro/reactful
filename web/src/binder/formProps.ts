@@ -1,8 +1,8 @@
 "use client"
 
 import { onSubmitBinding, fixProps } from "./formBind"
-import { IS_SERVER_SIDE } from "../constants"
-import '../helper/object'
+
+const IS_SERVER_SIDE = !global.document
 
 export default ['data', 'bearer', 'validade', 'onFetch', 'onSubmit', 'onValidate']
 

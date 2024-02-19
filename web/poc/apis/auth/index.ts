@@ -1,6 +1,6 @@
 "user server"
 
-import { delay } from "../../../src/shared"
+import { delay } from "@reactful/commons"
 import { db } from "./db"
 import { sign } from 'jsonwebtoken'
 

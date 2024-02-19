@@ -1,0 +1,24 @@
+{
+   "exclude": ["node_modules", "doc", "npm", "poc", "tst"],
+   "compilerOptions": {
+      "rootDir": "./",
+      "outDir": "./npm",
+      "target": "esnext",
+      "module": "esnext",
+      "jsx": "react-jsx",
+      "types": ["bun-types"],
+      "moduleDetection": "auto",
+      "moduleResolution": "bundler",
+      "strict": false,
+      "allowJs": true,
+      "sourceMap": true,
+      "composite": true,
+      "declaration": true,
+      "skipLibCheck": true,
+      "noImplicitAny": false,
+      "esModuleInterop": true,
+      "downlevelIteration": true,
+      "allowSyntheticDefaultImports": true,
+      "forceConsistentCasingInFileNames": true
+   }
+}

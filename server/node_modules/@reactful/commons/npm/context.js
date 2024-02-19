@@ -1,5 +1,5 @@
 import { env, GLOBAL_KEY } from './environment';
-import '@reactful/prototypes';
+import '@reactful/extensions';
 import '@reactful/types';
 import './mocks';
 const IS_SERVER_SIDE = !globalThis.document;

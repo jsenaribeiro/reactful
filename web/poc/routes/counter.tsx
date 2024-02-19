@@ -1,5 +1,5 @@
 import React from 'react'
-import { seo, client } from '../../src/index.ts'
+import { seo, client } from '../../src/index'
 
 //@ts-ignore
 @seo('Counter', '...')

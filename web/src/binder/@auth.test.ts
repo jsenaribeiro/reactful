@@ -3,7 +3,7 @@ import { env } from '@reactful/commons'
 import { auth } from './@auth'
 import React from 'react'
 
-const { failure, context } = env.settings
+const { context } = env.settings
 
 const fComponent = function (props) {
    return React.createElement('h1', {}, 'title...')

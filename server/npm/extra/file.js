@@ -1,6 +1,6 @@
 "use server";
 import { Path, throws } from '@reactful/commons';
-import '@reactful/prototypes';
+import '@reactful/extensions';
 export class File /*implements IFile*/ {
     blob;
     mime;

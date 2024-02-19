@@ -1,5 +1,6 @@
-import React from "react"
-import { client } from "@reactful/web"
+//@ts-nocheck
+
+import { client } from "../../../src/index"
 import '@reactful/commons'
 import "./form.css"
 

@@ -1,10 +1,10 @@
-import React, { Suspense } from 'react'
-import { server, seo } from '../../src/index.ts'
+//@ts-nocheck
+
+import { server, seo } from '../../src/index'
 
 const loading = <h1>Loading</h1>
 const address = "https://timeapi.io/api/Time/current/zone?timeZone=Europe/Amsterdam"
 
-//@ts-ignore
 @server("dynamic") 
 @seo('Time Zone', 'Time zone clock...')
 export default function(props: any) {

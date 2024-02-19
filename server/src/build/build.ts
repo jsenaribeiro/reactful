@@ -11,7 +11,7 @@ import { env } from '@reactful/commons'
 import save from './generate'
 import plugins from '../plugs'
 import Zlib from 'zlib'
-import "@reactful/prototypes"
+import "@reactful/extensions"
 
 const intervals = [] as any[]
 const { renders } = env.settings

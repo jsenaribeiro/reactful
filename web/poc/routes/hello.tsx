@@ -1,5 +1,5 @@
 import React from 'react'
-import { seo, client, useStore, state } from '../../src/index.ts'
+import { seo, client, useStore, state } from '../../src/index'
 import { Header } from '../components/header'
 
 const orbital1 = useStore({ value:0 })

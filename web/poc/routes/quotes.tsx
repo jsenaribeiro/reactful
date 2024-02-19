@@ -1,5 +1,5 @@
 import React from 'react'
-import { seo, server, error } from '../../src/index.ts'
+import { seo, server, error } from '../../src/index'
 
 //@ts-ignore
 @server("periodic", "30min")

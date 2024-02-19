@@ -1,1 +1,1 @@
-export * from  './shown.ts'
+export * from  './shown'

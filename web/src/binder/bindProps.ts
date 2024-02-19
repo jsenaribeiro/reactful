@@ -1,7 +1,6 @@
 "use client"
 
-import { IS_SERVER_SIDE } from "../constants"
-import '../helper'
+const IS_SERVER_SIDE = !globalThis.document
 
 interface Props<T extends object = object> { type: string, data?: T, bind?: string } 
 

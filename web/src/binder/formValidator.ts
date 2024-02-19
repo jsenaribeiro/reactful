@@ -2,7 +2,6 @@ import { HTML, ChildProps } from "./formShared"
 import { SubmitEvent } from "./formShared"
 import { Props } from "./formProps"
 import { env } from '@reactful/commons'
-import '../../helper'
 
 const { context, binding: storage } = env.settings
 

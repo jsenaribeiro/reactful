@@ -1,5 +1,4 @@
 /// <reference lib='dom' />
-import '@reactful/extensions';
 export const GLOBAL_KEY = Symbol.for("settings");
 import { routefy } from "./routefy";
 import { contextualizer } from "./context";
