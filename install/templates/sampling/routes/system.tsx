@@ -1,6 +1,15 @@
 import OS from "os"
-import { style } from '@reactful/web'
+import React from "react"
+import { seo, style } from '@reactful/web'
 
+const metatags: MetaTags = { 
+   charset:"UTF-16", 
+   rating:"general", 
+   keywords:"hello, hi" 
+}
+
+//@ts-ignore
+@seo('System', metatags)
 @style('/assets/system.css')
 export default function System() {
    const [ type, arch, release ] = [OS.type(), OS.arch(), OS.release()]

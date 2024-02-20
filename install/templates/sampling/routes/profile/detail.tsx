@@ -1,14 +1,16 @@
-// import { useStore } from 'react-/client'
+import React from 'react'
 import { client } from '@reactful/web'
+import '@reactful/extensions'
 import './detail.css'
 
-const Tester = import('./tester.tsx').asLazyComponent("Tester")
+const Tester = import('./tester').asLazyComponent("Tester")
 
+//@ts-ignore
 @client(true)
-export function Detail(_, feeds) {
+export function Detail(_, feeds: Feeds) {
    return <>
       <h3>Detail</h3>
-      Parametric value = <b>{feeds.params.id}</b>
+      Parametric value = <b>{ feeds.param.id }</b>
 
       <hr />
       <p>modular CSS keep original color</p>

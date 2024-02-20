@@ -1,4 +1,4 @@
-import React from 'react-/server'
+import React from "react"
 
 export function Tester() {
    return <section route='./manager'>

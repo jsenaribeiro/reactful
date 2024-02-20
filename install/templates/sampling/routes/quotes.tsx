@@ -1,6 +1,7 @@
 import React from 'react'
 import { seo, server, error } from '@reactful/web'
 
+//@ts-ignore
 @server("periodic", "30min")
 @error(specificErrorComponent)
 @seo('Quotes', 'Philosophy quotes...')

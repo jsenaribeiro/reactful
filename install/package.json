@@ -1,14 +1,15 @@
 {
-  "name": "@reactful/install",
-  "version": "0.0.3",
-  "description": "reactful scafold tool",
-  "main": "index.js",
-  "author": "jonathan de sena ribeiro <jsenaribeiro@gmail.com> (https://github.com/jsenaribeiro)",
-  "license": "MIT",
-  "devDependencies": {
-    "inquirer": "^9.2.13"
-  },
-  "dependencies": {
-    "fs": "^0.0.1-security"
-  }
+   "name": "create-reactful",
+   "version": "0.0.3",
+   "main": "index.js",
+   "description": "reactful scafold tool",
+   "author": "jonathan de sena ribeiro <jsenaribeiro@gmail.com>",
+   "license": "MIT",
+   "scripts": {
+      "deploy" : "git add . ; git commit -m ... ; git push ; npm publish"
+   },
+   "dependencies": {
+      "inquirer": "^9.2.13",
+      "fs": "^0.0.1-security"
+   }
 }

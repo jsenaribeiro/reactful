@@ -1,13 +1,18 @@
-import { client } from "reactful"
+// @ts-ignore: 1206
 
+import React from 'react'
+import { client } from '@reactful/web'
+
+//@ts-ignore
 @client(true)
-export default (props, { errors, awaits, logged }: Feeds ) => <>
+export default (props, feeds: Feeds) => <>
    <h1>Login</h1>   
 
-   <progress hidden={!awaits}>loading...</progress>
+   <progress hidden={!feeds.await}>loading...</progress>
 
-   <form method="post" data={props.user} 
-      action="http://localhost:3000/api/auth/basic">
+   <form method="POST" data={props.user} 
+      action="http://localhost:3000/api/auth"
+      bearer="access_token">
 
       <section grid cols={1}>
          <label>UserName<input bind="username" /></label>
@@ -17,12 +22,15 @@ export default (props, { errors, awaits, logged }: Feeds ) => <>
       <button>Submit</button>
    </form>
 
-   <fieldset shown={!!errors?.length}>
+   <fieldset shown={!!feeds.fails?.length}>
       <legend>ERROR</legend>
-      <ul>{ errors?.map((x,i) => <li key={i}>{ x.error }</li>) }</ul>
+      <ul>{ feeds.fails?.map((x,i) => <li key={i}>{ x.error }</li>) }</ul>
    </fieldset>
 
-   <code>
-      logged current user: { JSON.stringify(logged) }
-   </code>
+   <br />
+
+   <fieldset style={{ wordBreak: 'break-all' }}>
+      <legend>token</legend>
+      { sessionStorage.getItem("token") }
+   </fieldset>
 </>

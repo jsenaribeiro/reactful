@@ -1,8 +1,11 @@
-import { client } from "reactful"
+import React from "react"
+import { client } from "@reactful/web"
+import '@reactful/commons'
 import "./form.css"
 
+//@ts-ignore
 @client(true)
-export default (props, { errors, awaits }: Feeds ) => <>
+export default (props, { fails: errors, await: awaits }: Feeds ) => <>
    <h1>Uncontrolled Components</h1>   
    <progress hidden={!awaits} >test...</progress>
 
@@ -14,10 +17,12 @@ export default (props, { errors, awaits }: Feeds ) => <>
       <label>Date<input type="date" bind="date" /></label>
       <label>Work<input pattern="dev|test" bind="work" /></label>
       <label>Mode<input validate={modeValidate} bind="mode" /></label>
-      <label>Accepted?<input bind="term" type="checkbox" required /></label>
 
+      <hr/><hr/>
+      <label>Accept?<input bind="term" type="checkbox" required /></label>      
       <button>Submit</button>
    </form>
+
 
    <fieldset shown={!!errors?.length}>
       <legend>ERROR</legend>
