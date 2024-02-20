@@ -16,21 +16,14 @@ console.log(line)
 console.log(`${decor}( ${GREEN}reactful${RESET}.js )${decor}`)
 console.log(line)
 
-const nodeModulesPath = 'node_modules/@reactful/create'
-
-const templatePath = path.join(process.cwd(), nodeModulesPath, 'templates')
-
-const templates = fs.readdirSync(templatePath)
-   .map(x => ({ name:x, path: `${templatePath}/${x}`}))
-   .filter(x => fs.statSync(x.path).isDirectory())      
-   .map(x => ({ name: x.name, value: x.name }))
+const templates = ['empty', 'minimal', 'sampling']
 
 const questions = [
    {
       type: 'list',
       name: 'template',
       message: 'Which template?',
-      choices: templates, 
+      choices: templates,
       prefix
    },
    { type: 'input', name: 'project', message: 'Project name?', prefix },
@@ -39,72 +32,48 @@ const questions = [
 ]
 
 inquirer.prompt(questions).then(async function (answers) {
-   const fromTemplate = path.join(process.cwd(), base, 'templates', answers.template)
-   const destProject = path.join(process.cwd(), answers.project)
-   const fromCommon = path.join(process.cwd(), base, 'common')
+   exec(`md ${answers.project}`)
+   exec(`cd ${answers.project}`)
 
-   copyFolder(fromTemplate, destProject)
-   copyFolder(fromCommon, destProject)
-   namingJSON(destProject, answers.project)
+   const destination = path.join(process.cwd(), answers.project)
 
-   console.log('')
+   await downloadRepo(`common`, destination)
+   await downloadRepo(`templates/${answers.template}`, destination)
 
-   exec($`cd ${answers.project} bun install`)
+   renamingJSON(destination, answers.project)
+
+   exec(`bun install`)
 })
 
-function namingJSON(directory, projectName) {
+function renamingJSON(directory, projectName) {
    const url = `${directory}/package.json`
-   const txt = fs.readFileSync(url, { encoding:'utf-8' })
+   const txt = fs.readFileSync(url, { encoding: 'utf-8' })
    const obj = JSON.parse(txt)
 
    obj.name = projectName
 
    fs.writeFileSync(url, JSON.stringify(obj, null, 3))
+
+   console.log('')
 }
 
-function copyFolder(fromDir, destDir) {
-   if (!fs.existsSync(fromDir)) 
-      return console.error('Directory not found')
+const downloadRepo = async (subfolder, destination) =>
+   downloadGitHub('jsenaribeiro', 'reactful', subfolder, destination)
 
-  if (!fs.existsSync(destDir)) 
-      fs.mkdirSync(destDir)
+async function downloadGitHub(user, repository, subfolder, destination) {
+   const url = `https://api.github.com/repos/${user}/${repository}/contents/${subfolder}`
+   const content = await fetch(url).then(x => x.json())
 
-  const files = fs.readdirSync(fromDir)
+   console.log('- url', url)
+   console.log('- res', JSON.stringify(content))
 
-  files.forEach(item => {
-      const fromPath = `${fromDir}/${item}`
-      const destPath = `${destDir}/${item}`
-      const isFolder = fs.statSync(fromPath).isDirectory()
+   for (const item of content) {
+      if (item.type != 'file') continue
+      
+      const filename = path.join(destination, item.name)
+      const response = await fetch(item.download_url)
+      const filetext = await response.text()
 
-      if (isFolder) copyFolder(fromPath, destPath)      
-      else fs.copyFileSync(fromPath, destPath)
-  })
+      fs.writeFileSync(filename, filetext)
+   }
 }
-
-async function downloadRepo(url, destino) {
-   const resposta = await fetch(url)
-   const conteudo = await resposta.json()
- 
-   for (const item of conteudo) {
-     if (item.type === 'file') {
-       const arquivoUrl = item.download_url
-       const arquivoNome = path.join(destino, item.name)
-       const arquivoResposta = await fetch(arquivoUrl)
-       const arquivoTexto = await arquivoResposta.text()
-       fs.writeFileSync(arquivoNome, arquivoTexto)
-       console.log(`Arquivo baixado: ${arquivoNome}`)
-     }
-   }
- }
- 
- async function copyScaffold() {
-   const url = 'https://github.com/jsenaribeiro/reactful'
-   const destino = 'caminho/para/destino' 
- 
-   try {
-     await downloadRepo(url, destino)
-     console.log('Scaffold baixado com sucesso!')
-   } catch (error) {
-     console.error('Erro ao baixar scaffold:', error)
-   }
- }

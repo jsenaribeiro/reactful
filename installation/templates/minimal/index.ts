@@ -1,5 +1,3 @@
-import React from "react"
-import reactful from "reactful/server"
+import { server } from "@reactful/server"
 
-await reactful.server("#root").render()
-
+await server("/routes").render("#root")
