@@ -1,0 +1,20 @@
++ CSS scoped
+- fixed CSS scopeless global leaking
+
++ MD + JSX + HTML
+- support to JSX, HTML and markdown
+
++ stateful OOP
+- simplified states with stateful objects
+
++ full SSR/SEO
+- full SSR with decorators and full SEO metatags
+
++ versatile routing
+- easy folder routing with dynamic route decorator and client-side props routing
+
++ props binding directives
+- easy props binding for controlled components
+
++ vanilla-like reactful form
+- uncontrolled form binding with validation API + RESTful server action

@@ -1,0 +1,25 @@
+fixings
+- fix playwright tests
+- hot loading not working
+- shown custom directive type (poc - login.tsx)
+
+pendings
+- new install npm package
+- article: problems, foundations, etc
+- library propers in env.propers at start
+- link fmw client.ts with server/bundle
+- individual suspenses?
+- mount markdown lib css
+- await props
+
+warnings
+- function decorator intelisense warning (pending)
+- custom props directive no support imports
+- modular CSS not support pseudo-selectors
+- no inner async component intelisense 
+
+modularization
+- @reactful/install    : scafold
+- @reactful/framework  : framework
+- @reactful/extensions : prototypes
+

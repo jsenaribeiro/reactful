@@ -1,0 +1,58 @@
+h1, h2, h3, h4, h5, h6 {
+   font-weight: 700;
+}
+
+h1 {
+   font-size: 3rem;
+   text-align: center;
+   letter-spacing: 7px;
+   font-weight: 100;
+}
+
+h2 {
+   font-size: 1.5rem;
+   font-weight: 700;
+}
+
+h3 {
+   font-size: 1.3rem;
+   margin-top: 0 auto;
+}
+
+h4 {
+   font-size: 1.1rem;
+}
+
+h2 {
+   /* border-bottom: none; */
+}
+
+h2::before {
+   content: ' '
+}
+
+/* counting */
+
+body {
+   counter-reset: h2;
+}
+
+h2::before {
+   counter-increment: h2;
+   content: counter(h2) ". ";
+}
+
+h3 a {
+   font-weight: bolder;
+}
+
+
+h3:before {
+   content: '● '
+}
+
+h3 {
+   color: #AAA;
+   font-weight: 300;
+   margin-top: 0
+}

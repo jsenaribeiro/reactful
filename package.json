@@ -1,10 +1,10 @@
 {
   "type": "module",
   "name": "reactful",
-  "module": "experiments/index.ts",
+  "module": "experiment/index.ts",
   "scripts": {
-    "debug": "bun run experiments/index.tsx",
-    "start": "bun --hot run experiments/index.ts",
+    "debug": "bun run experiment/index.tsx",
+    "start": "bun --hot run experiment/index.ts",
     "tests": "bun run test-ut; bun run test-e2e",
     "test-ut": "find . -type f -not -path './node_modules/*' -name '*.test.ts' | xargs bun test;",
     "test-e2e": "npx playwright test",
