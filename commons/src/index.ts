@@ -1,7 +1,4 @@
-import './types'
-
 export * from './http'
-export * from './path'
 export * from './throw'
 export * from './delay'
 export * from './mocks'

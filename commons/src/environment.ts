@@ -2,8 +2,8 @@
 
 export const GLOBAL_KEY = Symbol.for("settings")
 
-import { routefy } from "./routefy"
 import { contextualizer } from "./context"
+import { routefy } from "./routefy"
 import '@reactful/extensions'
 
 const IS_CLIENT_SIDE = !!globalThis.document

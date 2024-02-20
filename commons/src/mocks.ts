@@ -1,6 +1,8 @@
 const IS_SERVER_SIDE = !globalThis.document
 const memoryStorage = [{ field:'', value:'' }]
 
+export { }
+
 if (IS_SERVER_SIDE) {
    
    // @ts-ignore

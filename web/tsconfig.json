@@ -21,5 +21,11 @@
       "downlevelIteration": true,
       "allowSyntheticDefaultImports": true,
       "forceConsistentCasingInFileNames": true
+   }, 
+   "paths": {
+      "@reactful/extensions": ["../extensions/src/index.ts"], 
+      "@reactful/commons": ["../commons/src/index.ts"], 
+      "@reactful/server": ["../server/src/index.ts"],
+      "@reactful/web": ["../src/index.ts"]
    }
 }

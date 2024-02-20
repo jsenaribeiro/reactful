@@ -1,5 +1,4 @@
-import { PREFIX_ERROR } from '@reactful/commons'
-import { env, Path } from '@reactful/commons'
+import { env, PREFIX_ERROR } from '@reactful/commons'
 
 const IS_CLIENT_SIDE = !!global.document
 
@@ -8,7 +7,7 @@ function routeDecorator(href: URLString): Decorator<RFC> {
    if (!href.match(/^\/[^ "]+$/)) throw `${PREFIX_ERROR}invalid @route(href)`   
    
    return function (meta: ImportMeta, call: RFC) {
-      const [name, path] = [call.name, new Path(meta).path]
+      const [name, path] = [call.name, meta.url.replace('file://', '')]
       env.set("href", path, name, href, call) 
       return call
    }

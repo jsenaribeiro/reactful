@@ -1,7 +1,7 @@
 /// <reference lib='dom' />
 /// <reference lib='esnext' />
 
-import '@reactful/extension'
+import '@reactful/extensions'
 
 export const response = (code: number, body = {} as any, type?: string, head?: any) =>
    new Response(body, { status: code, headers: new Headers({ ...head, 

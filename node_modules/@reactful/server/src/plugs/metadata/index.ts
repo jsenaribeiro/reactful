@@ -1,0 +1,1 @@
+export { default as metadataPlugin } from './plugin'

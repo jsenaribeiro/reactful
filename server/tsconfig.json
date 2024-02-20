@@ -1,13 +1,14 @@
 {
    "exclude": ["node_modules", "npm"],
    "compilerOptions": {
+      "jsx": "react-jsx",
       "types": ["bun-types"],
-      "strict": false,
       "target": "esnext",
       "module": "esnext",
-      "sourceMap": true,
       "outDir": "./npm",
       "rootDir": "./src",
+      "strict": false,
+      "sourceMap": true,
       "declaration": true,
       "esModuleInterop": true,
       "moduleDetection": "auto",

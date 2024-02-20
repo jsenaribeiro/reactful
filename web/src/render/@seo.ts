@@ -1,4 +1,4 @@
-import { env, Path } from '@reactful/commons'
+import { env } from '@reactful/commons'
 
 const charsets = ["UTF-8", "UTF-16"]
 
@@ -13,11 +13,11 @@ export function seo(title: string, metadata: string|MetaTags): Decorator<RFC> {
    if (isCharSet) return seo(title, { charset: metadata })   
 
    return function(meta: ImportMeta, call: RFC) {
-      const key = call.name
-      const seo = { ...metadata, title }
-      const url = new Path(meta.url).href
+      const name = call.name
+      const info = { ...metadata, title }
+      const path = new URL(meta.url).pathname
 
-      env.set("meta", url, key || "default", seo)
+      env.set("meta", path, name || "default", info)
 
       return call
    }

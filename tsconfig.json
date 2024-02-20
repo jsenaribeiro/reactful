@@ -1,0 +1,37 @@
+{
+   "exclude": ["node_modules", "doc", "npm"],   
+   "include": [
+      "experiments/**/*",
+      "extensions/**/*",
+      "commons/**/*", 
+      "server/**/*",
+      "web/**/*"
+   ],
+   "compilerOptions": {
+      "rootDir": ".",
+      "jsx": "react",
+      "target": "esnext",
+      "module": "esnext",
+      "types": ["bun-types"],
+      "moduleDetection": "auto",
+      "moduleResolution": "bundler",
+      "noEmit": true,
+      "strict": false,
+      "allowJs": true,
+      "sourceMap": true,
+      "composite": true,
+      "declaration": true,
+      "skipLibCheck": true,
+      "noImplicitAny": false,
+      "esModuleInterop": true,
+      "downlevelIteration": true,
+      "allowSyntheticDefaultImports": true,
+      "forceConsistentCasingInFileNames": true
+   }, 
+   "paths": {
+      "@reactful/extensions": ["/mnt/b/Repositorios/reactful/extensions/src/index.ts"], 
+      "@reactful/commons": ["/mnt/b/Repositorios/reactful/commons/src/index.ts"], 
+      "@reactful/server": ["/mnt/b/Repositorios/reactful/server/src/index.ts"],
+      "@reactful/web": ["/mnt/b/Repositorios/reactful/web/src/index.ts"]
+   }
+}

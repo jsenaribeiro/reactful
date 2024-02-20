@@ -28,7 +28,7 @@ declare global {
 
    interface ObjectConstructor {
       merge<T extends Object>(of: T, to: T)
-      parse<T extends Object=object>(obj: T): ParseObject      
+      parse<T extends Object=any>(obj: T): ParseObject<T>      
       fromProxy(that: any): any
    }
 }
@@ -50,7 +50,7 @@ Object.fromProxy = function(that) {
    return plain;
 }
 
-Object.parse = function(that) { return new ParseObject(that) }
+Object.parse = (function(that: any) { return new ParseObject(that) }) as any
 
 Object.merge = function(self, that) {
    Object.keys(self).forEach(function (name) {

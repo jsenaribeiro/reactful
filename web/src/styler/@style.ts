@@ -1,4 +1,4 @@
-import { env, Path } from '@reactful/commons'
+import { env } from '@reactful/commons'
 
 const settings = env.settings
 const IS_SERVER_SIDE = !globalThis.document
@@ -9,7 +9,7 @@ export function style(url: `/assets/${string}`): Decorator<RFC> {
 
       fetch(url).then(x => x.text().then(onText))
       
-      const src = new Path(meta).path
+      const src = meta.url.replace('file://', '')
       
       function onText(css: string) {
          settings.stylers ||= { }

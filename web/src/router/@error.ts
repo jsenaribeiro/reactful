@@ -1,8 +1,6 @@
-import { Path } from '@reactful/commons'
-
 export function error(component: Failure): Decorator<EFC> {
    return function(meta: ImportMeta, call: EFC) {
-      const path = new Path(meta).path
+      const path = meta.url.replace('file://', '')
 
       call.metadata ||= {
          fail: component,
