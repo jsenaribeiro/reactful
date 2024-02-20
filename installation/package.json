@@ -1,6 +1,6 @@
 {
    "name": "@reactful/create",
-   "version": "0.0.67",
+   "version": "0.0.85",
    "main": "index.js",
    "type": "module",
    "description": "reactful scafold tool",

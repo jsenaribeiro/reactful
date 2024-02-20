@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import { exec } from 'child_process'
+import { execSync } from 'child_process'
 import inquirer from 'inquirer'
 import fetch from 'node-fetch'
 import path from 'path'
@@ -32,17 +32,16 @@ const questions = [
 ]
 
 inquirer.prompt(questions).then(async function (answers) {
-   exec(`md ${answers.project}`)
-   exec(`cd ${answers.project}`)
-
+   fs.mkdirSync(answers.project)
+   
    const destination = path.join(process.cwd(), answers.project)
-
-   await downloadRepo(`common`, destination)
+   
+   await downloadRepo(`commons`, destination)
    await downloadRepo(`templates/${answers.template}`, destination)
-
+   
    renamingJSON(destination, answers.project)
-
-   exec(`bun install`)
+   
+   execSync(`cd ${answers.project}; bun install`)
 })
 
 function renamingJSON(directory, projectName) {
@@ -60,14 +59,27 @@ function renamingJSON(directory, projectName) {
 const downloadRepo = async (subfolder, destination) =>
    downloadGitHub('jsenaribeiro', 'reactful', subfolder, destination)
 
-async function downloadGitHub(user, repository, subfolder, destination) {
-   const url = `https://api.github.com/repos/${user}/${repository}/contents/${subfolder}`
-   const content = await fetch(url).then(x => x.json())
+async function downloadGitHub(user, repository, subdir, destination) {
+   const prefix = `https://api.github.com/repos/${user}/${repository}`
+   const response = await fetch(`${prefix}/contents/installation/${subdir}`) 
+   const contents = await response.json()
 
-   console.log('- url', url)
-   console.log('- res', JSON.stringify(content))
+   if (!Array.isArray(contents) || !response.ok) {
+      console.log('url: ', response.url)
+      console.log('code: ', response.status)
+      console.log('array: ', Array.isArray(contents))
+      console.log('textual: ', JSON.stringify(contents))
+      
+      throw 'failed to download scafold from github...'
+   }
 
-   for (const item of content) {
+   for (const item of contents) {
+      if (item.type === 'dir' && item.name) {
+         const from = `${subdir}/${item.name}`
+         const goto = `${destination}/${item.name}`   
+         await downloadRepo(from, goto); continue
+      }
+
       if (item.type != 'file') continue
       
       const filename = path.join(destination, item.name)
