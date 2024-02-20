@@ -34,7 +34,7 @@ const metatags: MetaTag = { chartset: 'UTF-8', keywords: 'key1, key2' }
 
 ## HTML metatags
 
-Since Reactive supports HTML, HTML native metatags is supported.
+Since reactful supports HTML, HTML native metatags is supported.
 
 ```html
 <html>
@@ -50,7 +50,7 @@ Since Reactive supports HTML, HTML native metatags is supported.
 
 ## Dynamic SEO
 
-Reactive supports dynamic SEO (request-time) with title and metatags directly in JSX. Those tags will be discarded in rendered JSX and inserted/replaced into current HTML head.
+reactful supports dynamic SEO (request-time) with title and metatags directly in JSX. Those tags will be discarded in rendered JSX and inserted/replaced into current HTML head.
 
 ```tsx
 async function Todo(props) {
@@ -66,7 +66,7 @@ async function Todo(props) {
 
 ## Open Graph Protocol
 
-Reactive supports Open Graph Protocol metatags as metatag object and inner JSX elements.
+reactful supports Open Graph Protocol metatags as metatag object and inner JSX elements.
 
 ```tsx
 import { seo } from '@reactful/web'

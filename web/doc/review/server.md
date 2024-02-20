@@ -9,7 +9,7 @@
 
 ## Server startup API
 
-Reactive startup is a server function that serves a routes folder with its container routes/index.html. Its host port default is 3000 in .env file.
+reactful startup is a server function that serves a routes folder with its container routes/index.html. Its host port default is 3000 in .env file.
 
 ```ts
 /* define the route folder and customize settings */
@@ -22,10 +22,10 @@ inject(directive: Proper)
 render(query: string = "#root")
 ```
 
-Here a sample of startup reactive index file in /index.ts
+Here a sample of startup reactful index file in /index.ts
 
 ```ts
-import { server } from 'reactive/server'
+import { server } from 'reactful/server'
 import { directive1, directive2 } from './directives'
 
 await server("/routes", { etc... })
@@ -36,7 +36,7 @@ await server("/routes", { etc... })
 
 ## Server folder models
 
-Reactive `/apis`, `/assets`, and `/routes`, where **'/api'** servers RESTful APIs with as exported functions. 
+reactful `/apis`, `/assets`, and `/routes`, where **'/api'** servers RESTful APIs with as exported functions. 
 
 ```ts
 // file: /apis/sample.ts
@@ -113,10 +113,10 @@ Markdown and HTML are supported a new `<link>` extension for JSX usage inside HT
 
 ## Exception components
 
-Reactive renderas a default global error component that could be replaceable in failure member in reactive settings object in server call.
+reactful renderas a default global error component that could be replaceable in failure member in reactful settings object in server call.
 
 ```tsx
-import { server } from 'reactive/server'
+import { server } from 'reactful/server'
 
 // sampling a custom high-order component error
 const myGenericErrorComponent = (status, errors) => <p>
@@ -127,7 +127,7 @@ const myGenericErrorComponent = (status, errors) => <p>
 // replacing default failure HOC for error handling
 const settings = { failure: MyGenericErrorComponent }
 
-// starting reactive server with custom error component
+// starting reactful server with custom error component
 await server("#root", settings).render("#root")
 ```
 

@@ -1,12 +1,12 @@
-Welcome to the Reactive framework!
+Welcome to the reactful framework!
 
 React widely dominates frontend S.P.A, recommending now only be used through its react frameworks. In addition to all the extra learning curve with weird proprietary name conventions, those frameworks keep remaining issues like scopeless CSS, state handling complexity, and context API over-nesting code smell.
 
-The reactive framework uses function decorators and props directives for easy S.E.O., full rendering, and flex routing,  with support for JSX, HTML, and markdown. 
+The reactful framework uses function decorators and props directives for easy S.E.O., full rendering, and flex routing,  with support for JSX, HTML, and markdown. 
 
 Its new state handling uses stateful objects for controlled and uncontrolled components with support for HTML validation API, RESTful server actions, and easy form authentication.
 
-Reactive brings easy S.S.R. solving critical issues: 
+reactful brings easy S.S.R. solving critical issues: 
 
 - it fixes import global leaking;
 - it simplifies states with stateful objects;

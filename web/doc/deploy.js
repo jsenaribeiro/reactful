@@ -1,7 +1,7 @@
 import * as fs from "https://deno.land/std/fs/mod.ts"
 
 const NOW = './'
-const NEW = '../../jsenaribeiro.github.io/reactive'
+const NEW = '../../jsenaribeiro.github.io/reactful'
 const EXT = ['.js', '.html', '.css']
 
 await copyFileAsync('index')

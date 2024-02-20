@@ -218,7 +218,7 @@ body.marp-vscode blockquote {
 <p>module scope CSS • component scope CSS • layout props <br/>function decorator • SoC styling • vanilla-like CSS</p>
 </blockquote>
 <h2 id="modular-css-imports">Modular CSS imports</h2>
-<p>Reactive fixes global CSS leaking in CSS imports, applying CSS imports only in module components.</p>
+<p>reactful fixes global CSS leaking in CSS imports, applying CSS imports only in module components.</p>
 <aside cols='2'>
 <section>
 <pre><code class="language-tsx"><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> <span class="hljs-title function_">About</span> = (<span class="hljs-params"></span>) =&gt; 
@@ -243,7 +243,7 @@ body.marp-vscode blockquote {
 <pre><code class="language-tsx">@<span class="hljs-title function_">style</span>(<span class="hljs-string">&#x27;./hello.css&#x27;</span>)
 <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">const</span> <span class="hljs-title function_">Hello</span> = (<span class="hljs-params"></span>) =&gt; <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Hello World!<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span>
 </code></pre>
-<p>In global CSS is also possible achive component-scope CSS using component name as className CSS. Reactive transform all component name as className CSS for its children.</p>
+<p>In global CSS is also possible achive component-scope CSS using component name as className CSS. reactful transform all component name as className CSS for its children.</p>
 <aside cols='2'>
 <pre><code class="language-tsx"><span class="hljs-keyword">import</span> <span class="hljs-string">&#x27;./hello.css&#x27;</span>
 

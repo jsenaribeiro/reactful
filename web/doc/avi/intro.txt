@@ -16,5 +16,5 @@
 + props binding directives
 - easy props binding for controlled components
 
-+ vanilla-like reactive form
++ vanilla-like reactful form
 - uncontrolled form binding with validation API + RESTful server action

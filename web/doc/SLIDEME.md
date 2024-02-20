@@ -12,9 +12,9 @@ class:
    section { text-align:center; }
 </style>
 
-<img src='./img/reactive.png' />
+<img src='./img/reactful.png' />
 
-# reactive.**js**
+# reactful.**js**
 fullstack react framework
 
 
@@ -256,7 +256,7 @@ Server startup root for SSR with high-order component error handling with suppor
 </div><div>
 
 ```tsx
-import { server } from 'reactive/server'
+import { server } from 'reactful/server'
 
 const failure = (status, errors) => <>...</>
 
@@ -343,7 +343,7 @@ export function About() { return <>...</> }
 
 ### `router` modelling
 
-Reactive support static folder routing (with no conventions), decorator routing for dynamic routes, and props routing for client-side routing with support to lazy component import.
+reactful support static folder routing (with no conventions), decorator routing for dynamic routes, and props routing for client-side routing with support to lazy component import.
 
 </div><div>
 
@@ -449,7 +449,7 @@ Introduces a new dependency injection system to handle global states, props dire
 - stateful object
 - data binding
 
-Props directive enables an injectable standalone props into JSX elements (avoiding over-componentization), similar to Angular attribute directive. It is widely use by reactive framework and support custom props directive.
+Props directive enables an injectable standalone props into JSX elements (avoiding over-componentization), similar to Angular attribute directive. It is widely use by reactful framework and support custom props directive.
 
 </aside>
 
@@ -479,7 +479,7 @@ Stateful object deeply simplifies functional components state handling with OOP.
 - stateful object
 - **data binding**
 
-Reactive data binding simplifies controlled and uncontrolled components with a data props that receives a stateful object, and a bind props that get its field name, mapping in background the value and event fields.
+reactful data binding simplifies controlled and uncontrolled components with a data props that receives a stateful object, and a bind props that get its field name, mapping in background the value and event fields.
 
 <!-- transition: coverflow -->
 
@@ -512,7 +512,7 @@ Reactive data binding simplifies controlled and uncontrolled components with a d
 # `THANKS!` 
 
 check out our documentation
-[jsenaribeiro.github.com/reactive](#)
+[jsenaribeiro.github.com/reactful](#)
 
 
 <style scoped>

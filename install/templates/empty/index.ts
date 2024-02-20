@@ -1,5 +1,5 @@
 import React from "react"
-import Reactive from "reactive/server"
+import reactful from "reactful/server"
 
-await Reactive.server("#root").render()
+await reactful.server("#root").render()
 

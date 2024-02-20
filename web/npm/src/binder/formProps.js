@@ -2,7 +2,7 @@
 import { onSubmitBinding, fixProps } from "./formBind";
 const IS_SERVER_SIDE = !global.document;
 export default ['data', 'bearer', 'validade', 'onFetch', 'onSubmit', 'onValidate'];
-/** Reactive forms as form[data] and children[bind]
+/** reactful forms as form[data] and children[bind]
  * with server actions and validation api */
 export function formProps(props, params) {
     if (IS_SERVER_SIDE)

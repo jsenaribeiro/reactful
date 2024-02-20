@@ -18,7 +18,7 @@ strong { color: #E3E3E3; }
 [cols='3:5'] { grid-template-columns: 3fr 5fr; }
 [cols='4:5'] { grid-template-columns: 4fr 5fr; }
 
-img[src$='reactive.png'] { width:100px; margin:0 auto; }
+img[src$='reactful.png'] { width:100px; margin:0 auto; }
 
 h1 { 
    font-size: 3em !important; 

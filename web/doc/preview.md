@@ -255,7 +255,7 @@ Go to <a href='#' onclick='goto("./review/binder.html")'>review</a> section for 
 <fieldset id='helper' onclick='onPreview(this.id)'>
 <legend><b>HELPER</b> prototyping</legend>
 
-Prototype extensions used by framework is available in `reactive/extensions`.
+Prototype extensions used by framework is available in `reactful/extensions`.
 
 | | |
 |-|-|

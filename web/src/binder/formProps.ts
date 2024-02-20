@@ -14,7 +14,7 @@ export interface Props<T extends object = object> {
    onValidate?: OnValidateEvent // custom post-validation
 }
 
-/** Reactive forms as form[data] and children[bind] 
+/** reactful forms as form[data] and children[bind] 
  * with server actions and validation api */
 export function formProps(props: Props, params: Params) {
    if (IS_SERVER_SIDE) return props

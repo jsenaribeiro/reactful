@@ -10,7 +10,7 @@
 
 ## Modular CSS imports
 
-Reactive fixes global CSS leaking in CSS imports, applying CSS imports only in module components.
+reactful fixes global CSS leaking in CSS imports, applying CSS imports only in module components.
 
 
 <aside cols='2'>
@@ -53,7 +53,7 @@ The `@style` decorator enables component-scope CSS programmatically in JSX.
 export default const Hello = () => <h1>Hello World!</h1>
 ```
 
-In global CSS is also possible achive component-scope CSS using component name as className CSS. Reactive transform all component name as className CSS for its children.
+In global CSS is also possible achive component-scope CSS using component name as className CSS. reactful transform all component name as className CSS for its children.
 
 <aside cols='2'>
 

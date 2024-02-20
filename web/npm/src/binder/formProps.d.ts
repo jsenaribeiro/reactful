@@ -7,6 +7,6 @@ export interface Props<T extends object = object> {
     onSubmit?: OnSubmitEvent;
     onValidate?: OnValidateEvent;
 }
-/** Reactive forms as form[data] and children[bind]
+/** reactful forms as form[data] and children[bind]
  * with server actions and validation api */
 export declare function formProps(props: Props, params: Params): any;

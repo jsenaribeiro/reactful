@@ -116,11 +116,11 @@ A `routed` className is for current route is inserted in element`[link]` for 'ac
 button.routed { background: wheat; font-weight: bolder; }
 ```
 
-As client-side routing, props routing not renders by request or after refresh. When a not found happens, the reactive responde with nearest route available.
+As client-side routing, props routing not renders by request or after refresh. When a not found happens, the reactful responde with nearest route available.
 
 ## New concepts
 
-The reactive routing come with some new concepts, behaviors and approachs that keep the code more leaner, readable and intuitive, but is slightly differente from popular frameworks.
+The reactful routing come with some new concepts, behaviors and approachs that keep the code more leaner, readable and intuitive, but is slightly differente from popular frameworks.
 
 <style>
    [concept] table tr td:nth-of-type(1) {

@@ -11,7 +11,7 @@ const decor = '-'.repeat(15)
 
 export function startup(base) {
    console.log(line)
-   console.log(`${decor} ${GREEN}reactive${RESET}.js ${decor}`)
+   console.log(`${decor} ${GREEN}reactful${RESET}.js ${decor}`)
    console.log(line)
 
    const templatePath = path.join(process.cwd(), base, 'templates')

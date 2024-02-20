@@ -1,4 +1,4 @@
-import { client } from "reactive"
+import { client } from "reactful"
 
 @client(true)
 export default (props, { errors, awaits, logged }: Feeds ) => <>

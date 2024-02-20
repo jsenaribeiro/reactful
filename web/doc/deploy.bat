@@ -1,6 +1,6 @@
 deno run -A deploy.js
 
-set "BASIC_DIR=B:\Repositorios\reactive\doc"
+set "BASIC_DIR=B:\Repositorios\reactful\doc"
 set "SLIDE_DIR=B:\Repositorios\jsenaribeiro.github.io\slideme"
 set "INDEX_DIR=B:\Repositorios\jsenaribeiro.github.io\readme"
 
@@ -23,4 +23,4 @@ git add .
 git commit -m 'doc....'
 git push
 
-cd B:\Repositorios\reactive\doc
+cd B:\Repositorios\reactful\doc

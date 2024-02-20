@@ -1,7 +1,7 @@
-# create reactive
+# create reactful
 
-Create a reactive framework project scafold.
+Create a reactful framework project scafold.
 
 ```bash
-$ bun create reactive
+$ bun create reactful
 ```

@@ -1,4 +1,4 @@
-import { seo, client } from "reactive"
+import { seo, client } from "reactful"
 import { Header } from '../components/header'
 
 @client(true)

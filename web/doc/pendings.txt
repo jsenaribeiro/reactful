@@ -4,13 +4,14 @@ fixings
 - shown custom directive type (poc - login.tsx)
 
 pendings
-- await props
-- individual suspenses?
-- mount markdown lib css
+- new install npm package
 - mudar para reactful: github, doc, video
 - article: problems, foundations, etc
 - library propers in env.propers at start
 - link fmw client.ts with server/bundle
+- individual suspenses?
+- mount markdown lib css
+- await props
 
 warnings
 - function decorator intelisense warning (pending)

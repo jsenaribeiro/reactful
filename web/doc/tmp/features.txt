@@ -1,5 +1,5 @@
 description
-   name: reactive|vanilla|react-
+   name: reactful|vanilla|react-
    qualities: easy fast lean lite full easy nice
    specs: bun-based pwa-ready server-first 
    features: partial-hydration embedded-swr streamed-ssr prefetch-route render-refocus

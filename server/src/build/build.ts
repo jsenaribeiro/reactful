@@ -112,7 +112,7 @@ async function bundleValidation() {
 }
 
 function errors(logs: (BuildMessage | ResolveMessage)[]) {
-   const list = ['\n\n !!!!!!! ==== REACTIVE build errors ==== !!!!!!!']
+   const list = ['\n\n !!!!!!! ==== reactful build errors ==== !!!!!!!']
 
    for (const log of logs) {
       const line = log.position?.line

@@ -230,7 +230,7 @@ body.marp-vscode blockquote {
 </code></pre>
 <h2 id="global-state-injection">Global state injection</h2>
 <p>The global state is passed in server settings as storage field.</p>
-<pre><code class="language-tsx"><span class="hljs-keyword">import</span> { server } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;reactive/server&#x27;</span>
+<pre><code class="language-tsx"><span class="hljs-keyword">import</span> { server } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;reactful/server&#x27;</span>
 
 <span class="hljs-keyword">const</span> user = { <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;world&#x27;</span>, <span class="hljs-attr">now</span>: <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>() } 
 <span class="hljs-keyword">const</span> settings = { <span class="hljs-attr">storage</span>: user }

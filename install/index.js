@@ -1,3 +1,3 @@
 import { startup } from './startup'
 
-startup('node_modules/reactive')
+startup('node_modules/reactful')

@@ -1,5 +1,5 @@
 import React from "react"
-import Reactive from "reactive/server"
+import reactful from "reactful/server"
 import { shown } from './directives'
 import { auth } from 'ajaxness'
 
@@ -16,7 +16,7 @@ export const session = auth<Profile>()
    .catch(x => "Usuário e senha inválidos", "/login")
    .match<Token>(x => x.accessToken, "/home")
 
-await Reactive
+await reactful
    .server("#root", { failure })
    .inject([ shown ])
    .inject({ hello, hi })

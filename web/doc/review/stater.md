@@ -29,7 +29,7 @@ const onChange = e => props.name = e.taget.value
 The global state is passed in server settings as storage field.
 
 ```tsx
-import { server } from 'reactive/server'
+import { server } from 'reactful/server'
 
 const user = { name: 'world', now: new Date() } 
 const settings = { storage: user }

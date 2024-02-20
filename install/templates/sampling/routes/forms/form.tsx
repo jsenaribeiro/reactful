@@ -1,4 +1,4 @@
-import { client } from "reactive"
+import { client } from "reactful"
 import "./form.css"
 
 @client(true)

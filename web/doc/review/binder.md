@@ -175,6 +175,6 @@ export const Sample = prop => <div shown={false}>sampling...</div>
 
 ```
 
-**WARNING!** Custom props directive has limited support to module paradigm. Any import in its module will not work and it will crash the reactive server during build time. 
+**WARNING!** Custom props directive has limited support to module paradigm. Any import in its module will not work and it will crash the reactful server during build time. 
 
 <br/><br/>

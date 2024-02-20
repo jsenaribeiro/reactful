@@ -6,7 +6,7 @@ function createFavicon() {
    const link = document.createElement('link');
    link.rel = 'icon';
    document.head.appendChild(link);
-   document.title = 'reactive.js'
+   document.title = 'reactful.js'
    link.href = 'img/favicon.ico';
 }
 

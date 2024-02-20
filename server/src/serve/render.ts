@@ -34,7 +34,7 @@ export async function render(query = '#root') {
                 || await serve(request)
          } 
          catch(ex: any) {
-            console.error('REACTIVE', ex)         
+            console.error('reactful', ex)         
             return response(500, ex.message || ex)
          }  
       }

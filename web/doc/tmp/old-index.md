@@ -5,7 +5,7 @@
 </style>
 <script src='./index.js'></script>
 
-<h1 id='title'><logo></logo> <code> reactive</code>.js</h1>
+<h1 id='title'><logo></logo> <code> reactful</code>.js</h1>
 <hr data-content='' />
 
 <main>

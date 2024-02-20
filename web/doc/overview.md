@@ -39,7 +39,7 @@
 <aside cols='4:5' style='zoom:0.9'>
 
 ```cmd
-$ bun create reactive
+$ bun create reactful
 
 - template? empty | minimal | sampling
 - project name? my-project

@@ -218,7 +218,7 @@ body.marp-vscode blockquote {
 <p>static rendering • dynamic rendering • periodic rendering <br/>react server components • partial hydration • web apis<br/>extended html • error handling • markdown</p>
 </blockquote>
 <h2 id="server-startup-api">Server startup API</h2>
-<p>Reactive startup is a server function that serves a routes folder with its container routes/index.html. Its host port default is 3000 in .env file.</p>
+<p>reactful startup is a server function that serves a routes folder with its container routes/index.html. Its host port default is 3000 in .env file.</p>
 <pre><code class="language-ts"><span class="hljs-comment">/* define the route folder and customize settings */</span>
 <span class="hljs-title function_">server</span>(<span class="hljs-attr">routes</span>: <span class="hljs-built_in">string</span> = <span class="hljs-string">&#x27;/routes&#x27;</span>, <span class="hljs-attr">settings</span>: { etc... })
 
@@ -228,8 +228,8 @@ body.marp-vscode blockquote {
 <span class="hljs-comment">/* pass the query selector for root element */</span>
 <span class="hljs-title function_">render</span>(<span class="hljs-attr">query</span>: <span class="hljs-built_in">string</span> = <span class="hljs-string">&quot;#root&quot;</span>)
 </code></pre>
-<p>Here a sample of startup reactive index file in /index.ts</p>
-<pre><code class="language-ts"><span class="hljs-keyword">import</span> { server } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;reactive/server&#x27;</span>
+<p>Here a sample of startup reactful index file in /index.ts</p>
+<pre><code class="language-ts"><span class="hljs-keyword">import</span> { server } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;reactful/server&#x27;</span>
 <span class="hljs-keyword">import</span> { directive1, directive2 } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./directives&#x27;</span>
 
 <span class="hljs-keyword">await</span> <span class="hljs-title function_">server</span>(<span class="hljs-string">&quot;/routes&quot;</span>, { etc... })
@@ -238,7 +238,7 @@ body.marp-vscode blockquote {
      .<span class="hljs-title function_">render</span>(<span class="hljs-string">&quot;#root&quot;</span>)
 </code></pre>
 <h2 id="server-folder-models">Server folder models</h2>
-<p>Reactive <code>/apis</code>, <code>/assets</code>, and <code>/routes</code>, where <strong>'/api'</strong> servers RESTful APIs with as exported functions.</p>
+<p>reactful <code>/apis</code>, <code>/assets</code>, and <code>/routes</code>, where <strong>'/api'</strong> servers RESTful APIs with as exported functions.</p>
 <pre><code class="language-ts"><span class="hljs-comment">// file: /apis/sample.ts</span>
 <span class="hljs-comment">// route: http://localhost:3000/api/sample</span>
 <span class="hljs-comment">// warning: route is both resolved as /api and /apis</span>
@@ -289,8 +289,8 @@ body.marp-vscode blockquote {
 <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
 </code></pre>
 <h2 id="exception-components">Exception components</h2>
-<p>Reactive renderas a default global error component that could be replaceable in failure member in reactive settings object in server call.</p>
-<pre><code class="language-tsx"><span class="hljs-keyword">import</span> { server } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;reactive/server&#x27;</span>
+<p>reactful renderas a default global error component that could be replaceable in failure member in reactful settings object in server call.</p>
+<pre><code class="language-tsx"><span class="hljs-keyword">import</span> { server } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;reactful/server&#x27;</span>
 
 <span class="hljs-comment">// sampling a custom high-order component error</span>
 <span class="hljs-keyword">const</span> <span class="hljs-title function_">myGenericErrorComponent</span> = (<span class="hljs-params">status, errors</span>) =&gt; <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
@@ -301,11 +301,11 @@ body.marp-vscode blockquote {
 <span class="hljs-comment">// replacing default failure HOC for error handling</span>
 <span class="hljs-keyword">const</span> settings = { <span class="hljs-attr">failure</span>: <span class="hljs-title class_">MyGenericErrorComponent</span> }
 
-<span class="hljs-comment">// starting reactive server with custom error component</span>
+<span class="hljs-comment">// starting reactful server with custom error component</span>
 <span class="hljs-keyword">await</span> <span class="hljs-title function_">server</span>(<span class="hljs-string">&quot;#root&quot;</span>, settings).<span class="hljs-title function_">render</span>(<span class="hljs-string">&quot;#root&quot;</span>)
 </code></pre>
 <p>With <code>@error</code> decorator, specific error handlers could be shared between components.</p>
-<pre><code class="language-tsx"><span class="hljs-keyword">import</span> { error } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;reactive&#x27;</span>
+<pre><code class="language-tsx"><span class="hljs-keyword">import</span> { error } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;reactful&#x27;</span>
 
 <span class="hljs-comment">// sampling a custom high-order component error</span>
 <span class="hljs-keyword">const</span> <span class="hljs-title function_">mySpecificErrorComponent</span> = (<span class="hljs-params">status, errors</span>) =&gt; <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>

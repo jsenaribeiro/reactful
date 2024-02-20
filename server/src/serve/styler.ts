@@ -37,7 +37,7 @@ export function styler(jsx: RRE, src: string) {
       return { ...style, ...child.props.style  }      
    }
    catch(ex: any) {
-      console.error('REACTIVE styler/server.ts')
+      console.error('reactful styler/server.ts')
       throw ex
    }
 }
