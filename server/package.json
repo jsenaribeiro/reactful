@@ -9,7 +9,7 @@
     "clear": "clear; rm -rf node_modules npm package-lock.json bun.lockb; mkdir npm; bun i",
     "build": "rm -rf tsconfig.tsbuildinfo; bunx tsc --declaration",
     "fresh": "bun update @reactful/extensions @reactful/commons",
-    "deploy": "bun run fresh; bun run build; npm publish --access public"
+    "patch": "npm run build; npm version patch; npm publish --access public"
   },
   "devDependencies": {
     "bun-types": "latest",

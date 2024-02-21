@@ -1,8 +1,7 @@
-# create reactful
+# reactful scaffold
 
-Create a reactful framework with a project scafold tool.
+Createing a reactful framework project scaffold.
 
 ```bash
-$ bun create reactful
-$ bunx creact-reactful
+bunx @reactful/create@latest
 ```

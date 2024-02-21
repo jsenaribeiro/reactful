@@ -4,10 +4,9 @@ fixings
 - shown custom directive type (poc - login.tsx)
 
 pendings
-- new install npm package
+- npx @reactful/create (testings)
 - article: problems, foundations, etc
 - library propers in env.propers at start
-- link fmw client.ts with server/bundle
 - individual suspenses?
 - mount markdown lib css
 - await props

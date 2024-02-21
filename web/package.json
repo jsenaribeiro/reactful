@@ -5,10 +5,13 @@
   "scripts": {
     "check": "eslint src/** --no-ignore",
     "build": "rm -rf tsconfig.tsbuildinfo; bunx tsc -p tsconfig.json",
-    "maker": "rm -rf tsconfig.tsbuildinfo; bunx tsc-silent -p tsconfig.json --suppress 2786,1206@ 2339@/src/bundle/bundle.ts",
+    "other": "rm -rf tsconfig.tsbuildinfo; bunx tsc-silent -p tsconfig.json --suppress 2786,1206@ 2339@/src/bundle/bundle.ts",
     "clear": "rm -rf node_modules package-lock.json bun.lockb; bun i; bun run build",
     "fresh": "bun update @reactful/extensions @reactful/commons @reactful/server",
-    "deploy": "bun run fresh; rm -rf tsconfig.npm.tsbuildinfo npm; mkdir npm; cp package.npm.json npm/package.json; bunx tsc -p tsconfig.npm.json; cd npm; npm publish --access public; cd .."
+    "maker": "bun run fresh; rm -rf tsconfig.npm.tsbuildinfo npm; mkdir npm; cp package.npm.json npm/package.json; bunx tsc -p tsconfig.npm.json;",
+    "patch": "bun run maker; cd npm; npm version patch; npm publish --access public; cd ..",
+    "minor": "bun run maker; cd npm; npm version minor; npm publish --access public; cd ..",
+    "major": "bun run maker; cd npm; npm version major; npm publish --access public; cd .."
   },
   "dependencies": {
     "@reactful/commons": "latest",

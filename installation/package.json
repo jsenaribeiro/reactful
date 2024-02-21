@@ -1,18 +1,30 @@
 {
-   "name": "@reactful/create",
-   "version": "0.0.85",
-   "main": "index.js",
-   "type": "module",
-   "description": "reactful scafold tool",
-   "author": "jonathan de sena ribeiro <jsenaribeiro@gmail.com>",
-   "files": [ "index.js", "package.json" ],
-   "bin": { "@reactful/create": "index.js" },
-   "scripts": { "deploy": "npm publish --access public" },
-   "license": "MIT",
-   "dependencies": {
-      "bun-types": "latest",
-      "fs": "^0.0.1-security",
-      "inquirer": "^9.2.13",
-      "node-fetch": "^3.3.2"
-   }
+  "name": "@reactful/create",
+  "version": "0.1.11",
+  "main": "index.js",
+  "type": "module",
+  "description": "reactful scafold tool",
+  "author": "jonathan de sena ribeiro <jsenaribeiro@gmail.com>",
+  "bin": {
+    "@reactful/create": "index.js"
+  },
+  "files": [
+    "index.js",
+    "package.json",
+    "templates",
+    "commons"
+  ],
+  "scripts": {
+    "start": "bun run index.js",
+    "patch": "npm version patch; npm publish --access public",
+    "minor": "npm version minor; npm publish --access public",
+    "major": "npm version major; npm publish --access public"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "bun-types": "latest",
+    "inquirer": "^9.2.13",
+    "npm-registry-fetch": "^16.1.0",
+    "tar": "^6.2.0"
+  }
 }

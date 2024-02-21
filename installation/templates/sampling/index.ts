@@ -10,7 +10,7 @@ await server("/routes", { failure, storage })
 
 function failure(status, errors) {
    const children: any[] = errors.map((x, i) => 
-         React.createElement('li', { key:i }, x))
+      React.createElement('li', { key: i.toString() }, x))
 
    return React.createElement('div', {}, [
       React.createElement('h1', {}, status),

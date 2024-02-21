@@ -12588,7 +12588,7 @@ var init_npm2 = __esm(() => {
   init_environment();
 });
 
-// node_modules/@reactful/exten
+// node_modules/@reactful/exte
 var exports_client = {};
 var init_client = __esm(() => {
 });
@@ -12770,7 +12770,7 @@ var init_src = __esm(() => {
   init_hook();
 });
 
-// node_modules/@reactful/extensi
+// node_modules/@reactful/extens
 var exports_counter = {};
 __export(exports_counter, {
   default: () => {
@@ -12802,17 +12802,17 @@ var init_counter = __esm(() => {
     }, "COUNTED: ", import_react3.default.createElement("b", null, props.count || 0));
   });
   default$2["metadata"] ||= {};
-  default$2["metadata"].path = "/mnt/b/Repositorios/reactful/experiments/routes/counter.tsx";
+  default$2["metadata"].path = "/mnt/b/Repositorios/reactful/experiment/routes/counter.tsx";
   counter_default = default$2;
   CountButton["metadata"] ||= {};
-  CountButton["metadata"].path = "/mnt/b/Repositorios/reactful/experiments/routes/counter.tsx";
+  CountButton["metadata"].path = "/mnt/b/Repositorios/reactful/experiment/routes/counter.tsx";
 });
 
-// node_modules/@reactful/extensions
+// node_modules/@reactful/extension
 var init_form = __esm(() => {
 });
 
-// node_modules/@reactful/extensions
+// node_modules/@reactful/extension
 var exports_form = {};
 __export(exports_form, {
   default: () => {
@@ -12871,13 +12871,13 @@ var init_form2 = __esm(() => {
     shown: !!errors?.length
   }, import_react4.default.createElement("legend", null, "ERROR"), import_react4.default.createElement("ul", null, errors?.map((x) => import_react4.default.createElement("li", null, x.error))))));
   default$3["metadata"] ||= {};
-  default$3["metadata"].path = "/mnt/b/Repositorios/reactful/experiments/routes/forms/form.tsx";
+  default$3["metadata"].path = "/mnt/b/Repositorios/reactful/experiment/routes/forms/form.tsx";
   form_default = default$3;
   modeValidate["metadata"] ||= {};
-  modeValidate["metadata"].path = "/mnt/b/Repositorios/reactful/experiments/routes/forms/form.tsx";
+  modeValidate["metadata"].path = "/mnt/b/Repositorios/reactful/experiment/routes/forms/form.tsx";
 });
 
-// node_modules/@reactful/extensions
+// node_modules/@reactful/extension
 var import_react5, Header;
 var init_header = __esm(() => {
   import_react5 = __toESM(require_react(), 1);
@@ -12885,10 +12885,10 @@ var init_header = __esm(() => {
     style: { color: "wheat" }
   }, props.children || props.title));
   Header["metadata"] ||= {};
-  Header["metadata"].path = "/mnt/b/Repositorios/reactful/experiments/components/header.tsx";
+  Header["metadata"].path = "/mnt/b/Repositorios/reactful/experiment/components/header.tsx";
 });
 
-// node_modules/@reactful/exten
+// node_modules/@reactful/exte
 var exports_hello = {};
 __export(exports_hello, {
   default: () => {
@@ -12974,11 +12974,11 @@ var init_hello = __esm(() => {
     }, orbital1.value)));
   }))));
   Hello["metadata"] ||= {};
-  Hello["metadata"].path = "/mnt/b/Repositorios/reactful/experiments/routes/hello.tsx";
+  Hello["metadata"].path = "/mnt/b/Repositorios/reactful/experiment/routes/hello.tsx";
   hello_default = Hello;
 });
 
-// node_modules/@reactful/exten
+// node_modules/@reactful/exte
 var exports_login = {};
 __export(exports_login, {
   default: () => {
@@ -13014,15 +13014,15 @@ var init_login = __esm(() => {
     style: { wordBreak: "break-all" }
   }, import_react7.default.createElement("legend", null, "token"), sessionStorage.getItem("token"))));
   default$4["metadata"] ||= {};
-  default$4["metadata"].path = "/mnt/b/Repositorios/reactful/experiments/routes/login.tsx";
+  default$4["metadata"].path = "/mnt/b/Repositorios/reactful/experiment/routes/login.tsx";
   login_default = default$4;
 });
 
-// node_modules/@reactful/extensions/npm
+// node_modules/@reactful/extensions/np
 var init_detail = __esm(() => {
 });
 
-// node_modules/@reactful/extensions/npm
+// node_modules/@reactful/extensions/np
 var exports_tester = {};
 __export(exports_tester, {
   Tester: () => {
@@ -13040,10 +13040,10 @@ var import_react8;
 var init_tester = __esm(() => {
   import_react8 = __toESM(require_react(), 1);
   Tester["metadata"] ||= {};
-  Tester["metadata"].path = "/mnt/b/Repositorios/reactful/experiments/routes/profile/tester.tsx";
+  Tester["metadata"].path = "/mnt/b/Repositorios/reactful/experiment/routes/profile/tester.tsx";
 });
 
-// node_modules/@reactful/extensions/npm
+// node_modules/@reactful/extensions/np
 var exports_detail = {};
 __export(exports_detail, {
   Detail: () => {
@@ -13075,42 +13075,42 @@ var init_detail2 = __esm(() => {
     })));
   });
   Detail["metadata"] ||= {};
-  Detail["metadata"].path = "/mnt/b/Repositorios/reactful/experiments/routes/profile/detail.tsx";
+  Detail["metadata"].path = "/mnt/b/Repositorios/reactful/experiment/routes/profile/detail.tsx";
 });
 
-// node_modules/@reactful/exten
+// node_modules/@reactful/exte
 init_npm2();
 await Promise.resolve().then(() => (init_client(), exports_client)).then((x) => x.default());
 globalThis[GLOBAL_KEY].clients ||= {};
-globalThis[GLOBAL_KEY].clients["/mnt/b/Repositorios/reactful/experiments/routes/counter.tsx"] = { off: false, tag: "CountButton" };
-Promise.resolve().then(() => (init_counter(), exports_counter)).then((x) => x.CountButton).then((x) => globalThis[GLOBAL_KEY].clients["/mnt/b/Repositorios/reactful/experiments/routes/counter.tsx"].jsx = x);
-globalThis[GLOBAL_KEY].clients["/mnt/b/Repositorios/reactful/experiments/routes/forms/form.tsx"] = { off: false, tag: "default" };
-Promise.resolve().then(() => (init_form2(), exports_form)).then((x) => x.default).then((x) => globalThis[GLOBAL_KEY].clients["/mnt/b/Repositorios/reactful/experiments/routes/forms/form.tsx"].jsx = x);
-globalThis[GLOBAL_KEY].clients["/mnt/b/Repositorios/reactful/experiments/routes/hello.tsx"] = { off: false, tag: "Hello" };
-Promise.resolve().then(() => (init_hello(), exports_hello)).then((x) => x.default).then((x) => globalThis[GLOBAL_KEY].clients["/mnt/b/Repositorios/reactful/experiments/routes/hello.tsx"].jsx = x);
-globalThis[GLOBAL_KEY].clients["/mnt/b/Repositorios/reactful/experiments/routes/login.tsx"] = { off: false, tag: "default" };
-Promise.resolve().then(() => (init_login(), exports_login)).then((x) => x.default).then((x) => globalThis[GLOBAL_KEY].clients["/mnt/b/Repositorios/reactful/experiments/routes/login.tsx"].jsx = x);
-globalThis[GLOBAL_KEY].clients["/mnt/b/Repositorios/reactful/experiments/routes/profile/detail.tsx"] = { off: false, tag: "Detail" };
-Promise.resolve().then(() => (init_detail2(), exports_detail)).then((x) => x.Detail).then((x) => globalThis[GLOBAL_KEY].clients["/mnt/b/Repositorios/reactful/experiments/routes/profile/detail.tsx"].jsx = x);
+globalThis[GLOBAL_KEY].clients["/mnt/b/Repositorios/reactful/experiment/routes/counter.tsx"] = { off: false, tag: "CountButton" };
+Promise.resolve().then(() => (init_counter(), exports_counter)).then((x) => x.CountButton).then((x) => globalThis[GLOBAL_KEY].clients["/mnt/b/Repositorios/reactful/experiment/routes/counter.tsx"].jsx = x);
+globalThis[GLOBAL_KEY].clients["/mnt/b/Repositorios/reactful/experiment/routes/forms/form.tsx"] = { off: false, tag: "default" };
+Promise.resolve().then(() => (init_form2(), exports_form)).then((x) => x.default).then((x) => globalThis[GLOBAL_KEY].clients["/mnt/b/Repositorios/reactful/experiment/routes/forms/form.tsx"].jsx = x);
+globalThis[GLOBAL_KEY].clients["/mnt/b/Repositorios/reactful/experiment/routes/hello.tsx"] = { off: false, tag: "Hello" };
+Promise.resolve().then(() => (init_hello(), exports_hello)).then((x) => x.default).then((x) => globalThis[GLOBAL_KEY].clients["/mnt/b/Repositorios/reactful/experiment/routes/hello.tsx"].jsx = x);
+globalThis[GLOBAL_KEY].clients["/mnt/b/Repositorios/reactful/experiment/routes/login.tsx"] = { off: false, tag: "default" };
+Promise.resolve().then(() => (init_login(), exports_login)).then((x) => x.default).then((x) => globalThis[GLOBAL_KEY].clients["/mnt/b/Repositorios/reactful/experiment/routes/login.tsx"].jsx = x);
+globalThis[GLOBAL_KEY].clients["/mnt/b/Repositorios/reactful/experiment/routes/profile/detail.tsx"] = { off: false, tag: "Detail" };
+Promise.resolve().then(() => (init_detail2(), exports_detail)).then((x) => x.Detail).then((x) => globalThis[GLOBAL_KEY].clients["/mnt/b/Repositorios/reactful/experiment/routes/profile/detail.tsx"].jsx = x);
 default$["metadata"] ||= {};
-default$["metadata"].path = "/mnt/b/Repositorios/reactful/experiments/builds/bundle.ts";
+default$["metadata"].path = "/mnt/b/Repositorios/reactful/experiment/builds/bundle.ts";
 default$["metadata"] ||= {};
-default$["metadata"].path = "/mnt/b/Repositorios/reactful/experiments/builds/bundle.ts";
+default$["metadata"].path = "/mnt/b/Repositorios/reactful/experiment/builds/bundle.ts";
 default$["metadata"] ||= {};
-default$["metadata"].path = "/mnt/b/Repositorios/reactful/experiments/builds/bundle.ts";
+default$["metadata"].path = "/mnt/b/Repositorios/reactful/experiment/builds/bundle.ts";
 default$["metadata"] ||= {};
-default$["metadata"].path = "/mnt/b/Repositorios/reactful/experiments/builds/bundle.ts";
+default$["metadata"].path = "/mnt/b/Repositorios/reactful/experiment/builds/bundle.ts";
 default$["metadata"] ||= {};
-default$["metadata"].path = "/mnt/b/Repositorios/reactful/experiments/builds/bundle.ts";
+default$["metadata"].path = "/mnt/b/Repositorios/reactful/experiment/builds/bundle.ts";
 default$["metadata"] ||= {};
-default$["metadata"].path = "/mnt/b/Repositorios/reactful/experiments/builds/bundle.ts";
+default$["metadata"].path = "/mnt/b/Repositorios/reactful/experiment/builds/bundle.ts";
 default$["metadata"] ||= {};
-default$["metadata"].path = "/mnt/b/Repositorios/reactful/experiments/builds/bundle.ts";
+default$["metadata"].path = "/mnt/b/Repositorios/reactful/experiment/builds/bundle.ts";
 default$["metadata"] ||= {};
-default$["metadata"].path = "/mnt/b/Repositorios/reactful/experiments/builds/bundle.ts";
+default$["metadata"].path = "/mnt/b/Repositorios/reactful/experiment/builds/bundle.ts";
 default$["metadata"] ||= {};
-default$["metadata"].path = "/mnt/b/Repositorios/reactful/experiments/builds/bundle.ts";
+default$["metadata"].path = "/mnt/b/Repositorios/reactful/experiment/builds/bundle.ts";
 default$["metadata"] ||= {};
-default$["metadata"].path = "/mnt/b/Repositorios/reactful/experiments/builds/bundle.ts";
+default$["metadata"].path = "/mnt/b/Repositorios/reactful/experiment/builds/bundle.ts";
 default$["metadata"] ||= {};
-default$["metadata"].path = "/mnt/b/Repositorios/reactful/experiments/builds/bundle.ts";
+default$["metadata"].path = "/mnt/b/Repositorios/reactful/experiment/builds/bundle.ts";

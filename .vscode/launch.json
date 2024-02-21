@@ -1,11 +1,17 @@
 {
    "version": "0.2.0",
    "configurations": [
-       {
-         "name": "Bun: Debug",
+      {
          "type": "bun",
+         "name": "Bun: Create",
+         "request": "launch",
+         "program": "installation/index.js"
+      },
+      {
+         "type": "bun",
+         "name": "Bun: Debug",
          "request": "launch",
          "program": "experiment/index.ts"
-       }
+      }
    ]
 }
