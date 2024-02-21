@@ -4,6 +4,7 @@
   "name": "@reactful/server",
   "description": "@reactful server",
   "author": "JonathanSR <jsenaribeiro@gmail.com>",
+  "files": ["npm"],
   "license": "MIT",
   "scripts": {
     "clear": "clear; rm -rf node_modules npm package-lock.json bun.lockb; mkdir npm; bun i",

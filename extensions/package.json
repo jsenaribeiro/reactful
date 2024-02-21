@@ -6,6 +6,7 @@
   "name": "@reactful/extensions",
   "description": "@reactful extensions",
   "author": "JonathanSR <jsenaribeiro@gmail.com>",
+  "files": ["npm"],
   "license": "MIT",
   "scripts": {
     "clear": "rm -rf node_modules npm; mkdir npm; bun i; bun run build",
