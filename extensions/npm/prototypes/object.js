@@ -11,7 +11,7 @@ Object.fromProxy = function (that) {
     }
     return plain;
 };
-Object.parse = function (that) { return new ParseObject(that); };
+Object.parse = (function (that) { return new ParseObject(that); });
 Object.merge = function (self, that) {
     Object.keys(self).forEach(function (name) {
         if (that[name] === undefined)

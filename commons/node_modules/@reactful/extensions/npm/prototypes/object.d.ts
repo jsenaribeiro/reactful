@@ -24,7 +24,7 @@ declare global {
     }
     interface ObjectConstructor {
         merge<T extends Object>(of: T, to: T): any;
-        parse(value: any): ParseObject;
+        parse<T extends Object = any>(obj: T): ParseObject<T>;
         fromProxy(that: any): any;
     }
 }

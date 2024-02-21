@@ -45,7 +45,7 @@ async function prompting(answers) {
    console.log('- loading NPM...')
    await download('@reactful/create', downloadPath)
 
-   console.log('- creating .env...')
+   console.log('- creating env...')
    const env = `PORT=333\nMINIFY=FALSE`
    fs.writeFileSync(`${destination}/.env`, env)
 

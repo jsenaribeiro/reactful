@@ -85,7 +85,7 @@ async function bundleValidation() {
         console.error(fail);
 }
 function errors(logs) {
-    const list = ['\n\n !!!!!!! ==== REACTIVE build errors ==== !!!!!!!'];
+    const list = ['\n\n !!!!!!! ==== reactful build errors ==== !!!!!!!'];
     for (const log of logs) {
         const line = log.position?.line;
         const cols = log.position?.column;

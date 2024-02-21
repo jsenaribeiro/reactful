@@ -1,22 +1,27 @@
 {
   "type": "module",
-  "module": "index.ts",
+  "version": "0.1.0",
+  "main": "npm/index.ts",
+  "name": "@reactful/web",
+  "description": "@reactful web framework",
   "author": "JonathanSR <jsenaribeiro@gmail.com>",
+  "files": [
+    "npm"
+  ],
   "scripts": {
     "check": "eslint src/** --no-ignore",
     "build": "rm -rf tsconfig.tsbuildinfo; bunx tsc -p tsconfig.json",
     "other": "rm -rf tsconfig.tsbuildinfo; bunx tsc-silent -p tsconfig.json --suppress 2786,1206@ 2339@/src/bundle/bundle.ts",
     "clear": "rm -rf node_modules package-lock.json bun.lockb; bun i; bun run build",
-    "fresh": "bun update @reactful/extensions @reactful/commons @reactful/server",
-    "maker": "bun run fresh; rm -rf tsconfig.npm.tsbuildinfo npm; mkdir npm; cp package.npm.json npm/package.json; bunx tsc -p tsconfig.npm.json;",
-    "patch": "bun run maker; cd npm; npm version patch; npm publish --access public; cd ..",
-    "minor": "bun run maker; cd npm; npm version minor; npm publish --access public; cd ..",
-    "major": "bun run maker; cd npm; npm version major; npm publish --access public; cd .."
+    "fresh": "bun update @reactful/extensions @reactful/commons",
+    "maker": "bun run fresh; rm -rf tsconfig.npm.tsbuildinfo; bunx tsc -p tsconfig.json",
+    "patch": "bun run maker; npm version patch; npm publish --access public",
+    "minor": "bun run maker; npm version minor; npm publish --access public",
+    "major": "bun run maker; npm version major; npm publish --access public"
   },
   "dependencies": {
     "@reactful/commons": "latest",
     "@reactful/extensions": "latest",
-    "@reactful/server": "^0.0.130",
     "css": "^3.0.0",
     "html-format": "^1.1.6",
     "jsdom": "^23.0.1",
@@ -29,9 +34,9 @@
   },
   "devDependencies": {
     "@happy-dom/global-registrator": "^13.3.4",
-    "@types/css": "^0.0.37",
-    "@types/node": "^20.11.10",
     "@types/react": "^18.2.45",
+    "@types/node": "^20.11.10",
+    "@types/css": "^0.0.37",
     "bun-types": "^1.0.20",
     "eslint": "^8.56.0",
     "playwright": "^1.41.1",

@@ -1,15 +1,14 @@
 {
-   "exclude": ["node_modules", "doc", "npm"],
+   "exclude": ["node_modules", "doc", "npm", "poc", "tst"],
    "compilerOptions": {
-      "rootDir": "./",
       "outDir": "./npm",
+      "rootDir": "./src",
       "target": "esnext",
       "module": "esnext",
       "jsx": "react-jsx",
       "types": ["bun-types"],
       "moduleDetection": "auto",
       "moduleResolution": "bundler",
-      "noEmit": true,
       "strict": false,
       "allowJs": true,
       "sourceMap": true,
@@ -21,11 +20,5 @@
       "downlevelIteration": true,
       "allowSyntheticDefaultImports": true,
       "forceConsistentCasingInFileNames": true
-   }, 
-   "paths": {
-      "@reactful/extensions": ["../extensions/src/index.ts"], 
-      "@reactful/commons": ["../commons/src/index.ts"], 
-      "@reactful/server": ["../server/src/index.ts"],
-      "@reactful/web": ["../src/index.ts"]
    }
 }

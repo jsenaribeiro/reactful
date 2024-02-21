@@ -28,7 +28,7 @@ export function styler(jsx, src) {
         return { ...style, ...child.props.style };
     }
     catch (ex) {
-        console.error('REACTIVE styler/server.ts');
+        console.error('reactful styler/server.ts');
         throw ex;
     }
 }
