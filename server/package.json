@@ -1,5 +1,5 @@
 {
-  "version": "0.0.136",
+  "version": "0.1.3",
   "main": "npm/index.js",
   "name": "@reactful/server",
   "description": "@reactful server",
@@ -12,7 +12,8 @@
     "clear": "clear; rm -rf node_modules npm package-lock.json bun.lockb; mkdir npm; bun i",
     "build": "rm -rf tsconfig.tsbuildinfo; bunx tsc --declaration",
     "fresh": "bun update @reactful/extensions @reactful/commons",
-    "patch": "bun run fresh; bun run build; npm version patch; npm publish --access public"
+    "patch": "bun run fresh; bun run build; npm version patch; npm publish --access public",
+    "minor": "bun run fresh; bun run build; npm version minor; npm publish --access public"
   },
   "devDependencies": {
     "bun-types": "latest",

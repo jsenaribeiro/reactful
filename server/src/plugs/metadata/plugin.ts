@@ -43,19 +43,3 @@ export default function(args: Args) {
 
    return cleanCode(args.code)
 }
-
-/*
-   for (const fn of getModuleFunctions(args)) {      
-      if (!fn.mods.includes("export")) continue
-
-      const meta = `{ path: '${args.path}' }`
-      const then = `x => x.${fn.name}.metadata = ${meta}`
-      const code = `import('${args.path}').then(${then})`
-
-      args.code += `\n\n${code}`
-
-
-      // args.code += `\n\nimport.meta['${fn.name}'] ||= ${fn.name};`
-      // args.code += `\nimport.meta['${fn.name}'].path = '${args.path}';`
-   }      
-*/

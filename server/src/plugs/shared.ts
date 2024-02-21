@@ -27,6 +27,7 @@ export const cleanCode = code => code
    .replaceAll('\n\n\n', '\n\n')
 
 export function getModuleFunctions({ code, path }: Args): FunctionExpression[] {
+   const args = `[a-zA-Z0-9,\\(\\)\\[\\]\\<\\>\\: ]`
    const functions = [] as FunctionExpression[]
    const version = ts.ScriptTarget.Latest
    const source = ts.createSourceFile('temp.ts', code, version, true, ts.ScriptKind.TSX)
@@ -35,12 +36,18 @@ export function getModuleFunctions({ code, path }: Args): FunctionExpression[] {
       let type:CallType = "block"
       let init, name, body, full, sign, expr, mods, args, none=false, sync=true
 
+      const isInternal = node.parent.getText().includes(`(${node.getText()}`)
+         || node.getText().match(`${args}+=>${args}+=>`)
+         || node.parent.getText().startsWith("return ")
+
       const isNesting = node.parent.kind == ts.SyntaxKind.Block
+         || node.parent.getText().includes(`(${node.getText()})`)
+         || node.getText().match(`${args}+=>${args}+=>`)
+         || node.parent.getText().startsWith("return ")
          || ts.isFunctionDeclaration(node.parent) 
          || ts.isArrowFunction(node.parent)
       
       const isDefault = !!node.parent.getText().equal(/\s+default\s+/)
-
       const isFunction = ts.isFunctionDeclaration(node) || ts.isArrowFunction(node)
 
       if (ts.isArrowFunction(node)) {
@@ -77,7 +84,7 @@ export function getModuleFunctions({ code, path }: Args): FunctionExpression[] {
 
       else ts.forEachChild(node, traverse);
 
-      if (isFunction && !isNesting) 
+      if (isFunction && !isNesting && !isInternal) 
          return functions.push({ name, body, expr, args,
             path, full, sign, none, mods, sync, type })
    }

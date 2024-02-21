@@ -11,12 +11,12 @@ declare global {
    }
 }
 
-Promise.prototype.asLazyComponent = function(exported?) {
-   if (!exported || exported.endsWith('$')) exported = 'default'
+Promise.prototype.asLazyComponent = function(member?) {
+   if (!member || member.endsWith('$')) member = 'default'
    
    const base = this as any
    const none = React.createElement('div')
-   const fail = `Not found ${exported} for as LazyComponent`
+   const fail = `Not found ${member} for as LazyComponent`
 
    if (IS_SERVER_SIDE) return props => none   
    else return function(props) {      
@@ -26,12 +26,12 @@ Promise.prototype.asLazyComponent = function(exported?) {
       React.useEffect(() => base.then(afterImported), [])
 
       function afterImported(imported) {
-         if (!imported[exported]) throws(fail, import.meta)
+         if (!imported[member]) throws(fail, import.meta)
 
          const pathRoute = location.pathname
          const nowRouted = props.route || base['routing']
          const hasRouted = nowRouted && isRouted(pathRoute, nowRouted)
-         const component = imported[exported](props)
+         const component = imported[member](props)
 
          setComponent(hasRouted ? component: none)
       }

@@ -9,15 +9,14 @@
     "test-ut": "find . -type f -not -path './node_modules/*' -name '*.test.ts' | xargs bun test;",
     "test-e2e": "npx playwright test",
     "clear": "rm -rf node_modules package-lock.json bun.lockb; bun i; bun run build",
-    "fresh": "bun update @reactful/extensions @reactful/commons @reactful/server @reactful/web",
+    "fresh": "bun update @reactful/extensions @reactful/server @reactful/web",
     "build": "rm -rf tsconfig.tsbuildinfo; bunx tsc -p tsconfig.json"
   },
   "dependencies": {
     "@playwright/test": "^1.41.2",
-    "@reactful/commons": "^0.0.131",
     "@reactful/extensions": "latest",
     "@reactful/server": "latest",
-    "@reactful/web": "latest",
+    "@reactful/web": "^0.1.0",
     "@types/react": "^18.2.57",
     "os": "^0.1.2",
     "react": "^18.2.0",
