@@ -1,12 +1,6 @@
 {
-   "exclude": ["node_modules", "doc", "npm"],   
-   "include": [
-      "experiment/**/*",
-      "extensions/**/*",
-      "commons/**/*", 
-      "server/**/*",
-      "web/**/*"
-   ],
+   "exclude": ["node_modules"],   
+   "include": ["experiment"],
    "compilerOptions": {
       "rootDir": ".",
       "jsx": "react",
@@ -27,11 +21,5 @@
       "downlevelIteration": true,
       "allowSyntheticDefaultImports": true,
       "forceConsistentCasingInFileNames": true
-   }, 
-   "paths": {
-      "@reactful/extensions": ["/mnt/b/Repositorios/reactful/extensions/src/index.ts"], 
-      "@reactful/commons": ["/mnt/b/Repositorios/reactful/commons/src/index.ts"], 
-      "@reactful/server": ["/mnt/b/Repositorios/reactful/server/src/index.ts"],
-      "@reactful/web": ["/mnt/b/Repositorios/reactful/web/src/index.ts"]
    }
 }

@@ -1,7 +1,10 @@
 FIXINGS
 - fix playwright tests
 - hot loading not working
+- route params not working
+- directive intelisense attributes fails
 - shown custom directive type (poc - login.tsx)
+- custom form[validation] only after first render
 
 PENDINGS
 - article: problems, foundations, etc

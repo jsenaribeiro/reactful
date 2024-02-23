@@ -8,27 +8,22 @@
     "tests": "bun run test-ut; bun run test-e2e",
     "test-ut": "find . -type f -not -path './node_modules/*' -name '*.test.ts' | xargs bun test;",
     "test-e2e": "npx playwright test",
-    "clear": "rm -rf node_modules package-lock.json bun.lockb; bun i; bun run build",
+    "clear": "rm -rf node_modules package-lock.json bun.lockb; bun i; bun start",
     "fresh": "bun update @reactful/extensions @reactful/server @reactful/web",
-    "build": "rm -rf tsconfig.tsbuildinfo; bunx tsc -p tsconfig.json",
-    "clear-all": "bun run clear-commons & bun run clear-extensions & bun run clear-server & bun run clear-web",
-    "clear-commons": "cd commons; bun i",
-    "clear-extensions": "cd extensions; bun i",
-    "clear-server": "cd server; bun i",
-    "clear-web": "cd web; bun i"
+    "build": "rm -rf tsconfig.tsbuildinfo; bunx tsc -p tsconfig.json"
   },
   "dependencies": {
-    "@playwright/test": "^1.41.2",
+    "@playwright/test": "latest",
     "@reactful/extensions": "latest",
     "@reactful/server": "latest",
-    "@reactful/web": "^0.1.0",
-    "@types/react": "^18.2.57",
-    "os": "^0.1.2",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "@reactful/web": "latest",
+    "os": "latest",
+    "react": "latest",
+    "react-dom": "latest"
   },
   "devDependencies": {
-    "bun-types": "^1.0.20",
-    "typescript": "^5.3.3"
+    "bun-types": "latest",
+    "typescript": "latest",
+    "@types/react": "latest"
   }
 }

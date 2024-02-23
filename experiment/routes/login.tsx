@@ -2,6 +2,7 @@
 
 import React from 'react'
 import { client } from '@reactful/web'
+import '@reactful/extensions'
 
 //@ts-ignore
 @client(true)

@@ -13,6 +13,12 @@ const rce = (fce, props) => React.createElement<any>(fce, props)
 let uid = 0
 
 export const parser = (root: RFC, href: string) => new Parser(root, href).render()
+    
+const getTag = (node: RRE) => 
+     typeof node?.type == "function" ? node?.type.name 
+   : typeof node?.type == "string" ? node?.type
+   : typeof node?.type == "symbol" ? '<>'
+   : node?.type?.toString() || ''
 
 class Parser implements AsyncParser {
    public leaf = false
@@ -75,15 +81,10 @@ class Parser implements AsyncParser {
    }
 
    public async children(jsxs: RRE[], own: string) {
-      const mapper = async (node: RRE) => {
+      const each = async (node: RRE) => {     
          try {
-            const tag 
-               = typeof node.type == "function" ? node.type.name 
-               : typeof node.type == "string" ? node.type
-               : typeof node.type == "symbol" ? '<>'
-               : node.type?.toString() || ''
-
-            const end = raw(node) === true
+            const end = raw(node)
+            const tag = getTag(node)
             if (tag) log.append(` ${tag}`, "DIM")
             else if (end) return await node
             return await this.parent(node, own)            
@@ -94,8 +95,7 @@ class Parser implements AsyncParser {
          }
       }
 
-      const all = jsxs.map(mapper)
-      return await Promise.all(all)
+      return await Promise.all(jsxs.map(each))
    }
 
    public syblings = async (props, own) => Object

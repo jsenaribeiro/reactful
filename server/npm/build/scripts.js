@@ -7,9 +7,10 @@ export async function createCliteSideScripts() {
     const withNoFunction = x => ([field]) => typeof x[field] != "function";
     const removeFunctions = x => Object.parse(x).filter(withNoFunction(x)).toObject();
     const isNotFailure = (x) => env.settings.faileds.some(y => y.href != x.path);
+    const isNotWaitTypeOrFailure = x => x.type != "wait" && !isNotFailure(x);
     const rootTag = `queryId:'${settings.queryId}'`;
     const renders = settings.renders.map(removeFunctions);
-    const caching = settings.caching.filter(isNotFailure);
+    const caching = settings.caching.filter(isNotWaitTypeOrFailure);
     const scripts = `
       const GLOBAL_KEY = ${JSON.scriptify(GLOBAL_KEY)}
       const process = { env: ${JSON.scriptify(process.env)} }
@@ -26,25 +27,25 @@ export async function createCliteSideScripts() {
     await scriptsLogging();
 }
 export async function saveEntryScriptForBundle() {
-    const variable = (url) => `${SETTINGS}.clients['${url}']`;
-    const importer = (url, tag) => `\nimport('${url}').then(x => x.${tag})
-                                    .then(x => ${variable(url)} = x);\n`;
     const modules = `${Path.npm}/@reactful/server/npm/guest/client`;
-    const startup = `\nconsole.log('import.meta', import.meta.url);
-                     import { GLOBAL_KEY } from '@reactful/commons';
-                     await import('${modules}').then(x => x.default());
-                     ${SETTINGS}.clients ||= {}`;
-    const clients = await Object.entries(settings.clients)
+    const variable = (url) => `${SETTINGS}.clients['${url}']`;
+    const importer = (url, tag) => `\nimport('${url}').then(x => x.${tag})` +
+        `.then(x => ${variable(url)} = x);\n`;
+    const clients = await Object
+        .entries(settings.clients)
         .reduce(reducer, Promise.resolve(''));
+    const startup = `\nimport { GLOBAL_KEY } from '@reactful/commons';
+      await import('${modules}').then(x => x.default());
+      ${SETTINGS}.clients ||= {}`;
     async function reducer(text, [url, cli]) {
         const [module, content] = [await import(url), await text];
         const member = module[cli.tag] ? cli.tag : module['default'] ? 'default' : '';
         const starts = `\n${SETTINGS}.clients['${url}'] = { off:${cli.off}, tag:'${cli.tag}' }`;
         const append = content + starts + importer(url, member);
-        return member ? append : throws('Not found route component in ' + url, import.meta);
+        const failed = 'Not found route component in ' + url;
+        return member ? append : throws(failed, import.meta);
     }
     const code = `${startup}\n${clients}\n`.replace(/^[ ]+/gm, '');
-    const path = new Path(import.meta).base.base.path + '/guest';
     await new File(`${Path.builds}/bundle.ts`).save(code);
 }
 async function scriptsLogging() {

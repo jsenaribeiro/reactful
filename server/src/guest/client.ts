@@ -89,8 +89,8 @@ async function partialHydrationClientSideOnly() {
       try {
          const url = location.pathname
          const src = elm.getAttribute('src')!
-         const cli = settings.clients[src] as ClientInfo
-         const jsx = await parser(cli.jsx, src, url) 
+         const cli = settings.clients[src] as RFC
+         const jsx = await parser(cli, src, url) 
          
          if (jsx) createRoot(elm).render(jsx)
          

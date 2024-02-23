@@ -15,27 +15,32 @@ Promise.prototype.asLazyComponent = function(member?) {
    if (!member || member.endsWith('$')) member = 'default'
    
    const base = this as any
-   const none = React.createElement('div')
+   const hide = React.createElement('div')
    const fail = `Not found ${member} for as LazyComponent`
 
-   if (IS_SERVER_SIDE) return props => none   
+   if (IS_SERVER_SIDE) return props => hide   
    else return function(props) {      
       base['routing'] ||= props.route
 
-      const [child, setComponent] = React.useState(none)   
-      React.useEffect(() => base.then(afterImported), [])
+      const routing = React.useRef(false)
+      const [component, setComponent] = React.useState(hide)
+      
+      React.useEffect(() => { base.then(afterImported) }, [routing.current])
 
       function afterImported(imported) {
          if (!imported[member]) throws(fail, import.meta)
 
          const pathRoute = location.pathname
+         const importing = imported[member](props)
          const nowRouted = props.route || base['routing']
-         const hasRouted = nowRouted && isRouted(pathRoute, nowRouted)
-         const component = imported[member](props)
+         const hasRouted = nowRouted && isRouted(pathRoute, nowRouted)          
 
-         setComponent(hasRouted ? component: none)
+         routing.current = hasRouted
+
+         if (hasRouted && component != hide) return         
+         else setComponent(hasRouted ? importing: hide)
       }
 
-      return child
+      return component
    } 
 }

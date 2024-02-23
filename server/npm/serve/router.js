@@ -6,10 +6,11 @@ import { parser } from '../serve';
 import { Path } from "../extra";
 import { ssg } from './static';
 const settings = env.settings;
-export async function routing(request) {
-    if (!isRoute(request))
+export async function routing(route) {
+    if (route instanceof Request && !isRoute(route))
         return undefined;
-    const route = new Path(request.url).href;
+    if (route instanceof Request)
+        return routing(new Path(route.url).href);
     // @route : dynamic site generation (decorator)   
     const { call, href } = await env.let(route);
     const html = call && await renderize(call, href);
@@ -22,7 +23,7 @@ export async function routing(request) {
     if (isDynamic)
         return await stream(href, "html");
     // ssg: static site generation (default)
-    return await ssg(href.replace(/\/$/, ''));
+    return await ssg(route);
 }
 // rendering JSX to HTML in each routing item
 async function renderize(call, href) {

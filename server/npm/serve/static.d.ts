@@ -1,1 +1,1 @@
-export declare function ssg(href: string, last?: string): Promise<Response>;
+export declare function ssg(href: string, last?: string): any;

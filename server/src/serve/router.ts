@@ -9,12 +9,14 @@ import { ssg } from './static'
 
 const settings = env.settings
 
-export async function routing(request: Request) {
-   if (!isRoute(request)) return undefined
-   const route = new Path(request.url).href
-
+export async function routing(route: string)
+export async function routing(request: Request)
+export async function routing(route: Request|string) {
+   if (route instanceof Request && !isRoute(route)) return undefined
+   if (route instanceof Request) return routing(new Path(route.url).href)
+   
    // @route : dynamic site generation (decorator)   
-   const { call, href } = await env.let(route)
+   const { call, href } = await env.let(route as RouteString)
    const html = call && await renderize(call, href)
    const HTML = html && await mergeHTML(call, href, html)
    if (HTML) return response(200, HTML, "text/html")
@@ -25,7 +27,7 @@ export async function routing(request: Request) {
    if (isDynamic) return await stream(href, "html")
 
    // ssg: static site generation (default)
-   return await ssg(href.replace(/\/$/, ''))
+   return await ssg(route)
 }
 
 // rendering JSX to HTML in each routing item

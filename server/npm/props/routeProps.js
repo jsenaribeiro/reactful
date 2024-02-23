@@ -2,15 +2,13 @@ import { env, isRouted } from '@reactful/commons';
 export default ['route', 'link'];
 const settings = env.settings;
 const context = { route: {} };
-const IS_SERVER_SIDE = !globalThis.document;
+const IS_SERVER_SIDE = !globalThis.location;
 export const routeProps = function (props, params) {
     if (!props?.link && !props?.route)
         return props;
-    const isNotRouted = IS_SERVER_SIDE
-        ? x => !isRouted(settings.current, x)
-        : x => !isRouted(location.pathname, x);
-    const hidden = isNotRouted(props.route);
-    const routed = !isNotRouted(props.link);
+    const actual = IS_SERVER_SIDE ? settings.current : location.pathname;
+    const routed = isRouted(actual, props.link);
+    const hidden = !isRouted(actual, props.route);
     if (props.route)
         props = hidden
             ? { ...props, hidden }
@@ -19,8 +17,7 @@ export const routeProps = function (props, params) {
         props = routed
             ? { ...props, onClick, className: `${props.className} routed` }
             : { ...props, onClick };
-    const route = context.route[props.link]
-        ||= location.pathname.replace(/\/$/, '');
+    const route = context.route[props.link] ||= actual.replace(/\/$/, '');
     function onClick() {
         if (!props.link)
             return;

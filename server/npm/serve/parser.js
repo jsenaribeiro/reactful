@@ -9,6 +9,10 @@ const raw = x => typeof x != "object";
 const rce = (fce, props) => React.createElement(fce, props);
 let uid = 0;
 export const parser = (root, href) => new Parser(root, href).render();
+const getTag = (node) => typeof node?.type == "function" ? node?.type.name
+    : typeof node?.type == "string" ? node?.type
+        : typeof node?.type == "symbol" ? '<>'
+            : node?.type?.toString() || '';
 class Parser {
     leaf = false;
     path;
@@ -58,13 +62,10 @@ class Parser {
                                 : jsx;
     }
     async children(jsxs, own) {
-        const mapper = async (node) => {
+        const each = async (node) => {
             try {
-                const tag = typeof node.type == "function" ? node.type.name
-                    : typeof node.type == "string" ? node.type
-                        : typeof node.type == "symbol" ? '<>'
-                            : node.type?.toString() || '';
-                const end = raw(node) === true;
+                const end = raw(node);
+                const tag = getTag(node);
                 if (tag)
                     log.append(` ${tag}`, "DIM");
                 else if (end)
@@ -76,8 +77,7 @@ class Parser {
                 return undefined;
             }
         };
-        const all = jsxs.map(mapper);
-        return await Promise.all(all);
+        return await Promise.all(jsxs.map(each));
     }
     syblings = async (props, own) => Object
         .fromEntries(await Promise

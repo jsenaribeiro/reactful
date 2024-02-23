@@ -1,1 +1,2 @@
-export declare function routing(request: Request): Promise<any>;
+export declare function routing(route: string): any;
+export declare function routing(request: Request): any;

@@ -1,5 +1,5 @@
 {
-  "version": "0.1.24",
+  "version": "0.1.38",
   "main": "npm/index.js",
   "name": "@reactful/server",
   "description": "@reactful server",
@@ -9,25 +9,25 @@
   ],
   "license": "MIT",
   "scripts": {
-    "clear": "clear; rm -rf node_modules npm package-lock.json bun.lockb; mkdir npm; bun i",
+    "clear": "clear; rm -rf node_modules npm package-lock.json bun.lockb; mkdir npm; bun i; bun run build",
     "build": "rm -rf tsconfig.tsbuildinfo; bunx tsc --declaration",
     "fresh": "bun update @reactful/extensions @reactful/commons",
     "patch": "bun run fresh; bun run build; npm version patch; npm publish --access public",
     "minor": "bun run fresh; bun run build; npm version minor; npm publish --access public"
   },
   "devDependencies": {
-    "@types/react": "^18.2.58",
     "bun-types": "latest",
-    "typescript": "latest"
+    "typescript": "latest",
+    "@types/react": "latest"
   },
   "dependencies": {
     "@reactful/commons": "latest",
     "@reactful/extensions": "latest",
-    "css": "^3.0.0",
-    "fs": "^0.0.1-security",
-    "html-format": "^1.1.6",
-    "jsdom": "^24.0.0",
-    "marked": "^12.0.0",
-    "react": "^18.2.0"
+    "css": "latest",
+    "fs": "latest",
+    "html-format": "latest",
+    "jsdom": "latest",
+    "marked": "latest",
+    "react": "latest"
   }
 }
