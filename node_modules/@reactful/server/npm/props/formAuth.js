@@ -1,5 +1,5 @@
 import { throws } from "@reactful/commons";
-const IS_SERVER_SIDE = !global.document;
+const IS_SERVER_SIDE = !globalThis.document;
 export function authenticate(props) {
     if (IS_SERVER_SIDE)
         return throws('formProps only support client-side');

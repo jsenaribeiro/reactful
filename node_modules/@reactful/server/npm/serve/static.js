@@ -1,5 +1,5 @@
 "use server";
-import maker from '../build/generate';
+import maker from '../build/maker';
 import { File, Path } from "../extra";
 import { env, response } from "@reactful/commons";
 const INDEX = '/index';

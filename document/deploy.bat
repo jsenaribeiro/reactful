@@ -1,6 +1,6 @@
 deno run -A deploy.js
 
-set "BASIC_DIR=B:\Repositorios\reactful\documents"
+set "BASIC_DIR=B:\Repositorios\reactful\document"
 set "SLIDE_DIR=B:\Repositorios\jsenaribeiro.github.io\slideme"
 set "INDEX_DIR=B:\Repositorios\jsenaribeiro.github.io\readme"
 

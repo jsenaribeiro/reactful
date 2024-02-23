@@ -26,11 +26,13 @@ export async function createCliteSideScripts() {
     await scriptsLogging();
 }
 export async function saveEntryScriptForBundle() {
-    const variable = (url) => `${SETTINGS}.clients['${url}'].jsx`;
+    const variable = (url) => `${SETTINGS}.clients['${url}']`;
     const importer = (url, tag) => `\nimport('${url}').then(x => x.${tag})
                                     .then(x => ${variable(url)} = x);\n`;
-    const starting = `\nimport { GLOBAL_KEY } from '@reactful/commons'
-                     await import('${Path.builds}/client.ts').then(x => x.default());
+    const modules = `${Path.npm}/@reactful/server/npm/guest/client`;
+    const startup = `\nconsole.log('import.meta', import.meta.url);
+                     import { GLOBAL_KEY } from '@reactful/commons';
+                     await import('${modules}').then(x => x.default());
                      ${SETTINGS}.clients ||= {}`;
     const clients = await Object.entries(settings.clients)
         .reduce(reducer, Promise.resolve(''));
@@ -41,9 +43,8 @@ export async function saveEntryScriptForBundle() {
         const append = content + starts + importer(url, member);
         return member ? append : throws('Not found route component in ' + url, import.meta);
     }
-    const code = `${starting}\n${clients}\n`.replace(/^[ ]+/gm, '');
-    const text = await new File('./client.ts').load();
-    await new File(`${Path.builds}/client.ts`).save(text);
+    const code = `${startup}\n${clients}\n`.replace(/^[ ]+/gm, '');
+    const path = new Path(import.meta).base.base.path + '/guest';
     await new File(`${Path.builds}/bundle.ts`).save(code);
 }
 async function scriptsLogging() {

@@ -1,0 +1,137 @@
+TEMA
+React stateful objects with full SSR and scopeful CSS
+
+QUESTÃO
+- stateful react é complexo, contra-intuitivo e propenso a erros
+- além de não tratar CSS com escopo (scopeless CSS)
+- e frameworks React nao resolvem esse problema
+
+RELEVANCIA
+- aproximadamente 80% do desenvolvimento frontend é em React
+- tratamento de estado em React é inferior comparativamente
+- frameworks React atuais não resolvem esse problema
+
+ARQUITETURA
+- Bun: novo runtime js de altissima performance
+- React 19: ultima versao do react lançado em 02/2024
+
+DESAFIOS
+- retro-compatibilidade com React render: resolvido via introspecção do client-side rendering
+- problemas de performance da extensão, resolvidos com server-side rendering
+- SSR overconventions, resolvido via plugin com function decorators
+- scopeless CSS, resolvido via plugin Bun para importação de CSS
+- prolixidade stateful residual, resolvido criando o 'props binding'
+
+FUNDAMENTAÇÕES
+- client-server architectural style
+- ajax: asynchronous javascript
+- spa: single-page application
+- web components
+- react stateful handling
+- server-side rendering
+- search engine optimization
+- hydration algorithm
+- partial hydration
+- react server component
+- component streaming
+- DI: dependency injection
+
+COMPARATIVO (react x angular x reactful)
+- angular é o principal concorrente ao react com uma abordagem bem diferente
+- apresentar as caracteristicas gerais de react x angular
+- apresentar as diferenças no tratamento de estado entre ambos
+- evidenciar inferioridade em tratamento de estado ao angular
+- mostra como reactful resolve
+
+CONTRIBUIÇÕES
++ stateful objects: objetos encapsulam o tratamento de estado
++ props directives: atributos injetáveis para fazer element mixins
++ delayed render: algoritmo de performance para stateful objects
++ function decorators: plugin que habilitar decoratores em função (HOC, SSR, etc)
++ props bindings: diretivas que simplificam trabalhar com formulários
++ props routing: diretivas para fazer roteamento (mapeamento declarativo de rotas)
++ restful actions: formulários reativos integrados com requisicoes RESTful
++ jsx-in-html: importar componente JSX via HTML com novo <link type='component'>
++ hookless design: todos os hooks principais são substituídos por stateful objects
+  - useState: stateful props
+  - useEffect: stateful objects
+  - useContext: useStore
+  - useCallback: outside component
+  - useMemo: delayed render algorithm
+  - useLayoutEffect: não se aplica...
+  - useReducer: OOP states
+
+LIMITAÇÕES / FUTURE WORKS
+- warnings de function decorator ( ignorável via //@ts-ignore )
+- customs props directive é limitado ( nao suporta 'imports' de modulos )
+- implementado para Web (@reactful/web), implementar depois para mobile (@reactful/app)
+- import CSS modular sem nao suporta CSS pseudo-selectors (:hover, :active, :etc)
+
+CRONOGOGRAMA
+- protótipo 100%
+- documentacao 100%
+- video (introdução) 100%
+- slide (apresentação) 90%
+
+
+ARTICLES
++ theme: OOP stateful react with comphreensive SSR and scopeful CSS
++ problems: complex react state handling + SSR react framework overconventions + scopeless CSS desiging
++ relevance
+- major% software development is frontend
+- 70-80% de todo desenvolvimento frontend tecnology
+- major% issue as react stateful handling
+- major% trending as SSR handling
++ comparison: react x angular
+= criterias: productivy + performance (empirical criterias)
+- productivy: low-cost reading, writing, learning
+- performance: render-time, build-time, etc
+- comparisons: stateful handling (react x angular)
+- comparisons: SSR syntaxes (reactful x next.js x others)
++ foundations: spa, frontend, web component, component tree, bi
++ contribuitions: 
+- conceptual: stateful objects
+- particular: props binding, props directive, function decorator, DI
++ achievements:
+- enhanced and performatic curve stateful handling
+- low-level API for server-side rendering
+- why this article: 
+
+
+destaques
+- delayed render algorithm
+
+1. Introdução:
+Tema e Contexto: Apresente o tema geral da sua dissertação e o contexto em que se insere.
+Problema de Pesquisa: Descreva o problema que sua dissertação pretende abordar e sua relevância.
+
+2. Revisão da Literatura:
+Contextualização: Revise a literatura existente relacionada ao seu tema.
+Identificação de Lacunas: Identifique lacunas na pesquisa existente que sua dissertação pretende preencher.
+
+3. Objetivos de Pesquisa:
+Objetivo Geral: Declare o objetivo geral da sua pesquisa.
+Objetivos Específicos: Enumere os objetivos específicos que ajudarão a alcançar o objetivo geral.
+
+4. Metodologia:
+Abordagem de Pesquisa: Descreva se sua pesquisa será qualitativa, quantitativa ou mista.
+Métodos de Coleta de Dados: Descreva como você pretende coletar dados (entrevistas, questionários, análise de documentos, etc.).
+Análise de Dados: Explique como você analisará os dados coletados.
+
+5. Cronograma:
+Fases do Projeto: Divida seu projeto em fases, como revisão da literatura, coleta de dados, análise, redação, etc.
+Tempo Estimado: Estime quanto tempo você precisará para cada fase.
+
+6. Recursos Necessários:
+Recursos Humanos: Liste quem estará envolvido em seu projeto (você, orientador, participantes da pesquisa, etc.).
+Recursos Materiais: Liste qualquer material específico que você precisará (software, equipamentos, etc.).
+
+7. Orçamento:
+Custos: Estime os custos associados à sua pesquisa (viagens, materiais, custos de participação, etc.).
+
+8. Contribuições Esperadas:
+Acadêmicas: Liste as contribuições acadêmicas esperadas de sua pesquisa.
+Práticas: Descreva como sua pesquisa pode ter aplicações práticas.
+
+9. Referências:
+Bibliografia: Liste todas as fontes citadas ao longo do projeto de dissertação.

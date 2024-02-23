@@ -1,5 +1,6 @@
 import { IS_ONLY_FOR_ROUTE, PREFIX_ERROR } from '@reactful/commons'
 import { getMillisecondsFrom, env } from '@reactful/commons'
+import '@reactful/extensions'
 
 const SERVER_PATH_ERROR = `${PREFIX_ERROR}@server ` + IS_ONLY_FOR_ROUTE
 const IS_CLIENT_SIDE = !!globalThis.document
@@ -21,7 +22,7 @@ export function server(mode: SSR, args?: Time|number): Decorator<RFC> {
 
       const path = meta.url.replace('file://', '')
       const { folders, renders } = env.settings
-      const inferMode = call.isAsync() ? "dynamic" : "static"
+      const inferMode = call.isAsync ? "dynamic" : "static"
       const failedServer = side == "server"
          && !path.includes(folders.routes)
 

@@ -8,5 +8,5 @@ export interface Props<T extends object = object> {
     onValidate?: OnValidateEvent;
 }
 /** reactful forms as form[data] and children[bind]
- * with server actions and validation api */
+ * with RESTful actions and validation api */
 export declare function formProps(props: Props, params: Params): any;

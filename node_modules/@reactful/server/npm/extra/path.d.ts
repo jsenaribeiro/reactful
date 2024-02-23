@@ -4,8 +4,11 @@ export declare class Path {
     path: string;
     static e2e: boolean;
     private static paths;
+    private static node_modules;
     constructor(path: string);
     constructor(meta: ImportMeta);
+    static get npm(): any;
+    private static getNodeModuleFolder;
     static from: (directory: PathFields) => Path;
     static startup(): true;
     static get cwd(): string;

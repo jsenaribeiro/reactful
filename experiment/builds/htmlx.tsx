@@ -1,5 +1,5 @@
 import React from 'react'
-import { Header } from '../components/header.tsx'
+import { Header } from '../components/header'
 export default function() { 
 	return <>
    <Header title="HTML-X" />

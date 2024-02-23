@@ -372,7 +372,7 @@ export const Menu = (props, { route }) => <>
 
 ### `binder` props
 
-Binding props simplifies controlled and uncontrolled components with stateful objects, supporting validation API and RESTful server actions.
+Binding props simplifies controlled and uncontrolled components with stateful objects, supporting validation API and RESTful actions.
 
 </div><div>
 

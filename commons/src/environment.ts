@@ -51,10 +51,11 @@ class Environment implements IEnv {
           || this.all.find(x => x.type==type && x.path==path + '/index' && x.name==name)?.data as any
    }
 
-   public set(type: "href", path: string, name: string, data: string, call: RFC): void
-   public set(type: "meta", path: string, name: string, data: MetaTags): void
-   public set(type: "html", path: string, data: `<${string}</${string}>`)
-   public set(type: "lazy", path: string, name: string, data: `<${string}</${string}>`): void
+   public set(type: "href", path: string, name: string, html: string, call: RFC): void
+   public set(type: "meta", path: string, name: string, html: MetaTags): void
+   public set(type: "html", path: string, html: `<${string}</${string}>`)
+   public set(type: "lazy", path: string, name: string, html: `<${string}</${string}>`): void
+   public set(type: "wait", path: string, guid: string, html: string)
    public set(...args: any[]): any {
       var type, data, name, path, call
 

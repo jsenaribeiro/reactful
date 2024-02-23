@@ -215,7 +215,7 @@ body.marp-vscode blockquote {
 <embed type='text/html' src='./header.html' />
 <header>binder properting</header>
 <blockquote>
-<p>data binding • form binding • props directives<br/>restful server actions • validation api</p>
+<p>data binding • form binding • props directives<br/>RESTful actions • validation api</p>
 </blockquote>
 <h2 id="data-binding-props">Data binding props</h2>
 <p>The <code>[data]</code> and <code>[bind]</code> props directive enables data binding in read-write input elements, where <code>[data]</code> props is a target stateful object and <code>[bind]</code> props its mapped member field.</p>
@@ -268,7 +268,7 @@ body.marp-vscode blockquote {
    errors.<span class="hljs-title function_">push</span>({ <span class="hljs-attr">error</span>: <span class="hljs-string">&#x27;some custom error message&#x27;</span> })
 }
 </code></pre>
-<h2 id="restful-server-actions">RESTful server actions</h2>
+<h2 id="restful-server-actions">RESTful actions</h2>
 <p>With <code>form[data]</code>, the <code>[action]</code> props is made RESTful, sending data object as a JSON as resolving response errors with fails array as dependency injection.</p>
 <pre><code class="language-tsx"><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> <span class="hljs-title function_">Todo</span> = (<span class="hljs-params">props, { fails }</span>) =&gt; <span class="language-xml"><span class="hljs-tag">&lt;&gt;</span>
    <span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">action</span>=<span class="hljs-string">&#x27;http://www.api.com&#x27;</span> <span class="hljs-attr">method</span>=<span class="hljs-string">&#x27;POST&#x27;</span> &gt;</span> 

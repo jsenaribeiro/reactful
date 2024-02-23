@@ -4,6 +4,7 @@ import * as fs from 'fs'
 import { File, Path } from '../extra'
 import { throws } from '@reactful/commons'
 import { validateRoutes } from './validate'
+import "@reactful/extensions"
 
 globalThis.REFACT = true
 

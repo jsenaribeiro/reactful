@@ -3,8 +3,8 @@
 import React from "react"
 import { env, PROXY, params } from "@reactful/commons"
 import { mountState, refocus } from "../state"
-import { styler } from "../guest/styler"
-import { proper } from "../extra"
+import { styler } from "./styler"
+import proper from "../props"
 
 var latest = {} as any
 

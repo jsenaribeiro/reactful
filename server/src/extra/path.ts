@@ -2,7 +2,7 @@
 
 import { env } from '@reactful/commons'
 import { File } from './file'
-import { Dirent } from 'fs' 
+import { Dirent, existsSync } from 'fs' 
 import { readdir } from 'fs/promises' 
 
 const context = { lib:'', cwd:'', tst:'' }
@@ -16,13 +16,32 @@ export class Path {
    public path: string
    public static e2e = false
    private static paths: Folders
+   private static node_modules = ''
 
    constructor(path: string)
    constructor(meta: ImportMeta)
-   constructor(path: string|ImportMeta) { 
+   constructor(args: string|ImportMeta) { 
       this.path ||= '/' 
-      this.path = path['url'] || path
+      this.path = args['url'] || args
       this.path = this.path.toString().replace("file://", "")
+   }
+
+   public static get npm() {
+      if (Path.node_modules) return Path.node_modules
+      return Path.node_modules = Path.getNodeModuleFolder()
+   }
+
+   private static getNodeModuleFolder(last: string = '') {
+      last ||= `${Path.cwd}`
+      const next = new Path(last).base.path
+      const node = '/node_modules'
+      const path = `${last}${node}`
+
+      if (!last || last == '/')
+         throw 'failed to get node_modules path'
+
+      return existsSync(path) ? path
+         : Path.getNodeModuleFolder(next)
    }
 
    public static from = (directory: PathFields) => new Path(Path[directory])

@@ -12659,7 +12659,7 @@ var init__server = __esm(() => {
 var IS_CLIENT_SIDE4;
 var init__route = __esm(() => {
   init_npm2();
-  IS_CLIENT_SIDE4 = !!global.document;
+  IS_CLIENT_SIDE4 = !!globalThis.document;
 });
 
 // node_modules/@reactful/extensions/npm/types/seo

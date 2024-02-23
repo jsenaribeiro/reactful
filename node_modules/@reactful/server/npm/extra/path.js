@@ -1,6 +1,7 @@
 "use server";
 import { env } from '@reactful/commons';
 import { File } from './file';
+import { existsSync } from 'fs';
 import { readdir } from 'fs/promises';
 const context = { lib: '', cwd: '', tst: '' };
 const IS_CLIENT_SIDE = !!globalThis.document;
@@ -8,10 +9,26 @@ export class Path {
     path;
     static e2e = false;
     static paths;
-    constructor(path) {
+    static node_modules = '';
+    constructor(args) {
         this.path ||= '/';
-        this.path = path['url'] || path;
+        this.path = args['url'] || args;
         this.path = this.path.toString().replace("file://", "");
+    }
+    static get npm() {
+        if (Path.node_modules)
+            return Path.node_modules;
+        return Path.node_modules = Path.getNodeModuleFolder();
+    }
+    static getNodeModuleFolder(last = '') {
+        last ||= `${Path.cwd}`;
+        const next = new Path(last).base.path;
+        const node = '/node_modules';
+        const path = `${last}${node}`;
+        if (!last || last == '/')
+            throw 'failed to get node_modules path';
+        return existsSync(path) ? path
+            : Path.getNodeModuleFolder(next);
     }
     static from = (directory) => new Path(Path[directory]);
     static startup() {

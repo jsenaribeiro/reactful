@@ -3,6 +3,7 @@ import * as fs from 'fs';
 import { File, Path } from '../extra';
 import { throws } from '@reactful/commons';
 import { validateRoutes } from './validate';
+import "@reactful/extensions";
 globalThis.REFACT = true;
 const NO_DEFAULT_EXPORT = `\nno default export in ???.`
     + ` Routed components need to be exported as default!`;

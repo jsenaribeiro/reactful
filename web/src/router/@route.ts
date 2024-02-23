@@ -1,6 +1,6 @@
 import { env, PREFIX_ERROR } from '@reactful/commons'
 
-const IS_CLIENT_SIDE = !!global.document
+const IS_CLIENT_SIDE = !!globalThis.document
 
 function routeDecorator(href: URLString): Decorator<RFC> {
    if (!href) throw `${PREFIX_ERROR}empty @route(href)`   

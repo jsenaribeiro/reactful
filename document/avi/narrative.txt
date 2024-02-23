@@ -4,7 +4,7 @@ React widely dominates frontend S.P.A, recommending now only be used through its
 
 The reactful framework uses function decorators and props directives for easy S.E.O., full rendering, and flex routing,  with support for JSX, HTML, and markdown. 
 
-Its new state handling uses stateful objects for controlled and uncontrolled components with support for HTML validation API, RESTful server actions, and easy form authentication.
+Its new state handling uses stateful objects for controlled and uncontrolled components with support for HTML validation API, RESTful actions, and easy form authentication.
 
 reactful brings easy S.S.R. solving critical issues: 
 

@@ -60,7 +60,7 @@ export const get = (request: Request) =>
 
 Exceptions are handled by local @error decorator and global component injection.
 
-<aside cols='4:5'>
+<aside cols='3:5'>
 
 ```tsx
 @error(<h1>Custom error...</h1>)
@@ -120,8 +120,8 @@ Go to <a href='#' onclick='goto("./review/styler.html")'>review</a> section for 
 
 </fieldset>
 
-<fieldset id='stater' onclick='onPreview(this.id)'>
-<legend><b>STATER</b> handling</legend>
+<fieldset id='storer' onclick='onPreview(this.id)'>
+<legend><b>STORER</b> handling</legend>
 
 Stateful proxy object for **local** (stateful props), **global** and **orbital** states.
 
@@ -153,7 +153,7 @@ const store = useStore({ name: 'world' })
 
 </aside>
 
-Go to <a href='#' onclick='goto("./review/stater.html")'>review</a> section for more details.
+Go to <a href='#' onclick='goto("./review/storer.html")'>review</a> section for more details.
 
 </fieldset>
 

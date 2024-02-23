@@ -20,10 +20,11 @@ declare class Environment implements IEnv {
     get(type: "meta", path: string, name?: string): MetaTags;
     get(type: "html", path: string): `<${string}</${string}>`;
     get(type: "lazy", path: string, name: string): `<${string}</${string}>`;
-    set(type: "href", path: string, name: string, data: string, call: RFC): void;
-    set(type: "meta", path: string, name: string, data: MetaTags): void;
-    set(type: "html", path: string, data: `<${string}</${string}>`): any;
-    set(type: "lazy", path: string, name: string, data: `<${string}</${string}>`): void;
+    set(type: "href", path: string, name: string, html: string, call: RFC): void;
+    set(type: "meta", path: string, name: string, html: MetaTags): void;
+    set(type: "html", path: string, html: `<${string}</${string}>`): any;
+    set(type: "lazy", path: string, name: string, html: `<${string}</${string}>`): void;
+    set(type: "wait", path: string, guid: string, html: string): any;
     let(route: RouteString): {
         href: string;
         call: RFC | null;

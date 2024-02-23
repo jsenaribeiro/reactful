@@ -15,7 +15,7 @@ export interface Props<T extends object = object> {
 }
 
 /** reactful forms as form[data] and children[bind] 
- * with server actions and validation api */
+ * with RESTful actions and validation api */
 export function formProps(props: Props, params: Params) {
    if (IS_SERVER_SIDE) return props
    if (params.tag !== "form") return props

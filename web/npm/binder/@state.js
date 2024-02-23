@@ -1,4 +1,5 @@
 import { env, GUID } from '@reactful/commons';
+import '@reactful/extensions';
 export function state(value) {
     return function (module, caller) {
         const index = value[GUID];

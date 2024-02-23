@@ -7,7 +7,7 @@ import { createCliteSideScripts } from './scripts'
 import { saveEntryScriptForBundle } from './scripts'
 import { cleanupFolders, folder, preValidation } from './filer'
 import plugins from '../plugs'
-import save from './generate'
+import save from './maker'
 import Zlib from 'zlib'
 import "@reactful/extensions"
 

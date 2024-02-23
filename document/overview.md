@@ -28,7 +28,7 @@
 |:-:|-|-|
 | <a href='#' onclick='goto("./preview.html#server")'>server</a> | Full SSR with JSX, markdown and extended HTML support |
 | <a href='#' onclick='goto("./preview.html#styler")'>styler</a> | Scoped CSS with @style decorator, global className tag, and fixed modular CSS imports | 
-| <a href='#' onclick='goto("./preview.html#stater")'>stater</a> | Simple alternative stateful proxy objects with multiple local, global and modular scope | 
+| <a href='#' onclick='goto("./preview.html#storer")'>storer</a> | Simple alternative stateful proxy objects with multiple local, global and modular scope | 
 | <a href='#' onclick='goto("./preview.html#ranker")'>ranker</a> | Easy SEO by function decorators with metatags and open graph protocol support |
 | <a href='#' onclick='goto("./preview.html#router")'>router</a> | Folder, props and decorator routing with route params and nesting route support |
 | <a href='#' onclick='goto("./preview.html#binder")'>binder</a> | Props bindings for vanilla-like controlled and uncontrolled components approach | 

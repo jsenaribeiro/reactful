@@ -1,7 +1,8 @@
 "use server"
 
 import React from "react"
-import { logger as log, proper } from "../extra"
+import proper from '../props'
+import { logger as log } from "../extra"
 import { SELF_CLOSE_TAGS } from "@reactful/commons"
 import { env, params, JSXON } from "@reactful/commons"
 import { styler } from "./styler"
@@ -126,11 +127,13 @@ class Parser implements AsyncParser {
    public async fragment(jsx: RRE, own: string) {
       const fall = jsx.props.fallback
       const html = fall ? JSXON.htmlfy(fall) : ''
-      const lazy = jsx.type === Symbol.for("react.suspense")
       const name = own.replace('default$', 'default')
+      const lazy = jsx.type === Symbol.for("react.suspense")
 
       if (lazy && fall) env.set("lazy", 
          this.href, name, html as HTMLString)
+
+      jsx.props.fallback = undefined
 
       return await this.parent(jsx.props.children, own)
    }

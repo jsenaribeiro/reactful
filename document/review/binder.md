@@ -5,7 +5,7 @@
 <embed type='text/html' src='./header.html' />
 <header>binder properting</header>
 
-> data binding • form binding • props directives<br/>restful server actions • validation api
+> data binding • form binding • props directives<br/>RESTful actions • validation api
 
 ## Data binding props
 
@@ -73,7 +73,7 @@ function onValidate(errors: { field, error, value }[]) {
 }
 ```
 
-## RESTful server actions
+## RESTful actions
 
 With `form[data]`, the `[action]` props is made RESTful, sending data object as a JSON as resolving response errors with fails array as dependency injection.
 

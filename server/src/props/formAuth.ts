@@ -1,7 +1,7 @@
 import { throws } from "@reactful/commons"
 import { ServerActionProps } from "./formShared"
 
-const IS_SERVER_SIDE = !global.document
+const IS_SERVER_SIDE = !globalThis.document
 
 export function authenticate<T extends record = record>(props: ServerActionProps): RequestInit{
    if (IS_SERVER_SIDE) return throws<Response>('formProps only support client-side')

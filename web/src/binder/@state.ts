@@ -1,4 +1,5 @@
 import { env, GUID } from '@reactful/commons'
+import '@reactful/extensions'
 
 export function state(value: any): Decorator<RFC> {
    return function(module: ImportMeta, caller: RFC) {

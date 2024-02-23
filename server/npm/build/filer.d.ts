@@ -1,3 +1,4 @@
+import "@reactful/extensions";
 export declare function cleanupFolders(): Promise<void>;
 export declare function preValidation(path?: string): Promise<void>;
 type List = Array<[string, string | RFC | undefined]>;
