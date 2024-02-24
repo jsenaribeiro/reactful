@@ -1,5 +1,3 @@
-// @ts-ignore: 1206
-
 import React from 'react'
 import { client } from '@reactful/web'
 import '@reactful/extensions'

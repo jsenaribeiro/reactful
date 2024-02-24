@@ -1,7 +1,6 @@
 {
-  "version": "0.0.139",
+  "version": "0.0.143",
   "main": "npm/index.js",
-  "types": "npm/index.d.ts",
   "name": "@reactful/commons",
   "description": "@reactful commons",
   "author": "JonathanSR <jsenaribeiro@gmail.com>",
@@ -10,17 +9,18 @@
   ],
   "license": "MIT",
   "scripts": {
-    "clear": "rm -rf node_modules npm; mkdir npm; bun i",
+    "clear": "clear; rm -rf node_modules npm package-lock.json bun.lockb; mkdir npm; bun i; bun run build",
     "build": "rm -rf tsconfig.tsbuildinfo; bunx tsc --declaration",
     "fresh": "bun update @reactful/extensions",
     "patch": "bun run fresh; bun run build; npm version patch; npm publish --access public"
   },
   "dependencies": {
     "@reactful/extensions": "latest",
-    "@types/react": "latest",
     "react-dom": "latest"
   },
   "devDependencies": {
-    "typescript": "latest"
+    "bun-types": "latest",
+    "typescript": "latest",
+    "@types/react": "latest"
   }
 }

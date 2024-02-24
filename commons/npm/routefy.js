@@ -4,15 +4,15 @@ export function routefy(route) {
     env.settings.current = route;
     env.settings.context.param = {}; // clearing current route params
     var urlState = '', hasState = false, jsxState = null;
-    const empty = { href: route, call: null }, state = {};
+    const ignore = { href: route, call: null }, state = {};
     for (const args of env.all.filter(x => x.type == "href")) {
-        const routes = route.split('/').distinct();
+        const routed = route.split('/').distinct();
         const params = args.data.split('/').distinct();
-        if (params.length != routes.length)
-            return empty;
+        if (routed.length != params.length)
+            return ignore;
         for (let i = 0; i < params.length; i++) {
             const param = params[i];
-            const value = routes.at(i);
+            const value = routed.at(i);
             const isNot = value != param;
             const field = param.replace(':', '');
             const isVar = param.startsWith(':');
@@ -20,7 +20,7 @@ export function routefy(route) {
             if (isVar)
                 state[field] = value;
             else if (isNot)
-                return empty;
+                return ignore;
             else
                 urlState += ('/' + value);
         }

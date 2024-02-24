@@ -1,1 +1,1 @@
-export declare const route: (...args: any[]) => (...params: any[]) => any;
+export declare function route(href: URLString): Decorator<RFC>;

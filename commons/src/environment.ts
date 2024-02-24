@@ -74,7 +74,7 @@ class Environment implements IEnv {
          if (!item) continue
          if (item.type != type) continue
          if (item.path != path) continue
-         if (item.name && item.name != name) continue
+         if (item.name != name) continue
          delete this.settings.caching[i]         
       }
 

@@ -1,5 +1,5 @@
 {
-  "version": "0.1.38",
+  "version": "0.1.51",
   "main": "npm/index.js",
   "name": "@reactful/server",
   "description": "@reactful server",
@@ -15,11 +15,6 @@
     "patch": "bun run fresh; bun run build; npm version patch; npm publish --access public",
     "minor": "bun run fresh; bun run build; npm version minor; npm publish --access public"
   },
-  "devDependencies": {
-    "bun-types": "latest",
-    "typescript": "latest",
-    "@types/react": "latest"
-  },
   "dependencies": {
     "@reactful/commons": "latest",
     "@reactful/extensions": "latest",
@@ -29,5 +24,10 @@
     "jsdom": "latest",
     "marked": "latest",
     "react": "latest"
+  },
+  "devDependencies": {
+    "bun-types": "latest",
+    "typescript": "latest",
+    "@types/react": "latest"
   }
 }

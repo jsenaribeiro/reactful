@@ -56,7 +56,7 @@ class Environment {
                 continue;
             if (item.path != path)
                 continue;
-            if (item.name && item.name != name)
+            if (item.name != name)
                 continue;
             delete this.settings.caching[i];
         }

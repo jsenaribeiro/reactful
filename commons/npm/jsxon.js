@@ -8,12 +8,6 @@ const map = [
 ];
 const deserializer = (_, val) => map.find(x => x.key == val)?.for || val;
 const serializer = (_, val) => map.find(x => x.for == val)?.key || val;
-export const JSXON = {
-    parse: (json) => JSON.parse(json, deserializer) || {},
-    htmlfy: htmlfyJSX,
-    stringify: (jsx, tabs) => JSON.stringify(jsx, serializer, tabs)
-        .replaceAll("$$typeof", "$typeof")
-};
 /** encapuslates renderToString from react-dom/server */
 function htmlfyJSX(node) {
     if (!node)
@@ -52,4 +46,10 @@ function wrapper(value) {
     }
     return { ...value, type: retype };
 }
+export const JSXON = {
+    parse: (json) => JSON.parse(json, deserializer) || {},
+    htmlfy: htmlfyJSX,
+    stringify: (jsx, tabs) => JSON.stringify(jsx, serializer, tabs)
+        .replaceAll("$$typeof", "$typeof")
+};
 //# sourceMappingURL=jsxon.js.map

@@ -11,14 +11,6 @@ const map = [
 const deserializer = (_, val) => map.find(x => x.key == val)?.for || val
 const serializer = (_, val) => map.find(x => x.for == val)?.key || val
 
-export const JSXON = {
-   parse: (json: string): JSX => JSON.parse(json, deserializer) || {},
-   htmlfy: htmlfyJSX,
-   stringify: (jsx: JSX, tabs?: number): string =>
-      JSON.stringify(jsx, serializer, tabs)
-         .replaceAll("$$typeof", "$typeof")
-}
-
 /** encapuslates renderToString from react-dom/server */
 function htmlfyJSX(node: RRE): string {
    if (!node) return ''
@@ -61,4 +53,13 @@ function wrapper(value: RRE|any[]|any) {
    }
 
    return { ...value, type: retype }
+}
+
+
+export const JSXON = {
+   parse: (json: string): JSX => JSON.parse(json, deserializer) || {},
+   htmlfy: htmlfyJSX,
+   stringify: (jsx: JSX, tabs?: number): string =>
+      JSON.stringify(jsx, serializer, tabs)
+         .replaceAll("$$typeof", "$typeof")
 }

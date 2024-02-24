@@ -1,8 +1,6 @@
 FIXINGS
 - fix playwright tests
 - hot loading not working
-- route params not working
-- directive intelisense attributes fails
 - shown custom directive type (poc - login.tsx)
 - custom form[validation] only after first render
 
@@ -10,12 +8,15 @@ PENDINGS
 - article: problems, foundations, etc
 - mounting markdown lib css
 - remote states for stater
+- peerDependence: react react-dom
+- types failing in commons
 - individual suspenses?
 - await props
 
 FUTURES
 - DI de dom.id
 - recursive reactiveness
+- fallback routing
 
 WARNINGS
 - function decorator intelisense warning (pending)

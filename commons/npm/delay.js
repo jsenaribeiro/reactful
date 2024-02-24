@@ -1,3 +1,4 @@
+import '@reactful/extensions';
 export function delay(time, call) {
     const callback = (call || (() => null));
     const waiting = getMillisecondsFrom(time);

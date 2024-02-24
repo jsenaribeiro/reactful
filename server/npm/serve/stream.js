@@ -3,8 +3,9 @@ import { queriefy, response, JSXON } from "@reactful/commons";
 import { mergeHTML } from "../build";
 import { Path, File } from "../extra";
 import { parser } from './parser';
+import { fallbackHTML } from "./fallback";
 export const isStream = (request) => Object.keys(queriefy(request)).includes("jsx");
-export async function stream(params, type = "html") {
+export async function stream(params, type = "html", base = '') {
     if (params && params instanceof Request)
         if (params && params instanceof Request)
             return isStream(params)
@@ -31,8 +32,9 @@ export async function stream(params, type = "html") {
     const pipeline = type == "stream" ? streamPipeline
         : type == "html" ? servingPipeline
             : importDefault;
-    const data = await pipeline(import(found));
+    const html = await pipeline(import(found));
     const mime = type == "html" ? "text/html" : "text/plain";
-    return response(200, data, mime);
+    return base == '' ? response(200, html, mime)
+        : await fallbackHTML(html, base, route);
 }
 //# sourceMappingURL=stream.js.map

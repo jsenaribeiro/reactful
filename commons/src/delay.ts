@@ -1,3 +1,5 @@
+import '@reactful/extensions'
+
 export function delay(time: Time): Promise<void>
 export function delay(time: number): Promise<void>
 export function delay<T=any>(time: number, call: () => T): Promise<T>

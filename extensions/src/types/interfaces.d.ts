@@ -1,6 +1,6 @@
 declare global {
-   type UrlMap<T> = { [key:URLString]: T }
-   type UrlTagMap<T> = { [key:URLString]: Record<string, T> }   
+   type UrlMap<T> = { [key: URLString]: T }
+   type UrlTagMap<T> = { [key: URLString]: Record<string, T> }
 
    interface OAuth {
       clientId: string
@@ -10,8 +10,8 @@ declare global {
 
    interface ISession<T> {
       login(username: string, password: string): Promise<void>
-      logout():void
-      logged: T|undefined
+      logout(): void
+      logged: T | undefined
    }
 
    interface ClientInfo {
@@ -21,43 +21,43 @@ declare global {
       jsx: RFC
    }
 
-   interface Settings<T=any> {
-   storage: T
-   context: Feeds
-   current: string
-   queryId: string
-   binding: Binding
-   folders: Folders
-   caching: ICache[]
-   propers: Proper[]
-   renders: Render[]
-   faileds: { href: string, call: RFC }[]
-   failure: (status:number, errors:string[]) => RRE
-   stylers: UrlMap<string[]>
-   clients: UrlMap<ClientInfo>
-}
+   interface Settings<T = any> {
+      storage: T
+      context: Feeds
+      current: string
+      queryId: string
+      binding: Binding
+      folders: Folders
+      caching: ICache[]
+      propers: Proper[]
+      renders: Render[]
+      faileds: { href: string, call: RFC }[]
+      failure: (status: number, errors: string[]) => RRE
+      stylers: UrlMap<string[]>
+      clients: UrlMap<ClientInfo>
+   }
 
-   interface ClientSettings<T=any> extends Settings<T> {
+   interface ClientSettings<T = any> extends Settings<T> {
       initial: string
       binding: Binding
    }
 
-   interface Feeds<L=any, P=any> {
+   interface Feeds<L = any, P = any> {
       logon: L // current user
       param: P // dynamic routes
-      await: boolean      
+      await: boolean
       fails: Invalid[]
-      store: Record<string|symbol, any>
+      store: Record<string | symbol, any>
    }
 
-   type CacheKey = "html"|"meta"|"lazy"|"href"|"wait"
+   type CacheKey = "html" | "meta" | "lazy" | "href" | "wait"
 
-   interface ICache  {
+   interface ICache {
       type: CacheKey
       name: string
       data: string
       path: string
-      call: RFC      
+      call: RFC
    }
 
    interface Caching {
@@ -72,7 +72,7 @@ declare global {
       name: string
       data: D
       call: F
-   }   
+   }
 
    interface Detail {
       title: string
@@ -94,7 +94,7 @@ declare global {
       tag: string
       own: string
       ioc: Feeds
-      mem?: T|undefined
+      mem?: T | undefined
    }
 
    interface Render {
