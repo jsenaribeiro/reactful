@@ -12,6 +12,6 @@ declare global {
    type ErrorProps = { status?: number, errors?: string[] }
    type ErrorComponent<T=ErrorProps> = React.FunctionComponentElement<T> 
    
-   type EEC = { type:EFC }
    type EFC<T extends object=any> = ((props:T) => RRE) & { metadata: MetaData }  
+   type EEC = { type: EFC }
 }

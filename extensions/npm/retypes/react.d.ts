@@ -1,5 +1,3 @@
-export { }
-
 declare global {
    type OnFetchEvent = (response: Response) => void
    type OnSubmitEvent = (value: any, feeds: Feeds) => void

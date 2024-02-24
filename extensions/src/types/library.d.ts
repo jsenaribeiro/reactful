@@ -1,5 +1,3 @@
-export {}
-
 declare global {
    interface IBunFile {
       exists(): Promise<boolean>

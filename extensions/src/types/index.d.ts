@@ -1,13 +1,5 @@
 /// <reference path="aliases.d.ts" />
-/// <reference path="interface.d.ts" />
+/// <reference path="interfaces.d.ts" />
 /// <reference path="library.d.ts" />
-/// <reference path="react.d.ts" />
-/// <reference path="seo.d.ts" />
 /// <reference path="types.d.ts" />
-
-import './interfaces';
-import './library';
-import './aliases';
-import './types';
-import './react';
-import './seo';
+/// <reference path="seo.d.ts" />

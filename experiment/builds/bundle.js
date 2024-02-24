@@ -26,7 +26,7 @@ var __export = (target, all) => {
 };
 var __esm = (fn, res) => () => (fn && (res = fn(fn = 0)), res);
 
-// node_modules/react/cjs/react.development.js
+// node_modules/@reactful/web/node_modules/@re
 var require_react_development = __commonJS((exports, module) => {
   if (true) {
     (function() {
@@ -1810,7 +1810,7 @@ var require_react_development = __commonJS((exports, module) => {
   }
 });
 
-// node_modules/react/index.js
+// node_modules/@reactful/web/
 var require_react = __commonJS((exports, module) => {
   var react_development = __toESM(require_react_development(), 1);
   if (false) {
@@ -1819,7 +1819,7 @@ var require_react = __commonJS((exports, module) => {
   }
 });
 
-// node_modules/@reactful/extensions/npm/prototypes/array.js
+// node_modules/@reactful/web/node_modules/@reactful/extensions/npm/prototypes/function.js.
 var init_array = __esm(() => {
   Array.range = function(...args) {
     if (!args.length)
@@ -1846,7 +1846,7 @@ var init_array = __esm(() => {
   };
 });
 
-// node_modules/@reactful/extensions/npm/prototypes/json.js
+// node_modules/@reactful/web/node_modules/@reactful/extensions/npm/prototypes/function.js
 var init_json = __esm(() => {
   init_array();
   JSON.scriptify = function(that, swap, functionless) {
@@ -1865,7 +1865,7 @@ var init_json = __esm(() => {
   };
 });
 
-// node_modules/@reactful/extensions/npm/prototypes/object.js
+// node_modules/@reactful/web/node_modules/@reactful/extensions/npm/prototypes/function.js.j
 class ParseObject {
   entries;
   constructor(that) {
@@ -1931,7 +1931,7 @@ var init_object = __esm(() => {
   };
 });
 
-// node_modules/@reactful/extensions/npm/prototypes/signal.js
+// node_modules/@reactful/web/node_modules/@reactful/extensions/npm/prototypes/function.js.j
 var init_signal = __esm(() => {
   AbortSignal.timeout ??= function timeout(ms) {
     const ctrl = new AbortController;
@@ -1940,7 +1940,7 @@ var init_signal = __esm(() => {
   };
 });
 
-// node_modules/@reactful/extensions/npm/prototypes/string.js
+// node_modules/@reactful/web/node_modules/@reactful/extensions/npm/prototypes/function.js.j
 var init_string = __esm(() => {
   init_object();
   String.prototype.fix = function() {
@@ -2000,7 +2000,7 @@ var init_string = __esm(() => {
   };
 });
 
-// node_modules/@reactful/extensions/npm/prototypes/number.js
+// node_modules/@reactful/web/node_modules/@reactful/extensions/npm/prototypes/function.js.j
 var separtorThousand;
 var init_number = __esm(() => {
   Number.prototype.format = function(commas, digits) {
@@ -2022,7 +2022,7 @@ var init_number = __esm(() => {
   separtorThousand = (n) => n.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
 });
 
-// node_modules/@reactful/extensions/npm/prototypes/function.js
+// node_modules/@reactful/web/node_modules/@reactful/extensions/npm/prototypes/function.js.jss
 var init_function = __esm(() => {
   Function.prototype.isAsync = function() {
     const functionString = this.toString();
@@ -2037,7 +2037,7 @@ var init_function = __esm(() => {
   };
 });
 
-// node_modules/@reactful/extensions/npm/prototypes/index.js
+// node_modules/@reactful/web/node_modules/@reactful/extensions/npm/prototypes/function.js.
 var init_prototypes = __esm(() => {
   init_json();
   init_array();
@@ -2048,11 +2048,11 @@ var init_prototypes = __esm(() => {
   init_function();
 });
 
-// node_modules/@reactful/extensions/npm/types/index.d.ts
+// node_modules/@reactful/web/node_modules/@reactful/extensions/npm/prototypes/function.
 var init_index_d = __esm(() => {
 });
 
-// node_modules/@reactful/extensions/npm/index.js
+// node_modules/@reactful/web/node_modules/@reactful/extensions/npm/prototypes/f
 var import_react;
 var init_npm = __esm(() => {
   import_react = __toESM(require_react(), 1);
@@ -2060,12 +2060,12 @@ var init_npm = __esm(() => {
   init_index_d();
 });
 
-// node_modules/@reactful/commons/npm/http.js
+// node_modules/@reactful/web/node_modules/@r
 var init_http = __esm(() => {
   init_npm();
 });
 
-// node_modules/@reactful/commons/npm/throw.js
+// node_modules/@reactful/web/node_modules/@re
 function throws(ex, mt) {
   if (!ex)
     return false;
@@ -2080,11 +2080,11 @@ var init_throw = __esm(() => {
   PREFIX_ERROR = "@reactful error: ";
 });
 
-// node_modules/@reactful/commons/npm/delay.js
+// node_modules/@reactful/web/node_modules/@re
 var init_delay = __esm(() => {
 });
 
-// node_modules/@reactful/commons/npm/mocks.js
+// node_modules/@reactful/web/node_modules/@re
 var IS_SERVER_SIDE, memoryStorage;
 var init_mocks = __esm(() => {
   IS_SERVER_SIDE = !globalThis.document;
@@ -2116,7 +2116,7 @@ var init_mocks = __esm(() => {
   }
 });
 
-// node_modules/@reactful/commons/npm/route.js
+// node_modules/@reactful/web/node_modules/@re
 function isRouted(current, routing) {
   if (!routing || routing == "/")
     return true;
@@ -2132,7 +2132,7 @@ function isRouted(current, routing) {
 var init_route = __esm(() => {
 });
 
-// node_modules/@reactful/commons/npm/context.js
+// node_modules/@reactful/web/node_modules/@reac
 function contextualizer() {
   if (globalThis[GLOBAL_KEY])
     return;
@@ -2197,7 +2197,7 @@ var init_context = __esm(() => {
   failure = (status, errors) => console.error(`status error ${status}`, "\n - " + errors.join("; \n - "));
 });
 
-// node_modules/@reactful/commons/npm/routefy.js
+// node_modules/@reactful/web/node_modules/@reac
 function routefy(route) {
   route = route.replace(/\/$/, "") || "/";
   env.settings.current = route;
@@ -2233,7 +2233,7 @@ var init_routefy = __esm(() => {
   init_environment();
 });
 
-// node_modules/@reactful/commons/npm/environment.js
+// node_modules/@reactful/web/node_modules/@reactful
 function validateOf([key, val]) {
   if (IS_CLIENT_SIDE)
     return;
@@ -2333,7 +2333,7 @@ var init_environment = __esm(() => {
   env = new Environment;
 });
 
-// node_modules/react-dom/cjs/react-dom-server-legacy.browser.development.js
+// node_modules/@reactful/web/node_modules/@reactful/extensions/npm/prototyp
 var require_react_dom_server_legacy_browser_development = __commonJS((exports) => {
   var React = __toESM(require_react(), 1);
   if (true) {
@@ -7405,7 +7405,7 @@ var require_react_dom_server_legacy_browser_development = __commonJS((exports) =
   }
 });
 
-// node_modules/react-dom/cjs/react-dom-server.browser.development.js
+// node_modules/@reactful/web/node_modules/@reactful/extensions/npm/p
 var require_react_dom_server_browser_development = __commonJS((exports) => {
   var React = __toESM(require_react(), 1);
   if (true) {
@@ -12455,7 +12455,7 @@ var require_react_dom_server_browser_development = __commonJS((exports) => {
   }
 });
 
-// node_modules/react-dom/server.browser.js
+// node_modules/@reactful/web/node_modules/
 var $version, $renderToString, $renderToStaticMarkup, $renderToNodeStream, $renderToStaticNodeStream, $renderToReadableStream;
 var init_server_browser = __esm(() => {
   var react_dom_server_legacy_browser_development = __toESM(require_react_dom_server_legacy_browser_development(), 1);
@@ -12475,7 +12475,7 @@ var init_server_browser = __esm(() => {
   $renderToReadableStream = s.renderToReadableStream;
 });
 
-// node_modules/@reactful/commons/npm/constants.js
+// node_modules/@reactful/web/node_modules/@reactf
 var GUID, PROXY, PRIMITIVES, IS_ONLY_FOR_ROUTE;
 var init_constants = __esm(() => {
   GUID = Symbol.for("---guid---");
@@ -12484,7 +12484,7 @@ var init_constants = __esm(() => {
   IS_ONLY_FOR_ROUTE = "is only for default route component directory";
 });
 
-// node_modules/@reactful/commons/npm/jsxon.js
+// node_modules/@reactful/web/node_modules/@re
 var htmlfyJSX, wrapper, map, deserializer, serializer, JSXON;
 var init_jsxon = __esm(() => {
   init_environment();
@@ -12539,14 +12539,14 @@ var init_jsxon = __esm(() => {
   };
 });
 
-// node_modules/@reactful/commons/npm/render.js
+// node_modules/@reactful/web/node_modules/@rea
 var params;
 var init_render = __esm(() => {
   init_environment();
   params = (tag, own, uid, now) => ({ tag, own, uid, mem: now, ioc: env.settings.context });
 });
 
-// node_modules/@reactful/commons/npm/index.js
+// node_modules/@reactful/web/node_modules/@re
 var init_npm2 = __esm(() => {
   init_http();
   init_throw();
@@ -12562,7 +12562,7 @@ var init_npm2 = __esm(() => {
   init_environment();
 });
 
-// node_modules/scheduler/cjs/scheduler.development.js
+// node_modules/@reactful/web/node_modules/@reactful/e
 var require_scheduler_development = __commonJS((exports) => {
   if (true) {
     (function() {
@@ -13008,7 +13008,7 @@ var require_scheduler_development = __commonJS((exports) => {
   }
 });
 
-// node_modules/scheduler/index.js
+// node_modules/@reactful/web/node
 var require_scheduler = __commonJS((exports, module) => {
   var scheduler_development = __toESM(require_scheduler_development(), 1);
   if (false) {
@@ -13017,7 +13017,7 @@ var require_scheduler = __commonJS((exports, module) => {
   }
 });
 
-// node_modules/react-dom/cjs/react-dom.development.js
+// node_modules/@reactful/web/node_modules/@reactful/e
 var require_react_dom_development = __commonJS((exports) => {
   var React = __toESM(require_react(), 1);
   var Scheduler = __toESM(require_scheduler(), 1);
@@ -33327,7 +33327,7 @@ var require_react_dom_development = __commonJS((exports) => {
   }
 });
 
-// node_modules/react-dom/index.js
+// node_modules/@reactful/web/node
 var require_react_dom = __commonJS((exports, module) => {
   var react_dom_development = __toESM(require_react_dom_development(), 1);
   if (false) {
@@ -33336,7 +33336,7 @@ var require_react_dom = __commonJS((exports, module) => {
   }
 });
 
-// node_modules/react-dom/client.js
+// node_modules/@reactful/web/node_
 var require_client = __commonJS((exports) => {
   var m = __toESM(require_react_dom(), 1);
   if (false) {
@@ -33362,7 +33362,7 @@ var require_client = __commonJS((exports) => {
   var i;
 });
 
-// node_modules/@reactful/server/npm/state/shared.js
+// node_modules/@reactful/web/node_modules/@reactful
 function createProxyState(store, index) {
   if (store[PROXY])
     return store;
@@ -33407,7 +33407,7 @@ var init_shared = __esm(() => {
   DELAY_RENDER = 9;
 });
 
-// node_modules/@reactful/server/npm/state/props.js
+// node_modules/@reactful/web/node_modules/@reactfu
 function useProps(react, child, path) {
   const stateless = Object.keys(clients2).filter((k) => clients2[k].off).some((k) => k == path);
   child.props = { ...child.props, uid: ++binding3.count };
@@ -33431,7 +33431,7 @@ var init_props = __esm(() => {
   clients2 = globalThis[GLOBAL_KEY];
 });
 
-// node_modules/@reactful/server/npm/state/feeds.js
+// node_modules/@reactful/web/node_modules/@reactfu
 function useFeeds(hook, href) {
   if (binding4.ready)
     return context4;
@@ -33449,7 +33449,7 @@ var init_feeds = __esm(() => {
   ({ context: context4, binding: binding4 } = env.settings);
 });
 
-// node_modules/@reactful/server/npm/state/mount.js
+// node_modules/@reactful/web/node_modules/@reactfu
 function mountState(href, hook, node2, path) {
   if (IS_SERVER_SIDE3)
     return [node2.props, context5];
@@ -33466,7 +33466,7 @@ var init_mount = __esm(() => {
   IS_SERVER_SIDE3 = !globalThis.document;
 });
 
-// node_modules/@reactful/server/npm/state/refocus.js
+// node_modules/@reactful/web/node_modules/@reactful/
 function refocus(timeout2) {
   if (IS_SERVER_SIDE4)
     return true;
@@ -33487,14 +33487,14 @@ var init_refocus = __esm(() => {
   IS_SERVER_SIDE4 = !globalThis.document;
 });
 
-// node_modules/@reactful/server/npm/state/index.js
+// node_modules/@reactful/web/node_modules/@reactfu
 var init_state = __esm(() => {
   init_mount();
   init_refocus();
   "use client";
 });
 
-// node_modules/@reactful/server/npm/guest/styler.js
+// node_modules/@reactful/web/node_modules/@reactful
 function styler(node2, path) {
   if (!node2 || !path || typeof node2.type != "string")
     return node2;
@@ -33550,7 +33550,7 @@ var init_styler = __esm(() => {
   settings = env.settings;
 });
 
-// node_modules/@reactful/server/npm/props/bindProps.js
+// node_modules/@reactful/web/node_modules/@reactful/ex
 var IS_SERVER_SIDE5, bindProps;
 var init_bindProps = __esm(() => {
   "use client";
@@ -33574,7 +33574,7 @@ var init_bindProps = __esm(() => {
   };
 });
 
-// node_modules/@reactful/server/npm/props/formValidator.js
+// node_modules/@reactful/web/node_modules/@reactful/extens
 async function onSubmitValidate(props2, e) {
   context6.fails = [];
   const founds = document.querySelectorAll(":invalid");
@@ -33619,7 +33619,7 @@ var init_formValidator = __esm(() => {
   ({ context: context6, binding: storage } = env.settings);
 });
 
-// node_modules/@reactful/server/npm/props/formShared.js
+// node_modules/@reactful/web/node_modules/@reactful/ext
 function defaultError(code) {
   return code <= 400 ? "Invalid request" : code == 404 ? "URL not found" : code >= 400 && code < 500 ? "Error" : "Internal serve error...";
 }
@@ -33648,7 +33648,7 @@ var init_formShared = __esm(() => {
   isProblemDetailObject = (data2) => data2.type && data2.title && data2.status && data2.detail;
 });
 
-// node_modules/@reactful/server/npm/props/formAuth.js
+// node_modules/@reactful/web/node_modules/@reactful/e
 function authenticate(props2) {
   if (IS_SERVER_SIDE6)
     return throws("formProps only support client-side");
@@ -33686,7 +33686,7 @@ var init_formAuth = __esm(() => {
   IS_SERVER_SIDE6 = !globalThis.document;
 });
 
-// node_modules/@reactful/server/npm/props/formAction.js
+// node_modules/@reactful/web/node_modules/@reactful/ext
 async function action(args) {
   const { props: props2, fetch: caller } = args;
   const config = authenticate(props2);
@@ -33717,7 +33717,7 @@ var init_formAction = __esm(() => {
   ({ context: context7, binding: binding6 } = env.settings);
 });
 
-// node_modules/@reactful/server/npm/props/formBind.js
+// node_modules/@reactful/web/node_modules/@reactful/e
 function fixProps(props2) {
   const p = { ...props2 };
   delete p["onAwait"];
@@ -33759,7 +33759,7 @@ var init_formBind = __esm(() => {
   ({ binding: binding7 } = env.settings);
 });
 
-// node_modules/@reactful/server/npm/props/formProps.js
+// node_modules/@reactful/web/node_modules/@reactful/ex
 function formProps(props2, params2) {
   if (IS_SERVER_SIDE7)
     return props2;
@@ -33777,7 +33777,7 @@ var init_formProps = __esm(() => {
   IS_SERVER_SIDE7 = !globalThis.document;
 });
 
-// node_modules/@reactful/server/npm/props/styleProps.js
+// node_modules/@reactful/web/node_modules/@reactful/ext
 var gridProps, globalTag, styleProps;
 var init_styleProps = __esm(() => {
   gridProps = function(props2, params2) {
@@ -33815,7 +33815,7 @@ var init_styleProps = __esm(() => {
   };
 });
 
-// node_modules/@reactful/server/npm/props/routeProps.js
+// node_modules/@reactful/web/node_modules/@reactful/ext
 var settings2, context8, IS_SERVER_SIDE8, routeProps;
 var init_routeProps = __esm(() => {
   init_npm2();
@@ -33844,10 +33844,251 @@ var init_routeProps = __esm(() => {
   };
 });
 
-// node_modules/@reactful/server/npm/props/awaitProps.js
+// node_modules/@reactful/web/node_modules/@reactful/extensions/npm/prototypes/function.js
+var init_array2 = __esm(() => {
+  Array.range = function(...args) {
+    if (!args.length)
+      return [];
+    const first = args.length == 2 ? args[0] : 0;
+    const final = args.length == 2 ? args[1] : args[0];
+    return Array(final).fill(first).map((x, i) => x + i);
+  };
+  Array.prototype.first = function(predicate) {
+    predicate ||= (x) => x;
+    return this.map(predicate).find(predicate) || undefined;
+  };
+  Array.prototype.distinct = function() {
+    return [...new Set(this.flatMap((x) => x ? [x] : []))];
+  };
+  Array.prototype.toObject = function() {
+    if (this[0].length == 2)
+      return Object.fromEntries(this);
+    return {};
+  };
+  Array.prototype.pairs = function() {
+    const inner = (x) => this.flatMap((y) => x !== y ? [[x, y]] : []).distinct();
+    return this.flatMap(inner).filter((x) => x).distinct();
+  };
+});
+
+// node_modules/@reactful/web/node_modules/@reactful/extensions/npm/prototypes/function.j
+var init_json2 = __esm(() => {
+  init_array2();
+  JSON.scriptify = function(that, swap, functionless) {
+    try {
+      const custom = swap || ((_, value2) => value2);
+      const getSymbol = (s2) => s2.toString().replace(/Symbol\((.+)\)/, "Symbol.for('$1')");
+      const getArray = (array4) => `[${array4.map((x) => JSON.scriptify(x, swap, functionless)).join(",")}]`;
+      const getFunction = (value2) => functionless ? "undefined" : "<:\xA7{" + value2.toString() + "}\xA7:>";
+      const decode = (field, value2) => !value2 ? "" : Array.isArray(value2) ? getArray(value2) : typeof value2 == "symbol" ? getSymbol(value2) : typeof value2 == "function" ? getFunction(value2) : custom(field, value2);
+      const result = JSON.stringify(that, decode, 3).replace(/\\n/gm, "").replace(/\\r/gm, "").replaceAll('"<:\xA7{', "").replaceAll('}\xA7:>"', "").replaceAll('"[', "[").replaceAll(']"', "]").replace(/"(Symbol.for.+\))"/gm, "$1").replace(/"^\s*(.+?)": /g, "$1: ").replaceAll('"undefined"', "undefined").replaceAll('\\"', "'").trim();
+      return result;
+    } catch (ex) {
+      console.log("\nerror scriptify", that);
+      throw ex;
+    }
+  };
+});
+
+// node_modules/@reactful/web/node_modules/@reactful/extensions/npm/prototypes/function.js.
+class ParseObject2 {
+  entries;
+  constructor(that) {
+    this.entries = Object.entries(that);
+  }
+  map(fn) {
+    return this.entries.map(fn);
+  }
+  filter(fn) {
+    return this.entries.filter(fn);
+  }
+  toObject() {
+    return Object.fromEntries(this.entries);
+  }
+  toArray = () => this.entries;
+}
+var valueOf2;
+var init_object2 = __esm(() => {
+  Object.fromProxy = function(that) {
+    const plain = {};
+    for (const key2 in that) {
+      if (Array.isArray(that[key2]))
+        plain[key2] = that[key2].map((x) => Object.fromProxy(x));
+      else if (typeof that[key2] == "object")
+        plain[key2] = Object.fromProxy(that[key2]);
+      else if (that.hasOwnProperty(key2))
+        plain[key2] = that[key2];
+    }
+    return plain;
+  };
+  Object.parse = function(that) {
+    return new ParseObject2(that);
+  };
+  Object.merge = function(self, that) {
+    Object.keys(self).forEach(function(name) {
+      if (that[name] === undefined)
+        return;
+      else
+        self[name] = that[name];
+    });
+  };
+  valueOf2 = Object.prototype.valueOf.bind({});
+  Object.prototype.valueOf = function(...args) {
+    const [path, data2, none] = args;
+    const passing = args.length == 0 || typeof path !== "string";
+    const reading = args.length == 1;
+    if (passing)
+      return valueOf2.bind(this)();
+    if (reading) {
+      const arr = path.split(".");
+      const get = arr.reduce((x, k) => x[k], this);
+      return none ? get : get?.toString() || "";
+    }
+    const split = path.split(".");
+    const field = split.at(-1) || "";
+    const ended = split.length === 1;
+    const value2 = data2?.target?.value ?? data2;
+    const under = path.replace(field, "");
+    if (ended)
+      this[path] = value2;
+    if (under)
+      this.valueOf(under)[field] = value2;
+  };
+});
+
+// node_modules/@reactful/web/node_modules/@reactful/extensions/npm/prototypes/function.js.
+var init_signal2 = __esm(() => {
+  AbortSignal.timeout ??= function timeout2(ms) {
+    const ctrl = new AbortController;
+    setTimeout(() => ctrl.abort(), ms);
+    return ctrl.signal;
+  };
+});
+
+// node_modules/@reactful/web/node_modules/@reactful/extensions/npm/prototypes/function.js.
+var init_string2 = __esm(() => {
+  init_object2();
+  String.prototype.fix = function() {
+    return this.trim().replace("  ", " ");
+  };
+  String.prototype.place = function(...args) {
+    return this.replace(/{(\d+)}/g, (match, index) => typeof args[index] !== "undefined" ? args[index] : match);
+  };
+  String.prototype.remove = function(value2) {
+    return this.replace(value2, "");
+  };
+  String.prototype.toNumber = function() {
+    return parseFloat(this.toString()) || 0;
+  };
+  String.prototype.equal = function(...args) {
+    const [that, ignore] = args;
+    const regex = ignore ? /\s+/gm : /JUST_IGNORE_THIS/;
+    const clear = (x, full) => x.toLowerCase().trim().replace(regex, "");
+    if (that instanceof RegExp)
+      return !!this.match(that);
+    if (args.length == 1)
+      return !!this.match(new RegExp(that, "gmi"));
+    return clear(this, ignore) == clear(that, ignore);
+  };
+  String.prototype.query = function(...args) {
+    const [regex, multiple] = args;
+    if (typeof regex == "string")
+      return this.query(new RegExp(regex), !!multiple);
+    return multiple ? Array.from(this.matchAll(regex)) : Array.from(this.match(regex) || []);
+  };
+  String.prototype.toObject = function() {
+    const that = this.toString();
+    try {
+      return JSON.parse(that);
+    } catch {
+      return;
+    }
+  };
+  String.prototype.toArray = function() {
+    const that = this.toString();
+    const self = that.toObject();
+    if (self)
+      return Array.isArray(self) ? self : [self];
+    const entryCookies = that.split(";").distinct().map((x) => x.trim());
+    const isEntryCookie = entryCookies.every((x) => x.match(/^\w.*?=.+?$/));
+    if (isEntryCookie) {
+      const entries = entryCookies.map((x) => x.trim().split("=")).map(([x, y]) => [x.trim(), y.trim()]);
+      return Object.fromEntries(entries);
+    }
+    const csvEntries = that.split("\n").distinct().map((x) => x.trim());
+    const isCsvEntry = csvEntries.every((x) => x.match(/.+?,.+?/));
+    if (isCsvEntry && csvEntries.length > 1) {
+      const headers = csvEntries[0].split(",").map((x) => x.trim());
+      const entries = csvEntries.slice(1).flatMap((x) => x.split(",").map((y, i) => [headers[i], y.trim()]));
+      return Object.fromEntries(entries);
+    }
+  };
+});
+
+// node_modules/@reactful/web/node_modules/@reactful/extensions/npm/prototypes/function.js.
+var separtorThousand2;
+var init_number2 = __esm(() => {
+  Number.prototype.format = function(commas, digits) {
+    const numeric = this.toString();
+    const splited = separtorThousand2(this);
+    if (commas === undefined)
+      return numeric;
+    if (digits === undefined)
+      return commas ? splited : numeric;
+    if (digits == 0)
+      return this.format(commas);
+    const results = this.toFixed(digits);
+    const decimal = "." + results.at(2);
+    const integer = new Number(results.split(".")[0]);
+    const changed = separtorThousand2(integer);
+    const returns = numeric.replace(integer.toString(), changed) + decimal;
+    return returns;
+  };
+  separtorThousand2 = (n) => n.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+});
+
+// node_modules/@reactful/web/node_modules/@reactful/extensions/npm/prototypes/function.js.js
+var init_function2 = __esm(() => {
+  Function.prototype.isAsync = function() {
+    const functionString = this.toString();
+    const lines = functionString.split("\n");
+    const headString = lines.at(0) || "";
+    const footString = [lines.at(-1) || "", lines.at(-2) || ""].join("\n");
+    const bodyString = functionString.replace(headString, "");
+    const awaitRegex = /=\s+await\s+[\w\(]/;
+    const asuncRegex = /async\s+function|async\s+[\(\w].+=>/;
+    const promiseRegex = /(return|=>)\s+Promise\.|(return|=>)\s+new\s+Promise\(/;
+    return headString.equal(asuncRegex) || bodyString.equal(awaitRegex) || footString.equal(promiseRegex);
+  };
+});
+
+// node_modules/@reactful/web/node_modules/@reactful/extensions/npm/prototypes/function.js
+var init_prototypes2 = __esm(() => {
+  init_json2();
+  init_array2();
+  init_object2();
+  init_signal2();
+  init_string2();
+  init_number2();
+  init_function2();
+});
+
+// node_modules/@reactful/web/node_modules/@reactful/extensions/npm/prototypes/function
+var init_index_d2 = __esm(() => {
+});
+
+// node_modules/@reactful/web/node_modules/@reactful/extensions/npm/prototypes/
+var import_react2;
+var init_npm3 = __esm(() => {
+  import_react2 = __toESM(require_react(), 1);
+  init_prototypes2();
+  init_index_d2();
+});
+
+// node_modules/@reactful/web/node_modules/@reactful/ext
 var INVALID_AWAIT_PROPS, IS_CLIENT_SIDE2, awaitProps;
 var init_awaitProps = __esm(() => {
-  init_npm();
+  init_npm3();
   init_npm2();
   INVALID_AWAIT_PROPS = "[await] props must be functional component Promise";
   IS_CLIENT_SIDE2 = !!globalThis.document;
@@ -33864,7 +34105,7 @@ var init_awaitProps = __esm(() => {
   };
 });
 
-// node_modules/@reactful/server/npm/props/index.js
+// node_modules/@reactful/web/node_modules/@reactfu
 function proper(props2, params2) {
   const reducer = (props3, apply) => apply(props3, params2);
   const propers = library.concat(env.settings?.propers ?? []);
@@ -33887,7 +34128,7 @@ var init_props2 = __esm(() => {
   ];
 });
 
-// node_modules/@reactful/server/npm/guest/parser.js
+// node_modules/@reactful/web/node_modules/@reactful
 async function parser(root, path, href) {
   return await new Parser(root, path, href).render();
 }
@@ -33919,7 +34160,7 @@ class Parser {
     const fixed = { ...jsx, props: props3, key: fixKey(jsx) };
     return typed("string") ? this.element(fixed, own) : typed("symbol") ? this.fragment(jsx, own) : typed("function") ? this.component(fixed, own) : jsx;
   }
-  children = (all, own) => import_react2.default.Children.map(all, (x) => this.parent(x, own));
+  children = (all, own) => import_react3.default.Children.map(all, (x) => this.parent(x, own));
   syblings = (props3, own) => Object.fromEntries(Object.entries(props3).map(([key2, val2]) => [key2, this.parent(val2, own)]));
   client(_, own) {
     throw new Error("client not implemented...");
@@ -33947,7 +34188,7 @@ class Parser {
       return { ...child, props: props3, key: fixKey(child) };
     };
     const rebind = (attrs) => {
-      const set = import_react2.default.useState(0);
+      const set = import_react3.default.useState(0);
       const [dir, url] = [this.path, this.href];
       const [state2, feeds2] = mountState(url, set, jsx, dir);
       state2.children ||= attrs.children;
@@ -33976,21 +34217,21 @@ class Parser {
     return refocus(9) && { ...jsx, type: retype };
   }
 }
-var import_react2, latest, rce, settings3, fixKey;
+var import_react3, latest, rce, settings3, fixKey;
 var init_parser = __esm(() => {
-  import_react2 = __toESM(require_react(), 1);
+  import_react3 = __toESM(require_react(), 1);
   init_npm2();
   init_state();
   init_styler();
   init_props2();
   "use client";
   latest = {};
-  rce = (fce) => import_react2.default.createElement(fce, {});
+  rce = (fce) => import_react3.default.createElement(fce, {});
   settings3 = env.settings;
   fixKey = (child) => child.key && child.key.includes(".") ? null : child.key;
 });
 
-// node_modules/@reactful/server/npm/guest/client.js
+// node_modules/@reactful/web/node_modules/@reactful
 var exports_client = {};
 __export(exports_client, {
   default: () => {
@@ -34100,26 +34341,26 @@ var init_client = __esm(() => {
   awaiting = async (delay2) => new Promise((resolve) => setTimeout(resolve, delay2));
 });
 
-// node_modules/@reactful/web/npm/extensions.js
-var import_react3, IS_SERVER_SIDE9;
+// node_modules/@reactful/web/node_modules/@rea
+var import_react4, IS_SERVER_SIDE9;
 var init_extensions = __esm(() => {
-  import_react3 = __toESM(require_react(), 1);
+  import_react4 = __toESM(require_react(), 1);
   init_npm2();
   IS_SERVER_SIDE9 = !globalThis.document;
   Promise.prototype.asLazyComponent = function(member) {
     if (!member || member.endsWith("$"))
       member = "default";
     const base = this;
-    const hide = import_react3.default.createElement("div");
+    const hide = import_react4.default.createElement("div");
     const fail2 = `Not found ${member} for as LazyComponent`;
     if (IS_SERVER_SIDE9)
       return (props3) => hide;
     else
       return function(props3) {
         base["routing"] ||= props3.route;
-        const routing = import_react3.default.useRef(false);
-        const [component, setComponent] = import_react3.default.useState(hide);
-        import_react3.default.useEffect(() => {
+        const routing = import_react4.default.useRef(false);
+        const [component, setComponent] = import_react4.default.useState(hide);
+        import_react4.default.useEffect(() => {
           base.then(afterImported);
         }, [routing.current]);
         function afterImported(imported) {
@@ -34140,12 +34381,12 @@ var init_extensions = __esm(() => {
   };
 });
 
-// node_modules/@reactful/web/npm/render/@client.js
-var import_react4, rce2, IS_CLIENT_SIDE3, client2;
+// node_modules/@reactful/web/node_modules/@reactfu
+var import_react5, rce2, IS_CLIENT_SIDE3, client2;
 var init__client = __esm(() => {
-  import_react4 = __toESM(require_react(), 1);
+  import_react5 = __toESM(require_react(), 1);
   init_npm2();
-  rce2 = import_react4.default.createElement;
+  rce2 = import_react5.default.createElement;
   IS_CLIENT_SIDE3 = !!globalThis.document;
   client2 = (stateful) => (meta, call) => {
     if (!meta || !call || IS_CLIENT_SIDE3)
@@ -34162,28 +34403,269 @@ var init__client = __esm(() => {
   };
 });
 
-// node_modules/@reactful/web/npm/render/@server.js
+// node_modules/@reactful/web/node_modules/@reactful/extensions/npm/prototypes/function
+var init_array3 = __esm(() => {
+  Array.range = function(...args) {
+    if (!args.length)
+      return [];
+    const first = args.length == 2 ? args[0] : 0;
+    const final = args.length == 2 ? args[1] : args[0];
+    return Array(final).fill(first).map((x, i) => x + i);
+  };
+  Array.prototype.first = function(predicate) {
+    predicate ||= (x) => x;
+    return this.map(predicate).find(predicate) || undefined;
+  };
+  Array.prototype.distinct = function() {
+    return [...new Set(this.flatMap((x) => x ? [x] : []))];
+  };
+  Array.prototype.toObject = function() {
+    if (this[0].length == 2)
+      return Object.fromEntries(this);
+    return {};
+  };
+  Array.prototype.pairs = function() {
+    const inner = (x) => this.flatMap((y) => x !== y ? [[x, y]] : []).distinct();
+    return this.flatMap(inner).filter((x) => x).distinct();
+  };
+});
+
+// node_modules/@reactful/web/node_modules/@reactful/extensions/npm/prototypes/functio
+var init_json3 = __esm(() => {
+  init_array3();
+  JSON.scriptify = function(that, swap, functionless) {
+    try {
+      const custom = swap || ((_, value2) => value2);
+      const getSymbol = (s2) => s2.toString().replace(/Symbol\((.+)\)/, "Symbol.for('$1')");
+      const getArray = (array6) => `[${array6.map((x) => JSON.scriptify(x, swap, functionless)).join(",")}]`;
+      const getFunction = (value2) => functionless ? "undefined" : "<:\xA7{" + value2.toString() + "}\xA7:>";
+      const decode = (field, value2) => !value2 ? "" : Array.isArray(value2) ? getArray(value2) : typeof value2 == "symbol" ? getSymbol(value2) : typeof value2 == "function" ? getFunction(value2) : custom(field, value2);
+      const result = JSON.stringify(that, decode, 3).replace(/\\n/gm, "").replace(/\\r/gm, "").replaceAll('"<:\xA7{', "").replaceAll('}\xA7:>"', "").replaceAll('"[', "[").replaceAll(']"', "]").replace(/"(Symbol.for.+\))"/gm, "$1").replace(/"^\s*(.+?)": /g, "$1: ").replaceAll('"undefined"', "undefined").replaceAll('\\"', "'").trim();
+      return result;
+    } catch (ex) {
+      console.log("\nerror scriptify", that);
+      throw ex;
+    }
+  };
+});
+
+// node_modules/@reactful/web/node_modules/@reactful/extensions/npm/prototypes/function.
+class ParseObject3 {
+  entries;
+  constructor(that) {
+    this.entries = Object.entries(that);
+  }
+  map(fn) {
+    return this.entries.map(fn);
+  }
+  filter(fn) {
+    return this.entries.filter(fn);
+  }
+  toObject() {
+    return Object.fromEntries(this.entries);
+  }
+  toArray = () => this.entries;
+}
+var valueOf3;
+var init_object3 = __esm(() => {
+  Object.fromProxy = function(that) {
+    const plain = {};
+    for (const key2 in that) {
+      if (Array.isArray(that[key2]))
+        plain[key2] = that[key2].map((x) => Object.fromProxy(x));
+      else if (typeof that[key2] == "object")
+        plain[key2] = Object.fromProxy(that[key2]);
+      else if (that.hasOwnProperty(key2))
+        plain[key2] = that[key2];
+    }
+    return plain;
+  };
+  Object.parse = function(that) {
+    return new ParseObject3(that);
+  };
+  Object.merge = function(self, that) {
+    Object.keys(self).forEach(function(name) {
+      if (that[name] === undefined)
+        return;
+      else
+        self[name] = that[name];
+    });
+  };
+  valueOf3 = Object.prototype.valueOf.bind({});
+  Object.prototype.valueOf = function(...args) {
+    const [path, data2, none] = args;
+    const passing = args.length == 0 || typeof path !== "string";
+    const reading = args.length == 1;
+    if (passing)
+      return valueOf3.bind(this)();
+    if (reading) {
+      const arr = path.split(".");
+      const get = arr.reduce((x, k) => x[k], this);
+      return none ? get : get?.toString() || "";
+    }
+    const split = path.split(".");
+    const field = split.at(-1) || "";
+    const ended = split.length === 1;
+    const value2 = data2?.target?.value ?? data2;
+    const under = path.replace(field, "");
+    if (ended)
+      this[path] = value2;
+    if (under)
+      this.valueOf(under)[field] = value2;
+  };
+});
+
+// node_modules/@reactful/web/node_modules/@reactful/extensions/npm/prototypes/function.
+var init_signal3 = __esm(() => {
+  AbortSignal.timeout ??= function timeout3(ms) {
+    const ctrl = new AbortController;
+    setTimeout(() => ctrl.abort(), ms);
+    return ctrl.signal;
+  };
+});
+
+// node_modules/@reactful/web/node_modules/@reactful/extensions/npm/prototypes/function.
+var init_string3 = __esm(() => {
+  init_object3();
+  String.prototype.fix = function() {
+    return this.trim().replace("  ", " ");
+  };
+  String.prototype.place = function(...args) {
+    return this.replace(/{(\d+)}/g, (match, index) => typeof args[index] !== "undefined" ? args[index] : match);
+  };
+  String.prototype.remove = function(value2) {
+    return this.replace(value2, "");
+  };
+  String.prototype.toNumber = function() {
+    return parseFloat(this.toString()) || 0;
+  };
+  String.prototype.equal = function(...args) {
+    const [that, ignore] = args;
+    const regex = ignore ? /\s+/gm : /JUST_IGNORE_THIS/;
+    const clear = (x, full) => x.toLowerCase().trim().replace(regex, "");
+    if (that instanceof RegExp)
+      return !!this.match(that);
+    if (args.length == 1)
+      return !!this.match(new RegExp(that, "gmi"));
+    return clear(this, ignore) == clear(that, ignore);
+  };
+  String.prototype.query = function(...args) {
+    const [regex, multiple] = args;
+    if (typeof regex == "string")
+      return this.query(new RegExp(regex), !!multiple);
+    return multiple ? Array.from(this.matchAll(regex)) : Array.from(this.match(regex) || []);
+  };
+  String.prototype.toObject = function() {
+    const that = this.toString();
+    try {
+      return JSON.parse(that);
+    } catch {
+      return;
+    }
+  };
+  String.prototype.toArray = function() {
+    const that = this.toString();
+    const self = that.toObject();
+    if (self)
+      return Array.isArray(self) ? self : [self];
+    const entryCookies = that.split(";").distinct().map((x) => x.trim());
+    const isEntryCookie = entryCookies.every((x) => x.match(/^\w.*?=.+?$/));
+    if (isEntryCookie) {
+      const entries = entryCookies.map((x) => x.trim().split("=")).map(([x, y]) => [x.trim(), y.trim()]);
+      return Object.fromEntries(entries);
+    }
+    const csvEntries = that.split("\n").distinct().map((x) => x.trim());
+    const isCsvEntry = csvEntries.every((x) => x.match(/.+?,.+?/));
+    if (isCsvEntry && csvEntries.length > 1) {
+      const headers = csvEntries[0].split(",").map((x) => x.trim());
+      const entries = csvEntries.slice(1).flatMap((x) => x.split(",").map((y, i) => [headers[i], y.trim()]));
+      return Object.fromEntries(entries);
+    }
+  };
+});
+
+// node_modules/@reactful/web/node_modules/@reactful/extensions/npm/prototypes/function.
+var separtorThousand3;
+var init_number3 = __esm(() => {
+  Number.prototype.format = function(commas, digits) {
+    const numeric = this.toString();
+    const splited = separtorThousand3(this);
+    if (commas === undefined)
+      return numeric;
+    if (digits === undefined)
+      return commas ? splited : numeric;
+    if (digits == 0)
+      return this.format(commas);
+    const results = this.toFixed(digits);
+    const decimal = "." + results.at(2);
+    const integer = new Number(results.split(".")[0]);
+    const changed = separtorThousand3(integer);
+    const returns = numeric.replace(integer.toString(), changed) + decimal;
+    return returns;
+  };
+  separtorThousand3 = (n) => n.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+});
+
+// node_modules/@reactful/web/node_modules/@reactful/extensions/npm/prototypes/function.js
+var init_function3 = __esm(() => {
+  Function.prototype.isAsync = function() {
+    const functionString = this.toString();
+    const lines = functionString.split("\n");
+    const headString = lines.at(0) || "";
+    const footString = [lines.at(-1) || "", lines.at(-2) || ""].join("\n");
+    const bodyString = functionString.replace(headString, "");
+    const awaitRegex = /=\s+await\s+[\w\(]/;
+    const asuncRegex = /async\s+function|async\s+[\(\w].+=>/;
+    const promiseRegex = /(return|=>)\s+Promise\.|(return|=>)\s+new\s+Promise\(/;
+    return headString.equal(asuncRegex) || bodyString.equal(awaitRegex) || footString.equal(promiseRegex);
+  };
+});
+
+// node_modules/@reactful/web/node_modules/@reactful/extensions/npm/prototypes/function
+var init_prototypes3 = __esm(() => {
+  init_json3();
+  init_array3();
+  init_object3();
+  init_signal3();
+  init_string3();
+  init_number3();
+  init_function3();
+});
+
+// node_modules/@reactful/web/node_modules/@reactful/extensions/npm/prototypes/funct
+var init_index_d3 = __esm(() => {
+});
+
+// node_modules/@reactful/web/node_modules/@reactful/extensions/npm/prototyp
+var import_react6;
+var init_npm4 = __esm(() => {
+  import_react6 = __toESM(require_react(), 1);
+  init_prototypes3();
+  init_index_d3();
+});
+
+// node_modules/@reactful/web/node_modules/@reactfu
 var SERVER_PATH_ERROR, IS_CLIENT_SIDE4;
 var init__server = __esm(() => {
   init_npm2();
   init_npm2();
-  init_npm();
+  init_npm4();
   SERVER_PATH_ERROR = `${PREFIX_ERROR}@server ` + IS_ONLY_FOR_ROUTE;
   IS_CLIENT_SIDE4 = !!globalThis.document;
 });
 
-// node_modules/@reactful/web/npm/router/@route.js
+// node_modules/@reactful/web/node_modules/@reactf
 var IS_CLIENT_SIDE5;
 var init__route = __esm(() => {
   init_npm2();
   IS_CLIENT_SIDE5 = !!globalThis.document;
 });
 
-// node_modules/@reactful/web/npm/router/@error.js
+// node_modules/@reactful/web/node_modules/@reactf
 var init__error = __esm(() => {
 });
 
-// node_modules/@reactful/web/npm/styler/@style.js
+// node_modules/@reactful/web/node_modules/@reactf
 var settings5, IS_SERVER_SIDE10;
 var init__style = __esm(() => {
   init_npm2();
@@ -34191,7 +34673,7 @@ var init__style = __esm(() => {
   IS_SERVER_SIDE10 = !globalThis.document;
 });
 
-// node_modules/@reactful/web/npm/binder/@state.js
+// node_modules/@reactful/web/node_modules/@reactf
 function state2(value2) {
   return function(module, caller) {
     const index = value2[GUID];
@@ -34203,10 +34685,10 @@ function state2(value2) {
 }
 var init__state = __esm(() => {
   init_npm2();
-  init_npm();
+  init_npm4();
 });
 
-// node_modules/@reactful/web/npm/render/@seo.js
+// node_modules/@reactful/web/node_modules/@reac
 function seo(title, metadata) {
   const isString = typeof metadata === "string";
   const isCharSet = isString && charsets.includes(metadata);
@@ -34228,7 +34710,7 @@ var init__seo = __esm(() => {
   charsets = ["UTF-8", "UTF-16"];
 });
 
-// node_modules/@reactful/web/npm/decorators.js
+// node_modules/@reactful/web/node_modules/@rea
 var init_decorators = __esm(() => {
   init__client();
   init__server();
@@ -34239,7 +34721,7 @@ var init_decorators = __esm(() => {
   init__seo();
 });
 
-// node_modules/@reactful/web/npm/binder/hook.js
+// node_modules/@reactful/web/node_modules/@reac
 function useStore(value2) {
   const index = ++binding8.store.count;
   const state3 = binding8.store.state;
@@ -34281,14 +34763,14 @@ var init_hook = __esm(() => {
   ({ binding: binding8 } = env.settings);
 });
 
-// node_modules/@reactful/web/npm/index.js
-var init_npm3 = __esm(() => {
+// node_modules/@reactful/web/node_modules
+var init_npm5 = __esm(() => {
   init_extensions();
   init_decorators();
   init_hook();
 });
 
-// experiment/routes/counter.tsx
+// node_modules/@reactful/web/no
 var exports_counter = {};
 __export(exports_counter, {
   default: () => {
@@ -34302,11 +34784,11 @@ __export(exports_counter, {
     }
   }
 });
-var import_react5, default$, CountButton, counter_default;
+var import_react7, default$, CountButton, counter_default;
 var init_counter = __esm(() => {
-  import_react5 = __toESM(require_react(), 1);
-  init_npm3();
-  default$ = seo("Counter", "...")(import.meta, (props3) => import_react5.default.createElement(import_react5.default.Fragment, null, import_react5.default.createElement("h1", null, "Counter"), import_react5.default.createElement(CountButton, null), import_react5.default.createElement("h6", {
+  import_react7 = __toESM(require_react(), 1);
+  init_npm5();
+  default$ = seo("Counter", "...")(import.meta, (props3) => import_react7.default.createElement(import_react7.default.Fragment, null, import_react7.default.createElement("h1", null, "Counter"), import_react7.default.createElement(CountButton, null), import_react7.default.createElement("h6", {
     shown: false
   }, "DONT SHOW ME!")));
   CountButton = client2(true)(import.meta, function CountButton2(props3, feeds2) {
@@ -34314,10 +34796,10 @@ var init_counter = __esm(() => {
       props3.count ||= 0;
       props3.count++;
     }
-    return import_react5.default.createElement("button", {
+    return import_react7.default.createElement("button", {
       style: { padding: "20px" },
       onClick: onClick2
-    }, "COUNTED: ", import_react5.default.createElement("b", null, props3.count || 0));
+    }, "COUNTED: ", import_react7.default.createElement("b", null, props3.count || 0));
   });
   default$["metadata"] ||= {};
   default$["metadata"].path = "/mnt/b/Repositorios/reactful/experiment/routes/counter.tsx";
@@ -34326,11 +34808,11 @@ var init_counter = __esm(() => {
   CountButton["metadata"].path = "/mnt/b/Repositorios/reactful/experiment/routes/counter.tsx";
 });
 
-// experiment/routes/forms/form.css
+// node_modules/@reactful/web/node_
 var init_form = __esm(() => {
 });
 
-// experiment/routes/forms/form.tsx
+// node_modules/@reactful/web/node_
 var exports_form = {};
 __export(exports_form, {
   default: () => {
@@ -34342,10 +34824,10 @@ __export(exports_form, {
 async function onValidate(errors) {
   console.warn(errors);
 }
-var import_react6, modeValidate, onSubmit, default$2, form_default;
+var import_react8, modeValidate, onSubmit, default$2, form_default;
 var init_form2 = __esm(() => {
-  import_react6 = __toESM(require_react(), 1);
-  init_npm3();
+  import_react8 = __toESM(require_react(), 1);
+  init_npm5();
   init_npm2();
   init_form();
   modeValidate = function(value2) {
@@ -34359,9 +34841,9 @@ var init_form2 = __esm(() => {
   onSubmit = function(e) {
     console.log("after form submit", e);
   };
-  default$2 = client2(true)(import.meta, (props3, { fails: errors, await: awaits }) => import_react6.default.createElement(import_react6.default.Fragment, null, import_react6.default.createElement("h1", null, "Uncontrolled Components"), import_react6.default.createElement("progress", {
+  default$2 = client2(true)(import.meta, (props3, { fails: errors, await: awaits }) => import_react8.default.createElement(import_react8.default.Fragment, null, import_react8.default.createElement("h1", null, "Uncontrolled Components"), import_react8.default.createElement("progress", {
     hidden: !awaits
-  }, "test..."), import_react6.default.createElement("form", {
+  }, "test..."), import_react8.default.createElement("form", {
     grid: true,
     cols: 2,
     method: "post",
@@ -34369,25 +34851,25 @@ var init_form2 = __esm(() => {
     action: "https://jsonplaceholder.typicode.com/posts1",
     onValidate,
     onSubmit: (e) => onSubmit(e)
-  }, import_react6.default.createElement("label", null, "Name", import_react6.default.createElement("input", {
+  }, import_react8.default.createElement("label", null, "Name", import_react8.default.createElement("input", {
     id: "name",
     bind: "name"
-  })), import_react6.default.createElement("label", null, "Date", import_react6.default.createElement("input", {
+  })), import_react8.default.createElement("label", null, "Date", import_react8.default.createElement("input", {
     type: "date",
     bind: "date"
-  })), import_react6.default.createElement("label", null, "Work", import_react6.default.createElement("input", {
+  })), import_react8.default.createElement("label", null, "Work", import_react8.default.createElement("input", {
     pattern: "dev|test",
     bind: "work"
-  })), import_react6.default.createElement("label", null, "Mode", import_react6.default.createElement("input", {
+  })), import_react8.default.createElement("label", null, "Mode", import_react8.default.createElement("input", {
     validate: modeValidate,
     bind: "mode"
-  })), import_react6.default.createElement("hr", null), import_react6.default.createElement("hr", null), import_react6.default.createElement("label", null, "Accept?", import_react6.default.createElement("input", {
+  })), import_react8.default.createElement("hr", null), import_react8.default.createElement("hr", null), import_react8.default.createElement("label", null, "Accept?", import_react8.default.createElement("input", {
     bind: "term",
     type: "checkbox",
     required: true
-  })), import_react6.default.createElement("button", null, "Submit")), import_react6.default.createElement("fieldset", {
+  })), import_react8.default.createElement("button", null, "Submit")), import_react8.default.createElement("fieldset", {
     shown: !!errors?.length
-  }, import_react6.default.createElement("legend", null, "ERROR"), import_react6.default.createElement("ul", null, errors?.map((x) => import_react6.default.createElement("li", null, x.error))))));
+  }, import_react8.default.createElement("legend", null, "ERROR"), import_react8.default.createElement("ul", null, errors?.map((x) => import_react8.default.createElement("li", null, x.error))))));
   default$2["metadata"] ||= {};
   default$2["metadata"].path = "/mnt/b/Repositorios/reactful/experiment/routes/forms/form.tsx";
   form_default = default$2;
@@ -34395,18 +34877,18 @@ var init_form2 = __esm(() => {
   modeValidate["metadata"].path = "/mnt/b/Repositorios/reactful/experiment/routes/forms/form.tsx";
 });
 
-// experiment/components/header.tsx
-var import_react7, Header;
+// node_modules/@reactful/web/node_
+var import_react9, Header;
 var init_header = __esm(() => {
-  import_react7 = __toESM(require_react(), 1);
-  Header = (props3) => import_react7.default.createElement(import_react7.default.Fragment, null, import_react7.default.createElement("h1", {
+  import_react9 = __toESM(require_react(), 1);
+  Header = (props3) => import_react9.default.createElement(import_react9.default.Fragment, null, import_react9.default.createElement("h1", {
     style: { color: "wheat" }
   }, props3.children || props3.title));
   Header["metadata"] ||= {};
   Header["metadata"].path = "/mnt/b/Repositorios/reactful/experiment/components/header.tsx";
 });
 
-// experiment/routes/hello.tsx
+// node_modules/@reactful/web/
 var exports_hello = {};
 __export(exports_hello, {
   default: () => {
@@ -34415,27 +34897,27 @@ __export(exports_hello, {
     }
   }
 });
-var import_react8, SubGlobal, SubLocal, SubOrbital, orbital1, orbital2, Hello, hello_default;
+var import_react10, SubGlobal, SubLocal, SubOrbital, orbital1, orbital2, Hello, hello_default;
 var init_hello = __esm(() => {
-  import_react8 = __toESM(require_react(), 1);
-  init_npm3();
+  import_react10 = __toESM(require_react(), 1);
+  init_npm5();
   init_header();
   SubGlobal = function(props3, { store }) {
-    return import_react8.default.createElement("input", {
+    return import_react10.default.createElement("input", {
       ...props3,
       data: store,
       bind: "value"
     });
   };
   SubLocal = function(props3) {
-    return import_react8.default.createElement(import_react8.default.Fragment, null, import_react8.default.createElement("input", {
+    return import_react10.default.createElement(import_react10.default.Fragment, null, import_react10.default.createElement("input", {
       ...props3,
       data: props3,
       bind: "value"
-    }), import_react8.default.createElement("label", null, " = ", props3.value));
+    }), import_react10.default.createElement("label", null, " = ", props3.value));
   };
   SubOrbital = function(props3) {
-    return import_react8.default.createElement("input", {
+    return import_react10.default.createElement("input", {
       ...props3,
       data: orbital1,
       bind: "value"
@@ -34446,48 +34928,48 @@ var init_hello = __esm(() => {
   Hello = seo("Hello", "Hello forms...")(import.meta, state2(orbital2)(import.meta, state2(orbital1)(import.meta, client2(true)(import.meta, function Hello2(props3, { store }) {
     if (globalThis.document)
       globalThis.props = props3;
-    return import_react8.default.createElement(import_react8.default.Fragment, null, import_react8.default.createElement(Header, null, "Hello Forms"), import_react8.default.createElement("main", {
+    return import_react10.default.createElement(import_react10.default.Fragment, null, import_react10.default.createElement(Header, null, "Hello Forms"), import_react10.default.createElement("main", {
       grid: true,
       gaps: "0 10px",
       cols: 1
-    }, import_react8.default.createElement("label", null, import_react8.default.createElement("b", null, "LOCAL state "), " ", import_react8.default.createElement("code", null, "function(props)"), import_react8.default.createElement("br", null), import_react8.default.createElement("input", {
+    }, import_react10.default.createElement("label", null, import_react10.default.createElement("b", null, "LOCAL state "), " ", import_react10.default.createElement("code", null, "function(props)"), import_react10.default.createElement("br", null), import_react10.default.createElement("input", {
       id: "1",
       data: props3,
       bind: "value",
       placeholder: "{props}"
-    }), import_react8.default.createElement("input", {
+    }), import_react10.default.createElement("input", {
       id: "1.1",
       bind: "value",
       placeholder: "default"
-    }), import_react8.default.createElement(SubLocal, {
+    }), import_react10.default.createElement(SubLocal, {
       id: "1.1.1",
       placeholder: "inner"
-    })), import_react8.default.createElement("label", null, import_react8.default.createElement("b", null, "GLOBAL state"), " ", import_react8.default.createElement("code", null, "function(props, ", "{ store }", ")"), import_react8.default.createElement("br", null), import_react8.default.createElement("input", {
+    })), import_react10.default.createElement("label", null, import_react10.default.createElement("b", null, "GLOBAL state"), " ", import_react10.default.createElement("code", null, "function(props, ", "{ store }", ")"), import_react10.default.createElement("br", null), import_react10.default.createElement("input", {
       id: "2",
       data: store,
       bind: "value",
       placeholder: "outer"
-    }), import_react8.default.createElement(SubGlobal, {
+    }), import_react10.default.createElement(SubGlobal, {
       id: "2.1",
       placeholder: "inner"
-    })), import_react8.default.createElement("label", null, import_react8.default.createElement("b", null, "ORBITAL state"), " ", import_react8.default.createElement("code", null, "useStore(...) + @state(...) "), import_react8.default.createElement("br", null), import_react8.default.createElement("input", {
+    })), import_react10.default.createElement("label", null, import_react10.default.createElement("b", null, "ORBITAL state"), " ", import_react10.default.createElement("code", null, "useStore(...) + @state(...) "), import_react10.default.createElement("br", null), import_react10.default.createElement("input", {
       id: "3",
       data: orbital1,
       bind: "value",
       placeholder: "outer"
-    }), import_react8.default.createElement(SubOrbital, {
+    }), import_react10.default.createElement(SubOrbital, {
       id: "3.1",
       placeholder: "inner"
-    }), import_react8.default.createElement("input", {
+    }), import_react10.default.createElement("input", {
       id: "3.2",
       data: orbital2,
       bind: "value",
       placeholder: "other"
-    }), " = ", orbital2.value)), import_react8.default.createElement("br", null), import_react8.default.createElement("hr", null), import_react8.default.createElement("code", null, import_react8.default.createElement("strong", null, "local"), ": ", import_react8.default.createElement("label", {
+    }), " = ", orbital2.value)), import_react10.default.createElement("br", null), import_react10.default.createElement("hr", null), import_react10.default.createElement("code", null, import_react10.default.createElement("strong", null, "local"), ": ", import_react10.default.createElement("label", {
       id: "l1"
-    }, props3.value), import_react8.default.createElement("br", null), import_react8.default.createElement("strong", null, "global"), ": ", import_react8.default.createElement("label", {
+    }, props3.value), import_react10.default.createElement("br", null), import_react10.default.createElement("strong", null, "global"), ": ", import_react10.default.createElement("label", {
       id: "l2"
-    }, store.value), import_react8.default.createElement("br", null), import_react8.default.createElement("strong", null, "orbital"), ": ", import_react8.default.createElement("label", {
+    }, store.value), import_react10.default.createElement("br", null), import_react10.default.createElement("strong", null, "orbital"), ": ", import_react10.default.createElement("label", {
       id: "l3"
     }, orbital1.value)));
   }))));
@@ -34496,7 +34978,253 @@ var init_hello = __esm(() => {
   hello_default = Hello;
 });
 
-// experiment/routes/login.tsx
+// node_modules/@reactful/web/node_modules/@reactful/extensi
+var init_array4 = __esm(() => {
+  Array.range = function(...args) {
+    if (!args.length)
+      return [];
+    const first = args.length == 2 ? args[0] : 0;
+    const final = args.length == 2 ? args[1] : args[0];
+    return Array(final).fill(first).map((x, i) => x + i);
+  };
+  Array.prototype.first = function(predicate) {
+    predicate ||= (x) => x;
+    return this.map(predicate).find(predicate) || undefined;
+  };
+  Array.prototype.distinct = function() {
+    return [...new Set(this.flatMap((x) => x ? [x] : []))];
+  };
+  Array.prototype.toObject = function() {
+    if (this[0].length == 2)
+      return Object.fromEntries(this);
+    return {};
+  };
+  Array.prototype.pairs = function() {
+    const inner = (x) => this.flatMap((y) => x !== y ? [[x, y]] : []).distinct();
+    return this.flatMap(inner).filter((x) => x).distinct();
+  };
+});
+
+// node_modules/@reactful/web/node_modules/@reactful/extens
+var init_json4 = __esm(() => {
+  init_array4();
+  JSON.scriptify = function(that, swap, functionless) {
+    try {
+      const custom = swap || ((_, value2) => value2);
+      const getSymbol = (s2) => s2.toString().replace(/Symbol\((.+)\)/, "Symbol.for('$1')");
+      const getArray = (array8) => `[${array8.map((x) => JSON.scriptify(x, swap, functionless)).join(",")}]`;
+      const getFunction = (value2) => functionless ? "undefined" : "<:\xA7{" + value2.toString() + "}\xA7:>";
+      const decode = (field, value2) => !value2 ? "" : Array.isArray(value2) ? getArray(value2) : typeof value2 == "symbol" ? getSymbol(value2) : typeof value2 == "function" ? getFunction(value2) : custom(field, value2);
+      const result = JSON.stringify(that, decode, 3).replace(/\\n/gm, "").replace(/\\r/gm, "").replaceAll('"<:\xA7{', "").replaceAll('}\xA7:>"', "").replaceAll('"[', "[").replaceAll(']"', "]").replace(/"(Symbol.for.+\))"/gm, "$1").replace(/"^\s*(.+?)": /g, "$1: ").replaceAll('"undefined"', "undefined").replaceAll('\\"', "'").trim();
+      return result;
+    } catch (ex) {
+      console.log("\nerror scriptify", that);
+      throw ex;
+    }
+  };
+});
+
+// node_modules/@reactful/web/node_modules/@reactful/extensio
+class ParseObject4 {
+  entries;
+  constructor(that) {
+    this.entries = Object.entries(that);
+  }
+  map(fn) {
+    return this.entries.map(fn);
+  }
+  filter(fn) {
+    return this.entries.filter(fn);
+  }
+  toObject() {
+    return Object.fromEntries(this.entries);
+  }
+  toArray = () => this.entries;
+}
+var valueOf4;
+var init_object4 = __esm(() => {
+  Object.fromProxy = function(that) {
+    const plain = {};
+    for (const key2 in that) {
+      if (Array.isArray(that[key2]))
+        plain[key2] = that[key2].map((x) => Object.fromProxy(x));
+      else if (typeof that[key2] == "object")
+        plain[key2] = Object.fromProxy(that[key2]);
+      else if (that.hasOwnProperty(key2))
+        plain[key2] = that[key2];
+    }
+    return plain;
+  };
+  Object.parse = function(that) {
+    return new ParseObject4(that);
+  };
+  Object.merge = function(self, that) {
+    Object.keys(self).forEach(function(name) {
+      if (that[name] === undefined)
+        return;
+      else
+        self[name] = that[name];
+    });
+  };
+  valueOf4 = Object.prototype.valueOf.bind({});
+  Object.prototype.valueOf = function(...args) {
+    const [path, data2, none] = args;
+    const passing = args.length == 0 || typeof path !== "string";
+    const reading = args.length == 1;
+    if (passing)
+      return valueOf4.bind(this)();
+    if (reading) {
+      const arr = path.split(".");
+      const get = arr.reduce((x, k) => x[k], this);
+      return none ? get : get?.toString() || "";
+    }
+    const split = path.split(".");
+    const field = split.at(-1) || "";
+    const ended = split.length === 1;
+    const value2 = data2?.target?.value ?? data2;
+    const under = path.replace(field, "");
+    if (ended)
+      this[path] = value2;
+    if (under)
+      this.valueOf(under)[field] = value2;
+  };
+});
+
+// node_modules/@reactful/web/node_modules/@reactful/extensio
+var init_signal4 = __esm(() => {
+  AbortSignal.timeout ??= function timeout4(ms) {
+    const ctrl = new AbortController;
+    setTimeout(() => ctrl.abort(), ms);
+    return ctrl.signal;
+  };
+});
+
+// node_modules/@reactful/web/node_modules/@reactful/extensio
+var init_string4 = __esm(() => {
+  init_object4();
+  String.prototype.fix = function() {
+    return this.trim().replace("  ", " ");
+  };
+  String.prototype.place = function(...args) {
+    return this.replace(/{(\d+)}/g, (match, index) => typeof args[index] !== "undefined" ? args[index] : match);
+  };
+  String.prototype.remove = function(value2) {
+    return this.replace(value2, "");
+  };
+  String.prototype.toNumber = function() {
+    return parseFloat(this.toString()) || 0;
+  };
+  String.prototype.equal = function(...args) {
+    const [that, ignore] = args;
+    const regex = ignore ? /\s+/gm : /JUST_IGNORE_THIS/;
+    const clear = (x, full) => x.toLowerCase().trim().replace(regex, "");
+    if (that instanceof RegExp)
+      return !!this.match(that);
+    if (args.length == 1)
+      return !!this.match(new RegExp(that, "gmi"));
+    return clear(this, ignore) == clear(that, ignore);
+  };
+  String.prototype.query = function(...args) {
+    const [regex, multiple] = args;
+    if (typeof regex == "string")
+      return this.query(new RegExp(regex), !!multiple);
+    return multiple ? Array.from(this.matchAll(regex)) : Array.from(this.match(regex) || []);
+  };
+  String.prototype.toObject = function() {
+    const that = this.toString();
+    try {
+      return JSON.parse(that);
+    } catch {
+      return;
+    }
+  };
+  String.prototype.toArray = function() {
+    const that = this.toString();
+    const self = that.toObject();
+    if (self)
+      return Array.isArray(self) ? self : [self];
+    const entryCookies = that.split(";").distinct().map((x) => x.trim());
+    const isEntryCookie = entryCookies.every((x) => x.match(/^\w.*?=.+?$/));
+    if (isEntryCookie) {
+      const entries = entryCookies.map((x) => x.trim().split("=")).map(([x, y]) => [x.trim(), y.trim()]);
+      return Object.fromEntries(entries);
+    }
+    const csvEntries = that.split("\n").distinct().map((x) => x.trim());
+    const isCsvEntry = csvEntries.every((x) => x.match(/.+?,.+?/));
+    if (isCsvEntry && csvEntries.length > 1) {
+      const headers = csvEntries[0].split(",").map((x) => x.trim());
+      const entries = csvEntries.slice(1).flatMap((x) => x.split(",").map((y, i) => [headers[i], y.trim()]));
+      return Object.fromEntries(entries);
+    }
+  };
+});
+
+// node_modules/@reactful/web/node_modules/@reactful/extensio
+var separtorThousand4;
+var init_number4 = __esm(() => {
+  Number.prototype.format = function(commas, digits) {
+    const numeric = this.toString();
+    const splited = separtorThousand4(this);
+    if (commas === undefined)
+      return numeric;
+    if (digits === undefined)
+      return commas ? splited : numeric;
+    if (digits == 0)
+      return this.format(commas);
+    const results = this.toFixed(digits);
+    const decimal = "." + results.at(2);
+    const integer = new Number(results.split(".")[0]);
+    const changed = separtorThousand4(integer);
+    const returns = numeric.replace(integer.toString(), changed) + decimal;
+    return returns;
+  };
+  separtorThousand4 = (n) => n.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+});
+
+// node_modules/@reactful/web/node_modules/@reactful/extensions
+var init_function4 = __esm(() => {
+  Function.prototype.isAsync = function() {
+    const functionString = this.toString();
+    const lines = functionString.split("\n");
+    const headString = lines.at(0) || "";
+    const footString = [lines.at(-1) || "", lines.at(-2) || ""].join("\n");
+    const bodyString = functionString.replace(headString, "");
+    const awaitRegex = /=\s+await\s+[\w\(]/;
+    const asuncRegex = /async\s+function|async\s+[\(\w].+=>/;
+    const promiseRegex = /(return|=>)\s+Promise\.|(return|=>)\s+new\s+Promise\(/;
+    return headString.equal(asuncRegex) || bodyString.equal(awaitRegex) || footString.equal(promiseRegex);
+  };
+});
+
+// node_modules/@reactful/web/node_modules/@reactful/extensi
+var init_prototypes4 = __esm(() => {
+  init_json4();
+  init_array4();
+  init_object4();
+  init_signal4();
+  init_string4();
+  init_number4();
+  init_function4();
+});
+
+// node_modules/@reactful/web/node_modules/@reactful/exte
+var init_index_d4 = __esm(() => {
+});
+
+// node_modules/@reactful/web/node_modules/@reactful/extens
+var init_react_d = __esm(() => {
+});
+
+// node_modules/@reactful/web/node_modules/@react
+var import_react11;
+var init_npm6 = __esm(() => {
+  import_react11 = __toESM(require_react(), 1);
+  init_prototypes4();
+  init_index_d4();
+  init_react_d();
+});
+
+// node_modules/@reactful/web/
 var exports_login = {};
 __export(exports_login, {
   default: () => {
@@ -34505,43 +35233,43 @@ __export(exports_login, {
     }
   }
 });
-var import_react9, default$3, login_default;
+var import_react12, default$3, login_default;
 var init_login = __esm(() => {
-  import_react9 = __toESM(require_react(), 1);
-  init_npm3();
-  init_npm();
-  default$3 = client2(true)(import.meta, (props3, feeds2) => import_react9.default.createElement(import_react9.default.Fragment, null, import_react9.default.createElement("h1", null, "Login"), import_react9.default.createElement("progress", {
+  import_react12 = __toESM(require_react(), 1);
+  init_npm5();
+  init_npm6();
+  default$3 = client2(true)(import.meta, (props3, feeds2) => import_react12.default.createElement(import_react12.default.Fragment, null, import_react12.default.createElement("h1", null, "Login"), import_react12.default.createElement("progress", {
     hidden: !feeds2.await
-  }, "loading..."), import_react9.default.createElement("form", {
+  }, "loading..."), import_react12.default.createElement("form", {
     method: "POST",
     data: props3.user,
     action: "http://localhost:3000/api/auth",
     bearer: "access_token"
-  }, import_react9.default.createElement("section", {
+  }, import_react12.default.createElement("section", {
     grid: true,
     cols: 1
-  }, import_react9.default.createElement("label", null, "UserName", import_react9.default.createElement("input", {
+  }, import_react12.default.createElement("label", null, "UserName", import_react12.default.createElement("input", {
     bind: "username"
-  })), import_react9.default.createElement("label", null, "PassWord", import_react9.default.createElement("input", {
+  })), import_react12.default.createElement("label", null, "PassWord", import_react12.default.createElement("input", {
     type: "password",
     bind: "password"
-  }))), import_react9.default.createElement("button", null, "Submit")), import_react9.default.createElement("fieldset", {
+  }))), import_react12.default.createElement("button", null, "Submit")), import_react12.default.createElement("fieldset", {
     shown: !!feeds2.fails?.length
-  }, import_react9.default.createElement("legend", null, "ERROR"), import_react9.default.createElement("ul", null, feeds2.fails?.map((x, i) => import_react9.default.createElement("li", {
+  }, import_react12.default.createElement("legend", null, "ERROR"), import_react12.default.createElement("ul", null, feeds2.fails?.map((x, i) => import_react12.default.createElement("li", {
     key: i
-  }, x.error)))), import_react9.default.createElement("br", null), import_react9.default.createElement("fieldset", {
+  }, x.error)))), import_react12.default.createElement("br", null), import_react12.default.createElement("fieldset", {
     style: { wordBreak: "break-all" }
-  }, import_react9.default.createElement("legend", null, "token"), sessionStorage.getItem("token"))));
+  }, import_react12.default.createElement("legend", null, "token"), sessionStorage.getItem("token"))));
   default$3["metadata"] ||= {};
   default$3["metadata"].path = "/mnt/b/Repositorios/reactful/experiment/routes/login.tsx";
   login_default = default$3;
 });
 
-// experiment/routes/profile/detail.css
+// node_modules/@reactful/web/node_modu
 var init_detail = __esm(() => {
 });
 
-// experiment/routes/profile/tester.tsx
+// node_modules/@reactful/web/node_modu
 var exports_tester = {};
 __export(exports_tester, {
   Tester: () => {
@@ -34551,16 +35279,16 @@ __export(exports_tester, {
   }
 });
 function Tester() {
-  return import_react10.default.createElement("section", null, import_react10.default.createElement("b", null, "TESTER"), " is Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur similique ipsa, molestiae numquam laudantium quod, aliquid soluta cumque placeat saepe mollitia sint consectetur labore consequatur pariatur praesentium animi. Obcaecati, nihil?");
+  return import_react13.default.createElement("section", null, import_react13.default.createElement("b", null, "TESTER"), " is Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur similique ipsa, molestiae numquam laudantium quod, aliquid soluta cumque placeat saepe mollitia sint consectetur labore consequatur pariatur praesentium animi. Obcaecati, nihil?");
 }
-var import_react10;
+var import_react13;
 var init_tester = __esm(() => {
-  import_react10 = __toESM(require_react(), 1);
+  import_react13 = __toESM(require_react(), 1);
   Tester["metadata"] ||= {};
   Tester["metadata"].path = "/mnt/b/Repositorios/reactful/experiment/routes/profile/tester.tsx";
 });
 
-// experiment/routes/profile/detail.tsx
+// node_modules/@reactful/web/node_modu
 var exports_detail = {};
 __export(exports_detail, {
   Detail: () => {
@@ -34569,25 +35297,25 @@ __export(exports_detail, {
     }
   }
 });
-var import_react11, Tester2, Detail;
+var import_react14, Tester2, Detail;
 var init_detail2 = __esm(() => {
-  import_react11 = __toESM(require_react(), 1);
-  init_npm3();
-  init_npm();
+  import_react14 = __toESM(require_react(), 1);
+  init_npm5();
+  init_npm6();
   init_detail();
   Tester2 = Promise.resolve().then(() => (init_tester(), exports_tester)).asLazyComponent("Tester");
   Detail = client2(true)(import.meta, function Detail2(_, feeds2) {
-    return import_react11.default.createElement(import_react11.default.Fragment, null, import_react11.default.createElement("h3", null, "Detail"), "Parametric value = ", import_react11.default.createElement("b", null, feeds2.param.id), import_react11.default.createElement("hr", null), import_react11.default.createElement("p", null, "modular CSS keep original color"), import_react11.default.createElement("fieldset", null, import_react11.default.createElement("legend", null, "Mode"), import_react11.default.createElement("section", null, import_react11.default.createElement("button", {
+    return import_react14.default.createElement(import_react14.default.Fragment, null, import_react14.default.createElement("h3", null, "Detail"), "Parametric value = ", import_react14.default.createElement("b", null, feeds2.param.id), import_react14.default.createElement("hr", null), import_react14.default.createElement("p", null, "modular CSS keep original color"), import_react14.default.createElement("fieldset", null, import_react14.default.createElement("legend", null, "Mode"), import_react14.default.createElement("section", null, import_react14.default.createElement("button", {
       link: "./developer"
-    }, "developer"), import_react11.default.createElement("button", {
+    }, "developer"), import_react14.default.createElement("button", {
       link: "./manager"
-    }, "manager"), import_react11.default.createElement("button", {
+    }, "manager"), import_react14.default.createElement("button", {
       link: "./tester"
-    }, "tester(component)")), import_react11.default.createElement("hr", null), import_react11.default.createElement("section", {
+    }, "tester(component)")), import_react14.default.createElement("hr", null), import_react14.default.createElement("section", {
       route: "./developer"
-    }, import_react11.default.createElement("b", null, "DEVELOPER"), " is Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur similique ipsa, molestiae numquam laudantium quod, aliquid soluta cumque placeat saepe mollitia sint consectetur labore consequatur pariatur praesentium animi. Obcaecati, nihil?"), import_react11.default.createElement("section", {
+    }, import_react14.default.createElement("b", null, "DEVELOPER"), " is Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur similique ipsa, molestiae numquam laudantium quod, aliquid soluta cumque placeat saepe mollitia sint consectetur labore consequatur pariatur praesentium animi. Obcaecati, nihil?"), import_react14.default.createElement("section", {
       route: "./manager"
-    }, import_react11.default.createElement("b", null, "MANAGER"), " is Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur similique ipsa, molestiae numquam laudantium quod, aliquid soluta cumque placeat saepe mollitia sint consectetur labore consequatur pariatur praesentium animi. Obcaecati, nihil?"), import_react11.default.createElement(Tester2, {
+    }, import_react14.default.createElement("b", null, "MANAGER"), " is Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur similique ipsa, molestiae numquam laudantium quod, aliquid soluta cumque placeat saepe mollitia sint consectetur labore consequatur pariatur praesentium animi. Obcaecati, nihil?"), import_react14.default.createElement(Tester2, {
       route: "./tester"
     })));
   });
@@ -34595,7 +35323,7 @@ var init_detail2 = __esm(() => {
   Detail["metadata"].path = "/mnt/b/Repositorios/reactful/experiment/routes/profile/detail.tsx";
 });
 
-// experiment/builds/bundle.ts
+// node_modules/@reactful/web/
 init_npm2();
 await Promise.resolve().then(() => (init_client(), exports_client)).then((x) => x.default());
 globalThis[GLOBAL_KEY].clients ||= {};

@@ -1,5 +1,3 @@
-export {}
-
 declare global {
    type UrlMap<T> = { [key:URLString]: T }
    type UrlTagMap<T> = { [key:URLString]: Record<string, T> }   
