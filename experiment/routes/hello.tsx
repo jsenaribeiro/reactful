@@ -1,6 +1,7 @@
 import React from 'react'
 import { seo, client, useStore, state } from '@reactful/web'
 import { Header } from '../components/header'
+import '@reactful/extensions'
 
 const orbital1 = useStore({ value:0 })
 const orbital2 = useStore({ value:1 })

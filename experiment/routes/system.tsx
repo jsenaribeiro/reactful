@@ -1,6 +1,7 @@
 import OS from "os"
 import React from "react"
 import { seo, style } from '@reactful/web'
+import '@reactful/extensions'
 
 const metatags: MetaTags = { 
    charset:"UTF-16", 

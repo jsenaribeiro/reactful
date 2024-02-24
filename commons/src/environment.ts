@@ -1,7 +1,5 @@
 /// <reference lib='dom' />
 
-export const GLOBAL_KEY = Symbol.for("settings")
-
 import { contextualizer } from "./context"
 import { routefy } from "./routefy"
 import '@reactful/extensions'
@@ -117,3 +115,4 @@ function validateOf([key, val]: [string, any]) {
 }
 
 export const env = new Environment()
+export const GLOBAL_KEY = Symbol.for("settings")

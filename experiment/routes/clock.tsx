@@ -4,12 +4,6 @@ import { server, seo } from '@reactful/web'
 const loading = <h3>Loading content...</h3>
 const address = "https://timeapi.io/api/Time/current/zone?timeZone=Europe/Amsterdam"
 
-declare module "react" {
-   interface HTMLAttributes<T> {
-      await?: (...args) => Promise<React.ReactNode>
-   }
-}
-
 //@ts-ignore
 @server("dynamic") 
 @seo('Time Zone', 'Time zone clock...')
@@ -29,7 +23,7 @@ async function TimeZone() {
       <h1>World Clock</h1>
       <h2>Europe/Amistedan timezone</h2>
       <h3 style={{color:'yellow'}}> {date} {time} </h3>
-      <h4 await={InnerAsyncComponent}>loading...</h4>
+      {/* <h4 await={InnerAsyncComponent}>loading...</h4> */}
    </React.Fragment>
 }
 

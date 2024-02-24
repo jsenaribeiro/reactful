@@ -1,7 +1,8 @@
 "use client";
 import { onSubmitBinding, fixProps } from "./formBind";
-const IS_SERVER_SIDE = !globalThis.document;
+import '@reactful/extensions';
 export default ['data', 'bearer', 'validade', 'onFetch', 'onSubmit', 'onValidate'];
+const IS_SERVER_SIDE = !globalThis.document;
 /** reactful forms as form[data] and children[bind]
  * with RESTful actions and validation api */
 export function formProps(props, params) {

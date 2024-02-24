@@ -1,6 +1,7 @@
 FIXINGS
 - fix playwright tests
 - hot loading not working
+- types failing in commons
 - shown custom directive type (poc - login.tsx)
 - custom form[validation] only after first render
 
@@ -9,7 +10,6 @@ PENDINGS
 - mounting markdown lib css
 - remote states for stater
 - peerDependence: react react-dom
-- types failing in commons
 - individual suspenses?
 - await props
 
