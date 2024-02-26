@@ -6,10 +6,10 @@ var __hasOwnProp = Object.prototype.hasOwnProperty;
 var __toESM = (mod, isNodeMode, target) => {
   target = mod != null ? __create(__getProtoOf(mod)) : {};
   const to = isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", { value: mod, enumerable: true }) : target;
-  for (let key2 of __getOwnPropNames(mod))
-    if (!__hasOwnProp.call(to, key2))
-      __defProp(to, key2, {
-        get: () => mod[key2],
+  for (let key of __getOwnPropNames(mod))
+    if (!__hasOwnProp.call(to, key))
+      __defProp(to, key, {
+        get: () => mod[key],
         enumerable: true
       });
   return to;
@@ -26,7 +26,28 @@ var __export = (target, all) => {
 };
 var __esm = (fn, res) => () => (fn && (res = fn(fn = 0)), res);
 
-// node_modules/react/cjs/react.development.js
+// node_modules/@reactful/server/npm/props/formAut
+var GUID, PROXY, GLOBAL_KEY, PRIMITIVES, IS_ONLY_FOR_ROUTE;
+var init_constants = __esm(() => {
+  GUID = Symbol.for("---guid---");
+  PROXY = Symbol.for("proxy");
+  GLOBAL_KEY = Symbol.for("settings");
+  PRIMITIVES = ["symbol", "string", "number", "undefined", "null", "bigint"];
+  IS_ONLY_FOR_ROUTE = "is only for default route component directory";
+});
+
+// node_modules/@reactful/server/npm/props/formA
+function allSettings() {
+  return globalThis[GLOBAL_KEY];
+}
+function allCachings() {
+  return allSettings().caching.distinct();
+}
+var init_all = __esm(() => {
+  init_constants();
+});
+
+// node_modules/@reactful/server/npm/props/for
 var require_react_development = __commonJS((exports, module) => {
   if (true) {
     (function() {
@@ -413,11 +434,11 @@ var require_react_development = __commonJS((exports, module) => {
           }
         }
       }
-      var ReactElement = function(type, key2, ref, self, source, owner, props) {
+      var ReactElement = function(type, key, ref, self, source, owner, props) {
         var element = {
           $$typeof: REACT_ELEMENT_TYPE,
           type,
-          key: key2,
+          key,
           ref,
           props,
           _owner: owner
@@ -452,7 +473,7 @@ var require_react_development = __commonJS((exports, module) => {
       function createElement(type, config, children) {
         var propName;
         var props = {};
-        var key2 = null;
+        var key = null;
         var ref = null;
         var self = null;
         var source = null;
@@ -467,7 +488,7 @@ var require_react_development = __commonJS((exports, module) => {
             {
               checkKeyStringCoercion(config.key);
             }
-            key2 = "" + config.key;
+            key = "" + config.key;
           }
           self = config.__self === undefined ? null : config.__self;
           source = config.__source === undefined ? null : config.__source;
@@ -501,9 +522,9 @@ var require_react_development = __commonJS((exports, module) => {
           }
         }
         {
-          if (key2 || ref) {
+          if (key || ref) {
             var displayName = typeof type === "function" ? type.displayName || type.name || "Unknown" : type;
-            if (key2) {
+            if (key) {
               defineKeyPropWarningGetter(props, displayName);
             }
             if (ref) {
@@ -511,7 +532,7 @@ var require_react_development = __commonJS((exports, module) => {
             }
           }
         }
-        return ReactElement(type, key2, ref, self, source, ReactCurrentOwner.current, props);
+        return ReactElement(type, key, ref, self, source, ReactCurrentOwner.current, props);
       }
       function cloneAndReplaceKey(oldElement, newKey) {
         var newElement = ReactElement(oldElement.type, newKey, oldElement.ref, oldElement._self, oldElement._source, oldElement._owner, oldElement.props);
@@ -523,7 +544,7 @@ var require_react_development = __commonJS((exports, module) => {
         }
         var propName;
         var props = assign({}, element.props);
-        var key2 = element.key;
+        var key = element.key;
         var ref = element.ref;
         var self = element._self;
         var source = element._source;
@@ -537,7 +558,7 @@ var require_react_development = __commonJS((exports, module) => {
             {
               checkKeyStringCoercion(config.key);
             }
-            key2 = "" + config.key;
+            key = "" + config.key;
           }
           var defaultProps;
           if (element.type && element.type.defaultProps) {
@@ -563,20 +584,20 @@ var require_react_development = __commonJS((exports, module) => {
           }
           props.children = childArray;
         }
-        return ReactElement(element.type, key2, ref, self, source, owner, props);
+        return ReactElement(element.type, key, ref, self, source, owner, props);
       }
       function isValidElement(object) {
         return typeof object === "object" && object !== null && object.$$typeof === REACT_ELEMENT_TYPE;
       }
       var SEPARATOR = ".";
       var SUBSEPARATOR = ":";
-      function escape(key2) {
+      function escape(key) {
         var escapeRegex = /[=:]/g;
         var escaperLookup = {
           "=": "=0",
           ":": "=2"
         };
-        var escapedString = key2.replace(escapeRegex, function(match) {
+        var escapedString = key.replace(escapeRegex, function(match) {
           return escaperLookup[match];
         });
         return "$" + escapedString;
@@ -1477,12 +1498,12 @@ var require_react_development = __commonJS((exports, module) => {
       }
       function validateFragmentProps(fragment) {
         {
-          var keys2 = Object.keys(fragment.props);
-          for (var i = 0;i < keys2.length; i++) {
-            var key2 = keys2[i];
-            if (key2 !== "children" && key2 !== "key") {
+          var keys = Object.keys(fragment.props);
+          for (var i = 0;i < keys.length; i++) {
+            var key = keys[i];
+            if (key !== "children" && key !== "key") {
               setCurrentlyValidatingElement$1(fragment);
-              error("Invalid prop `%s` supplied to `React.Fragment`. React.Fragment can only have `key` and `children` props.", key2);
+              error("Invalid prop `%s` supplied to `React.Fragment`. React.Fragment can only have `key` and `children` props.", key);
               setCurrentlyValidatingElement$1(null);
               break;
             }
@@ -1810,7 +1831,7 @@ var require_react_development = __commonJS((exports, module) => {
   }
 });
 
-// node_modules/react/index.js
+// node_modules/@reactful/serv
 var require_react = __commonJS((exports, module) => {
   var react_development = __toESM(require_react_development(), 1);
   if (false) {
@@ -1819,7 +1840,7 @@ var require_react = __commonJS((exports, module) => {
   }
 });
 
-// node_modules/@reactful/extensions/npm/prototypes/array.js
+// node_modules/@reactful/server/npm/props/formAuth.jsjs.jsn
 var init_array = __esm(() => {
   Array.range = function(...args) {
     if (!args.length)
@@ -1846,7 +1867,7 @@ var init_array = __esm(() => {
   };
 });
 
-// node_modules/@reactful/extensions/npm/prototypes/json.js
+// node_modules/@reactful/server/npm/props/formAuth.jsjs.js
 var init_json = __esm(() => {
   init_array();
   JSON.scriptify = function(that, swap, functionless) {
@@ -1855,7 +1876,7 @@ var init_json = __esm(() => {
       const getSymbol = (s) => s.toString().replace(/Symbol\((.+)\)/, "Symbol.for('$1')");
       const getArray = (array2) => `[${array2.map((x) => JSON.scriptify(x, swap, functionless)).join(",")}]`;
       const getFunction = (value2) => functionless ? "undefined" : "<:\xA7{" + value2.toString() + "}\xA7:>";
-      const decode = (field, value2) => !value2 ? "" : Array.isArray(value2) ? getArray(value2) : typeof value2 == "symbol" ? getSymbol(value2) : typeof value2 == "function" ? getFunction(value2) : custom(field, value2);
+      const decode = (field2, value2) => !value2 ? "" : Array.isArray(value2) ? getArray(value2) : typeof value2 == "symbol" ? getSymbol(value2) : typeof value2 == "function" ? getFunction(value2) : custom(field2, value2);
       const result = JSON.stringify(that, decode, 3).replace(/\\n/gm, "").replace(/\\r/gm, "").replaceAll('"<:\xA7{', "").replaceAll('}\xA7:>"', "").replaceAll('"[', "[").replaceAll(']"', "]").replace(/"(Symbol.for.+\))"/gm, "$1").replace(/"^\s*(.+?)": /g, "$1: ").replaceAll('"undefined"', "undefined").replaceAll('\\"', "'").trim();
       return result;
     } catch (ex) {
@@ -1865,7 +1886,7 @@ var init_json = __esm(() => {
   };
 });
 
-// node_modules/@reactful/extensions/npm/prototypes/object.js
+// node_modules/@reactful/server/npm/props/formAuth.jsjs.jsn.
 class ParseObject {
   entries;
   constructor(that) {
@@ -1886,13 +1907,13 @@ var valueOf;
 var init_object = __esm(() => {
   Object.fromProxy = function(that) {
     const plain = {};
-    for (const key2 in that) {
-      if (Array.isArray(that[key2]))
-        plain[key2] = that[key2].map((x) => Object.fromProxy(x));
-      else if (typeof that[key2] == "object")
-        plain[key2] = Object.fromProxy(that[key2]);
-      else if (that.hasOwnProperty(key2))
-        plain[key2] = that[key2];
+    for (const key in that) {
+      if (Array.isArray(that[key]))
+        plain[key] = that[key].map((x) => Object.fromProxy(x));
+      else if (typeof that[key] == "object")
+        plain[key] = Object.fromProxy(that[key]);
+      else if (that.hasOwnProperty(key))
+        plain[key] = that[key];
     }
     return plain;
   };
@@ -1909,7 +1930,7 @@ var init_object = __esm(() => {
   };
   valueOf = Object.prototype.valueOf.bind({});
   Object.prototype.valueOf = function(...args) {
-    const [path, data2, none] = args;
+    const [path, data, none] = args;
     const passing = args.length == 0 || typeof path !== "string";
     const reading = args.length == 1;
     if (passing)
@@ -1920,18 +1941,18 @@ var init_object = __esm(() => {
       return none ? get : get?.toString() || "";
     }
     const split = path.split(".");
-    const field = split.at(-1) || "";
+    const field2 = split.at(-1) || "";
     const ended = split.length === 1;
-    const value2 = data2?.target?.value ?? data2;
-    const under = path.replace(field, "");
+    const value2 = data?.target?.value ?? data;
+    const under = path.replace(field2, "");
     if (ended)
       this[path] = value2;
     if (under)
-      this.valueOf(under)[field] = value2;
+      this.valueOf(under)[field2] = value2;
   };
 });
 
-// node_modules/@reactful/extensions/npm/prototypes/signal.js
+// node_modules/@reactful/server/npm/props/formAuth.jsjs.jsn.
 var init_signal = __esm(() => {
   AbortSignal.timeout ??= function timeout(ms) {
     const ctrl = new AbortController;
@@ -1940,7 +1961,7 @@ var init_signal = __esm(() => {
   };
 });
 
-// node_modules/@reactful/extensions/npm/prototypes/string.js
+// node_modules/@reactful/server/npm/props/formAuth.jsjs.jsn.
 var init_string = __esm(() => {
   init_object();
   String.prototype.fix = function() {
@@ -2000,7 +2021,7 @@ var init_string = __esm(() => {
   };
 });
 
-// node_modules/@reactful/extensions/npm/prototypes/number.js
+// node_modules/@reactful/server/npm/props/formAuth.jsjs.jsn.
 var separtorThousand;
 var init_number = __esm(() => {
   Number.prototype.format = function(commas, digits) {
@@ -2022,7 +2043,7 @@ var init_number = __esm(() => {
   separtorThousand = (n) => n.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
 });
 
-// node_modules/@reactful/extensions/npm/prototypes/function.js
+// node_modules/@reactful/server/npm/props/formAuth.jsjs.jsn.js
 var init_function = __esm(() => {
   Function.prototype.isAsync = function() {
     const functionString = this.toString();
@@ -2037,7 +2058,7 @@ var init_function = __esm(() => {
   };
 });
 
-// node_modules/@reactful/extensions/npm/prototypes/index.js
+// node_modules/@reactful/server/npm/props/formAuth.jsjs.jsn
 var init_prototypes = __esm(() => {
   init_json();
   init_array();
@@ -2048,15 +2069,15 @@ var init_prototypes = __esm(() => {
   init_function();
 });
 
-// node_modules/@reactful/extensions/npm/types/index.d.ts
+// node_modules/@reactful/server/npm/props/formAuth.jsjs.
 var init_index_d = __esm(() => {
 });
 
-// node_modules/@reactful/extensions/npm/retypes/react.d.ts
+// node_modules/@reactful/server/npm/props/formAuth.jsjs.js
 var init_react_d = __esm(() => {
 });
 
-// node_modules/@reactful/extensions/npm/index.js
+// node_modules/@reactful/server/npm/props/formAu
 var import_react;
 var init_npm = __esm(() => {
   import_react = __toESM(require_react(), 1);
@@ -2065,32 +2086,7 @@ var init_npm = __esm(() => {
   init_react_d();
 });
 
-// node_modules/@reactful/commons/npm/http.js
-var init_http = __esm(() => {
-  init_npm();
-});
-
-// node_modules/@reactful/commons/npm/throw.js
-function throws(ex, mt) {
-  if (!ex)
-    return false;
-  const url = mt ? mt.url : "";
-  const uri = url ? `${url.split("/src").at(1)} ` : " ";
-  console.error("\n" + PREFIX_ERROR + uri);
-  console.warn(ex?.message || ex?.toString());
-  throw ex;
-}
-var PREFIX_ERROR;
-var init_throw = __esm(() => {
-  PREFIX_ERROR = "@reactful error: ";
-});
-
-// node_modules/@reactful/commons/npm/delay.js
-var init_delay = __esm(() => {
-  init_npm();
-});
-
-// node_modules/@reactful/commons/npm/mocks.js
+// node_modules/@reactful/server/npm/props/for
 var IS_SERVER_SIDE, memoryStorage;
 var init_mocks = __esm(() => {
   IS_SERVER_SIDE = !globalThis.document;
@@ -2100,45 +2096,29 @@ var init_mocks = __esm(() => {
       get length() {
         return memoryStorage.length;
       },
-      get(field) {
-        return memoryStorage.find((x) => x.field == field);
+      get(field2) {
+        return memoryStorage.find((x) => x.field == field2);
       },
-      getItem(field) {
-        return this.get(field)?.value || null;
+      getItem(field2) {
+        return this.get(field2)?.value || null;
       },
-      setItem(field, value2) {
-        const entry = this.get(field);
+      setItem(field2, value2) {
+        const entry = this.get(field2);
         if (entry)
           entry.value = value2;
         else
-          memoryStorage.push({ field, value: value2 });
+          memoryStorage.push({ field: field2, value: value2 });
       },
-      removeItem(field) {
+      removeItem(field2) {
         for (let i = 0;i < memoryStorage.length; i++)
-          if (memoryStorage[i].field == field)
+          if (memoryStorage[i].field == field2)
             delete memoryStorage[i];
       }
     };
   }
 });
 
-// node_modules/@reactful/commons/npm/route.js
-function isRouted(current, routing) {
-  if (!routing || routing == "/")
-    return true;
-  const text = current.replace(/\/$/, "");
-  const last = text.split("/").at(-1) || "";
-  const base = text.replace(last, "");
-  routing = routing.trim();
-  routing = routing.replace(/^\.\//, base);
-  routing = routing.replace(/\/:[^//]+$/, "/");
-  routing = routing.replace(/\/:.+?\//, "/");
-  return current.includes(routing);
-}
-var init_route = __esm(() => {
-});
-
-// node_modules/@reactful/commons/npm/context.js
+// node_modules/@reactful/server/npm/props/formAuth.
 function contextualizer() {
   if (globalThis[GLOBAL_KEY])
     return;
@@ -2156,14 +2136,15 @@ function contextualizer() {
     current: "/",
     queryId: "#root",
     set storage(value2) {
-      env.settings.context.store = value2;
+      allSettings().context.store = value2;
     }
   };
   globalThis[GLOBAL_KEY] ||= settings;
 }
 var IS_SERVER_SIDE2, binding, context, folders, failure;
 var init_context = __esm(() => {
-  init_environment();
+  init_constants();
+  init_all();
   init_npm();
   init_mocks();
   IS_SERVER_SIDE2 = !globalThis.document;
@@ -2203,14 +2184,40 @@ var init_context = __esm(() => {
   failure = (status, errors) => console.error(`status error ${status}`, "\n - " + errors.join("; \n - "));
 });
 
-// node_modules/@reactful/commons/npm/routefy.js
+// node_modules/@reactful/server/npm/props/formA
+function validation(instance) {
+  Object.entries(instance).map(validateOf).filter((x) => Array.isArray(x)).forEach((x) => x && (instance[x[0]] = x[1]));
+}
+function validateOf([field, value]) {
+  if (globalThis.document)
+    return;
+  const dataOf = eval("process.env") || eval("Bun.env");
+  const keysOf = Object.keys(dataOf);
+  if (!dataOf)
+    return;
+  if (field == "FLAGS")
+    return;
+  if (typeof value == "function")
+    return;
+  if (!dataOf[field])
+    throw fail(field, "value in field ");
+  if (!keysOf.includes(field))
+    throw fail(field, "field ");
+  return [field, JSON.parse(`${dataOf[field]}`.toLowerCase())];
+}
+var fail;
+var init_try = __esm(() => {
+  fail = (key, pre = "") => `Not found ${pre}'${key.trim()}' of .env file`;
+});
+
+// node_modules/@reactful/server/npm/props/formA
 function routefy(route) {
   route = route.replace(/\/$/, "") || "/";
-  env.settings.current = route;
-  env.settings.context.param = {};
+  allSettings().current = route;
+  allSettings().context.param = {};
   var urlState = "", hasState = false, jsxState = null;
   const ignore = { href: route, call: null }, state = {};
-  for (const args of env.all.filter((x) => x.type == "href")) {
+  for (const args of allCachings().filter((x) => x.type == "href")) {
     const routed = route.split("/").distinct();
     const params = args.data.split("/").distinct();
     if (routed.length != params.length)
@@ -2219,11 +2226,11 @@ function routefy(route) {
       const param = params[i];
       const value2 = routed.at(i);
       const isNot = value2 != param;
-      const field = param.replace(":", "");
+      const field2 = param.replace(":", "");
       const isVar = param.startsWith(":");
       hasState = hasState || isVar;
       if (isVar)
-        state[field] = value2;
+        state[field2] = value2;
       else if (isNot)
         return ignore;
       else
@@ -2232,34 +2239,71 @@ function routefy(route) {
     jsxState = args.call;
   }
   if (hasState)
-    env.settings.context.param = state;
+    allSettings().context.param = state;
   return { href: urlState || route, call: jsxState };
 }
-var init_routefy = __esm(() => {
-  init_environment();
+var init_let = __esm(() => {
+  init_all();
 });
 
-// node_modules/@reactful/commons/npm/environment.js
-function validateOf([key, val]) {
-  if (IS_CLIENT_SIDE)
-    return;
-  const data = eval("process.env");
-  const keys = Object.keys(data);
-  if (!data)
-    return;
-  if (key == "FLAGS")
-    return;
-  if (val == "function")
-    return;
-  if (keys.includes(key) == false)
-    throw fail(key);
-  if (!data[key])
-    throw fail(key, "value in");
-  const value = `${data[key]}`.toLowerCase();
-  return [key, JSON.parse(value)];
+// node_modules/@reactful/server/npm/props/formA
+function get(type, path, name) {
+  const allByType = allCachings().filter((x) => x.type == type);
+  const allByName = (name2) => allByType.find((x) => x.name == name2);
+  const allByPath = (path2) => allByType.filter((x) => x.path == path2);
+  const allByPathName = (path2, name2) => allByPath(path2).find((x) => x.name == name2);
+  if (!path && !name)
+    return allByType.filter((x) => x.type == type);
+  else if (!name)
+    return allByName(path)?.data || allByName(path + "/index")?.data;
+  else
+    return allByPathName(path, name)?.data || allByPathName(path + "/index", name)?.data;
 }
+var init_get = __esm(() => {
+  init_all();
+});
 
+// node_modules/@reactful/server/npm/props/formA
+function set(...args) {
+  var type, data, name, path, call;
+  const settings = globalThis[GLOBAL_KEY];
+  if (args.length <= 2)
+    return;
+  if (args.length == 3)
+    [type, path, data] = args;
+  if (args.length == 4)
+    [type, path, name, data] = args;
+  if (args.length == 5)
+    [type, path, name, data, call] = args;
+  if (type == "meta") {
+    data = { ...this.get("meta", path, name), ...data };
+    Object.keys(data).forEach((k) => data[k] = data[k].replaceAll("'", '"'));
+  }
+  for (let i = 0;i < settings.caching.length; i++) {
+    const item2 = settings.caching[i];
+    if (!item2)
+      continue;
+    if (item2.type != type)
+      continue;
+    if (item2.path != path)
+      continue;
+    if (item2.name != name)
+      continue;
+    delete settings.caching[i];
+  }
+  settings.caching.push({ call, data, path, name, type });
+}
+var init_set = __esm(() => {
+  init_constants();
+});
+
+// node_modules/@reactful/server/npm/props/formAut
 class Environment {
+  constructor() {
+    validation(this);
+    contextualizer();
+  }
+  is = (side) => side == (globalThis.document ? "CLIENT" : "SERVER");
   PORT = 0;
   MINIFY = true;
   FLAGS = {
@@ -2274,72 +2318,75 @@ class Environment {
       console.error = enable ? consoleError.bind({}) : (...args) => null;
     }
   };
-  constructor() {
-    validation(this);
-    contextualizer();
-  }
-  get(type, path, name) {
-    if (!path && !name)
-      return this.all.filter((x) => x.type == type);
-    if (!name)
-      return this.all.find((x) => x.type == type && x.path == path)?.data || this.all.find((x) => x.type == type && x.path == path + "/index")?.data;
-    return this.all.find((x) => x.type == type && x.path == path && x.name == name)?.data || this.all.find((x) => x.type == type && x.path == path + "/index" && x.name == name)?.data;
-  }
-  set(...args) {
-    var type, data2, name, path, call;
-    if (args.length <= 2)
-      return;
-    if (args.length == 3)
-      [type, path, data2] = args;
-    if (args.length == 4)
-      [type, path, name, data2] = args;
-    if (args.length == 5)
-      [type, path, name, data2, call] = args;
-    if (type == "meta") {
-      data2 = { ...this.get("meta", path, name), ...data2 };
-      Object.keys(data2).forEach((k) => data2[k] = data2[k].replaceAll("'", '"'));
-    }
-    for (let i = 0;i < this.settings.caching.length; i++) {
-      const item2 = this.settings.caching[i];
-      if (!item2)
-        continue;
-      if (item2.type != type)
-        continue;
-      if (item2.path != path)
-        continue;
-      if (item2.name != name)
-        continue;
-      delete this.settings.caching[i];
-    }
-    this.settings.caching.push({ call, data: data2, path, name, type });
-  }
-  let(route) {
-    return routefy(route);
-  }
+  get = get;
+  set = set;
+  let = routefy;
   get settings() {
-    return globalThis[GLOBAL_KEY];
-  }
-  get all() {
-    return this.settings.caching.distinct();
+    return allSettings();
   }
 }
-var validation, GLOBAL_KEY, IS_CLIENT_SIDE, consoleError, consoleEmpty, fail, env;
-var init_environment = __esm(() => {
+var consoleError, consoleEmpty;
+var init_class = __esm(() => {
+  init_all();
   init_context();
-  init_routefy();
+  init_try();
+  init_let();
+  init_get();
+  init_set();
   init_npm();
-  validation = function(that) {
-    Object.entries(that).map(validateOf).filter((x) => Array.isArray(x)).forEach((x) => x && (that[x[0]] = x[1]));
-  };
-  GLOBAL_KEY = Symbol.for("settings");
-  IS_CLIENT_SIDE = !!globalThis.document;
   consoleError = console.error.bind({});
   consoleEmpty = (...args) => null;
-  fail = (key2, pre = "") => `Not found ${pre.trim()} ${key2.trim()} from current .env file`;
+});
+
+// node_modules/@reactful/server/npm/props/formAut
+var env;
+var init_env = __esm(() => {
+  init_class();
   env = new Environment;
 });
 
-// node_modules/react-dom/cjs/react-dom-server-legacy.browser.development.js
+// node_modules/@reactful/server/npm/props/fo
+var init_http = __esm(() => {
+  init_npm();
+});
+
+// node_modules/@reactful/server/npm/props/for
+function throws(ex, mt) {
+  if (!ex)
+    return false;
+  const url = mt ? mt.url : "";
+  const uri = url ? `${url.split("/src").at(1)} ` : " ";
+  console.error("\n" + PREFIX_ERROR + uri);
+  console.warn(ex?.message || ex?.toString());
+  throw ex;
+}
+var PREFIX_ERROR;
+var init_throw = __esm(() => {
+  PREFIX_ERROR = "@reactful error: ";
+});
+
+// node_modules/@reactful/server/npm/props/for
+var init_delay = __esm(() => {
+  init_npm();
+});
+
+// node_modules/@reactful/server/npm/props/for
+function isRouted(current, routing) {
+  if (!routing || routing == "/")
+    return true;
+  const text = current.replace(/\/$/, "");
+  const last = text.split("/").at(-1) || "";
+  const base = text.replace(last, "");
+  routing = routing.trim();
+  routing = routing.replace(/^\.\//, base);
+  routing = routing.replace(/\/:[^//]+$/, "/");
+  routing = routing.replace(/\/:.+?\//, "/");
+  return current.includes(routing);
+}
+var init_route = __esm(() => {
+});
+
+// node_modules/@reactful/server/npm/props/formAuth.jsjs.jsn.jsent.jsment.js
 var require_react_dom_server_legacy_browser_development = __commonJS((exports) => {
   var React = __toESM(require_react(), 1);
   if (true) {
@@ -2746,8 +2793,8 @@ var require_react_dom_server_legacy_browser_development = __commonJS((exports) =
         strokeOpacity: true,
         strokeWidth: true
       };
-      function prefixKey(prefix2, key2) {
-        return prefix2 + key2.charAt(0).toUpperCase() + key2.substring(1);
+      function prefixKey(prefix2, key) {
+        return prefix2 + key.charAt(0).toUpperCase() + key.substring(1);
       }
       var prefixes = ["Webkit", "ms", "Moz", "O"];
       Object.keys(isUnitlessNumber).forEach(function(prop) {
@@ -2884,10 +2931,10 @@ var require_react_dom_server_legacy_browser_development = __commonJS((exports) =
       function warnInvalidARIAProps(type, props) {
         {
           var invalidProps = [];
-          for (var key2 in props) {
-            var isValid = validateProperty(type, key2);
+          for (var key in props) {
+            var isValid = validateProperty(type, key);
             if (!isValid) {
-              invalidProps.push(key2);
+              invalidProps.push(key);
             }
           }
           var unknownPropString = invalidProps.map(function(prop) {
@@ -3514,10 +3561,10 @@ var require_react_dom_server_legacy_browser_development = __commonJS((exports) =
       var warnUnknownProperties = function(type, props, eventRegistry) {
         {
           var unknownProps = [];
-          for (var key2 in props) {
-            var isValid = validateProperty$1(type, key2, props[key2], eventRegistry);
+          for (var key in props) {
+            var isValid = validateProperty$1(type, key, props[key], eventRegistry);
             if (!isValid) {
-              unknownProps.push(key2);
+              unknownProps.push(key);
             }
           }
           var unknownPropString = unknownProps.map(function(prop) {
@@ -5290,8 +5337,8 @@ var require_react_dom_server_legacy_browser_development = __commonJS((exports) =
             return emptyContextObject;
           }
           var context3 = {};
-          for (var key2 in contextTypes) {
-            context3[key2] = unmaskedContext[key2];
+          for (var key in contextTypes) {
+            context3[key] = unmaskedContext[key];
           }
           {
             var name = getComponentNameFromType(type) || "Unknown";
@@ -5473,11 +5520,11 @@ var require_react_dom_server_legacy_browser_development = __commonJS((exports) =
         var value2 = context3._currentValue2;
         return value2;
       }
-      function get(key2) {
-        return key2._reactInternals;
+      function get3(key) {
+        return key._reactInternals;
       }
-      function set(key2, value2) {
-        key2._reactInternals = value2;
+      function set3(key, value2) {
+        key._reactInternals = value2;
       }
       var didWarnAboutNoopUpdateForComponent = {};
       var didWarnAboutDeprecatedWillMount = {};
@@ -5503,9 +5550,9 @@ var require_react_dom_server_legacy_browser_development = __commonJS((exports) =
           if (callback === null || typeof callback === "function") {
             return;
           }
-          var key2 = callerName + "_" + callback;
-          if (!didWarnOnInvalidCallback.has(key2)) {
-            didWarnOnInvalidCallback.add(key2);
+          var key = callerName + "_" + callback;
+          if (!didWarnOnInvalidCallback.has(key)) {
+            didWarnOnInvalidCallback.add(key);
             error("%s(...): Expected the last optional `callback` argument to be a function. Instead received: %s.", callerName, callback);
           }
         };
@@ -5536,7 +5583,7 @@ var require_react_dom_server_legacy_browser_development = __commonJS((exports) =
           return false;
         },
         enqueueSetState: function(inst, payload, callback) {
-          var internals = get(inst);
+          var internals = get3(inst);
           if (internals.queue === null) {
             warnNoop(inst, "setState");
           } else {
@@ -5549,7 +5596,7 @@ var require_react_dom_server_legacy_browser_development = __commonJS((exports) =
           }
         },
         enqueueReplaceState: function(inst, payload, callback) {
-          var internals = get(inst);
+          var internals = get3(inst);
           internals.replace = true;
           internals.queue = [payload];
           {
@@ -5559,7 +5606,7 @@ var require_react_dom_server_legacy_browser_development = __commonJS((exports) =
           }
         },
         enqueueForceUpdate: function(inst, callback) {
-          var internals = get(inst);
+          var internals = get3(inst);
           if (internals.queue === null) {
             warnNoop(inst, "forceUpdate");
           } else {
@@ -5792,7 +5839,7 @@ var require_react_dom_server_legacy_browser_development = __commonJS((exports) =
           queue: [],
           replace: false
         };
-        set(instance, internalInstance);
+        set3(instance, internalInstance);
         var contextType = ctor.contextType;
         if (typeof contextType === "object" && contextType !== null) {
           instance.context = readContext(contextType);
@@ -7411,7 +7458,7 @@ var require_react_dom_server_legacy_browser_development = __commonJS((exports) =
   }
 });
 
-// node_modules/react-dom/cjs/react-dom-server.browser.development.js
+// node_modules/@reactful/server/npm/props/formAuth.jsjs.jsn.jsent.js
 var require_react_dom_server_browser_development = __commonJS((exports) => {
   var React = __toESM(require_react(), 1);
   if (true) {
@@ -7860,8 +7907,8 @@ var require_react_dom_server_browser_development = __commonJS((exports) => {
         strokeOpacity: true,
         strokeWidth: true
       };
-      function prefixKey(prefix2, key2) {
-        return prefix2 + key2.charAt(0).toUpperCase() + key2.substring(1);
+      function prefixKey(prefix2, key) {
+        return prefix2 + key.charAt(0).toUpperCase() + key.substring(1);
       }
       var prefixes = ["Webkit", "ms", "Moz", "O"];
       Object.keys(isUnitlessNumber).forEach(function(prop) {
@@ -7998,10 +8045,10 @@ var require_react_dom_server_browser_development = __commonJS((exports) => {
       function warnInvalidARIAProps(type, props) {
         {
           var invalidProps = [];
-          for (var key2 in props) {
-            var isValid = validateProperty(type, key2);
+          for (var key in props) {
+            var isValid = validateProperty(type, key);
             if (!isValid) {
-              invalidProps.push(key2);
+              invalidProps.push(key);
             }
           }
           var unknownPropString = invalidProps.map(function(prop) {
@@ -8628,10 +8675,10 @@ var require_react_dom_server_browser_development = __commonJS((exports) => {
       var warnUnknownProperties = function(type, props, eventRegistry) {
         {
           var unknownProps = [];
-          for (var key2 in props) {
-            var isValid = validateProperty$1(type, key2, props[key2], eventRegistry);
+          for (var key in props) {
+            var isValid = validateProperty$1(type, key, props[key], eventRegistry);
             if (!isValid) {
-              unknownProps.push(key2);
+              unknownProps.push(key);
             }
           }
           var unknownPropString = unknownProps.map(function(prop) {
@@ -10347,8 +10394,8 @@ var require_react_dom_server_browser_development = __commonJS((exports) => {
             return emptyContextObject;
           }
           var context3 = {};
-          for (var key2 in contextTypes) {
-            context3[key2] = unmaskedContext[key2];
+          for (var key in contextTypes) {
+            context3[key] = unmaskedContext[key];
           }
           {
             var name = getComponentNameFromType(type) || "Unknown";
@@ -10530,11 +10577,11 @@ var require_react_dom_server_browser_development = __commonJS((exports) => {
         var value2 = context3._currentValue;
         return value2;
       }
-      function get(key2) {
-        return key2._reactInternals;
+      function get3(key) {
+        return key._reactInternals;
       }
-      function set(key2, value2) {
-        key2._reactInternals = value2;
+      function set3(key, value2) {
+        key._reactInternals = value2;
       }
       var didWarnAboutNoopUpdateForComponent = {};
       var didWarnAboutDeprecatedWillMount = {};
@@ -10560,9 +10607,9 @@ var require_react_dom_server_browser_development = __commonJS((exports) => {
           if (callback === null || typeof callback === "function") {
             return;
           }
-          var key2 = callerName + "_" + callback;
-          if (!didWarnOnInvalidCallback.has(key2)) {
-            didWarnOnInvalidCallback.add(key2);
+          var key = callerName + "_" + callback;
+          if (!didWarnOnInvalidCallback.has(key)) {
+            didWarnOnInvalidCallback.add(key);
             error("%s(...): Expected the last optional `callback` argument to be a function. Instead received: %s.", callerName, callback);
           }
         };
@@ -10593,7 +10640,7 @@ var require_react_dom_server_browser_development = __commonJS((exports) => {
           return false;
         },
         enqueueSetState: function(inst, payload, callback) {
-          var internals = get(inst);
+          var internals = get3(inst);
           if (internals.queue === null) {
             warnNoop(inst, "setState");
           } else {
@@ -10606,7 +10653,7 @@ var require_react_dom_server_browser_development = __commonJS((exports) => {
           }
         },
         enqueueReplaceState: function(inst, payload, callback) {
-          var internals = get(inst);
+          var internals = get3(inst);
           internals.replace = true;
           internals.queue = [payload];
           {
@@ -10616,7 +10663,7 @@ var require_react_dom_server_browser_development = __commonJS((exports) => {
           }
         },
         enqueueForceUpdate: function(inst, callback) {
-          var internals = get(inst);
+          var internals = get3(inst);
           if (internals.queue === null) {
             warnNoop(inst, "forceUpdate");
           } else {
@@ -10849,7 +10896,7 @@ var require_react_dom_server_browser_development = __commonJS((exports) => {
           queue: [],
           replace: false
         };
-        set(instance, internalInstance);
+        set3(instance, internalInstance);
         var contextType = ctor.contextType;
         if (typeof contextType === "object" && contextType !== null) {
           instance.context = readContext(contextType);
@@ -12461,7 +12508,7 @@ var require_react_dom_server_browser_development = __commonJS((exports) => {
   }
 });
 
-// node_modules/react-dom/server.browser.js
+// node_modules/@reactful/server/npm/props/
 var $version, $renderToString, $renderToStaticMarkup, $renderToNodeStream, $renderToStaticNodeStream, $renderToReadableStream;
 var init_server_browser = __esm(() => {
   var react_dom_server_legacy_browser_development = __toESM(require_react_dom_server_legacy_browser_development(), 1);
@@ -12481,19 +12528,10 @@ var init_server_browser = __esm(() => {
   $renderToReadableStream = s.renderToReadableStream;
 });
 
-// node_modules/@reactful/commons/npm/constants.js
-var GUID, PROXY, PRIMITIVES, IS_ONLY_FOR_ROUTE;
-var init_constants = __esm(() => {
-  GUID = Symbol.for("---guid---");
-  PROXY = Symbol.for("proxy");
-  PRIMITIVES = ["symbol", "string", "number", "undefined", "null", "bigint"];
-  IS_ONLY_FOR_ROUTE = "is only for default route component directory";
-});
-
-// node_modules/@reactful/commons/npm/jsxon.js
+// node_modules/@reactful/server/npm/props/for
 var htmlfyJSX, wrapper, map, deserializer, serializer, JSXON;
 var init_jsxon = __esm(() => {
-  init_environment();
+  init_env();
   init_throw();
   init_server_browser();
   init_constants();
@@ -12527,7 +12565,7 @@ var init_jsxon = __esm(() => {
       return value2;
     function retype(p, f) {
       const child = value2.type({ ...props, ...p }, { ...feeds, ...f });
-      const split = Object.entries(child.props).map(([key2, obj]) => [key2, wrapper(obj)]);
+      const split = Object.entries(child.props).map(([key, obj]) => [key, wrapper(obj)]);
       return { ...child, props: Object.fromEntries(split) };
     }
     return { ...value2, type: retype };
@@ -12536,8 +12574,8 @@ var init_jsxon = __esm(() => {
     { key: "$RE", for: Symbol.for("react.element") },
     { key: "$RF", for: Symbol.for("react.fragment") }
   ];
-  deserializer = (_, val2) => map.find((x) => x.key == val2)?.for || val2;
-  serializer = (_, val2) => map.find((x) => x.for == val2)?.key || val2;
+  deserializer = (_, val) => map.find((x) => x.key == val)?.for || val;
+  serializer = (_, val) => map.find((x) => x.for == val)?.key || val;
   JSXON = {
     parse: (json2) => JSON.parse(json2, deserializer) || {},
     htmlfy: htmlfyJSX,
@@ -12545,15 +12583,16 @@ var init_jsxon = __esm(() => {
   };
 });
 
-// node_modules/@reactful/commons/npm/render.js
+// node_modules/@reactful/server/npm/props/form
 var params;
 var init_render = __esm(() => {
-  init_environment();
+  init_env();
   params = (tag, own, uid, now) => ({ tag, own, uid, mem: now, ioc: env.settings.context });
 });
 
-// node_modules/@reactful/commons/npm/index.js
+// node_modules/@reactful/server/npm/props/for
 var init_npm2 = __esm(() => {
+  init_env();
   init_http();
   init_throw();
   init_delay();
@@ -12562,13 +12601,10 @@ var init_npm2 = __esm(() => {
   init_throw();
   init_jsxon();
   init_render();
-  init_routefy();
-  init_context();
   init_constants();
-  init_environment();
 });
 
-// node_modules/scheduler/cjs/scheduler.development.js
+// node_modules/@reactful/server/npm/props/formAuth.js
 var require_scheduler_development = __commonJS((exports) => {
   if (true) {
     (function() {
@@ -13014,7 +13050,7 @@ var require_scheduler_development = __commonJS((exports) => {
   }
 });
 
-// node_modules/scheduler/index.js
+// node_modules/@reactful/server/n
 var require_scheduler = __commonJS((exports, module) => {
   var scheduler_development = __toESM(require_scheduler_development(), 1);
   if (false) {
@@ -13023,7 +13059,7 @@ var require_scheduler = __commonJS((exports, module) => {
   }
 });
 
-// node_modules/react-dom/cjs/react-dom.development.js
+// node_modules/@reactful/server/npm/props/formAuth.js
 var require_react_dom_development = __commonJS((exports) => {
   var React = __toESM(require_react(), 1);
   var Scheduler = __toESM(require_scheduler(), 1);
@@ -13989,8 +14025,8 @@ var require_react_dom_development = __commonJS((exports) => {
         if (typeof type === "object") {
           switch (type.$$typeof) {
             case REACT_CONTEXT_TYPE:
-              var context4 = type;
-              return getContextName(context4) + ".Consumer";
+              var context3 = type;
+              return getContextName(context3) + ".Consumer";
             case REACT_PROVIDER_TYPE:
               var provider = type;
               return getContextName(provider._context) + ".Provider";
@@ -14029,8 +14065,8 @@ var require_react_dom_development = __commonJS((exports) => {
           case CacheComponent:
             return "Cache";
           case ContextConsumer:
-            var context4 = type;
-            return getContextName$1(context4) + ".Consumer";
+            var context3 = type;
+            return getContextName$1(context3) + ".Consumer";
           case ContextProvider:
             var provider = type;
             return getContextName$1(provider._context) + ".Provider";
@@ -14201,18 +14237,18 @@ var require_react_dom_development = __commonJS((exports) => {
         if (node2.hasOwnProperty(valueField) || typeof descriptor === "undefined" || typeof descriptor.get !== "function" || typeof descriptor.set !== "function") {
           return;
         }
-        var { get: get2, set: set2 } = descriptor;
+        var { get: get4, set: set4 } = descriptor;
         Object.defineProperty(node2, valueField, {
           configurable: true,
           get: function() {
-            return get2.call(this);
+            return get4.call(this);
           },
           set: function(value2) {
             {
               checkFormFieldValueStringCoercion(value2);
             }
             currentValue = "" + value2;
-            set2.call(this, value2);
+            set4.call(this, value2);
           }
         });
         Object.defineProperty(node2, valueField, {
@@ -14825,8 +14861,8 @@ var require_react_dom_development = __commonJS((exports) => {
         strokeOpacity: true,
         strokeWidth: true
       };
-      function prefixKey(prefix2, key2) {
-        return prefix2 + key2.charAt(0).toUpperCase() + key2.substring(1);
+      function prefixKey(prefix2, key) {
+        return prefix2 + key.charAt(0).toUpperCase() + key.substring(1);
       }
       var prefixes = ["Webkit", "ms", "Moz", "O"];
       Object.keys(isUnitlessNumber).forEach(function(prop) {
@@ -14968,10 +15004,10 @@ var require_react_dom_development = __commonJS((exports) => {
       }
       function expandShorthandMap(styles) {
         var expanded = {};
-        for (var key2 in styles) {
-          var longhands = shorthandToLonghand[key2] || [key2];
+        for (var key in styles) {
+          var longhands = shorthandToLonghand[key] || [key];
           for (var i = 0;i < longhands.length; i++) {
-            expanded[longhands[i]] = key2;
+            expanded[longhands[i]] = key;
           }
         }
         return expanded;
@@ -14984,9 +15020,9 @@ var require_react_dom_development = __commonJS((exports) => {
           var expandedUpdates = expandShorthandMap(styleUpdates);
           var expandedStyles = expandShorthandMap(nextStyles);
           var warnedAbout = {};
-          for (var key2 in expandedUpdates) {
-            var originalKey = expandedUpdates[key2];
-            var correctOriginalKey = expandedStyles[key2];
+          for (var key in expandedUpdates) {
+            var originalKey = expandedUpdates[key];
+            var correctOriginalKey = expandedStyles[key];
             if (correctOriginalKey && originalKey !== correctOriginalKey) {
               var warningKey = originalKey + "," + correctOriginalKey;
               if (warnedAbout[warningKey]) {
@@ -15642,10 +15678,10 @@ var require_react_dom_development = __commonJS((exports) => {
       function warnInvalidARIAProps(type, props) {
         {
           var invalidProps = [];
-          for (var key2 in props) {
-            var isValid = validateProperty(type, key2);
+          for (var key in props) {
+            var isValid = validateProperty(type, key);
             if (!isValid) {
-              invalidProps.push(key2);
+              invalidProps.push(key);
             }
           }
           var unknownPropString = invalidProps.map(function(prop) {
@@ -15785,10 +15821,10 @@ var require_react_dom_development = __commonJS((exports) => {
       var warnUnknownProperties = function(type, props, eventRegistry) {
         {
           var unknownProps = [];
-          for (var key2 in props) {
-            var isValid = validateProperty$1(type, key2, props[key2], eventRegistry);
+          for (var key in props) {
+            var isValid = validateProperty$1(type, key, props[key], eventRegistry);
             if (!isValid) {
-              unknownProps.push(key2);
+              unknownProps.push(key);
             }
           }
           var unknownPropString = unknownProps.map(function(prop) {
@@ -15970,10 +16006,10 @@ var require_react_dom_development = __commonJS((exports) => {
           passiveBrowserEventsSupported = false;
         }
       }
-      function invokeGuardedCallbackProd(name, func2, context4, a, b, c, d, e, f) {
+      function invokeGuardedCallbackProd(name, func2, context3, a, b, c, d, e, f) {
         var funcArgs = Array.prototype.slice.call(arguments, 3);
         try {
-          func2.apply(context4, funcArgs);
+          func2.apply(context3, funcArgs);
         } catch (error2) {
           this.onError(error2);
         }
@@ -15982,7 +16018,7 @@ var require_react_dom_development = __commonJS((exports) => {
       {
         if (typeof window !== "undefined" && typeof window.dispatchEvent === "function" && typeof document !== "undefined" && typeof document.createEvent === "function") {
           var fakeNode = document.createElement("react");
-          invokeGuardedCallbackImpl = function invokeGuardedCallbackDev(name, func2, context4, a, b, c, d, e, f) {
+          invokeGuardedCallbackImpl = function invokeGuardedCallbackDev(name, func2, context3, a, b, c, d, e, f) {
             if (typeof document === "undefined" || document === null) {
               throw new Error("The `document` global was defined when React was initialized, but is not defined anymore. This can happen in a test environment if a component schedules an update from an asynchronous callback, but the test has already finished running. To solve this, you can either unmount the component at the end of your test (and ensure that any asynchronous operations get canceled in `componentWillUnmount`), or you can change the test itself to be asynchronous.");
             }
@@ -16001,7 +16037,7 @@ var require_react_dom_development = __commonJS((exports) => {
             function callCallback2() {
               didCall = true;
               restoreAfterDispatch();
-              func2.apply(context4, funcArgs);
+              func2.apply(context3, funcArgs);
               didError = false;
             }
             var error2;
@@ -16057,12 +16093,12 @@ var require_react_dom_development = __commonJS((exports) => {
           caughtError = error2;
         }
       };
-      function invokeGuardedCallback(name, func2, context4, a, b, c, d, e, f) {
+      function invokeGuardedCallback(name, func2, context3, a, b, c, d, e, f) {
         hasError = false;
         caughtError = null;
         invokeGuardedCallbackImpl$1.apply(reporter, arguments);
       }
-      function invokeGuardedCallbackAndCatchFirstError(name, func2, context4, a, b, c, d, e, f) {
+      function invokeGuardedCallbackAndCatchFirstError(name, func2, context3, a, b, c, d, e, f) {
         invokeGuardedCallback.apply(this, arguments);
         if (hasError) {
           var error2 = clearCaughtError();
@@ -16093,14 +16129,14 @@ var require_react_dom_development = __commonJS((exports) => {
           throw new Error("clearCaughtError was called but no error was captured. This error is likely caused by a bug in React. Please file an issue.");
         }
       }
-      function get(key2) {
-        return key2._reactInternals;
+      function get3(key) {
+        return key._reactInternals;
       }
-      function has(key2) {
-        return key2._reactInternals !== undefined;
+      function has(key) {
+        return key._reactInternals !== undefined;
       }
-      function set(key2, value2) {
-        key2._reactInternals = value2;
+      function set3(key, value2) {
+        key._reactInternals = value2;
       }
       var NoFlags = 0;
       var PerformedWork = 1;
@@ -16189,7 +16225,7 @@ var require_react_dom_development = __commonJS((exports) => {
             instance._warnedAboutRefsInRender = true;
           }
         }
-        var fiber = get(component);
+        var fiber = get3(component);
         if (!fiber) {
           return false;
         }
@@ -17021,14 +17057,14 @@ var require_react_dom_development = __commonJS((exports) => {
       function includesSomeLane(a, b) {
         return (a & b) !== NoLanes;
       }
-      function isSubsetOfLanes(set2, subset) {
-        return (set2 & subset) === subset;
+      function isSubsetOfLanes(set4, subset) {
+        return (set4 & subset) === subset;
       }
       function mergeLanes(a, b) {
         return a | b;
       }
-      function removeLanes(set2, subset) {
-        return set2 & ~subset;
+      function removeLanes(set4, subset) {
+        return set4 & ~subset;
       }
       function intersectLanes(a, b) {
         return a & b;
@@ -17459,9 +17495,9 @@ var require_react_dom_development = __commonJS((exports) => {
         }
         return true;
       }
-      function attemptReplayContinuousQueuedEventInMap(queuedEvent, key2, map2) {
+      function attemptReplayContinuousQueuedEventInMap(queuedEvent, key, map2) {
         if (attemptReplayContinuousQueuedEvent(queuedEvent)) {
-          map2.delete(key2);
+          map2.delete(key);
         }
       }
       function replayUnblockedEvents() {
@@ -18039,9 +18075,9 @@ var require_react_dom_development = __commonJS((exports) => {
       };
       function getEventKey(nativeEvent) {
         if (nativeEvent.key) {
-          var key2 = normalizeKey[nativeEvent.key] || nativeEvent.key;
-          if (key2 !== "Unidentified") {
-            return key2;
+          var key = normalizeKey[nativeEvent.key] || nativeEvent.key;
+          if (key !== "Unidentified") {
+            return key;
           }
         }
         if (nativeEvent.type === "keypress") {
@@ -20550,8 +20586,8 @@ var require_react_dom_development = __commonJS((exports) => {
           var nextNode = node2.nextSibling;
           parentInstance.removeChild(node2);
           if (nextNode && nextNode.nodeType === COMMENT_NODE) {
-            var data2 = nextNode.data;
-            if (data2 === SUSPENSE_END_DATA) {
+            var data = nextNode.data;
+            if (data === SUSPENSE_END_DATA) {
               if (depth === 0) {
                 parentInstance.removeChild(nextNode);
                 retryIfBlockedOn(suspenseInstance);
@@ -20559,7 +20595,7 @@ var require_react_dom_development = __commonJS((exports) => {
               } else {
                 depth--;
               }
-            } else if (data2 === SUSPENSE_START_DATA || data2 === SUSPENSE_PENDING_START_DATA || data2 === SUSPENSE_FALLBACK_START_DATA) {
+            } else if (data === SUSPENSE_START_DATA || data === SUSPENSE_PENDING_START_DATA || data === SUSPENSE_FALLBACK_START_DATA) {
               depth++;
             }
           }
@@ -20704,14 +20740,14 @@ var require_react_dom_development = __commonJS((exports) => {
         var depth = 0;
         while (node2) {
           if (node2.nodeType === COMMENT_NODE) {
-            var data2 = node2.data;
-            if (data2 === SUSPENSE_END_DATA) {
+            var data = node2.data;
+            if (data === SUSPENSE_END_DATA) {
               if (depth === 0) {
                 return getNextHydratableSibling(node2);
               } else {
                 depth--;
               }
-            } else if (data2 === SUSPENSE_START_DATA || data2 === SUSPENSE_FALLBACK_START_DATA || data2 === SUSPENSE_PENDING_START_DATA) {
+            } else if (data === SUSPENSE_START_DATA || data === SUSPENSE_FALLBACK_START_DATA || data === SUSPENSE_PENDING_START_DATA) {
               depth++;
             }
           }
@@ -20724,14 +20760,14 @@ var require_react_dom_development = __commonJS((exports) => {
         var depth = 0;
         while (node2) {
           if (node2.nodeType === COMMENT_NODE) {
-            var data2 = node2.data;
-            if (data2 === SUSPENSE_START_DATA || data2 === SUSPENSE_FALLBACK_START_DATA || data2 === SUSPENSE_PENDING_START_DATA) {
+            var data = node2.data;
+            if (data === SUSPENSE_START_DATA || data === SUSPENSE_FALLBACK_START_DATA || data === SUSPENSE_PENDING_START_DATA) {
               if (depth === 0) {
                 return node2;
               } else {
                 depth--;
               }
-            } else if (data2 === SUSPENSE_END_DATA) {
+            } else if (data === SUSPENSE_END_DATA) {
               depth++;
             }
           }
@@ -21044,18 +21080,18 @@ var require_react_dom_development = __commonJS((exports) => {
           if (instance && instance.__reactInternalMemoizedUnmaskedChildContext === unmaskedContext) {
             return instance.__reactInternalMemoizedMaskedChildContext;
           }
-          var context4 = {};
-          for (var key2 in contextTypes) {
-            context4[key2] = unmaskedContext[key2];
+          var context3 = {};
+          for (var key in contextTypes) {
+            context3[key] = unmaskedContext[key];
           }
           {
             var name = getComponentNameFromFiber(workInProgress2) || "Unknown";
-            checkPropTypes(contextTypes, context4, "context", name);
+            checkPropTypes(contextTypes, context3, "context", name);
           }
           if (instance) {
-            cacheContext(workInProgress2, unmaskedContext, context4);
+            cacheContext(workInProgress2, unmaskedContext, context3);
           }
-          return context4;
+          return context3;
         }
       }
       function hasContextChanged() {
@@ -21081,12 +21117,12 @@ var require_react_dom_development = __commonJS((exports) => {
           pop(contextStackCursor, fiber);
         }
       }
-      function pushTopLevelContextObject(fiber, context4, didChange) {
+      function pushTopLevelContextObject(fiber, context3, didChange) {
         {
           if (contextStackCursor.current !== emptyContextObject) {
             throw new Error("Unexpected context found on stack. This error is likely caused by a bug in React. Please file an issue.");
           }
-          push(contextStackCursor, context4, fiber);
+          push(contextStackCursor, context3, fiber);
           push(didPerformWorkStackCursor, didChange, fiber);
         }
       }
@@ -21722,9 +21758,9 @@ var require_react_dom_development = __commonJS((exports) => {
           }
           return maybeStrictRoot;
         };
-        var setToSortedString = function(set2) {
+        var setToSortedString = function(set4) {
           var array3 = [];
-          set2.forEach(function(value2) {
+          set4.forEach(function(value2) {
             array3.push(value2);
           });
           return array3.sort().join(", ");
@@ -21923,24 +21959,24 @@ var require_react_dom_development = __commonJS((exports) => {
           isDisallowedContextReadInDEV = false;
         }
       }
-      function pushProvider(providerFiber, context4, nextValue) {
+      function pushProvider(providerFiber, context3, nextValue) {
         {
-          push(valueCursor, context4._currentValue, providerFiber);
-          context4._currentValue = nextValue;
+          push(valueCursor, context3._currentValue, providerFiber);
+          context3._currentValue = nextValue;
           {
-            if (context4._currentRenderer !== undefined && context4._currentRenderer !== null && context4._currentRenderer !== rendererSigil) {
+            if (context3._currentRenderer !== undefined && context3._currentRenderer !== null && context3._currentRenderer !== rendererSigil) {
               error("Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.");
             }
-            context4._currentRenderer = rendererSigil;
+            context3._currentRenderer = rendererSigil;
           }
         }
       }
-      function popProvider(context4, providerFiber) {
+      function popProvider(context3, providerFiber) {
         var currentValue = valueCursor.current;
         pop(valueCursor, providerFiber);
         {
           {
-            context4._currentValue = currentValue;
+            context3._currentValue = currentValue;
           }
         }
       }
@@ -21967,12 +22003,12 @@ var require_react_dom_development = __commonJS((exports) => {
           }
         }
       }
-      function propagateContextChange(workInProgress2, context4, renderLanes2) {
+      function propagateContextChange(workInProgress2, context3, renderLanes2) {
         {
-          propagateContextChange_eager(workInProgress2, context4, renderLanes2);
+          propagateContextChange_eager(workInProgress2, context3, renderLanes2);
         }
       }
-      function propagateContextChange_eager(workInProgress2, context4, renderLanes2) {
+      function propagateContextChange_eager(workInProgress2, context3, renderLanes2) {
         var fiber = workInProgress2.child;
         if (fiber !== null) {
           fiber.return = workInProgress2;
@@ -21984,7 +22020,7 @@ var require_react_dom_development = __commonJS((exports) => {
             nextFiber = fiber.child;
             var dependency = list.firstContext;
             while (dependency !== null) {
-              if (dependency.context === context4) {
+              if (dependency.context === context3) {
                 if (fiber.tag === ClassComponent) {
                   var lane = pickArbitraryLane(renderLanes2);
                   var update = createUpdate(NoTimestamp, lane);
@@ -22070,18 +22106,18 @@ var require_react_dom_development = __commonJS((exports) => {
           }
         }
       }
-      function readContext(context4) {
+      function readContext(context3) {
         {
           if (isDisallowedContextReadInDEV) {
             error("Context can only be read while React is rendering. In classes, you can read it in the render method or getDerivedStateFromProps. In function components, you can read it directly in the function body, but not inside Hooks like useReducer() or useMemo().");
           }
         }
-        var value2 = context4._currentValue;
-        if (lastFullyObservedContext === context4)
+        var value2 = context3._currentValue;
+        if (lastFullyObservedContext === context3)
           ;
         else {
           var contextItem = {
-            context: context4,
+            context: context3,
             memoizedValue: value2,
             next: null
           };
@@ -22532,11 +22568,11 @@ var require_react_dom_development = __commonJS((exports) => {
           currentlyProcessingQueue = null;
         }
       }
-      function callCallback(callback, context4) {
+      function callCallback(callback, context3) {
         if (typeof callback !== "function") {
           throw new Error("Invalid argument passed as callback. Expected a function. Instead " + ("received: " + callback));
         }
-        callback.call(context4);
+        callback.call(context3);
       }
       function resetHasForceUpdateBeforeProcessing() {
         hasForceUpdate = false;
@@ -22584,9 +22620,9 @@ var require_react_dom_development = __commonJS((exports) => {
           if (callback === null || typeof callback === "function") {
             return;
           }
-          var key2 = callerName + "_" + callback;
-          if (!didWarnOnInvalidCallback.has(key2)) {
-            didWarnOnInvalidCallback.add(key2);
+          var key = callerName + "_" + callback;
+          if (!didWarnOnInvalidCallback.has(key)) {
+            didWarnOnInvalidCallback.add(key);
             error("%s(...): Expected the last optional `callback` argument to be a function. Instead received: %s.", callerName, callback);
           }
         };
@@ -22631,7 +22667,7 @@ var require_react_dom_development = __commonJS((exports) => {
       var classComponentUpdater = {
         isMounted,
         enqueueSetState: function(inst, payload, callback) {
-          var fiber = get(inst);
+          var fiber = get3(inst);
           var eventTime = requestEventTime();
           var lane = requestUpdateLane(fiber);
           var update = createUpdate(eventTime, lane);
@@ -22652,7 +22688,7 @@ var require_react_dom_development = __commonJS((exports) => {
           }
         },
         enqueueReplaceState: function(inst, payload, callback) {
-          var fiber = get(inst);
+          var fiber = get3(inst);
           var eventTime = requestEventTime();
           var lane = requestUpdateLane(fiber);
           var update = createUpdate(eventTime, lane);
@@ -22674,7 +22710,7 @@ var require_react_dom_development = __commonJS((exports) => {
           }
         },
         enqueueForceUpdate: function(inst, callback) {
-          var fiber = get(inst);
+          var fiber = get3(inst);
           var eventTime = requestEventTime();
           var lane = requestUpdateLane(fiber);
           var update = createUpdate(eventTime, lane);
@@ -22802,7 +22838,7 @@ var require_react_dom_development = __commonJS((exports) => {
       function adoptClassInstance(workInProgress2, instance) {
         instance.updater = classComponentUpdater;
         workInProgress2.stateNode = instance;
-        set(instance, workInProgress2);
+        set3(instance, workInProgress2);
         {
           instance._reactInternalInstance = fakeInternalInstance;
         }
@@ -22810,7 +22846,7 @@ var require_react_dom_development = __commonJS((exports) => {
       function constructClassInstance(workInProgress2, ctor, props) {
         var isLegacyContextConsumer = false;
         var unmaskedContext = emptyContextObject;
-        var context4 = emptyContextObject;
+        var context3 = emptyContextObject;
         var contextType = ctor.contextType;
         {
           if ("contextType" in ctor) {
@@ -22834,19 +22870,19 @@ var require_react_dom_development = __commonJS((exports) => {
           }
         }
         if (typeof contextType === "object" && contextType !== null) {
-          context4 = readContext(contextType);
+          context3 = readContext(contextType);
         } else {
           unmaskedContext = getUnmaskedContext(workInProgress2, ctor, true);
           var contextTypes = ctor.contextTypes;
           isLegacyContextConsumer = contextTypes !== null && contextTypes !== undefined;
-          context4 = isLegacyContextConsumer ? getMaskedContext(workInProgress2, unmaskedContext) : emptyContextObject;
+          context3 = isLegacyContextConsumer ? getMaskedContext(workInProgress2, unmaskedContext) : emptyContextObject;
         }
-        var instance = new ctor(props, context4);
+        var instance = new ctor(props, context3);
         {
           if (workInProgress2.mode & StrictLegacyMode) {
             setIsStrictModeForDevtools(true);
             try {
-              instance = new ctor(props, context4);
+              instance = new ctor(props, context3);
             } finally {
               setIsStrictModeForDevtools(false);
             }
@@ -22892,7 +22928,7 @@ var require_react_dom_development = __commonJS((exports) => {
           }
         }
         if (isLegacyContextConsumer) {
-          cacheContext(workInProgress2, unmaskedContext, context4);
+          cacheContext(workInProgress2, unmaskedContext, context3);
         }
         return instance;
       }
@@ -23367,9 +23403,9 @@ var require_react_dom_development = __commonJS((exports) => {
             return existing;
           }
         }
-        function updateFragment2(returnFiber, current2, fragment, lanes, key2) {
+        function updateFragment2(returnFiber, current2, fragment, lanes, key) {
           if (current2 === null || current2.tag !== Fragment) {
-            var created = createFiberFromFragment(fragment, returnFiber.mode, lanes, key2);
+            var created = createFiberFromFragment(fragment, returnFiber.mode, lanes, key);
             created.return = returnFiber;
             return created;
           } else {
@@ -23418,9 +23454,9 @@ var require_react_dom_development = __commonJS((exports) => {
           return null;
         }
         function updateSlot(returnFiber, oldFiber, newChild, lanes) {
-          var key2 = oldFiber !== null ? oldFiber.key : null;
+          var key = oldFiber !== null ? oldFiber.key : null;
           if (typeof newChild === "string" && newChild !== "" || typeof newChild === "number") {
-            if (key2 !== null) {
+            if (key !== null) {
               return null;
             }
             return updateTextNode(returnFiber, oldFiber, "" + newChild, lanes);
@@ -23428,14 +23464,14 @@ var require_react_dom_development = __commonJS((exports) => {
           if (typeof newChild === "object" && newChild !== null) {
             switch (newChild.$$typeof) {
               case REACT_ELEMENT_TYPE: {
-                if (newChild.key === key2) {
+                if (newChild.key === key) {
                   return updateElement(returnFiber, oldFiber, newChild, lanes);
                 } else {
                   return null;
                 }
               }
               case REACT_PORTAL_TYPE: {
-                if (newChild.key === key2) {
+                if (newChild.key === key) {
                   return updatePortal(returnFiber, oldFiber, newChild, lanes);
                 } else {
                   return null;
@@ -23448,7 +23484,7 @@ var require_react_dom_development = __commonJS((exports) => {
               }
             }
             if (isArray(newChild) || getIteratorFn(newChild)) {
-              if (key2 !== null) {
+              if (key !== null) {
                 return null;
               }
               return updateFragment2(returnFiber, oldFiber, newChild, lanes, null);
@@ -23504,20 +23540,20 @@ var require_react_dom_development = __commonJS((exports) => {
               case REACT_ELEMENT_TYPE:
               case REACT_PORTAL_TYPE:
                 warnForMissingKey(child, returnFiber);
-                var key2 = child.key;
-                if (typeof key2 !== "string") {
+                var key = child.key;
+                if (typeof key !== "string") {
                   break;
                 }
                 if (knownKeys === null) {
                   knownKeys = new Set;
-                  knownKeys.add(key2);
+                  knownKeys.add(key);
                   break;
                 }
-                if (!knownKeys.has(key2)) {
-                  knownKeys.add(key2);
+                if (!knownKeys.has(key)) {
+                  knownKeys.add(key);
                   break;
                 }
-                error("Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be " + "duplicated and/or omitted \u2014 the behavior is unsupported and " + "could change in a future version.", key2);
+                error("Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be " + "duplicated and/or omitted \u2014 the behavior is unsupported and " + "could change in a future version.", key);
                 break;
               case REACT_LAZY_TYPE:
                 var payload = child._payload;
@@ -23764,10 +23800,10 @@ var require_react_dom_development = __commonJS((exports) => {
           return created;
         }
         function reconcileSingleElement(returnFiber, currentFirstChild, element, lanes) {
-          var key2 = element.key;
+          var key = element.key;
           var child = currentFirstChild;
           while (child !== null) {
-            if (child.key === key2) {
+            if (child.key === key) {
               var elementType = element.type;
               if (elementType === REACT_FRAGMENT_TYPE) {
                 if (child.tag === Fragment) {
@@ -23812,10 +23848,10 @@ var require_react_dom_development = __commonJS((exports) => {
           }
         }
         function reconcileSinglePortal(returnFiber, currentFirstChild, portal, lanes) {
-          var key2 = portal.key;
+          var key = portal.key;
           var child = currentFirstChild;
           while (child !== null) {
-            if (child.key === key2) {
+            if (child.key === key) {
               if (child.tag === HostPortal && child.stateNode.containerInfo === portal.containerInfo && child.stateNode.implementation === portal.implementation) {
                 deleteRemainingChildren(returnFiber, child.sibling);
                 var existing = useFiber(child, portal.children || []);
@@ -23925,14 +23961,14 @@ var require_react_dom_development = __commonJS((exports) => {
         pop(rootInstanceStackCursor, fiber);
       }
       function getHostContext() {
-        var context4 = requiredContext(contextStackCursor$1.current);
-        return context4;
+        var context3 = requiredContext(contextStackCursor$1.current);
+        return context3;
       }
       function pushHostContext(fiber) {
         var rootInstance = requiredContext(rootInstanceStackCursor.current);
-        var context4 = requiredContext(contextStackCursor$1.current);
-        var nextContext = getChildHostContext(context4, fiber.type);
-        if (context4 === nextContext) {
+        var context3 = requiredContext(contextStackCursor$1.current);
+        var nextContext = getChildHostContext(context3, fiber.type);
+        if (context3 === nextContext) {
           return;
         }
         push(contextFiberStackCursor, fiber, fiber);
@@ -25072,8 +25108,8 @@ var require_react_dom_development = __commonJS((exports) => {
           error("Do not call Hooks inside useEffect(...), useMemo(...), or other built-in Hooks. You can only call Hooks at the top level of your React function. For more information, see https://reactjs.org/link/rules-of-hooks");
         };
         HooksDispatcherOnMountInDEV = {
-          readContext: function(context4) {
-            return readContext(context4);
+          readContext: function(context3) {
+            return readContext(context3);
           },
           useCallback: function(callback, deps) {
             currentHookNameInDev = "useCallback";
@@ -25081,10 +25117,10 @@ var require_react_dom_development = __commonJS((exports) => {
             checkDepsAreArrayDev(deps);
             return mountCallback(callback, deps);
           },
-          useContext: function(context4) {
+          useContext: function(context3) {
             currentHookNameInDev = "useContext";
             mountHookTypesDev();
-            return readContext(context4);
+            return readContext(context3);
           },
           useEffect: function(create, deps) {
             currentHookNameInDev = "useEffect";
@@ -25182,18 +25218,18 @@ var require_react_dom_development = __commonJS((exports) => {
           unstable_isNewReconciler: enableNewReconciler
         };
         HooksDispatcherOnMountWithHookTypesInDEV = {
-          readContext: function(context4) {
-            return readContext(context4);
+          readContext: function(context3) {
+            return readContext(context3);
           },
           useCallback: function(callback, deps) {
             currentHookNameInDev = "useCallback";
             updateHookTypesDev();
             return mountCallback(callback, deps);
           },
-          useContext: function(context4) {
+          useContext: function(context3) {
             currentHookNameInDev = "useContext";
             updateHookTypesDev();
-            return readContext(context4);
+            return readContext(context3);
           },
           useEffect: function(create, deps) {
             currentHookNameInDev = "useEffect";
@@ -25286,18 +25322,18 @@ var require_react_dom_development = __commonJS((exports) => {
           unstable_isNewReconciler: enableNewReconciler
         };
         HooksDispatcherOnUpdateInDEV = {
-          readContext: function(context4) {
-            return readContext(context4);
+          readContext: function(context3) {
+            return readContext(context3);
           },
           useCallback: function(callback, deps) {
             currentHookNameInDev = "useCallback";
             updateHookTypesDev();
             return updateCallback(callback, deps);
           },
-          useContext: function(context4) {
+          useContext: function(context3) {
             currentHookNameInDev = "useContext";
             updateHookTypesDev();
-            return readContext(context4);
+            return readContext(context3);
           },
           useEffect: function(create, deps) {
             currentHookNameInDev = "useEffect";
@@ -25390,18 +25426,18 @@ var require_react_dom_development = __commonJS((exports) => {
           unstable_isNewReconciler: enableNewReconciler
         };
         HooksDispatcherOnRerenderInDEV = {
-          readContext: function(context4) {
-            return readContext(context4);
+          readContext: function(context3) {
+            return readContext(context3);
           },
           useCallback: function(callback, deps) {
             currentHookNameInDev = "useCallback";
             updateHookTypesDev();
             return updateCallback(callback, deps);
           },
-          useContext: function(context4) {
+          useContext: function(context3) {
             currentHookNameInDev = "useContext";
             updateHookTypesDev();
-            return readContext(context4);
+            return readContext(context3);
           },
           useEffect: function(create, deps) {
             currentHookNameInDev = "useEffect";
@@ -25494,9 +25530,9 @@ var require_react_dom_development = __commonJS((exports) => {
           unstable_isNewReconciler: enableNewReconciler
         };
         InvalidNestedHooksDispatcherOnMountInDEV = {
-          readContext: function(context4) {
+          readContext: function(context3) {
             warnInvalidContextAccess();
-            return readContext(context4);
+            return readContext(context3);
           },
           useCallback: function(callback, deps) {
             currentHookNameInDev = "useCallback";
@@ -25504,11 +25540,11 @@ var require_react_dom_development = __commonJS((exports) => {
             mountHookTypesDev();
             return mountCallback(callback, deps);
           },
-          useContext: function(context4) {
+          useContext: function(context3) {
             currentHookNameInDev = "useContext";
             warnInvalidHookAccess();
             mountHookTypesDev();
-            return readContext(context4);
+            return readContext(context3);
           },
           useEffect: function(create, deps) {
             currentHookNameInDev = "useEffect";
@@ -25615,9 +25651,9 @@ var require_react_dom_development = __commonJS((exports) => {
           unstable_isNewReconciler: enableNewReconciler
         };
         InvalidNestedHooksDispatcherOnUpdateInDEV = {
-          readContext: function(context4) {
+          readContext: function(context3) {
             warnInvalidContextAccess();
-            return readContext(context4);
+            return readContext(context3);
           },
           useCallback: function(callback, deps) {
             currentHookNameInDev = "useCallback";
@@ -25625,11 +25661,11 @@ var require_react_dom_development = __commonJS((exports) => {
             updateHookTypesDev();
             return updateCallback(callback, deps);
           },
-          useContext: function(context4) {
+          useContext: function(context3) {
             currentHookNameInDev = "useContext";
             warnInvalidHookAccess();
             updateHookTypesDev();
-            return readContext(context4);
+            return readContext(context3);
           },
           useEffect: function(create, deps) {
             currentHookNameInDev = "useEffect";
@@ -25736,9 +25772,9 @@ var require_react_dom_development = __commonJS((exports) => {
           unstable_isNewReconciler: enableNewReconciler
         };
         InvalidNestedHooksDispatcherOnRerenderInDEV = {
-          readContext: function(context4) {
+          readContext: function(context3) {
             warnInvalidContextAccess();
-            return readContext(context4);
+            return readContext(context3);
           },
           useCallback: function(callback, deps) {
             currentHookNameInDev = "useCallback";
@@ -25746,11 +25782,11 @@ var require_react_dom_development = __commonJS((exports) => {
             updateHookTypesDev();
             return updateCallback(callback, deps);
           },
-          useContext: function(context4) {
+          useContext: function(context3) {
             currentHookNameInDev = "useContext";
             warnInvalidHookAccess();
             updateHookTypesDev();
-            return readContext(context4);
+            return readContext(context3);
           },
           useEffect: function(create, deps) {
             currentHookNameInDev = "useEffect";
@@ -26506,10 +26542,10 @@ var require_react_dom_development = __commonJS((exports) => {
             }
           }
         }
-        var context4;
+        var context3;
         {
           var unmaskedContext = getUnmaskedContext(workInProgress2, Component2, true);
-          context4 = getMaskedContext(workInProgress2, unmaskedContext);
+          context3 = getMaskedContext(workInProgress2, unmaskedContext);
         }
         var nextChildren;
         var hasId;
@@ -26520,12 +26556,12 @@ var require_react_dom_development = __commonJS((exports) => {
         {
           ReactCurrentOwner$1.current = workInProgress2;
           setIsRendering(true);
-          nextChildren = renderWithHooks(current2, workInProgress2, Component2, nextProps, context4, renderLanes2);
+          nextChildren = renderWithHooks(current2, workInProgress2, Component2, nextProps, context3, renderLanes2);
           hasId = checkDidRenderIdHook();
           if (workInProgress2.mode & StrictLegacyMode) {
             setIsStrictModeForDevtools(true);
             try {
-              nextChildren = renderWithHooks(current2, workInProgress2, Component2, nextProps, context4, renderLanes2);
+              nextChildren = renderWithHooks(current2, workInProgress2, Component2, nextProps, context3, renderLanes2);
               hasId = checkDidRenderIdHook();
             } finally {
               setIsStrictModeForDevtools(false);
@@ -26821,10 +26857,10 @@ var require_react_dom_development = __commonJS((exports) => {
       function mountIndeterminateComponent(_current, workInProgress2, Component2, renderLanes2) {
         resetSuspendedCurrentOnMountInLegacyMode(_current, workInProgress2);
         var props = workInProgress2.pendingProps;
-        var context4;
+        var context3;
         {
           var unmaskedContext = getUnmaskedContext(workInProgress2, Component2, false);
-          context4 = getMaskedContext(workInProgress2, unmaskedContext);
+          context3 = getMaskedContext(workInProgress2, unmaskedContext);
         }
         prepareToReadContext(workInProgress2, renderLanes2);
         var value2;
@@ -26845,7 +26881,7 @@ var require_react_dom_development = __commonJS((exports) => {
           }
           setIsRendering(true);
           ReactCurrentOwner$1.current = workInProgress2;
-          value2 = renderWithHooks(null, workInProgress2, Component2, props, context4, renderLanes2);
+          value2 = renderWithHooks(null, workInProgress2, Component2, props, context3, renderLanes2);
           hasId = checkDidRenderIdHook();
           setIsRendering(false);
         }
@@ -26891,7 +26927,7 @@ var require_react_dom_development = __commonJS((exports) => {
             if (workInProgress2.mode & StrictLegacyMode) {
               setIsStrictModeForDevtools(true);
               try {
-                value2 = renderWithHooks(null, workInProgress2, Component2, props, context4, renderLanes2);
+                value2 = renderWithHooks(null, workInProgress2, Component2, props, context3, renderLanes2);
                 hasId = checkDidRenderIdHook();
               } finally {
                 setIsStrictModeForDevtools(false);
@@ -27501,7 +27537,7 @@ var require_react_dom_development = __commonJS((exports) => {
       var hasWarnedAboutUsingNoValuePropOnContextProvider = false;
       function updateContextProvider(current2, workInProgress2, renderLanes2) {
         var providerType = workInProgress2.type;
-        var context4 = providerType._context;
+        var context3 = providerType._context;
         var newProps = workInProgress2.pendingProps;
         var oldProps = workInProgress2.memoizedProps;
         var newValue = newProps.value;
@@ -27517,7 +27553,7 @@ var require_react_dom_development = __commonJS((exports) => {
             checkPropTypes(providerPropTypes, newProps, "prop", "Context.Provider");
           }
         }
-        pushProvider(workInProgress2, context4, newValue);
+        pushProvider(workInProgress2, context3, newValue);
         {
           if (oldProps !== null) {
             var oldValue = oldProps.value;
@@ -27526,7 +27562,7 @@ var require_react_dom_development = __commonJS((exports) => {
                 return bailoutOnAlreadyFinishedWork(current2, workInProgress2, renderLanes2);
               }
             } else {
-              propagateContextChange(workInProgress2, context4, renderLanes2);
+              propagateContextChange(workInProgress2, context3, renderLanes2);
             }
           }
         }
@@ -27536,17 +27572,17 @@ var require_react_dom_development = __commonJS((exports) => {
       }
       var hasWarnedAboutUsingContextAsConsumer = false;
       function updateContextConsumer(current2, workInProgress2, renderLanes2) {
-        var context4 = workInProgress2.type;
+        var context3 = workInProgress2.type;
         {
-          if (context4._context === undefined) {
-            if (context4 !== context4.Consumer) {
+          if (context3._context === undefined) {
+            if (context3 !== context3.Consumer) {
               if (!hasWarnedAboutUsingContextAsConsumer) {
                 hasWarnedAboutUsingContextAsConsumer = true;
                 error("Rendering <Context> directly is not supported and will be removed in a future major release. Did you mean to render <Context.Consumer> instead?");
               }
             }
           } else {
-            context4 = context4._context;
+            context3 = context3._context;
           }
         }
         var newProps = workInProgress2.pendingProps;
@@ -27557,7 +27593,7 @@ var require_react_dom_development = __commonJS((exports) => {
           }
         }
         prepareToReadContext(workInProgress2, renderLanes2);
-        var newValue = readContext(context4);
+        var newValue = readContext(context3);
         {
           markComponentRenderStarted(workInProgress2);
         }
@@ -27670,8 +27706,8 @@ var require_react_dom_development = __commonJS((exports) => {
             break;
           case ContextProvider: {
             var newValue = workInProgress2.memoizedProps.value;
-            var context4 = workInProgress2.type._context;
-            pushProvider(workInProgress2, context4, newValue);
+            var context3 = workInProgress2.type._context;
+            pushProvider(workInProgress2, context3, newValue);
             break;
           }
           case Profiler:
@@ -28245,8 +28281,8 @@ var require_react_dom_development = __commonJS((exports) => {
             bubbleProperties(workInProgress2);
             return null;
           case ContextProvider:
-            var context4 = workInProgress2.type._context;
-            popProvider(context4, workInProgress2);
+            var context3 = workInProgress2.type._context;
+            popProvider(context3, workInProgress2);
             bubbleProperties(workInProgress2);
             return null;
           case IncompleteClassComponent: {
@@ -28452,8 +28488,8 @@ var require_react_dom_development = __commonJS((exports) => {
             popHostContainer(workInProgress2);
             return null;
           case ContextProvider:
-            var context4 = workInProgress2.type._context;
-            popProvider(context4, workInProgress2);
+            var context3 = workInProgress2.type._context;
+            popProvider(context3, workInProgress2);
             return null;
           case OffscreenComponent:
           case LegacyHiddenComponent:
@@ -28496,8 +28532,8 @@ var require_react_dom_development = __commonJS((exports) => {
             popSuspenseContext(interruptedWork);
             break;
           case ContextProvider:
-            var context4 = interruptedWork.type._context;
-            popProvider(context4, interruptedWork);
+            var context3 = interruptedWork.type._context;
+            popProvider(context3, interruptedWork);
             break;
           case OffscreenComponent:
           case LegacyHiddenComponent:
@@ -31998,9 +32034,9 @@ var require_react_dom_development = __commonJS((exports) => {
           hasBadMapPolyfill = true;
         }
       }
-      function FiberNode(tag, pendingProps, key2, mode) {
+      function FiberNode(tag, pendingProps, key, mode) {
         this.tag = tag;
-        this.key = key2;
+        this.key = key;
         this.elementType = null;
         this.type = null;
         this.stateNode = null;
@@ -32041,8 +32077,8 @@ var require_react_dom_development = __commonJS((exports) => {
           }
         }
       }
-      var createFiber = function(tag, pendingProps, key2, mode) {
-        return new FiberNode(tag, pendingProps, key2, mode);
+      var createFiber = function(tag, pendingProps, key, mode) {
+        return new FiberNode(tag, pendingProps, key, mode);
       };
       function shouldConstruct$1(Component2) {
         var prototype = Component2.prototype;
@@ -32184,7 +32220,7 @@ var require_react_dom_development = __commonJS((exports) => {
         }
         return createFiber(HostRoot, null, null, mode);
       }
-      function createFiberFromTypeAndProps(type, key2, pendingProps, owner, mode, lanes) {
+      function createFiberFromTypeAndProps(type, key, pendingProps, owner, mode, lanes) {
         var fiberTag = IndeterminateComponent;
         var resolvedType = type;
         if (typeof type === "function") {
@@ -32204,7 +32240,7 @@ var require_react_dom_development = __commonJS((exports) => {
           getTag:
             switch (type) {
               case REACT_FRAGMENT_TYPE:
-                return createFiberFromFragment(pendingProps.children, mode, lanes, key2);
+                return createFiberFromFragment(pendingProps.children, mode, lanes, key);
               case REACT_STRICT_MODE_TYPE:
                 fiberTag = Mode;
                 mode |= StrictLegacyMode;
@@ -32213,13 +32249,13 @@ var require_react_dom_development = __commonJS((exports) => {
                 }
                 break;
               case REACT_PROFILER_TYPE:
-                return createFiberFromProfiler(pendingProps, mode, lanes, key2);
+                return createFiberFromProfiler(pendingProps, mode, lanes, key);
               case REACT_SUSPENSE_TYPE:
-                return createFiberFromSuspense(pendingProps, mode, lanes, key2);
+                return createFiberFromSuspense(pendingProps, mode, lanes, key);
               case REACT_SUSPENSE_LIST_TYPE:
-                return createFiberFromSuspenseList(pendingProps, mode, lanes, key2);
+                return createFiberFromSuspenseList(pendingProps, mode, lanes, key);
               case REACT_OFFSCREEN_TYPE:
-                return createFiberFromOffscreen(pendingProps, mode, lanes, key2);
+                return createFiberFromOffscreen(pendingProps, mode, lanes, key);
               case REACT_LEGACY_HIDDEN_TYPE:
               case REACT_SCOPE_TYPE:
               case REACT_CACHE_TYPE:
@@ -32263,7 +32299,7 @@ var require_react_dom_development = __commonJS((exports) => {
               }
             }
         }
-        var fiber = createFiber(fiberTag, pendingProps, key2, mode);
+        var fiber = createFiber(fiberTag, pendingProps, key, mode);
         fiber.elementType = type;
         fiber.type = resolvedType;
         fiber.lanes = lanes;
@@ -32278,27 +32314,27 @@ var require_react_dom_development = __commonJS((exports) => {
           owner = element._owner;
         }
         var type = element.type;
-        var key2 = element.key;
+        var key = element.key;
         var pendingProps = element.props;
-        var fiber = createFiberFromTypeAndProps(type, key2, pendingProps, owner, mode, lanes);
+        var fiber = createFiberFromTypeAndProps(type, key, pendingProps, owner, mode, lanes);
         {
           fiber._debugSource = element._source;
           fiber._debugOwner = element._owner;
         }
         return fiber;
       }
-      function createFiberFromFragment(elements, mode, lanes, key2) {
-        var fiber = createFiber(Fragment, elements, key2, mode);
+      function createFiberFromFragment(elements, mode, lanes, key) {
+        var fiber = createFiber(Fragment, elements, key, mode);
         fiber.lanes = lanes;
         return fiber;
       }
-      function createFiberFromProfiler(pendingProps, mode, lanes, key2) {
+      function createFiberFromProfiler(pendingProps, mode, lanes, key) {
         {
           if (typeof pendingProps.id !== "string") {
             error('Profiler must specify an "id" of type `string` as a prop. Received the type `%s` instead.', typeof pendingProps.id);
           }
         }
-        var fiber = createFiber(Profiler, pendingProps, key2, mode | ProfileMode);
+        var fiber = createFiber(Profiler, pendingProps, key, mode | ProfileMode);
         fiber.elementType = REACT_PROFILER_TYPE;
         fiber.lanes = lanes;
         {
@@ -32309,20 +32345,20 @@ var require_react_dom_development = __commonJS((exports) => {
         }
         return fiber;
       }
-      function createFiberFromSuspense(pendingProps, mode, lanes, key2) {
-        var fiber = createFiber(SuspenseComponent, pendingProps, key2, mode);
+      function createFiberFromSuspense(pendingProps, mode, lanes, key) {
+        var fiber = createFiber(SuspenseComponent, pendingProps, key, mode);
         fiber.elementType = REACT_SUSPENSE_TYPE;
         fiber.lanes = lanes;
         return fiber;
       }
-      function createFiberFromSuspenseList(pendingProps, mode, lanes, key2) {
-        var fiber = createFiber(SuspenseListComponent, pendingProps, key2, mode);
+      function createFiberFromSuspenseList(pendingProps, mode, lanes, key) {
+        var fiber = createFiber(SuspenseListComponent, pendingProps, key, mode);
         fiber.elementType = REACT_SUSPENSE_LIST_TYPE;
         fiber.lanes = lanes;
         return fiber;
       }
-      function createFiberFromOffscreen(pendingProps, mode, lanes, key2) {
-        var fiber = createFiber(OffscreenComponent, pendingProps, key2, mode);
+      function createFiberFromOffscreen(pendingProps, mode, lanes, key) {
+        var fiber = createFiber(OffscreenComponent, pendingProps, key, mode);
         fiber.elementType = REACT_OFFSCREEN_TYPE;
         fiber.lanes = lanes;
         var primaryChildInstance = {
@@ -32464,13 +32500,13 @@ var require_react_dom_development = __commonJS((exports) => {
       }
       var ReactVersion = "18.2.0";
       function createPortal(children, containerInfo, implementation) {
-        var key2 = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : null;
+        var key = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : null;
         {
-          checkKeyStringCoercion(key2);
+          checkKeyStringCoercion(key);
         }
         return {
           $$typeof: REACT_PORTAL_TYPE,
-          key: key2 == null ? null : "" + key2,
+          key: key == null ? null : "" + key,
           children,
           containerInfo,
           implementation
@@ -32486,7 +32522,7 @@ var require_react_dom_development = __commonJS((exports) => {
         if (!parentComponent) {
           return emptyContextObject;
         }
-        var fiber = get(parentComponent);
+        var fiber = get3(parentComponent);
         var parentContext = findCurrentUnmaskedContext(fiber);
         if (fiber.tag === ClassComponent) {
           var Component2 = fiber.type;
@@ -32498,13 +32534,13 @@ var require_react_dom_development = __commonJS((exports) => {
       }
       function findHostInstanceWithWarning(component, methodName) {
         {
-          var fiber = get(component);
+          var fiber = get3(component);
           if (fiber === undefined) {
             if (typeof component.render === "function") {
               throw new Error("Unable to find node on an unmounted component.");
             } else {
-              var keys2 = Object.keys(component).join(",");
-              throw new Error("Argument appears to not be a ReactComponent. Keys: " + keys2);
+              var keys = Object.keys(component).join(",");
+              throw new Error("Argument appears to not be a ReactComponent. Keys: " + keys);
             }
           }
           var hostFiber = findCurrentHostFiber(fiber);
@@ -32563,11 +32599,11 @@ var require_react_dom_development = __commonJS((exports) => {
         {
           markRenderScheduled(lane);
         }
-        var context4 = getContextForSubtree(parentComponent);
+        var context3 = getContextForSubtree(parentComponent);
         if (container.context === null) {
-          container.context = context4;
+          container.context = context3;
         } else {
-          container.pendingContext = context4;
+          container.pendingContext = context3;
         }
         {
           if (isRendering && current !== null && !didWarnAboutNestedUpdates) {
@@ -32698,17 +32734,17 @@ var require_react_dom_development = __commonJS((exports) => {
       var setSuspenseHandler = null;
       {
         var copyWithDeleteImpl = function(obj, path, index2) {
-          var key2 = path[index2];
+          var key = path[index2];
           var updated = isArray(obj) ? obj.slice() : assign({}, obj);
           if (index2 + 1 === path.length) {
             if (isArray(updated)) {
-              updated.splice(key2, 1);
+              updated.splice(key, 1);
             } else {
-              delete updated[key2];
+              delete updated[key];
             }
             return updated;
           }
-          updated[key2] = copyWithDeleteImpl(obj[key2], path, index2 + 1);
+          updated[key] = copyWithDeleteImpl(obj[key], path, index2 + 1);
           return updated;
         };
         var copyWithDelete = function(obj, path) {
@@ -32748,9 +32784,9 @@ var require_react_dom_development = __commonJS((exports) => {
           if (index2 >= path.length) {
             return value2;
           }
-          var key2 = path[index2];
+          var key = path[index2];
           var updated = isArray(obj) ? obj.slice() : assign({}, obj);
-          updated[key2] = copyWithSetImpl(obj[key2], path, index2 + 1, value2);
+          updated[key] = copyWithSetImpl(obj[key], path, index2 + 1, value2);
           return updated;
         };
         var copyWithSet = function(obj, path, value2) {
@@ -33261,11 +33297,11 @@ var require_react_dom_development = __commonJS((exports) => {
       setRestoreImplementation(restoreControlledState$3);
       setBatchingImplementation(batchedUpdates$1, discreteUpdates, flushSync);
       function createPortal$1(children, container) {
-        var key2 = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
+        var key = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
         if (!isValidContainer(container)) {
           throw new Error("Target container is not a DOM element.");
         }
-        return createPortal(children, container, null, key2);
+        return createPortal(children, container, null, key);
       }
       function renderSubtreeIntoContainer(parentComponent, element, containerNode, callback) {
         return unstable_renderSubtreeIntoContainer(parentComponent, element, containerNode, callback);
@@ -33333,7 +33369,7 @@ var require_react_dom_development = __commonJS((exports) => {
   }
 });
 
-// node_modules/react-dom/index.js
+// node_modules/@reactful/server/n
 var require_react_dom = __commonJS((exports, module) => {
   var react_dom_development = __toESM(require_react_dom_development(), 1);
   if (false) {
@@ -33342,7 +33378,7 @@ var require_react_dom = __commonJS((exports, module) => {
   }
 });
 
-// node_modules/react-dom/client.js
+// node_modules/@reactful/server/np
 var require_client = __commonJS((exports) => {
   var m = __toESM(require_react_dom(), 1);
   if (false) {
@@ -33368,24 +33404,24 @@ var require_client = __commonJS((exports) => {
   var i;
 });
 
-// node_modules/@reactful/server/npm/state/shared.js
+// node_modules/@reactful/server/npm/props/formAuth.
 function createProxyState(store, index) {
   if (store[PROXY])
     return store;
   const refresh = () => typeof index == "number" ? refreshOne(index) : refreshAll();
   return new Proxy(store, {
-    get(refer, field) {
-      if (field == PROXY)
+    get(refer, field2) {
+      if (field2 == PROXY)
         return true;
       else
         binding2.visit[index || 0] = true;
-      return refer[field];
+      return refer[field2];
     },
-    set(refer, field, value2) {
-      refer[field] = value2;
-      if (field == "route")
+    set(refer, field2, value2) {
+      refer[field2] = value2;
+      if (field2 == "route")
         return true;
-      if (field == "children")
+      if (field2 == "children")
         return true;
       if (typeof value2 == "function")
         return true;
@@ -33413,7 +33449,7 @@ var init_shared = __esm(() => {
   DELAY_RENDER = 9;
 });
 
-// node_modules/@reactful/server/npm/state/props.js
+// node_modules/@reactful/server/npm/props/formAuth
 function useProps(react, child, path) {
   const stateless = Object.keys(clients2).filter((k) => clients2[k].off).some((k) => k == path);
   child.props = { ...child.props, uid: ++binding3.count };
@@ -33437,42 +33473,42 @@ var init_props = __esm(() => {
   clients2 = globalThis[GLOBAL_KEY];
 });
 
-// node_modules/@reactful/server/npm/state/feeds.js
+// node_modules/@reactful/server/npm/props/formAuth
 function useFeeds(hook, href) {
   if (binding4.ready)
-    return context4;
+    return context3;
   else
     env.let(href);
-  context4.store = createProxyState(context4.store);
+  context3.store = createProxyState(context3.store);
   binding4.ready = true;
-  return context4;
+  return context3;
 }
-var context4, binding4;
+var context3, binding4;
 var init_feeds = __esm(() => {
   init_npm2();
   init_shared();
   "use client";
-  ({ context: context4, binding: binding4 } = env.settings);
+  ({ context: context3, binding: binding4 } = env.settings);
 });
 
-// node_modules/@reactful/server/npm/state/mount.js
+// node_modules/@reactful/server/npm/props/formAuth
 function mountState(href, hook, node2, path) {
   if (IS_SERVER_SIDE3)
-    return [node2.props, context5];
+    return [node2.props, context4];
   const stateProps = useProps(hook[1], node2, path);
   const stateFeeds = useFeeds(hook[1], href);
   return [stateProps, stateFeeds];
 }
-var context5, binding5, IS_SERVER_SIDE3;
+var context4, binding5, IS_SERVER_SIDE3;
 var init_mount = __esm(() => {
   init_props();
   init_feeds();
   init_npm2();
-  ({ context: context5, binding: binding5 } = env.settings);
+  ({ context: context4, binding: binding5 } = env.settings);
   IS_SERVER_SIDE3 = !globalThis.document;
 });
 
-// node_modules/@reactful/server/npm/state/refocus.js
+// node_modules/@reactful/server/npm/props/formAuth.j
 function refocus(timeout2) {
   if (IS_SERVER_SIDE4)
     return true;
@@ -33493,14 +33529,14 @@ var init_refocus = __esm(() => {
   IS_SERVER_SIDE4 = !globalThis.document;
 });
 
-// node_modules/@reactful/server/npm/state/index.js
+// node_modules/@reactful/server/npm/props/formAuth
 var init_state = __esm(() => {
   init_mount();
   init_refocus();
   "use client";
 });
 
-// node_modules/@reactful/server/npm/guest/styler.js
+// node_modules/@reactful/server/npm/props/formAuth.
 function styler(node2, path) {
   if (!node2 || !path || typeof node2.type != "string")
     return node2;
@@ -33512,9 +33548,9 @@ function styler(node2, path) {
     if (!child.matches(rule.selectorText))
       continue;
     for (let index = 0;index < rule.style.length; index++) {
-      const field = rule.style.item(index);
-      const value2 = rule.style.getPropertyValue(field);
-      const label = fromKebabCaseToCamelCase(field);
+      const field2 = rule.style.item(index);
+      const value2 = rule.style.getPropertyValue(field2);
+      const label = fromKebabCaseToCamelCase(field2);
       if (style[label] || !value2)
         continue;
       else
@@ -33532,15 +33568,15 @@ var init_styler = __esm(() => {
     div.innerHTML = htmlString.trim();
     return div.firstChild;
   };
-  fromKebabCaseToCamelCase = function(field) {
-    for (const match of field.matchAll(/-\w/gm)) {
+  fromKebabCaseToCamelCase = function(field2) {
+    for (const match of field2.matchAll(/-\w/gm)) {
       const [oldName] = match;
       if (!oldName)
         continue;
       const newName = oldName.replace("-", "").toUpperCase();
-      field = field.replace(oldName, newName);
+      field2 = field2.replace(oldName, newName);
     }
-    return field;
+    return field2;
   };
   getCssRules = function(src) {
     const stylers = settings.stylers || settings.stylers;
@@ -33556,7 +33592,7 @@ var init_styler = __esm(() => {
   settings = env.settings;
 });
 
-// node_modules/@reactful/server/npm/props/bindProps.js
+// node_modules/@reactful/server/npm/props/formAuth.jsj
 var IS_SERVER_SIDE5, bindProps;
 var init_bindProps = __esm(() => {
   "use client";
@@ -33565,7 +33601,7 @@ var init_bindProps = __esm(() => {
     if (IS_SERVER_SIDE5)
       return props2;
     const fieldOf = (b) => b ? "checked" : "value";
-    const valueOf2 = (e) => content.valueOf(field, e, true);
+    const valueOf2 = (e) => content.valueOf(field2, e, true);
     const eventOf = (e, b) => ({ ...props2, [fieldOf(b)]: props2[fieldOf(b)], [e]: valueOf2 });
     const inputOf = (x) => params2.tag == "input" && props2.type == x;
     const content = props2?.data ?? params2?.mem;
@@ -33573,16 +33609,16 @@ var init_bindProps = __esm(() => {
     const noInput = !params2?.tag?.match(/input|select|textarea/i);
     if (noInput || noValue || !props2.bind)
       return props2;
-    const field = props2.bind;
-    const value2 = content.valueOf(field);
+    const field2 = props2.bind;
+    const value2 = content.valueOf(field2);
     const child = inputOf("radio") ? eventOf("onChange", true) : inputOf("button") ? eventOf("onClick", true) : inputOf("checkbox") ? eventOf("onChange", true) : params2.tag == "input" ? eventOf("onChange") : params2.tag == "select" ? eventOf("onSelect") : params2.tag == "textarea" ? eventOf("onChange") : props2;
     return { ...child, value: value2 || "\r" };
   };
 });
 
-// node_modules/@reactful/server/npm/props/formValidator.js
+// node_modules/@reactful/server/npm/props/formAuth.jsjs.js
 async function onSubmitValidate(props2, e) {
-  context6.fails = [];
+  context5.fails = [];
   const founds = document.querySelectorAll(":invalid");
   Array.from(founds).filter((x) => !!x.setCustomValidity).forEach((x) => x.setCustomValidity(""));
   const childs = Array.from(e.target.elements);
@@ -33615,17 +33651,17 @@ function elementValidationOf(props2, inputs) {
   };
   const getInputOf = (bind) => inputs.find((x) => x.getAttribute("bind") == bind);
   const getErrorOf = (error, input) => error && input && input.setCustomValidity(error) || { error, input };
-  const errors = getPropsOf(props2).map((props3) => ({ bind: props3.bind, test: props3.validate })).map(({ bind, test }) => ({ test, data: getInputOf(bind) })).map(({ test, data: data2 }) => [test(data2?.value), data2]).map(([fail2, data2]) => getErrorOf(fail2, data2));
+  const errors = getPropsOf(props2).map((props3) => ({ bind: props3.bind, test: props3.validate })).map(({ bind, test }) => ({ test, data: getInputOf(bind) })).map(({ test, data }) => [test(data?.value), data]).map(([fail2, data]) => getErrorOf(fail2, data));
   errors.forEach(({ input }) => input.onchange = () => input.setCustomValidity(""));
   return inputs;
 }
-var context6, storage;
+var context5, storage;
 var init_formValidator = __esm(() => {
   init_npm2();
-  ({ context: context6, binding: storage } = env.settings);
+  ({ context: context5, binding: storage } = env.settings);
 });
 
-// node_modules/@reactful/server/npm/props/formShared.js
+// node_modules/@reactful/server/npm/props/formAuth.jsjs
 function defaultError(code) {
   return code <= 400 ? "Invalid request" : code == 404 ? "URL not found" : code >= 400 && code < 500 ? "Error" : "Internal serve error...";
 }
@@ -33651,7 +33687,7 @@ var init_formShared = __esm(() => {
       return;
     }
   };
-  isProblemDetailObject = (data2) => data2.type && data2.title && data2.status && data2.detail;
+  isProblemDetailObject = (data) => data.type && data.title && data.status && data.detail;
 });
 
 // node_modules/@reactful/server/npm/props/formAuth.js
@@ -33692,38 +33728,38 @@ var init_formAuth = __esm(() => {
   IS_SERVER_SIDE6 = !globalThis.document;
 });
 
-// node_modules/@reactful/server/npm/props/formAction.js
+// node_modules/@reactful/server/npm/props/formAuth.jsjs
 async function action(args) {
   const { props: props2, fetch: caller } = args;
   const config = authenticate(props2);
-  context7.await = true;
+  context6.await = true;
   binding6.fresh();
   try {
     const result = await fetch(props2.action, config);
     if (!result.ok)
-      context7.fails = await getErrors(result);
+      context6.fails = await getErrors(result);
     await authorize(result, props2);
     caller && caller(result);
   } catch (ex) {
     const error = ex?.message || ex?.toString();
-    context7.fails.push({ error, field: "", value: "" });
+    context6.fails.push({ error, field: "", value: "" });
   } finally {
-    const errors = context7.fails;
+    const errors = context6.fails;
     errors.filter((e) => !e.error).forEach((e, i) => delete errors[i]);
     errors.filter((e) => errors.filter((x) => e.error == x.error).length > 1).forEach((e, i) => delete errors[i]);
-    context7.await = false;
+    context6.await = false;
     binding6.fresh();
   }
 }
-var context7, binding6;
+var context6, binding6;
 var init_formAction = __esm(() => {
   init_formShared();
   init_formAuth();
   init_npm2();
-  ({ context: context7, binding: binding6 } = env.settings);
+  ({ context: context6, binding: binding6 } = env.settings);
 });
 
-// node_modules/@reactful/server/npm/props/formBind.js
+// node_modules/@reactful/server/npm/props/formAuth.js
 function fixProps(props2) {
   const p = { ...props2 };
   delete p["onAwait"];
@@ -33744,11 +33780,11 @@ function onBinding(args) {
   const { props: props2, params: params2, inputs, submit } = args;
   props2.data ||= {};
   for (const input of inputs) {
-    const [obj, val2] = [props2.data, input.value];
-    const key2 = input.getAttribute("bind");
-    if (!key2)
+    const [obj, val] = [props2.data, input.value];
+    const key = input.getAttribute("bind");
+    if (!key)
       continue;
-    obj.valueOf(key2, val2);
+    obj.valueOf(key, val);
   }
   inputs.map((x) => x.getAttribute("bind")).filter((x) => !!x).forEach((x) => props2.data.valueOf(x));
   if (props2["action"])
@@ -33765,7 +33801,7 @@ var init_formBind = __esm(() => {
   ({ binding: binding7 } = env.settings);
 });
 
-// node_modules/@reactful/server/npm/props/formProps.js
+// node_modules/@reactful/server/npm/props/formAuth.jsj
 function formProps(props2, params2) {
   if (IS_SERVER_SIDE7)
     return props2;
@@ -33779,11 +33815,12 @@ function formProps(props2, params2) {
 var IS_SERVER_SIDE7;
 var init_formProps = __esm(() => {
   init_formBind();
+  init_npm();
   "use client";
   IS_SERVER_SIDE7 = !globalThis.document;
 });
 
-// node_modules/@reactful/server/npm/props/styleProps.js
+// node_modules/@reactful/server/npm/props/formAuth.jsjs
 var gridProps, globalTag, styleProps;
 var init_styleProps = __esm(() => {
   gridProps = function(props2, params2) {
@@ -33821,12 +33858,12 @@ var init_styleProps = __esm(() => {
   };
 });
 
-// node_modules/@reactful/server/npm/props/routeProps.js
-var settings2, context8, IS_SERVER_SIDE8, routeProps;
+// node_modules/@reactful/server/npm/props/formAuth.jsjs
+var settings2, context7, IS_SERVER_SIDE8, routeProps;
 var init_routeProps = __esm(() => {
   init_npm2();
   settings2 = env.settings;
-  context8 = { route: {} };
+  context7 = { route: {} };
   IS_SERVER_SIDE8 = !globalThis.location;
   routeProps = function(props2, params2) {
     if (!props2?.link && !props2?.route)
@@ -33838,7 +33875,7 @@ var init_routeProps = __esm(() => {
       props2 = hidden ? { ...props2, hidden } : { ...props2 };
     if (props2.link)
       props2 = routed ? { ...props2, onClick, className: `${props2.className} routed` } : { ...props2, onClick };
-    const route2 = context8.route[props2.link] ||= actual.replace(/\/$/, "");
+    const route2 = context7.route[props2.link] ||= actual.replace(/\/$/, "");
     function onClick() {
       if (!props2.link)
         return;
@@ -33850,15 +33887,15 @@ var init_routeProps = __esm(() => {
   };
 });
 
-// node_modules/@reactful/server/npm/props/awaitProps.js
-var INVALID_AWAIT_PROPS, IS_CLIENT_SIDE2, awaitProps;
+// node_modules/@reactful/server/npm/props/formAuth.jsjs
+var INVALID_AWAIT_PROPS, IS_CLIENT_SIDE, awaitProps;
 var init_awaitProps = __esm(() => {
   init_npm();
   init_npm2();
   INVALID_AWAIT_PROPS = "[await] props must be functional component Promise";
-  IS_CLIENT_SIDE2 = !!globalThis.document;
+  IS_CLIENT_SIDE = !!globalThis.document;
   awaitProps = function(props2, params2) {
-    if (!props2.await || IS_CLIENT_SIDE2)
+    if (!props2.await || IS_CLIENT_SIDE)
       return props2;
     if (typeof props2.await != "function" || !props2.await.isAsync) {
       console.warn(INVALID_AWAIT_PROPS);
@@ -33870,7 +33907,7 @@ var init_awaitProps = __esm(() => {
   };
 });
 
-// node_modules/@reactful/server/npm/props/index.js
+// node_modules/@reactful/server/npm/props/formAuth
 function proper(props2, params2) {
   const reducer = (props3, apply) => apply(props3, params2);
   const propers = library.concat(env.settings?.propers ?? []);
@@ -33893,7 +33930,7 @@ var init_props2 = __esm(() => {
   ];
 });
 
-// node_modules/@reactful/server/npm/guest/parser.js
+// node_modules/@reactful/server/npm/props/formAuth.
 async function parser(root, path, href) {
   return await new Parser(root, path, href).render();
 }
@@ -33925,8 +33962,8 @@ class Parser {
     const fixed = { ...jsx, props: props3, key: fixKey(jsx) };
     return typed("string") ? this.element(fixed, own) : typed("symbol") ? this.fragment(jsx, own) : typed("function") ? this.component(fixed, own) : jsx;
   }
-  children = (all, own) => import_react2.default.Children.map(all, (x) => this.parent(x, own));
-  syblings = (props3, own) => Object.fromEntries(Object.entries(props3).map(([key2, val2]) => [key2, this.parent(val2, own)]));
+  children = (all5, own) => import_react2.default.Children.map(all5, (x) => this.parent(x, own));
+  syblings = (props3, own) => Object.fromEntries(Object.entries(props3).map(([key, val]) => [key, this.parent(val, own)]));
   client(_, own) {
     throw new Error("client not implemented...");
   }
@@ -33953,9 +33990,9 @@ class Parser {
       return { ...child, props: props3, key: fixKey(child) };
     };
     const rebind = (attrs) => {
-      const set = import_react2.default.useState(0);
+      const set3 = import_react2.default.useState(0);
       const [dir, url] = [this.path, this.href];
-      const [state2, feeds2] = mountState(url, set, jsx, dir);
+      const [state2, feeds2] = mountState(url, set3, jsx, dir);
       state2.children ||= attrs.children;
       return [latest = state2, feeds2];
     };
@@ -33968,14 +34005,14 @@ class Parser {
       const param = isRaw ? params(child.type, own, count, latest) : null;
       const props3 = this.syblings(child.props, label);
       const names = Object.keys(props3 || {});
-      for (const field of names) {
-        const value2 = props3[field];
+      for (const field2 of names) {
+        const value2 = props3[field2];
         if (value2 === undefined)
           continue;
-        else if (props3[field])
+        else if (props3[field2])
           continue;
         else
-          props3[field] = value2;
+          props3[field2] = value2;
       }
       return param ? proper(props3, param) : props3;
     };
@@ -33996,7 +34033,7 @@ var init_parser = __esm(() => {
   fixKey = (child) => child.key && child.key.includes(".") ? null : child.key;
 });
 
-// node_modules/@reactful/server/npm/guest/client.js
+// node_modules/@reactful/server/npm/props/formAuth.
 var exports_client = {};
 __export(exports_client, {
   default: () => {
@@ -34106,7 +34143,7 @@ var init_client = __esm(() => {
   awaiting = async (delay2) => new Promise((resolve) => setTimeout(resolve, delay2));
 });
 
-// node_modules/@reactful/web/npm/extensions.js
+// node_modules/@reactful/server/npm/props/form
 var import_react3, IS_SERVER_SIDE9;
 var init_extensions = __esm(() => {
   import_react3 = __toESM(require_react(), 1);
@@ -34146,15 +34183,15 @@ var init_extensions = __esm(() => {
   };
 });
 
-// node_modules/@reactful/web/npm/render/@client.js
-var import_react4, rce2, IS_CLIENT_SIDE3, client2;
+// node_modules/@reactful/server/npm/props/formAuth
+var import_react4, rce2, IS_CLIENT_SIDE2, client2;
 var init__client = __esm(() => {
   import_react4 = __toESM(require_react(), 1);
   init_npm2();
   rce2 = import_react4.default.createElement;
-  IS_CLIENT_SIDE3 = !!globalThis.document;
+  IS_CLIENT_SIDE2 = !!globalThis.document;
   client2 = (stateful) => (meta, call) => {
-    if (!meta || !call || IS_CLIENT_SIDE3)
+    if (!meta || !call || IS_CLIENT_SIDE2)
       return call;
     const path = meta.url.replaceAll("file://", "");
     const html = { __html: JSXON.htmlfy(rce2(call)) };
@@ -34168,26 +34205,26 @@ var init__client = __esm(() => {
   };
 });
 
-// node_modules/@reactful/web/npm/render/@server.js
-var SERVER_PATH_ERROR, IS_CLIENT_SIDE4;
+// node_modules/@reactful/server/npm/props/formAuth
+var SERVER_PATH_ERROR, IS_CLIENT_SIDE3;
 var init__server = __esm(() => {
   init_npm2();
   init_npm2();
   init_npm();
   SERVER_PATH_ERROR = `${PREFIX_ERROR}@server ` + IS_ONLY_FOR_ROUTE;
-  IS_CLIENT_SIDE4 = !!globalThis.document;
+  IS_CLIENT_SIDE3 = !!globalThis.document;
 });
 
-// node_modules/@reactful/web/npm/router/@route.js
+// node_modules/@reactful/server/npm/props/formAut
 var init__route = __esm(() => {
   init_npm2();
 });
 
-// node_modules/@reactful/web/npm/router/@error.js
+// node_modules/@reactful/server/npm/props/formAut
 var init__error = __esm(() => {
 });
 
-// node_modules/@reactful/web/npm/styler/@style.js
+// node_modules/@reactful/server/npm/props/formAut
 var settings5, IS_SERVER_SIDE10;
 var init__style = __esm(() => {
   init_npm2();
@@ -34195,7 +34232,7 @@ var init__style = __esm(() => {
   IS_SERVER_SIDE10 = !globalThis.document;
 });
 
-// node_modules/@reactful/web/npm/binder/@state.js
+// node_modules/@reactful/server/npm/props/formAut
 function state2(value2) {
   return function(module, caller) {
     const index = value2[GUID];
@@ -34210,7 +34247,7 @@ var init__state = __esm(() => {
   init_npm();
 });
 
-// node_modules/@reactful/web/npm/render/@seo.js
+// node_modules/@reactful/server/npm/props/formA
 function seo(title, metadata) {
   const isString = typeof metadata === "string";
   const isCharSet = isString && charsets.includes(metadata);
@@ -34232,7 +34269,7 @@ var init__seo = __esm(() => {
   charsets = ["UTF-8", "UTF-16"];
 });
 
-// node_modules/@reactful/web/npm/decorators.js
+// node_modules/@reactful/server/npm/props/form
 var init_decorators = __esm(() => {
   init__client();
   init__server();
@@ -34243,7 +34280,7 @@ var init_decorators = __esm(() => {
   init__seo();
 });
 
-// node_modules/@reactful/web/npm/binder/hook.js
+// node_modules/@reactful/server/npm/props/formA
 function useStore(value2) {
   const index = ++binding8.store.count;
   const state3 = binding8.store.state;
@@ -34261,14 +34298,14 @@ var init_hook = __esm(() => {
   createProxy = function(store, index) {
     store[GUID] = index;
     return new Proxy(store, {
-      get(refer, field) {
-        if (field == PROXY)
+      get(refer, field2) {
+        if (field2 == PROXY)
           return true;
         else
-          return refer[field];
+          return refer[field2];
       },
-      set(refer, field, value2) {
-        refer[field] = value2;
+      set(refer, field2, value2) {
+        refer[field2] = value2;
         const refresh = () => refreshing(index);
         binding8.timer && clearTimeout(binding8.timer);
         binding8.timer = setTimeout(refresh, 33);
@@ -34285,14 +34322,14 @@ var init_hook = __esm(() => {
   ({ binding: binding8 } = env.settings);
 });
 
-// node_modules/@reactful/web/npm/index.js
+// node_modules/@reactful/server/npm/props
 var init_npm3 = __esm(() => {
   init_extensions();
   init_decorators();
   init_hook();
 });
 
-// experiment/routes/counter.tsx
+// node_modules/@reactful/server
 var exports_counter = {};
 __export(exports_counter, {
   default: () => {
@@ -34330,11 +34367,11 @@ var init_counter = __esm(() => {
   CountButton["metadata"].path = "/mnt/b/Repositorios/reactful/experiment/routes/counter.tsx";
 });
 
-// experiment/routes/forms/form.css
+// node_modules/@reactful/server/np
 var init_form = __esm(() => {
 });
 
-// experiment/routes/forms/form.tsx
+// node_modules/@reactful/server/np
 var exports_form = {};
 __export(exports_form, {
   default: () => {
@@ -34399,7 +34436,7 @@ var init_form2 = __esm(() => {
   modeValidate["metadata"].path = "/mnt/b/Repositorios/reactful/experiment/routes/forms/form.tsx";
 });
 
-// experiment/components/header.tsx
+// node_modules/@reactful/server/np
 var import_react7, Header;
 var init_header = __esm(() => {
   import_react7 = __toESM(require_react(), 1);
@@ -34410,7 +34447,7 @@ var init_header = __esm(() => {
   Header["metadata"].path = "/mnt/b/Repositorios/reactful/experiment/components/header.tsx";
 });
 
-// experiment/routes/hello.tsx
+// node_modules/@reactful/serv
 var exports_hello = {};
 __export(exports_hello, {
   default: () => {
@@ -34424,6 +34461,7 @@ var init_hello = __esm(() => {
   import_react8 = __toESM(require_react(), 1);
   init_npm3();
   init_header();
+  init_npm();
   SubGlobal = function(props3, { store }) {
     return import_react8.default.createElement("input", {
       ...props3,
@@ -34500,7 +34538,7 @@ var init_hello = __esm(() => {
   hello_default = Hello;
 });
 
-// experiment/routes/login.tsx
+// node_modules/@reactful/serv
 var exports_login = {};
 __export(exports_login, {
   default: () => {
@@ -34541,11 +34579,11 @@ var init_login = __esm(() => {
   login_default = default$3;
 });
 
-// experiment/routes/profile/detail.css
+// node_modules/@reactful/server/npm/pr
 var init_detail = __esm(() => {
 });
 
-// experiment/routes/profile/tester.tsx
+// node_modules/@reactful/server/npm/pr
 var exports_tester = {};
 __export(exports_tester, {
   Tester: () => {
@@ -34564,7 +34602,7 @@ var init_tester = __esm(() => {
   Tester["metadata"].path = "/mnt/b/Repositorios/reactful/experiment/routes/profile/tester.tsx";
 });
 
-// experiment/routes/profile/detail.tsx
+// node_modules/@reactful/server/npm/pr
 var exports_detail = {};
 __export(exports_detail, {
   Detail: () => {
@@ -34599,7 +34637,7 @@ var init_detail2 = __esm(() => {
   Detail["metadata"].path = "/mnt/b/Repositorios/reactful/experiment/routes/profile/detail.tsx";
 });
 
-// experiment/builds/bundle.ts
+// node_modules/@reactful/serv
 init_npm2();
 await Promise.resolve().then(() => (init_client(), exports_client)).then((x) => x.default());
 globalThis[GLOBAL_KEY].clients ||= {};

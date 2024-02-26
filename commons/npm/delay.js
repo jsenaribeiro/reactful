@@ -1,7 +1,7 @@
 import '@reactful/extensions';
 export function delay(time, call) {
-    const callback = (call || (() => null));
     const waiting = getMillisecondsFrom(time);
+    const callback = (call || (() => null));
     const timeout = resolve => () => { resolve(callback()); };
     const promise = resolve => setTimeout(timeout(resolve), waiting);
     return new Promise(promise);

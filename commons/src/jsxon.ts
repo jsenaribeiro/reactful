@@ -1,4 +1,4 @@
-import { env } from './environment'
+import { env } from './env'
 import { throws } from './throw'
 import { renderToString } from 'react-dom/server'
 import { PRIMITIVES } from './constants'

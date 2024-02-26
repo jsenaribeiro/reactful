@@ -1,5 +1,6 @@
 export declare const GUID: unique symbol;
 export declare const PROXY: unique symbol;
+export declare const GLOBAL_KEY: unique symbol;
 export declare const PRIMITIVES: string[];
 export declare const FAILED_SAVE = "failed in save file in ";
 export declare const IS_ONLY_FOR_ROUTE = "is only for default route component directory";

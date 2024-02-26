@@ -1,5 +1,5 @@
 {
-  "version": "0.0.145",
+  "version": "0.0.163",
   "main": "npm/index.js",
   "name": "@reactful/commons",
   "description": "@reactful commons",

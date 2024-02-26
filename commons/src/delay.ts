@@ -4,9 +4,8 @@ export function delay(time: Time): Promise<void>
 export function delay(time: number): Promise<void>
 export function delay<T=any>(time: number, call: () => T): Promise<T>
 export function delay<T=any>(time: number | Time, call?:() => T) {
-   const callback = (call || (() => null as any as T))
-
    const waiting = getMillisecondsFrom(time)
+   const callback = (call || (() => null as any as T))
    const timeout = resolve => () => { resolve(callback()); }
    const promise = resolve => setTimeout(timeout(resolve), waiting)
 

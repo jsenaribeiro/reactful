@@ -1,5 +1,5 @@
 {
-  "version": "0.1.53",
+  "version": "0.1.66",
   "main": "npm/index.js",
   "name": "@reactful/server",
   "description": "@reactful server",

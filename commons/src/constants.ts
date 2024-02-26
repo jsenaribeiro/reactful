@@ -2,6 +2,8 @@ export const GUID = Symbol.for('---guid---')
 
 export const PROXY = Symbol.for('proxy')
 
+export const GLOBAL_KEY = Symbol.for("settings")
+
 export const PRIMITIVES = ["symbol", "string", "number", "undefined", "null", "bigint"]
 
 export const FAILED_SAVE = `failed in save file in `
