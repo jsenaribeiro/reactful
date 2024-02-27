@@ -7,3 +7,4 @@ export declare function queriefy(request: Request): {
     route: string;
     query: any;
 };
+export declare function queryObjectify(queries: string): any;

@@ -1,6 +1,6 @@
 {
   "type": "module",
-  "version": "0.1.42",
+  "version": "0.1.44",
   "main": "npm/index.js",
   "name": "@reactful/web",
   "description": "@reactful web framework",

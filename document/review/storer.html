@@ -213,55 +213,87 @@ body.marp-vscode blockquote {
 <style>@import url(./index.css);</style>
 <article>
 <embed type='text/html' src='./header.html' />
-<header>stater handling</header>
+<h1 title> 
+   <a href='#' onclick="goto('./overview.html')">overview</a> 
+   | <a href='#' onclick="goto('./preview.html#storer')">preview</a> 
+   | <b>review</b>
+</h1>
+<header>storer handling</header>
 <blockquote>
 <p>stateful proxy object • stateful props<br/>modular state • global state<br/> OOP state handling</p>
 </blockquote>
 <h2 id="stateful-objects">Stateful objects</h2>
-<p>Stateful proxy object (SRO) brings a new hookless concept for state handling with functional components using javascript Proxy object for a more leaner, friendly and intuitive OOP stateful components.</p>
+<p>Stateful proxy object (SRO) brings a new hookless concept for state handling with functional components using javascript Proxy object for a more leaner, friendly and intuitive OOP stateful components. SRO uses <strong>delayed render</strong> algorithm that enables a performatic approach batching successives changes in a single render call in each 0.1 second range.</p>
 <h2 id="local-stateful-props">Local stateful props</h2>
 <p>Stateful props bring out-of-the-box local state handling as SRO component props.</p>
 <pre><code class="language-tsx"><span class="hljs-keyword">const</span> <span class="hljs-title function_">Hello</span> = props =&gt; <span class="language-xml"><span class="hljs-tag">&lt;&gt;</span>   
-   Local Hello { props.name } !
+   Hello { props.name } !
    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">value</span>=<span class="hljs-string">{props.name}</span> {<span class="hljs-attr">onChange</span>} /&gt;</span>
 <span class="hljs-tag">&lt;/&gt;</span></span>
 
 <span class="hljs-keyword">const</span> <span class="hljs-title function_">onChange</span> = e =&gt; props.<span class="hljs-property">name</span> = e.<span class="hljs-property">taget</span>.<span class="hljs-property">value</span>
 </code></pre>
 <h2 id="global-state-injection">Global state injection</h2>
-<p>The global state is passed in server settings as storage field.</p>
-<pre><code class="language-tsx"><span class="hljs-keyword">import</span> { server } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;reactful/server&#x27;</span>
+<p>Global state is injected in Reactful server and resolved as store in component 2nd argument.</p>
+<aside cols='4:5'>
+<pre><code class="language-tsx"><span class="hljs-keyword">import</span> server <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@reactful/server&#x27;</span>
 
-<span class="hljs-keyword">const</span> user = { <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;world&#x27;</span>, <span class="hljs-attr">now</span>: <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>() } 
+<span class="hljs-keyword">const</span> user = { <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;world&#x27;</span> } 
 <span class="hljs-keyword">const</span> settings = { <span class="hljs-attr">storage</span>: user }
 
 <span class="hljs-keyword">await</span> <span class="hljs-title function_">server</span>(<span class="hljs-string">&quot;/routes&quot;</span>, settings)
      .<span class="hljs-title function_">render</span>(<span class="hljs-string">&quot;#root&quot;</span>)
 </code></pre>
-<p>DI is resolve in 2nd functional component arg by stores object deconstrution.</p>
-<pre><code class="language-tsx"><span class="hljs-keyword">const</span> <span class="hljs-title function_">Hello</span> = (<span class="hljs-params">props, { store }</span>) =&gt; <span class="language-xml"><span class="hljs-tag">&lt;&gt;</span>   
-   Local Hello { store.name } !
-   <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">value</span>=<span class="hljs-string">{store.name}</span> {<span class="hljs-attr">onChange</span>} /&gt;</span>
-<span class="hljs-tag">&lt;/&gt;</span></span>
+<pre><code class="language-tsx"><span class="hljs-keyword">function</span> <span class="hljs-title function_">Hello</span>(<span class="hljs-params">p, { store }</span>) {
+   <span class="hljs-keyword">const</span> <span class="hljs-title function_">on</span> = e =&gt; p.<span class="hljs-property">name</span> = e.<span class="hljs-property">target</span>.<span class="hljs-property">value</span>
 
-<span class="hljs-keyword">const</span> <span class="hljs-title function_">onChange</span> = e =&gt; props.<span class="hljs-property">name</span> = e.<span class="hljs-property">target</span>.<span class="hljs-property">value</span>
+   <span class="hljs-keyword">return</span> <span class="language-xml"><span class="hljs-tag">&lt;&gt;</span>   
+      Hello { store.name } !
+      <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">value</span>=<span class="hljs-string">{store.name}</span> <span class="hljs-attr">onChange</span>=<span class="hljs-string">{on}</span> /&gt;</span>
+   <span class="hljs-tag">&lt;/&gt;</span></span>
+}
 </code></pre>
+</aside>
 <h2 id="orbital-modular-states">Orbital modular states</h2>
 <p>This escope enables a Redux semantics with contextual subtree of components for shared states like React Context API. It enable a more controlled and determined shared states between components.</p>
 <pre><code class="language-ts"><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> myStore = <span class="hljs-title function_">useStore</span>({ <span class="hljs-attr">guid</span>: <span class="hljs-number">0</span>, <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;john&#x27;</span>, <span class="hljs-attr">date</span>: <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>() })
 </code></pre>
-<p>After useStore object is changed, the render only will call in components where @state maps.</p>
+<p>After useStore changed, the render calls in components where @state maps.</p>
 <pre><code class="language-tsx"><span class="hljs-keyword">import</span> { state } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@reactful/web&#x27;</span>
 <span class="hljs-keyword">import</span> { myStore } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./stores&#x27;</span>
 
 @<span class="hljs-title function_">state</span>(myStore)
 <span class="hljs-keyword">const</span> <span class="hljs-title function_">Hello</span> = props =&gt; <span class="language-xml"><span class="hljs-tag">&lt;&gt;</span>   
-   Local Hello { store.name } !
+   Hello { store.name } !
    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">value</span>=<span class="hljs-string">{store.name}</span> {<span class="hljs-attr">onChange</span>} /&gt;</span>
 <span class="hljs-tag">&lt;/&gt;</span></span>
 
 <span class="hljs-comment">// it will trigger the render inside a component</span>
 <span class="hljs-keyword">const</span> <span class="hljs-title function_">onChange</span> = e =&gt; props.<span class="hljs-property">name</span> = e.<span class="hljs-property">taget</span>.<span class="hljs-property">value</span>
+</code></pre>
+<h2 id="ioc-container--forwardref">IoC Container + forwardRef</h2>
+<p>As shown in global state, reactful has a IoC container wher DI is resolved by 2nd functional component argument deconstrution. This 2nd argument is typed as Feeds interface.</p>
+<aside cols='2'>
+<pre><code class="language-tsx"><span class="hljs-keyword">import</span> <span class="hljs-string">&#x27;@reactful/extensions&#x27;</span>
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">Sample</span>(<span class="hljs-params">props, feeds: Feeds</span>) {  
+   <span class="hljs-keyword">return</span> <span class="language-xml"><span class="hljs-tag">&lt;&gt;</span>...etc<span class="hljs-tag">&lt;/&gt;</span></span>
+}
+</code></pre>
+<pre><code class="language-ts"><span class="hljs-keyword">interface</span> <span class="hljs-title class_">Feeds</span> {
+   <span class="hljs-attr">param</span>: record    <span class="hljs-comment">// route params</span>
+   <span class="hljs-attr">store</span>: record    <span class="hljs-comment">// global state</span>
+   <span class="hljs-attr">logon</span>: record    <span class="hljs-comment">// logged user</span>
+   <span class="hljs-attr">await</span>: <span class="hljs-built_in">boolean</span>   <span class="hljs-comment">// pending fetch</span>
+   <span class="hljs-attr">fails</span>: <span class="hljs-title class_">Invalid</span>[] <span class="hljs-comment">// fetch errors</span>
+   <span class="hljs-attr">ref</span>: <span class="hljs-built_in">any</span>         <span class="hljs-comment">// forwardRef</span>
+}
+</code></pre>
+</aside>
+<p>The React19 2nd argument ref is handled as ref field inside feeds object.</p>
+<pre><code class="language-tsx"><span class="hljs-keyword">function</span> <span class="hljs-title function_">React19</span>(<span class="hljs-params">props, ref</span>) {  <span class="hljs-keyword">return</span> <span class="language-xml"><span class="hljs-tag">&lt;&gt;</span>...etc<span class="hljs-tag">&lt;/&gt;</span></span> }
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">Reactful</span>(<span class="hljs-params">props, { ref }</span>) {  <span class="hljs-keyword">return</span> <span class="language-xml"><span class="hljs-tag">&lt;&gt;</span>...etc<span class="hljs-tag">&lt;/&gt;</span></span> }
 </code></pre>
 <p><br/><br/></p>
 

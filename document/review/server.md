@@ -3,6 +3,13 @@
 
 <article>
 <embed type='text/html' src='./header.html' />
+
+<h1 title> 
+   <a href='#' onclick="goto('./overview.html')">overview</a> 
+   | <a href='#' onclick="goto('./preview.html#server')">preview</a> 
+   | <b>review</b>
+</h1>
+
 <header>server rendering</header>
 
 > static rendering • dynamic rendering • periodic rendering <br/>react server components • partial hydration • web apis<br/>extended html • error handling • markdown

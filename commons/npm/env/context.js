@@ -15,6 +15,7 @@ const binding = {
     store: { state: {}, count: 0, react: {} },
 };
 const context = {
+    ref: undefined,
     fails: [],
     store: {},
     param: {},

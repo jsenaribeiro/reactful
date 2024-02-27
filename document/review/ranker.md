@@ -3,6 +3,13 @@
 
 <article>
 <embed type='text/html' src='./header.html' />
+
+<h1 title> 
+   <a href='#' onclick="goto('./overview.html')">overview</a> 
+   | <a href='#' onclick="goto('./preview.html#ranker')">preview</a> 
+   | <b>review</b>
+</h1>
+
 <header>ranker optimizing</header>
 
 > search engine optimization • metatag args<br/>function decorator • html metatags

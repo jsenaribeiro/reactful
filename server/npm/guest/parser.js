@@ -71,7 +71,7 @@ class Parser {
         const retype = (arg, ref) => {
             const [state, feeds] = rebind(arg, ref);
             const child = jsx.type(state, feeds);
-            const props = reprop(child, arg);
+            const props = reprop(child);
             return { ...child, props, key: fixKey(child) };
         };
         const rebind = (arg, ref) => {
@@ -82,7 +82,7 @@ class Parser {
             state.children ||= arg.children;
             return [latest = state, feeds];
         };
-        const reprop = (child, attrs) => {
+        const reprop = child => {
             if (!child?.props)
                 return {};
             const label = jsx.type.name;

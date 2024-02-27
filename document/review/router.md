@@ -3,6 +3,13 @@
 
 <article>
 <embed type='text/html' src='./header.html' />
+
+<h1 title> 
+   <a href='#' onclick="goto('./overview.html')">overview</a> 
+   | <a href='#' onclick="goto('./preview.html#router')">preview</a> 
+   | <b>review</b>
+</h1>
+
 <header>ranker optimizing</header>
 
 > simple folder routing • routing decorator • route params<br/>props routing • extended HTML • markdown support<br/>  lazy components • prefetch route • nested routes
@@ -18,13 +25,13 @@ Simple folder routing with no extranaming conventions to serve in static routes.
    table tr td:nth-of-type(3) { color:grey; }
 </style>
 
-| DIRECTORY                 | ROUTING                 | RESOLUTION          |
-| ------------------------- | ----------------------- | ------------------- |
-| /routes/index.tsx         | localhost:3000/         | index JSX           |
-| /routes/about.tsx         | localhost:3000/about    | filename JSX        |
-| /routes/sample.html       | localhost:3000/sample/  | filename HTML       |
-| /routes/example.md        | localhost:3000/example/ | filename markdown   |
-| /routes/profile/index.tsx | localhost:3000/profile/ | subfolder index JSX |
+| DIRECTORY                 | ROUTING                | RESOLUTION          |
+| ------------------------- | ---------------------- | ------------------- |
+| /routes/index.tsx         | localhost:3000/        | index JSX           |
+| /routes/about.tsx         | localhost:3000/about   | filename JSX        |
+| /routes/sample.html       | localhost:3000/sample  | filename HTML       |
+| /routes/example.md        | localhost:3000/example | filename markdown   |
+| /routes/profile/index.tsx | localhost:3000/profile | subfolder index JSX |
 
 Resolution conflicts will throw exception in build time. 
 
@@ -45,11 +52,11 @@ Resolution conflicts will throw exception in build time.
 
 Normal routes starts with slash (**/**), meanwhile nesting routes starts with dot slash syntax (**./**) based on current file path.
 
-|               |  |             |
-| ---------------------- | ----------- | --------------------- |
-| /                      | ./about     | /about                |
-| /admin/system          | ./account   | /admin/account        |
-| /user/profile/overview | ./details   | /user/profile/details |
+|                        |           |                       |
+| ---------------------- | --------- | --------------------- |
+| /                      | ./about   | /about                |
+| /admin/system          | ./account | /admin/account        |
+| /user/profile/overview | ./details | /user/profile/details |
 
 </aside>
 
@@ -58,26 +65,26 @@ Normal routes starts with slash (**/**), meanwhile nesting routes starts with do
 React server components, enabling async components and easier data fetching. 
 
 ```tsx
-async function AsyncComponent(props) {
-   const text = await fetch('url....')
-   return <h1>...loaded { text }</h1>
+async function AsyncSample(props) {
+   const text = await fetch('http://www.some-url.com')
+   return <h1>awaited content = { text }</h1>
 }
 ```
 
 Reactful async components supports React Suspense API.
 
 ```tsx
-const SuspenseApi = async props => <>
-   <Suspense fallback={<h1>loading...</h1>}>
-      <AsyncComponent />
+const SuspenseSample = async props => <>
+   <Suspense fallback={<b>loading...</b>}>
+      <AsyncSample />
    </Suspense>
 </>
 ```
 
-It introduces Suspense API simpler alternative as await props. It replaces the element children with resolved component promise with a inverse approach.
+It introduces an inverse props-driven Suspense alternative as await props. It works replacing its children after its await component is loaded by component streaming. 
 
 ```tsx
-const AwaitProps = async props => <h1 await={AsyncComponent}>loading...</h1>
+const AwaitPropsSample = async props => <h1 await={AsyncSample}>loading...</h1>
 ```
 
 ## Dynamic routes
@@ -157,11 +164,11 @@ The reactful routing come with some new concepts, behaviors and approachs that k
 
 <section concept>
 
-| CONCEPT | DESCRIPTION |
-|-|-|
-| declarative redirects | Redirect is declarativilly handled with conditional returns. |
-| fullstack routing | Server routing sends prefetched routes to client-side usage |
-| fallback falts | Not found route fallbacks to its nearest available route in URL |
+| CONCEPT               | DESCRIPTION                                                     |
+| --------------------- | --------------------------------------------------------------- |
+| declarative redirects | Redirect is declarativilly handled with conditional returns.    |
+| fullstack routing     | Server routing sends prefetched routes to client-side usage     |
+| fallback falts        | Not found route fallbacks to its nearest available route in URL |
 
 </section>
 

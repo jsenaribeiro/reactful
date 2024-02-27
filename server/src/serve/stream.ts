@@ -8,48 +8,69 @@ import { fallbackHTML } from "./fallback"
 
 type ImportType = "component"|"stream"|"html"
 
+interface StreamArgs {
+   type: ImportType 
+   path: string
+   name: string
+   base: string
+}
+
 export const isStream = (request: Request) => 
-   Object.keys(queriefy(request)).includes("jsx")
+   Object.keys(queriefy(request).query).includes("jsx")
 
 export async function stream(request: Request)   
-export async function stream(route: string, type: ImportType, base?: string)
-export async function stream(params: string|Request, type: ImportType = "html", base = '') {  
-   if (params && params instanceof Request) 
-   if (params && params instanceof Request) 
-      return isStream(params as Request) 
-         ? stream(new Path(params.url).href, "stream")
-         : undefined
+export async function stream(route: string, type: ImportType, name: string, base?: string)
+export async function stream(args, type: ImportType="html", name='default', base='') {  
+   return args instanceof Request ? await streamByRequest(args)
+      : await streamByArgument({ path: args, type, name, base })
+}
 
-   const value = params as string
-   const route = typeof params == 'string' ? params : '/'
-   const named = `${Path.routes}${params}.tsx`
-   const index = `${Path.routes}${params}/index.tsx`
-   const found = await new File(value).exists() ? value
-               : await new File(named).exists() ? named
-               : await new File(index).exists() ? index
-               : undefined   
+async function streamByRequest(request: Request) {
+   if (!isStream(request)) return undefined
 
-   if (!found) return response(404, 'not found: ' + params)
+   const type = "stream"
+   const href = new Path(request.url).href
+   const name = queriefy(request).query.tag || 'default'
+   const args: StreamArgs = { path: href, type, name, base: '' }
 
-   const mergingHTML = ([jsx, html]) => route ? mergeHTML(jsx, route, html) : ''
+   return await streamByArgument(args)
+}
+
+async function streamByArgument(args: StreamArgs) {
+   const [namedPath, indexPath] = ['', '/index']
+      .map(x => `${Path.routes}${args.path}${x}.tsx`)
+
+   const have = async x => await new File(x).exists()
+
+   const path = await have(args.path) ? args.path
+              : await have(namedPath) ? namedPath
+              : await have(indexPath) ? indexPath
+              : undefined
+
+   if (!path) return response(404, 'not found: ' + args)
+
+   const mergingHTML = ([ jsx, html ]) => 
+      path ? mergeHTML(jsx, path, html) : ''
    
-   const importDefault = x => x.then(x => x.default)
-      .then(x => parser(x, value))
+   const importComponent = x => x
+      .then(x => x[args.name || 'default'])
+      .then(x => parser(x, path))
 
-   const streamPipeline = x => importDefault(x)
+   const streamPipeline = x => importComponent(x)
       .then(jsx => jsx ? JSXON.htmlfy(jsx) : '')
 
-   const servingPipeline = x => importDefault(x)
+   const servingPipeline = x => importComponent(x)
       .then(jsx => [jsx, JSXON.htmlfy(jsx)])
       .then(mergingHTML)
 
-   const pipeline = type == "stream" ? streamPipeline
-                  : type == "html" ? servingPipeline
-                  : importDefault
+   const pipeline 
+       = args.type == "stream" ? streamPipeline
+       : args.type == "html" ? servingPipeline
+       : importComponent
 
-   const html = await pipeline(import(found))
-   const mime = type == "html" ? "text/html" : "text/plain"
+   const html = await pipeline(import(path))
+   const mime = args.type == "html" ? "text/html" : "text/plain"
 
-   return base == '' ? response(200, html, mime)
-        : await fallbackHTML(html, base, route)
+   return args.base == '' ? response(200, html, mime)
+        : await fallbackHTML(html, args.base, path)
 }

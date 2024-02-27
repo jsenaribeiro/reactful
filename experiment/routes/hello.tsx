@@ -6,6 +6,13 @@ import '@reactful/extensions'
 const orbital1 = useStore({ value:0 })
 const orbital2 = useStore({ value:1 })
 
+const SubGlobal = (props, { store }) => <input {...props} data={store} bind='value' />
+const SubLocal= (props) => <><input {...props} data={props} bind='value' /><label> = {props.value}</label></>
+
+//@ts-ignore
+@state(orbital1) const SubOrbital = (props) => 
+   <input {...props} data={orbital1} bind='value' />
+
 //@ts-ignore
 @client(true)
 @state(orbital1)
@@ -30,34 +37,19 @@ export default function Hello(props, { store }: Feeds) {
             <SubGlobal id='2.1' placeholder='inner' />
          </label>
 
-         <label>
+          <label>
             <b>ORBITAL state</b> <code>useStore(...) + @state(...)</code><br/>
             <input id='3' data={orbital1} bind="value" placeholder="outer" />
             <SubOrbital id='3.1' placeholder='inner' />
             <input id='3.2' data={orbital2} bind="value" placeholder="other" /> = {orbital2.value }
-         </label>
+         </label> 
       </main>
       <br />
       <hr />
       <code>
          <strong>local</strong>: <label id='l1'>{ props.value }</label><br />
          <strong>global</strong>: <label id='l2'>{ store.value }</label><br />
-         <strong>orbital</strong>: <label id='l3'>{ orbital1.value }</label>
+         <strong>orbital</strong>: <label id='l3'>{ orbital1.value }</label> 
       </code>
    </>
-}
-
-
-function SubGlobal(props, { store }) {
-   return <input {...props} data={store} bind='value' />
-}
-
-function SubLocal(props) {
-   return <><input {...props} data={props} bind='value' /><label> = {props.value}</label></>
-}
-
-//@ts-ignore
-@state(orbital1)
-function SubOrbital(props) {
-   return <input {...props} data={orbital1} bind='value' />
 }

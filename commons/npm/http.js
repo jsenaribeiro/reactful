@@ -10,10 +10,10 @@ export function queriefy(request) {
     const regex = new RegExp('(http|https)+:\/\/' + request.headers.get('host'));
     const [host] = request.url.query(regex);
     const [route, after] = request.url.replace(host, '').split('?');
-    const query = queryStringToObject(after);
+    const query = queryObjectify(after);
     return { route, query };
 }
-function queryStringToObject(queries) {
+export function queryObjectify(queries) {
     const params = {};
     if (!queries)
         return params;

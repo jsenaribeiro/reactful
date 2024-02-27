@@ -4,7 +4,6 @@ export function set(type: "href", path: string, name: string, html: string, call
 export function set(type: "meta", path: string, name: string, html: MetaTags): void
 export function set(type: "html", path: string, html: `<${string}</${string}>`)
 export function set(type: "lazy", path: string, name: string, html: `<${string}</${string}>`): void
-export function set(type: "wait", path: string, guid: string, html: string)
 export function set(...args: any[]): any {
    var type, data, name, path, call
 

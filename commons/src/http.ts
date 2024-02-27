@@ -15,12 +15,12 @@ export function queriefy(request: Request) {
    const regex = new RegExp('(http|https)+:\/\/' + request.headers.get('host'))
    const [host] = request.url.query(regex)
    const [route, after] = request.url.replace(host, '').split('?')
-   const query = queryStringToObject(after)
+   const query = queryObjectify(after)
 
    return { route, query }
 }
 
-function queryStringToObject(queries: string): any {
+export function queryObjectify(queries: string): any {
    const params = {} as any
    
    if (!queries) return params

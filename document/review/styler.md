@@ -3,6 +3,13 @@
 
 <article>
 <embed type='text/html' src='./header.html' />
+
+<h1 title> 
+   <a href='#' onclick="goto('./overview.html')">overview</a> 
+   | <a href='#' onclick="goto('./preview.html#styler')">preview</a> 
+   | <b>review</b>
+</h1>
+
 <header>styler scopings</header>
 
 > module scope CSS • component scope CSS • layout props <br/>function decorator • SoC styling • vanilla-like CSS

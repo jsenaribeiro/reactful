@@ -25,7 +25,11 @@ export class File /*implements IFile*/ {
         }
     }
     exists() { return this.blob.exists ? this.blob.exists() : Promise.resolve(false); }
-    async save(text) { return await Bun.write(this.path, text); }
+    async save(text) {
+        const result = await Bun.write(this.path, text);
+        await new Promise(resolve => setTimeout(resolve, 9));
+        return result;
+    }
     async load(error, decode) {
         if (!this.path)
             return '';

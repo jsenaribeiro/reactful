@@ -3,13 +3,20 @@
 
 <article>
 <embed type='text/html' src='./header.html' />
+
+<h1 title> 
+   <a href='#' onclick="goto('./overview.html')">overview</a> 
+   | <a href='#' onclick="goto('./preview.html#storer')">preview</a> 
+   | <b>review</b>
+</h1>
+
 <header>storer handling</header>
 
 > stateful proxy object • stateful props<br/>modular state • global state<br/> OOP state handling
 
 ## Stateful objects
 
-Stateful proxy object (SRO) brings a new hookless concept for state handling with functional components using javascript Proxy object for a more leaner, friendly and intuitive OOP stateful components. 
+Stateful proxy object (SRO) brings a new hookless concept for state handling with functional components using javascript Proxy object for a more leaner, friendly and intuitive OOP stateful components. SRO uses **delayed render** algorithm that enables a performatic approach batching successives changes in a single render call in each 0.1 second range.
 
 ## Local stateful props
 

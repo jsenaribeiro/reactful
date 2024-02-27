@@ -26,7 +26,7 @@ var __export = (target, all) => {
 };
 var __esm = (fn, res) => () => (fn && (res = fn(fn = 0)), res);
 
-// node_modules/@reactful/server/npm/props/formAut
+// node_modules/@reactful/commons/npm/constants.js
 var GUID, PROXY, GLOBAL_KEY, PRIMITIVES, IS_ONLY_FOR_ROUTE;
 var init_constants = __esm(() => {
   GUID = Symbol.for("---guid---");
@@ -36,7 +36,7 @@ var init_constants = __esm(() => {
   IS_ONLY_FOR_ROUTE = "is only for default route component directory";
 });
 
-// node_modules/@reactful/server/npm/props/formA
+// node_modules/@reactful/commons/npm/env/all.js
 function allSettings() {
   return globalThis[GLOBAL_KEY];
 }
@@ -47,7 +47,7 @@ var init_all = __esm(() => {
   init_constants();
 });
 
-// node_modules/@reactful/server/npm/props/for
+// node_modules/react/cjs/react.development.js
 var require_react_development = __commonJS((exports, module) => {
   if (true) {
     (function() {
@@ -162,8 +162,8 @@ var require_react_development = __commonJS((exports, module) => {
             format += "%s";
             args = args.concat([stack]);
           }
-          var argsWithFormat = args.map(function(item2) {
-            return String(item2);
+          var argsWithFormat = args.map(function(item) {
+            return String(item);
           });
           argsWithFormat.unshift("Warning: " + format);
           Function.prototype.apply.call(console[level], console, argsWithFormat);
@@ -700,14 +700,14 @@ var require_react_development = __commonJS((exports, module) => {
         }
         return subtreeCount;
       }
-      function mapChildren(children, func2, context) {
+      function mapChildren(children, func, context) {
         if (children == null) {
           return children;
         }
         var result = [];
         var count = 0;
         mapIntoArray(children, result, "", "", function(child) {
-          return func2.call(context, child, count++);
+          return func.call(context, child, count++);
         });
         return result;
       }
@@ -1439,26 +1439,26 @@ var require_react_development = __commonJS((exports, module) => {
           setCurrentlyValidatingElement$1(null);
         }
       }
-      function validateChildKeys(node2, parentType) {
-        if (typeof node2 !== "object") {
+      function validateChildKeys(node, parentType) {
+        if (typeof node !== "object") {
           return;
         }
-        if (isArray(node2)) {
-          for (var i = 0;i < node2.length; i++) {
-            var child = node2[i];
+        if (isArray(node)) {
+          for (var i = 0;i < node.length; i++) {
+            var child = node[i];
             if (isValidElement(child)) {
               validateExplicitKey(child, parentType);
             }
           }
-        } else if (isValidElement(node2)) {
-          if (node2._store) {
-            node2._store.validated = true;
+        } else if (isValidElement(node)) {
+          if (node._store) {
+            node._store.validated = true;
           }
-        } else if (node2) {
-          var iteratorFn = getIteratorFn(node2);
+        } else if (node) {
+          var iteratorFn = getIteratorFn(node);
           if (typeof iteratorFn === "function") {
-            if (iteratorFn !== node2.entries) {
-              var iterator = iteratorFn.call(node2);
+            if (iteratorFn !== node.entries) {
+              var iterator = iteratorFn.call(node);
               var step;
               while (!(step = iterator.next()).done) {
                 if (isValidElement(step.value)) {
@@ -1831,7 +1831,7 @@ var require_react_development = __commonJS((exports, module) => {
   }
 });
 
-// node_modules/@reactful/serv
+// node_modules/react/index.js
 var require_react = __commonJS((exports, module) => {
   var react_development = __toESM(require_react_development(), 1);
   if (false) {
@@ -1840,7 +1840,7 @@ var require_react = __commonJS((exports, module) => {
   }
 });
 
-// node_modules/@reactful/server/npm/props/formAuth.jsjs.jsn
+// node_modules/@reactful/extensions/npm/prototypes/array.js
 var init_array = __esm(() => {
   Array.range = function(...args) {
     if (!args.length)
@@ -1867,7 +1867,7 @@ var init_array = __esm(() => {
   };
 });
 
-// node_modules/@reactful/server/npm/props/formAuth.jsjs.js
+// node_modules/@reactful/extensions/npm/prototypes/json.js
 var init_json = __esm(() => {
   init_array();
   JSON.scriptify = function(that, swap, functionless) {
@@ -1886,7 +1886,7 @@ var init_json = __esm(() => {
   };
 });
 
-// node_modules/@reactful/server/npm/props/formAuth.jsjs.jsn.
+// node_modules/@reactful/extensions/npm/prototypes/object.js
 class ParseObject {
   entries;
   constructor(that) {
@@ -1952,7 +1952,7 @@ var init_object = __esm(() => {
   };
 });
 
-// node_modules/@reactful/server/npm/props/formAuth.jsjs.jsn.
+// node_modules/@reactful/extensions/npm/prototypes/signal.js
 var init_signal = __esm(() => {
   AbortSignal.timeout ??= function timeout(ms) {
     const ctrl = new AbortController;
@@ -1961,7 +1961,7 @@ var init_signal = __esm(() => {
   };
 });
 
-// node_modules/@reactful/server/npm/props/formAuth.jsjs.jsn.
+// node_modules/@reactful/extensions/npm/prototypes/string.js
 var init_string = __esm(() => {
   init_object();
   String.prototype.fix = function() {
@@ -2021,7 +2021,7 @@ var init_string = __esm(() => {
   };
 });
 
-// node_modules/@reactful/server/npm/props/formAuth.jsjs.jsn.
+// node_modules/@reactful/extensions/npm/prototypes/number.js
 var separtorThousand;
 var init_number = __esm(() => {
   Number.prototype.format = function(commas, digits) {
@@ -2043,7 +2043,7 @@ var init_number = __esm(() => {
   separtorThousand = (n) => n.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
 });
 
-// node_modules/@reactful/server/npm/props/formAuth.jsjs.jsn.js
+// node_modules/@reactful/extensions/npm/prototypes/function.js
 var init_function = __esm(() => {
   Function.prototype.isAsync = function() {
     const functionString = this.toString();
@@ -2058,7 +2058,7 @@ var init_function = __esm(() => {
   };
 });
 
-// node_modules/@reactful/server/npm/props/formAuth.jsjs.jsn
+// node_modules/@reactful/extensions/npm/prototypes/index.js
 var init_prototypes = __esm(() => {
   init_json();
   init_array();
@@ -2069,15 +2069,15 @@ var init_prototypes = __esm(() => {
   init_function();
 });
 
-// node_modules/@reactful/server/npm/props/formAuth.jsjs.
+// node_modules/@reactful/extensions/npm/types/index.d.ts
 var init_index_d = __esm(() => {
 });
 
-// node_modules/@reactful/server/npm/props/formAuth.jsjs.js
+// node_modules/@reactful/extensions/npm/retypes/react.d.ts
 var init_react_d = __esm(() => {
 });
 
-// node_modules/@reactful/server/npm/props/formAu
+// node_modules/@reactful/extensions/npm/index.js
 var import_react;
 var init_npm = __esm(() => {
   import_react = __toESM(require_react(), 1);
@@ -2086,7 +2086,7 @@ var init_npm = __esm(() => {
   init_react_d();
 });
 
-// node_modules/@reactful/server/npm/props/for
+// node_modules/@reactful/commons/npm/mocks.js
 var IS_SERVER_SIDE, memoryStorage;
 var init_mocks = __esm(() => {
   IS_SERVER_SIDE = !globalThis.document;
@@ -2118,7 +2118,7 @@ var init_mocks = __esm(() => {
   }
 });
 
-// node_modules/@reactful/server/npm/props/formAuth.
+// node_modules/@reactful/commons/npm/env/context.js
 function contextualizer() {
   if (globalThis[GLOBAL_KEY])
     return;
@@ -2161,6 +2161,7 @@ var init_context = __esm(() => {
     store: { state: {}, count: 0, react: {} }
   };
   context = {
+    ref: undefined,
     fails: [],
     store: {},
     param: {},
@@ -2184,7 +2185,7 @@ var init_context = __esm(() => {
   failure = (status, errors) => console.error(`status error ${status}`, "\n - " + errors.join("; \n - "));
 });
 
-// node_modules/@reactful/server/npm/props/formA
+// node_modules/@reactful/commons/npm/env/try.js
 function validation(instance) {
   Object.entries(instance).map(validateOf).filter((x) => Array.isArray(x)).forEach((x) => x && (instance[x[0]] = x[1]));
 }
@@ -2210,7 +2211,7 @@ var init_try = __esm(() => {
   fail = (key, pre = "") => `Not found ${pre}'${key.trim()}' of .env file`;
 });
 
-// node_modules/@reactful/server/npm/props/formA
+// node_modules/@reactful/commons/npm/env/let.js
 function routefy(route) {
   route = route.replace(/\/$/, "") || "/";
   allSettings().current = route;
@@ -2246,7 +2247,7 @@ var init_let = __esm(() => {
   init_all();
 });
 
-// node_modules/@reactful/server/npm/props/formA
+// node_modules/@reactful/commons/npm/env/get.js
 function get(type, path, name) {
   const allByType = allCachings().filter((x) => x.type == type);
   const allByName = (name2) => allByType.find((x) => x.name == name2);
@@ -2263,7 +2264,7 @@ var init_get = __esm(() => {
   init_all();
 });
 
-// node_modules/@reactful/server/npm/props/formA
+// node_modules/@reactful/commons/npm/env/set.js
 function set(...args) {
   var type, data, name, path, call;
   const settings = globalThis[GLOBAL_KEY];
@@ -2280,14 +2281,14 @@ function set(...args) {
     Object.keys(data).forEach((k) => data[k] = data[k].replaceAll("'", '"'));
   }
   for (let i = 0;i < settings.caching.length; i++) {
-    const item2 = settings.caching[i];
-    if (!item2)
+    const item = settings.caching[i];
+    if (!item)
       continue;
-    if (item2.type != type)
+    if (item.type != type)
       continue;
-    if (item2.path != path)
+    if (item.path != path)
       continue;
-    if (item2.name != name)
+    if (item.name != name)
       continue;
     delete settings.caching[i];
   }
@@ -2297,7 +2298,7 @@ var init_set = __esm(() => {
   init_constants();
 });
 
-// node_modules/@reactful/server/npm/props/formAut
+// node_modules/@reactful/commons/npm/env/class.js
 class Environment {
   constructor() {
     validation(this);
@@ -2338,19 +2339,19 @@ var init_class = __esm(() => {
   consoleEmpty = (...args) => null;
 });
 
-// node_modules/@reactful/server/npm/props/formAut
+// node_modules/@reactful/commons/npm/env/index.js
 var env;
 var init_env = __esm(() => {
   init_class();
   env = new Environment;
 });
 
-// node_modules/@reactful/server/npm/props/fo
+// node_modules/@reactful/commons/npm/http.js
 var init_http = __esm(() => {
   init_npm();
 });
 
-// node_modules/@reactful/server/npm/props/for
+// node_modules/@reactful/commons/npm/throw.js
 function throws(ex, mt) {
   if (!ex)
     return false;
@@ -2365,12 +2366,12 @@ var init_throw = __esm(() => {
   PREFIX_ERROR = "@reactful error: ";
 });
 
-// node_modules/@reactful/server/npm/props/for
+// node_modules/@reactful/commons/npm/delay.js
 var init_delay = __esm(() => {
   init_npm();
 });
 
-// node_modules/@reactful/server/npm/props/for
+// node_modules/@reactful/commons/npm/route.js
 function isRouted(current, routing) {
   if (!routing || routing == "/")
     return true;
@@ -2386,7 +2387,7 @@ function isRouted(current, routing) {
 var init_route = __esm(() => {
 });
 
-// node_modules/@reactful/server/npm/props/formAuth.jsjs.jsn.jsent.jsment.js
+// node_modules/react-dom/cjs/react-dom-server-legacy.browser.development.js
 var require_react_dom_server_legacy_browser_development = __commonJS((exports) => {
   var React = __toESM(require_react(), 1);
   if (true) {
@@ -2421,8 +2422,8 @@ var require_react_dom_server_legacy_browser_development = __commonJS((exports) =
             format += "%s";
             args = args.concat([stack]);
           }
-          var argsWithFormat = args.map(function(item2) {
-            return String(item2);
+          var argsWithFormat = args.map(function(item) {
+            return String(item);
           });
           argsWithFormat.unshift("Warning: " + format);
           Function.prototype.apply.call(console[level], console, argsWithFormat);
@@ -6249,21 +6250,21 @@ var require_react_dom_server_legacy_browser_development = __commonJS((exports) =
       function getStackByComponentStackNode(componentStack) {
         try {
           var info = "";
-          var node2 = componentStack;
+          var node = componentStack;
           do {
-            switch (node2.tag) {
+            switch (node.tag) {
               case 0:
-                info += describeBuiltInComponentFrame(node2.type, null, null);
+                info += describeBuiltInComponentFrame(node.type, null, null);
                 break;
               case 1:
-                info += describeFunctionComponentFrame(node2.type, null, null);
+                info += describeFunctionComponentFrame(node.type, null, null);
                 break;
               case 2:
-                info += describeClassComponentFrame(node2.type, null, null);
+                info += describeClassComponentFrame(node.type, null, null);
                 break;
             }
-            node2 = node2.parent;
-          } while (node2);
+            node = node.parent;
+          } while (node);
           return info;
         } catch (x) {
           return "\nError generating stack: " + x.message + "\n" + x.stack;
@@ -6338,7 +6339,7 @@ var require_react_dom_server_legacy_browser_development = __commonJS((exports) =
           errorDigest: null
         };
       }
-      function createTask(request, node2, blockedBoundary, blockedSegment, abortSet, legacyContext, context3, treeContext) {
+      function createTask(request, node, blockedBoundary, blockedSegment, abortSet, legacyContext, context3, treeContext) {
         request.allPendingTasks++;
         if (blockedBoundary === null) {
           request.pendingRootTasks++;
@@ -6346,7 +6347,7 @@ var require_react_dom_server_legacy_browser_development = __commonJS((exports) =
           blockedBoundary.pendingTasks++;
         }
         var task = {
-          node: node2,
+          node,
           ping: function() {
             return pingTask(request, task);
           },
@@ -6815,10 +6816,10 @@ var require_react_dom_server_legacy_browser_development = __commonJS((exports) =
           }
         }
       }
-      function renderNodeDestructive(request, task, node2) {
+      function renderNodeDestructive(request, task, node) {
         {
           try {
-            return renderNodeDestructiveImpl(request, task, node2);
+            return renderNodeDestructiveImpl(request, task, node);
           } catch (x) {
             if (typeof x === "object" && x !== null && typeof x.then === "function")
               ;
@@ -6829,12 +6830,12 @@ var require_react_dom_server_legacy_browser_development = __commonJS((exports) =
           }
         }
       }
-      function renderNodeDestructiveImpl(request, task, node2) {
-        task.node = node2;
-        if (typeof node2 === "object" && node2 !== null) {
-          switch (node2.$$typeof) {
+      function renderNodeDestructiveImpl(request, task, node) {
+        task.node = node;
+        if (typeof node === "object" && node !== null) {
+          switch (node.$$typeof) {
             case REACT_ELEMENT_TYPE: {
-              var element = node2;
+              var element = node;
               var type = element.type;
               var props = element.props;
               var ref = element.ref;
@@ -6844,7 +6845,7 @@ var require_react_dom_server_legacy_browser_development = __commonJS((exports) =
             case REACT_PORTAL_TYPE:
               throw new Error("Portals are not currently supported by the server renderer. Render them conditionally so that they only appear on the client render.");
             case REACT_LAZY_TYPE: {
-              var lazyNode = node2;
+              var lazyNode = node;
               var payload = lazyNode._payload;
               var init = lazyNode._init;
               var resolvedNode;
@@ -6862,16 +6863,16 @@ var require_react_dom_server_legacy_browser_development = __commonJS((exports) =
               return;
             }
           }
-          if (isArray(node2)) {
-            renderChildrenArray(request, task, node2);
+          if (isArray(node)) {
+            renderChildrenArray(request, task, node);
             return;
           }
-          var iteratorFn = getIteratorFn(node2);
+          var iteratorFn = getIteratorFn(node);
           if (iteratorFn) {
             {
-              validateIterable(node2, iteratorFn);
+              validateIterable(node, iteratorFn);
             }
-            var iterator = iteratorFn.call(node2);
+            var iterator = iteratorFn.call(node);
             if (iterator) {
               var step = iterator.next();
               if (!step.done) {
@@ -6886,21 +6887,21 @@ var require_react_dom_server_legacy_browser_development = __commonJS((exports) =
               return;
             }
           }
-          var childString = Object.prototype.toString.call(node2);
-          throw new Error("Objects are not valid as a React child (found: " + (childString === "[object Object]" ? "object with keys {" + Object.keys(node2).join(", ") + "}" : childString) + "). If you meant to render a collection of children, use an array instead.");
+          var childString = Object.prototype.toString.call(node);
+          throw new Error("Objects are not valid as a React child (found: " + (childString === "[object Object]" ? "object with keys {" + Object.keys(node).join(", ") + "}" : childString) + "). If you meant to render a collection of children, use an array instead.");
         }
-        if (typeof node2 === "string") {
+        if (typeof node === "string") {
           var segment = task.blockedSegment;
-          segment.lastPushedText = pushTextInstance$1(task.blockedSegment.chunks, node2, request.responseState, segment.lastPushedText);
+          segment.lastPushedText = pushTextInstance$1(task.blockedSegment.chunks, node, request.responseState, segment.lastPushedText);
           return;
         }
-        if (typeof node2 === "number") {
+        if (typeof node === "number") {
           var _segment = task.blockedSegment;
-          _segment.lastPushedText = pushTextInstance$1(task.blockedSegment.chunks, "" + node2, request.responseState, _segment.lastPushedText);
+          _segment.lastPushedText = pushTextInstance$1(task.blockedSegment.chunks, "" + node, request.responseState, _segment.lastPushedText);
           return;
         }
         {
-          if (typeof node2 === "function") {
+          if (typeof node === "function") {
             error("Functions are not valid as a React child. This may happen if you return a Component instead of <Component /> from render. Or maybe you meant to call this function rather than return it.");
           }
         }
@@ -6932,7 +6933,7 @@ var require_react_dom_server_legacy_browser_development = __commonJS((exports) =
         var ping = newTask.ping;
         x.then(ping, ping);
       }
-      function renderNode(request, task, node2) {
+      function renderNode(request, task, node) {
         var previousFormatContext = task.blockedSegment.formatContext;
         var previousLegacyContext = task.legacyContext;
         var previousContext = task.context;
@@ -6941,7 +6942,7 @@ var require_react_dom_server_legacy_browser_development = __commonJS((exports) =
           previousComponentStack = task.componentStack;
         }
         try {
-          return renderNodeDestructive(request, task, node2);
+          return renderNodeDestructive(request, task, node);
         } catch (x) {
           resetHooksState();
           if (typeof x === "object" && x !== null && typeof x.then === "function") {
@@ -7458,7 +7459,7 @@ var require_react_dom_server_legacy_browser_development = __commonJS((exports) =
   }
 });
 
-// node_modules/@reactful/server/npm/props/formAuth.jsjs.jsn.jsent.js
+// node_modules/react-dom/cjs/react-dom-server.browser.development.js
 var require_react_dom_server_browser_development = __commonJS((exports) => {
   var React = __toESM(require_react(), 1);
   if (true) {
@@ -7493,8 +7494,8 @@ var require_react_dom_server_browser_development = __commonJS((exports) => {
             format += "%s";
             args = args.concat([stack]);
           }
-          var argsWithFormat = args.map(function(item2) {
-            return String(item2);
+          var argsWithFormat = args.map(function(item) {
+            return String(item);
           });
           argsWithFormat.unshift("Warning: " + format);
           Function.prototype.apply.call(console[level], console, argsWithFormat);
@@ -11306,21 +11307,21 @@ var require_react_dom_server_browser_development = __commonJS((exports) => {
       function getStackByComponentStackNode(componentStack) {
         try {
           var info = "";
-          var node2 = componentStack;
+          var node = componentStack;
           do {
-            switch (node2.tag) {
+            switch (node.tag) {
               case 0:
-                info += describeBuiltInComponentFrame(node2.type, null, null);
+                info += describeBuiltInComponentFrame(node.type, null, null);
                 break;
               case 1:
-                info += describeFunctionComponentFrame(node2.type, null, null);
+                info += describeFunctionComponentFrame(node.type, null, null);
                 break;
               case 2:
-                info += describeClassComponentFrame(node2.type, null, null);
+                info += describeClassComponentFrame(node.type, null, null);
                 break;
             }
-            node2 = node2.parent;
-          } while (node2);
+            node = node.parent;
+          } while (node);
           return info;
         } catch (x) {
           return "\nError generating stack: " + x.message + "\n" + x.stack;
@@ -11395,7 +11396,7 @@ var require_react_dom_server_browser_development = __commonJS((exports) => {
           errorDigest: null
         };
       }
-      function createTask(request, node2, blockedBoundary, blockedSegment, abortSet, legacyContext, context3, treeContext) {
+      function createTask(request, node, blockedBoundary, blockedSegment, abortSet, legacyContext, context3, treeContext) {
         request.allPendingTasks++;
         if (blockedBoundary === null) {
           request.pendingRootTasks++;
@@ -11403,7 +11404,7 @@ var require_react_dom_server_browser_development = __commonJS((exports) => {
           blockedBoundary.pendingTasks++;
         }
         var task = {
-          node: node2,
+          node,
           ping: function() {
             return pingTask(request, task);
           },
@@ -11872,10 +11873,10 @@ var require_react_dom_server_browser_development = __commonJS((exports) => {
           }
         }
       }
-      function renderNodeDestructive(request, task, node2) {
+      function renderNodeDestructive(request, task, node) {
         {
           try {
-            return renderNodeDestructiveImpl(request, task, node2);
+            return renderNodeDestructiveImpl(request, task, node);
           } catch (x) {
             if (typeof x === "object" && x !== null && typeof x.then === "function")
               ;
@@ -11886,12 +11887,12 @@ var require_react_dom_server_browser_development = __commonJS((exports) => {
           }
         }
       }
-      function renderNodeDestructiveImpl(request, task, node2) {
-        task.node = node2;
-        if (typeof node2 === "object" && node2 !== null) {
-          switch (node2.$$typeof) {
+      function renderNodeDestructiveImpl(request, task, node) {
+        task.node = node;
+        if (typeof node === "object" && node !== null) {
+          switch (node.$$typeof) {
             case REACT_ELEMENT_TYPE: {
-              var element = node2;
+              var element = node;
               var type = element.type;
               var props = element.props;
               var ref = element.ref;
@@ -11901,7 +11902,7 @@ var require_react_dom_server_browser_development = __commonJS((exports) => {
             case REACT_PORTAL_TYPE:
               throw new Error("Portals are not currently supported by the server renderer. Render them conditionally so that they only appear on the client render.");
             case REACT_LAZY_TYPE: {
-              var lazyNode = node2;
+              var lazyNode = node;
               var payload = lazyNode._payload;
               var init = lazyNode._init;
               var resolvedNode;
@@ -11919,16 +11920,16 @@ var require_react_dom_server_browser_development = __commonJS((exports) => {
               return;
             }
           }
-          if (isArray(node2)) {
-            renderChildrenArray(request, task, node2);
+          if (isArray(node)) {
+            renderChildrenArray(request, task, node);
             return;
           }
-          var iteratorFn = getIteratorFn(node2);
+          var iteratorFn = getIteratorFn(node);
           if (iteratorFn) {
             {
-              validateIterable(node2, iteratorFn);
+              validateIterable(node, iteratorFn);
             }
-            var iterator = iteratorFn.call(node2);
+            var iterator = iteratorFn.call(node);
             if (iterator) {
               var step = iterator.next();
               if (!step.done) {
@@ -11943,21 +11944,21 @@ var require_react_dom_server_browser_development = __commonJS((exports) => {
               return;
             }
           }
-          var childString = Object.prototype.toString.call(node2);
-          throw new Error("Objects are not valid as a React child (found: " + (childString === "[object Object]" ? "object with keys {" + Object.keys(node2).join(", ") + "}" : childString) + "). If you meant to render a collection of children, use an array instead.");
+          var childString = Object.prototype.toString.call(node);
+          throw new Error("Objects are not valid as a React child (found: " + (childString === "[object Object]" ? "object with keys {" + Object.keys(node).join(", ") + "}" : childString) + "). If you meant to render a collection of children, use an array instead.");
         }
-        if (typeof node2 === "string") {
+        if (typeof node === "string") {
           var segment = task.blockedSegment;
-          segment.lastPushedText = pushTextInstance(task.blockedSegment.chunks, node2, request.responseState, segment.lastPushedText);
+          segment.lastPushedText = pushTextInstance(task.blockedSegment.chunks, node, request.responseState, segment.lastPushedText);
           return;
         }
-        if (typeof node2 === "number") {
+        if (typeof node === "number") {
           var _segment = task.blockedSegment;
-          _segment.lastPushedText = pushTextInstance(task.blockedSegment.chunks, "" + node2, request.responseState, _segment.lastPushedText);
+          _segment.lastPushedText = pushTextInstance(task.blockedSegment.chunks, "" + node, request.responseState, _segment.lastPushedText);
           return;
         }
         {
-          if (typeof node2 === "function") {
+          if (typeof node === "function") {
             error("Functions are not valid as a React child. This may happen if you return a Component instead of <Component /> from render. Or maybe you meant to call this function rather than return it.");
           }
         }
@@ -11989,7 +11990,7 @@ var require_react_dom_server_browser_development = __commonJS((exports) => {
         var ping = newTask.ping;
         x.then(ping, ping);
       }
-      function renderNode(request, task, node2) {
+      function renderNode(request, task, node) {
         var previousFormatContext = task.blockedSegment.formatContext;
         var previousLegacyContext = task.legacyContext;
         var previousContext = task.context;
@@ -11998,7 +11999,7 @@ var require_react_dom_server_browser_development = __commonJS((exports) => {
           previousComponentStack = task.componentStack;
         }
         try {
-          return renderNodeDestructive(request, task, node2);
+          return renderNodeDestructive(request, task, node);
         } catch (x) {
           resetHooksState();
           if (typeof x === "object" && x !== null && typeof x.then === "function") {
@@ -12508,7 +12509,7 @@ var require_react_dom_server_browser_development = __commonJS((exports) => {
   }
 });
 
-// node_modules/@reactful/server/npm/props/
+// node_modules/react-dom/server.browser.js
 var $version, $renderToString, $renderToStaticMarkup, $renderToNodeStream, $renderToStaticNodeStream, $renderToReadableStream;
 var init_server_browser = __esm(() => {
   var react_dom_server_legacy_browser_development = __toESM(require_react_dom_server_legacy_browser_development(), 1);
@@ -12528,19 +12529,19 @@ var init_server_browser = __esm(() => {
   $renderToReadableStream = s.renderToReadableStream;
 });
 
-// node_modules/@reactful/server/npm/props/for
+// node_modules/@reactful/commons/npm/jsxon.js
 var htmlfyJSX, wrapper, map, deserializer, serializer, JSXON;
 var init_jsxon = __esm(() => {
   init_env();
   init_throw();
   init_server_browser();
   init_constants();
-  htmlfyJSX = function(node2) {
-    if (!node2)
+  htmlfyJSX = function(node) {
+    if (!node)
       return "";
     try {
       env.FLAGS.errors = false;
-      const wrap = wrapper(node2);
+      const wrap = wrapper(node);
       const html = $renderToString(wrap);
       env.FLAGS.errors = true;
       return html;
@@ -12564,9 +12565,13 @@ var init_jsxon = __esm(() => {
     if (typed != "function" || named == "retype")
       return value2;
     function retype(p, f) {
-      const child = value2.type({ ...props, ...p }, { ...feeds, ...f });
-      const split = Object.entries(child.props).map(([key, obj]) => [key, wrapper(obj)]);
-      return { ...child, props: Object.fromEntries(split) };
+      try {
+        const child = value2.type({ ...props, ...p }, { ...feeds, ...f });
+        const split = Object.entries(child?.props || {}).map(([key, obj]) => [key, wrapper(obj)]);
+        return { ...child, props: Object.fromEntries(split) };
+      } catch (ex) {
+        throws(ex, import.meta);
+      }
     }
     return { ...value2, type: retype };
   };
@@ -12583,14 +12588,14 @@ var init_jsxon = __esm(() => {
   };
 });
 
-// node_modules/@reactful/server/npm/props/form
+// node_modules/@reactful/commons/npm/render.js
 var params;
 var init_render = __esm(() => {
   init_env();
   params = (tag, own, uid, now) => ({ tag, own, uid, mem: now, ioc: env.settings.context });
 });
 
-// node_modules/@reactful/server/npm/props/for
+// node_modules/@reactful/commons/npm/index.js
 var init_npm2 = __esm(() => {
   init_env();
   init_http();
@@ -12604,7 +12609,7 @@ var init_npm2 = __esm(() => {
   init_constants();
 });
 
-// node_modules/@reactful/server/npm/props/formAuth.js
+// node_modules/scheduler/cjs/scheduler.development.js
 var require_scheduler_development = __commonJS((exports) => {
   if (true) {
     (function() {
@@ -12614,10 +12619,10 @@ var require_scheduler_development = __commonJS((exports) => {
       var enableSchedulerDebugging = false;
       var enableProfiling = false;
       var frameYieldMs = 5;
-      function push(heap, node2) {
+      function push(heap, node) {
         var index = heap.length;
-        heap.push(node2);
-        siftUp(heap, node2, index);
+        heap.push(node);
+        siftUp(heap, node, index);
       }
       function peek(heap) {
         return heap.length === 0 ? null : heap[0];
@@ -12634,13 +12639,13 @@ var require_scheduler_development = __commonJS((exports) => {
         }
         return first;
       }
-      function siftUp(heap, node2, i) {
+      function siftUp(heap, node, i) {
         var index = i;
         while (index > 0) {
           var parentIndex = index - 1 >>> 1;
           var parent = heap[parentIndex];
-          if (compare(parent, node2) > 0) {
-            heap[parentIndex] = node2;
+          if (compare(parent, node) > 0) {
+            heap[parentIndex] = node;
             heap[index] = parent;
             index = parentIndex;
           } else {
@@ -12648,7 +12653,7 @@ var require_scheduler_development = __commonJS((exports) => {
           }
         }
       }
-      function siftDown(heap, node2, i) {
+      function siftDown(heap, node, i) {
         var index = i;
         var length = heap.length;
         var halfLength = length >>> 1;
@@ -12657,19 +12662,19 @@ var require_scheduler_development = __commonJS((exports) => {
           var left = heap[leftIndex];
           var rightIndex = leftIndex + 1;
           var right = heap[rightIndex];
-          if (compare(left, node2) < 0) {
+          if (compare(left, node) < 0) {
             if (rightIndex < length && compare(right, left) < 0) {
               heap[index] = right;
-              heap[rightIndex] = node2;
+              heap[rightIndex] = node;
               index = rightIndex;
             } else {
               heap[index] = left;
-              heap[leftIndex] = node2;
+              heap[leftIndex] = node;
               index = leftIndex;
             }
-          } else if (rightIndex < length && compare(right, node2) < 0) {
+          } else if (rightIndex < length && compare(right, node) < 0) {
             heap[index] = right;
-            heap[rightIndex] = node2;
+            heap[rightIndex] = node;
             index = rightIndex;
           } else {
             return;
@@ -13050,7 +13055,7 @@ var require_scheduler_development = __commonJS((exports) => {
   }
 });
 
-// node_modules/@reactful/server/n
+// node_modules/scheduler/index.js
 var require_scheduler = __commonJS((exports, module) => {
   var scheduler_development = __toESM(require_scheduler_development(), 1);
   if (false) {
@@ -13059,7 +13064,7 @@ var require_scheduler = __commonJS((exports, module) => {
   }
 });
 
-// node_modules/@reactful/server/npm/props/formAuth.js
+// node_modules/react-dom/cjs/react-dom.development.js
 var require_react_dom_development = __commonJS((exports) => {
   var React = __toESM(require_react(), 1);
   var Scheduler = __toESM(require_scheduler(), 1);
@@ -13103,8 +13108,8 @@ var require_react_dom_development = __commonJS((exports) => {
             format += "%s";
             args = args.concat([stack]);
           }
-          var argsWithFormat = args.map(function(item2) {
-            return String(item2);
+          var argsWithFormat = args.map(function(item) {
+            return String(item);
           });
           argsWithFormat.unshift("Warning: " + format);
           Function.prototype.apply.call(console[level], console, argsWithFormat);
@@ -13537,11 +13542,11 @@ var require_react_dom_development = __commonJS((exports) => {
           }
         }
       }
-      function getValueForProperty(node2, name, expected, propertyInfo) {
+      function getValueForProperty(node, name, expected, propertyInfo) {
         {
           if (propertyInfo.mustUseProperty) {
             var propertyName = propertyInfo.propertyName;
-            return node2[propertyName];
+            return node[propertyName];
           } else {
             {
               checkAttributeStringCoercion(expected, name);
@@ -13552,8 +13557,8 @@ var require_react_dom_development = __commonJS((exports) => {
             var attributeName = propertyInfo.attributeName;
             var stringValue = null;
             if (propertyInfo.type === OVERLOADED_BOOLEAN) {
-              if (node2.hasAttribute(attributeName)) {
-                var value2 = node2.getAttribute(attributeName);
+              if (node.hasAttribute(attributeName)) {
+                var value2 = node.getAttribute(attributeName);
                 if (value2 === "") {
                   return true;
                 }
@@ -13565,14 +13570,14 @@ var require_react_dom_development = __commonJS((exports) => {
                 }
                 return value2;
               }
-            } else if (node2.hasAttribute(attributeName)) {
+            } else if (node.hasAttribute(attributeName)) {
               if (shouldRemoveAttribute(name, expected, propertyInfo, false)) {
-                return node2.getAttribute(attributeName);
+                return node.getAttribute(attributeName);
               }
               if (propertyInfo.type === BOOLEAN) {
                 return expected;
               }
-              stringValue = node2.getAttribute(attributeName);
+              stringValue = node.getAttribute(attributeName);
             }
             if (shouldRemoveAttribute(name, expected, propertyInfo, false)) {
               return stringValue === null ? expected : stringValue;
@@ -13584,15 +13589,15 @@ var require_react_dom_development = __commonJS((exports) => {
           }
         }
       }
-      function getValueForAttribute(node2, name, expected, isCustomComponentTag) {
+      function getValueForAttribute(node, name, expected, isCustomComponentTag) {
         {
           if (!isAttributeNameSafe(name)) {
             return;
           }
-          if (!node2.hasAttribute(name)) {
+          if (!node.hasAttribute(name)) {
             return expected === undefined ? undefined : null;
           }
-          var value2 = node2.getAttribute(name);
+          var value2 = node.getAttribute(name);
           {
             checkAttributeStringCoercion(expected, name);
           }
@@ -13602,7 +13607,7 @@ var require_react_dom_development = __commonJS((exports) => {
           return value2;
         }
       }
-      function setValueForProperty(node2, name, value2, isCustomComponentTag) {
+      function setValueForProperty(node, name, value2, isCustomComponentTag) {
         var propertyInfo = getPropertyInfo(name);
         if (shouldIgnoreAttribute(name, propertyInfo, isCustomComponentTag)) {
           return;
@@ -13614,12 +13619,12 @@ var require_react_dom_development = __commonJS((exports) => {
           if (isAttributeNameSafe(name)) {
             var _attributeName = name;
             if (value2 === null) {
-              node2.removeAttribute(_attributeName);
+              node.removeAttribute(_attributeName);
             } else {
               {
                 checkAttributeStringCoercion(value2, name);
               }
-              node2.setAttribute(_attributeName, "" + value2);
+              node.setAttribute(_attributeName, "" + value2);
             }
           }
           return;
@@ -13629,15 +13634,15 @@ var require_react_dom_development = __commonJS((exports) => {
           var propertyName = propertyInfo.propertyName;
           if (value2 === null) {
             var type = propertyInfo.type;
-            node2[propertyName] = type === BOOLEAN ? false : "";
+            node[propertyName] = type === BOOLEAN ? false : "";
           } else {
-            node2[propertyName] = value2;
+            node[propertyName] = value2;
           }
           return;
         }
         var { attributeName, attributeNamespace } = propertyInfo;
         if (value2 === null) {
-          node2.removeAttribute(attributeName);
+          node.removeAttribute(attributeName);
         } else {
           var _type = propertyInfo.type;
           var attributeValue;
@@ -13655,9 +13660,9 @@ var require_react_dom_development = __commonJS((exports) => {
             }
           }
           if (attributeNamespace) {
-            node2.setAttributeNS(attributeNamespace, attributeName, attributeValue);
+            node.setAttributeNS(attributeNamespace, attributeName, attributeValue);
           } else {
-            node2.setAttribute(attributeName, attributeValue);
+            node.setAttribute(attributeName, attributeValue);
           }
         }
       }
@@ -13972,11 +13977,11 @@ var require_react_dom_development = __commonJS((exports) => {
       function getStackByFiberInDevAndProd(workInProgress2) {
         try {
           var info = "";
-          var node2 = workInProgress2;
+          var node = workInProgress2;
           do {
-            info += describeFiber(node2);
-            node2 = node2.return;
-          } while (node2);
+            info += describeFiber(node);
+            node = node.return;
+          } while (node);
           return info;
         } catch (x) {
           return "\nError generating stack: " + x.message + "\n" + x.stack;
@@ -14209,36 +14214,36 @@ var require_react_dom_development = __commonJS((exports) => {
         var nodeName = elem.nodeName;
         return nodeName && nodeName.toLowerCase() === "input" && (type === "checkbox" || type === "radio");
       }
-      function getTracker(node2) {
-        return node2._valueTracker;
+      function getTracker(node) {
+        return node._valueTracker;
       }
-      function detachTracker(node2) {
-        node2._valueTracker = null;
+      function detachTracker(node) {
+        node._valueTracker = null;
       }
-      function getValueFromNode(node2) {
+      function getValueFromNode(node) {
         var value2 = "";
-        if (!node2) {
+        if (!node) {
           return value2;
         }
-        if (isCheckable(node2)) {
-          value2 = node2.checked ? "true" : "false";
+        if (isCheckable(node)) {
+          value2 = node.checked ? "true" : "false";
         } else {
-          value2 = node2.value;
+          value2 = node.value;
         }
         return value2;
       }
-      function trackValueOnNode(node2) {
-        var valueField = isCheckable(node2) ? "checked" : "value";
-        var descriptor = Object.getOwnPropertyDescriptor(node2.constructor.prototype, valueField);
+      function trackValueOnNode(node) {
+        var valueField = isCheckable(node) ? "checked" : "value";
+        var descriptor = Object.getOwnPropertyDescriptor(node.constructor.prototype, valueField);
         {
-          checkFormFieldValueStringCoercion(node2[valueField]);
+          checkFormFieldValueStringCoercion(node[valueField]);
         }
-        var currentValue = "" + node2[valueField];
-        if (node2.hasOwnProperty(valueField) || typeof descriptor === "undefined" || typeof descriptor.get !== "function" || typeof descriptor.set !== "function") {
+        var currentValue = "" + node[valueField];
+        if (node.hasOwnProperty(valueField) || typeof descriptor === "undefined" || typeof descriptor.get !== "function" || typeof descriptor.set !== "function") {
           return;
         }
         var { get: get4, set: set4 } = descriptor;
-        Object.defineProperty(node2, valueField, {
+        Object.defineProperty(node, valueField, {
           configurable: true,
           get: function() {
             return get4.call(this);
@@ -14251,7 +14256,7 @@ var require_react_dom_development = __commonJS((exports) => {
             set4.call(this, value2);
           }
         });
-        Object.defineProperty(node2, valueField, {
+        Object.defineProperty(node, valueField, {
           enumerable: descriptor.enumerable
         });
         var tracker = {
@@ -14265,28 +14270,28 @@ var require_react_dom_development = __commonJS((exports) => {
             currentValue = "" + value2;
           },
           stopTracking: function() {
-            detachTracker(node2);
-            delete node2[valueField];
+            detachTracker(node);
+            delete node[valueField];
           }
         };
         return tracker;
       }
-      function track(node2) {
-        if (getTracker(node2)) {
+      function track(node) {
+        if (getTracker(node)) {
           return;
         }
-        node2._valueTracker = trackValueOnNode(node2);
+        node._valueTracker = trackValueOnNode(node);
       }
-      function updateValueIfChanged(node2) {
-        if (!node2) {
+      function updateValueIfChanged(node) {
+        if (!node) {
           return false;
         }
-        var tracker = getTracker(node2);
+        var tracker = getTracker(node);
         if (!tracker) {
           return true;
         }
         var lastValue = tracker.getValue();
-        var nextValue = getValueFromNode(node2);
+        var nextValue = getValueFromNode(node);
         if (nextValue !== lastValue) {
           tracker.setValue(nextValue);
           return true;
@@ -14313,13 +14318,13 @@ var require_react_dom_development = __commonJS((exports) => {
         return usesChecked ? props.checked != null : props.value != null;
       }
       function getHostProps(element, props) {
-        var node2 = element;
+        var node = element;
         var checked = props.checked;
         var hostProps = assign({}, props, {
           defaultChecked: undefined,
           defaultValue: undefined,
           value: undefined,
-          checked: checked != null ? checked : node2._wrapperState.initialChecked
+          checked: checked != null ? checked : node._wrapperState.initialChecked
         });
         return hostProps;
       }
@@ -14335,30 +14340,30 @@ var require_react_dom_development = __commonJS((exports) => {
             didWarnValueDefaultValue = true;
           }
         }
-        var node2 = element;
+        var node = element;
         var defaultValue = props.defaultValue == null ? "" : props.defaultValue;
-        node2._wrapperState = {
+        node._wrapperState = {
           initialChecked: props.checked != null ? props.checked : props.defaultChecked,
           initialValue: getToStringValue(props.value != null ? props.value : defaultValue),
           controlled: isControlled(props)
         };
       }
       function updateChecked(element, props) {
-        var node2 = element;
+        var node = element;
         var checked = props.checked;
         if (checked != null) {
-          setValueForProperty(node2, "checked", checked, false);
+          setValueForProperty(node, "checked", checked, false);
         }
       }
       function updateWrapper(element, props) {
-        var node2 = element;
+        var node = element;
         {
           var controlled = isControlled(props);
-          if (!node2._wrapperState.controlled && controlled && !didWarnUncontrolledToControlled) {
+          if (!node._wrapperState.controlled && controlled && !didWarnUncontrolledToControlled) {
             error("A component is changing an uncontrolled input to be controlled. This is likely caused by the value changing from undefined to a defined value, which should not happen. Decide between using a controlled or uncontrolled input element for the lifetime of the component. More info: https://reactjs.org/link/controlled-components");
             didWarnUncontrolledToControlled = true;
           }
-          if (node2._wrapperState.controlled && !controlled && !didWarnControlledToUncontrolled) {
+          if (node._wrapperState.controlled && !controlled && !didWarnControlledToUncontrolled) {
             error("A component is changing a controlled input to be uncontrolled. This is likely caused by the value changing from a defined to undefined, which should not happen. Decide between using a controlled or uncontrolled input element for the lifetime of the component. More info: https://reactjs.org/link/controlled-components");
             didWarnControlledToUncontrolled = true;
           }
@@ -14368,65 +14373,65 @@ var require_react_dom_development = __commonJS((exports) => {
         var type = props.type;
         if (value2 != null) {
           if (type === "number") {
-            if (value2 === 0 && node2.value === "" || node2.value != value2) {
-              node2.value = toString(value2);
+            if (value2 === 0 && node.value === "" || node.value != value2) {
+              node.value = toString(value2);
             }
-          } else if (node2.value !== toString(value2)) {
-            node2.value = toString(value2);
+          } else if (node.value !== toString(value2)) {
+            node.value = toString(value2);
           }
         } else if (type === "submit" || type === "reset") {
-          node2.removeAttribute("value");
+          node.removeAttribute("value");
           return;
         }
         {
           if (props.hasOwnProperty("value")) {
-            setDefaultValue(node2, props.type, value2);
+            setDefaultValue(node, props.type, value2);
           } else if (props.hasOwnProperty("defaultValue")) {
-            setDefaultValue(node2, props.type, getToStringValue(props.defaultValue));
+            setDefaultValue(node, props.type, getToStringValue(props.defaultValue));
           }
         }
         {
           if (props.checked == null && props.defaultChecked != null) {
-            node2.defaultChecked = !!props.defaultChecked;
+            node.defaultChecked = !!props.defaultChecked;
           }
         }
       }
       function postMountWrapper(element, props, isHydrating2) {
-        var node2 = element;
+        var node = element;
         if (props.hasOwnProperty("value") || props.hasOwnProperty("defaultValue")) {
           var type = props.type;
           var isButton = type === "submit" || type === "reset";
           if (isButton && (props.value === undefined || props.value === null)) {
             return;
           }
-          var initialValue = toString(node2._wrapperState.initialValue);
+          var initialValue = toString(node._wrapperState.initialValue);
           if (!isHydrating2) {
             {
-              if (initialValue !== node2.value) {
-                node2.value = initialValue;
+              if (initialValue !== node.value) {
+                node.value = initialValue;
               }
             }
           }
           {
-            node2.defaultValue = initialValue;
+            node.defaultValue = initialValue;
           }
         }
-        var name = node2.name;
+        var name = node.name;
         if (name !== "") {
-          node2.name = "";
+          node.name = "";
         }
         {
-          node2.defaultChecked = !node2.defaultChecked;
-          node2.defaultChecked = !!node2._wrapperState.initialChecked;
+          node.defaultChecked = !node.defaultChecked;
+          node.defaultChecked = !!node._wrapperState.initialChecked;
         }
         if (name !== "") {
-          node2.name = name;
+          node.name = name;
         }
       }
       function restoreControlledState(element, props) {
-        var node2 = element;
-        updateWrapper(node2, props);
-        updateNamedCousins(node2, props);
+        var node = element;
+        updateWrapper(node, props);
+        updateNamedCousins(node, props);
       }
       function updateNamedCousins(rootNode, props) {
         var name = props.name;
@@ -14453,12 +14458,12 @@ var require_react_dom_development = __commonJS((exports) => {
           }
         }
       }
-      function setDefaultValue(node2, type, value2) {
-        if (type !== "number" || getActiveElement(node2.ownerDocument) !== node2) {
+      function setDefaultValue(node, type, value2) {
+        if (type !== "number" || getActiveElement(node.ownerDocument) !== node) {
           if (value2 == null) {
-            node2.defaultValue = toString(node2._wrapperState.initialValue);
-          } else if (node2.defaultValue !== toString(value2)) {
-            node2.defaultValue = toString(value2);
+            node.defaultValue = toString(node._wrapperState.initialValue);
+          } else if (node.defaultValue !== toString(value2)) {
+            node.defaultValue = toString(value2);
           }
         }
       }
@@ -14532,8 +14537,8 @@ var require_react_dom_development = __commonJS((exports) => {
           }
         }
       }
-      function updateOptions(node2, multiple, propValue, setDefaultSelected) {
-        var options2 = node2.options;
+      function updateOptions(node, multiple, propValue, setDefaultSelected) {
+        var options2 = node.options;
         if (multiple) {
           var selectedValues = propValue;
           var selectedValue = {};
@@ -14575,11 +14580,11 @@ var require_react_dom_development = __commonJS((exports) => {
         });
       }
       function initWrapperState$1(element, props) {
-        var node2 = element;
+        var node = element;
         {
           checkSelectPropTypes(props);
         }
-        node2._wrapperState = {
+        node._wrapperState = {
           wasMultiple: !!props.multiple
         };
         {
@@ -14590,52 +14595,52 @@ var require_react_dom_development = __commonJS((exports) => {
         }
       }
       function postMountWrapper$2(element, props) {
-        var node2 = element;
-        node2.multiple = !!props.multiple;
+        var node = element;
+        node.multiple = !!props.multiple;
         var value2 = props.value;
         if (value2 != null) {
-          updateOptions(node2, !!props.multiple, value2, false);
+          updateOptions(node, !!props.multiple, value2, false);
         } else if (props.defaultValue != null) {
-          updateOptions(node2, !!props.multiple, props.defaultValue, true);
+          updateOptions(node, !!props.multiple, props.defaultValue, true);
         }
       }
       function postUpdateWrapper(element, props) {
-        var node2 = element;
-        var wasMultiple = node2._wrapperState.wasMultiple;
-        node2._wrapperState.wasMultiple = !!props.multiple;
+        var node = element;
+        var wasMultiple = node._wrapperState.wasMultiple;
+        node._wrapperState.wasMultiple = !!props.multiple;
         var value2 = props.value;
         if (value2 != null) {
-          updateOptions(node2, !!props.multiple, value2, false);
+          updateOptions(node, !!props.multiple, value2, false);
         } else if (wasMultiple !== !!props.multiple) {
           if (props.defaultValue != null) {
-            updateOptions(node2, !!props.multiple, props.defaultValue, true);
+            updateOptions(node, !!props.multiple, props.defaultValue, true);
           } else {
-            updateOptions(node2, !!props.multiple, props.multiple ? [] : "", false);
+            updateOptions(node, !!props.multiple, props.multiple ? [] : "", false);
           }
         }
       }
       function restoreControlledState$1(element, props) {
-        var node2 = element;
+        var node = element;
         var value2 = props.value;
         if (value2 != null) {
-          updateOptions(node2, !!props.multiple, value2, false);
+          updateOptions(node, !!props.multiple, value2, false);
         }
       }
       var didWarnValDefaultVal = false;
       function getHostProps$2(element, props) {
-        var node2 = element;
+        var node = element;
         if (props.dangerouslySetInnerHTML != null) {
           throw new Error("`dangerouslySetInnerHTML` does not make sense on <textarea>.");
         }
         var hostProps = assign({}, props, {
           value: undefined,
           defaultValue: undefined,
-          children: toString(node2._wrapperState.initialValue)
+          children: toString(node._wrapperState.initialValue)
         });
         return hostProps;
       }
       function initWrapperState$2(element, props) {
-        var node2 = element;
+        var node = element;
         {
           checkControlledValueProps("textarea", props);
           if (props.value !== undefined && props.defaultValue !== undefined && !didWarnValDefaultVal) {
@@ -14668,33 +14673,33 @@ var require_react_dom_development = __commonJS((exports) => {
           }
           initialValue = defaultValue;
         }
-        node2._wrapperState = {
+        node._wrapperState = {
           initialValue: getToStringValue(initialValue)
         };
       }
       function updateWrapper$1(element, props) {
-        var node2 = element;
+        var node = element;
         var value2 = getToStringValue(props.value);
         var defaultValue = getToStringValue(props.defaultValue);
         if (value2 != null) {
           var newValue = toString(value2);
-          if (newValue !== node2.value) {
-            node2.value = newValue;
+          if (newValue !== node.value) {
+            node.value = newValue;
           }
-          if (props.defaultValue == null && node2.defaultValue !== newValue) {
-            node2.defaultValue = newValue;
+          if (props.defaultValue == null && node.defaultValue !== newValue) {
+            node.defaultValue = newValue;
           }
         }
         if (defaultValue != null) {
-          node2.defaultValue = toString(defaultValue);
+          node.defaultValue = toString(defaultValue);
         }
       }
       function postMountWrapper$3(element, props) {
-        var node2 = element;
-        var textContent = node2.textContent;
-        if (textContent === node2._wrapperState.initialValue) {
+        var node = element;
+        var textContent = node.textContent;
+        if (textContent === node._wrapperState.initialValue) {
           if (textContent !== "" && textContent !== null) {
-            node2.value = textContent;
+            node.value = textContent;
           }
         }
       }
@@ -14723,49 +14728,49 @@ var require_react_dom_development = __commonJS((exports) => {
         }
         return parentNamespace;
       }
-      var createMicrosoftUnsafeLocalFunction = function(func2) {
+      var createMicrosoftUnsafeLocalFunction = function(func) {
         if (typeof MSApp !== "undefined" && MSApp.execUnsafeLocalFunction) {
           return function(arg0, arg1, arg2, arg3) {
             MSApp.execUnsafeLocalFunction(function() {
-              return func2(arg0, arg1, arg2, arg3);
+              return func(arg0, arg1, arg2, arg3);
             });
           };
         } else {
-          return func2;
+          return func;
         }
       };
       var reusableSVGContainer;
-      var setInnerHTML = createMicrosoftUnsafeLocalFunction(function(node2, html) {
-        if (node2.namespaceURI === SVG_NAMESPACE) {
-          if (!("innerHTML" in node2)) {
+      var setInnerHTML = createMicrosoftUnsafeLocalFunction(function(node, html) {
+        if (node.namespaceURI === SVG_NAMESPACE) {
+          if (!("innerHTML" in node)) {
             reusableSVGContainer = reusableSVGContainer || document.createElement("div");
             reusableSVGContainer.innerHTML = "<svg>" + html.valueOf().toString() + "</svg>";
             var svgNode = reusableSVGContainer.firstChild;
-            while (node2.firstChild) {
-              node2.removeChild(node2.firstChild);
+            while (node.firstChild) {
+              node.removeChild(node.firstChild);
             }
             while (svgNode.firstChild) {
-              node2.appendChild(svgNode.firstChild);
+              node.appendChild(svgNode.firstChild);
             }
             return;
           }
         }
-        node2.innerHTML = html;
+        node.innerHTML = html;
       });
       var ELEMENT_NODE = 1;
       var TEXT_NODE = 3;
       var COMMENT_NODE = 8;
       var DOCUMENT_NODE = 9;
       var DOCUMENT_FRAGMENT_NODE = 11;
-      var setTextContent = function(node2, text) {
+      var setTextContent = function(node, text) {
         if (text) {
-          var firstChild = node2.firstChild;
-          if (firstChild && firstChild === node2.lastChild && firstChild.nodeType === TEXT_NODE) {
+          var firstChild = node.firstChild;
+          if (firstChild && firstChild === node.lastChild && firstChild.nodeType === TEXT_NODE) {
             firstChild.nodeValue = text;
             return;
           }
         }
-        node2.textContent = text;
+        node.textContent = text;
       };
       var shorthandToLonghand = {
         animation: ["animationDelay", "animationDirection", "animationDuration", "animationFillMode", "animationIterationCount", "animationName", "animationPlayState", "animationTimingFunction"],
@@ -14976,8 +14981,8 @@ var require_react_dom_development = __commonJS((exports) => {
           return serialized || null;
         }
       }
-      function setValueForStyles(node2, styles) {
-        var style2 = node2.style;
+      function setValueForStyles(node, styles) {
+        var style2 = node.style;
         for (var styleName in styles) {
           if (!styles.hasOwnProperty(styleName)) {
             continue;
@@ -16006,10 +16011,10 @@ var require_react_dom_development = __commonJS((exports) => {
           passiveBrowserEventsSupported = false;
         }
       }
-      function invokeGuardedCallbackProd(name, func2, context3, a, b, c, d, e, f) {
+      function invokeGuardedCallbackProd(name, func, context3, a, b, c, d, e, f) {
         var funcArgs = Array.prototype.slice.call(arguments, 3);
         try {
-          func2.apply(context3, funcArgs);
+          func.apply(context3, funcArgs);
         } catch (error2) {
           this.onError(error2);
         }
@@ -16018,7 +16023,7 @@ var require_react_dom_development = __commonJS((exports) => {
       {
         if (typeof window !== "undefined" && typeof window.dispatchEvent === "function" && typeof document !== "undefined" && typeof document.createEvent === "function") {
           var fakeNode = document.createElement("react");
-          invokeGuardedCallbackImpl = function invokeGuardedCallbackDev(name, func2, context3, a, b, c, d, e, f) {
+          invokeGuardedCallbackImpl = function invokeGuardedCallbackDev(name, func, context3, a, b, c, d, e, f) {
             if (typeof document === "undefined" || document === null) {
               throw new Error("The `document` global was defined when React was initialized, but is not defined anymore. This can happen in a test environment if a component schedules an update from an asynchronous callback, but the test has already finished running. To solve this, you can either unmount the component at the end of your test (and ensure that any asynchronous operations get canceled in `componentWillUnmount`), or you can change the test itself to be asynchronous.");
             }
@@ -16037,7 +16042,7 @@ var require_react_dom_development = __commonJS((exports) => {
             function callCallback2() {
               didCall = true;
               restoreAfterDispatch();
-              func2.apply(context3, funcArgs);
+              func.apply(context3, funcArgs);
               didError = false;
             }
             var error2;
@@ -16093,12 +16098,12 @@ var require_react_dom_development = __commonJS((exports) => {
           caughtError = error2;
         }
       };
-      function invokeGuardedCallback(name, func2, context3, a, b, c, d, e, f) {
+      function invokeGuardedCallback(name, func, context3, a, b, c, d, e, f) {
         hasError = false;
         caughtError = null;
         invokeGuardedCallbackImpl$1.apply(reporter, arguments);
       }
-      function invokeGuardedCallbackAndCatchFirstError(name, func2, context3, a, b, c, d, e, f) {
+      function invokeGuardedCallbackAndCatchFirstError(name, func, context3, a, b, c, d, e, f) {
         invokeGuardedCallback.apply(this, arguments);
         if (hasError) {
           var error2 = clearCaughtError();
@@ -16171,23 +16176,23 @@ var require_react_dom_development = __commonJS((exports) => {
       var StaticMask = LayoutStatic | PassiveStatic | RefStatic;
       var ReactCurrentOwner = ReactSharedInternals.ReactCurrentOwner;
       function getNearestMountedFiber(fiber) {
-        var node2 = fiber;
+        var node = fiber;
         var nearestMounted = fiber;
         if (!fiber.alternate) {
-          var nextNode = node2;
+          var nextNode = node;
           do {
-            node2 = nextNode;
-            if ((node2.flags & (Placement | Hydrating)) !== NoFlags) {
-              nearestMounted = node2.return;
+            node = nextNode;
+            if ((node.flags & (Placement | Hydrating)) !== NoFlags) {
+              nearestMounted = node.return;
             }
-            nextNode = node2.return;
+            nextNode = node.return;
           } while (nextNode);
         } else {
-          while (node2.return) {
-            node2 = node2.return;
+          while (node.return) {
+            node = node.return;
           }
         }
-        if (node2.tag === HostRoot) {
+        if (node.tag === HostRoot) {
           return nearestMounted;
         }
         return null;
@@ -16338,11 +16343,11 @@ var require_react_dom_development = __commonJS((exports) => {
         var currentParent = findCurrentFiberUsingSlowPath(parent);
         return currentParent !== null ? findCurrentHostFiberImpl(currentParent) : null;
       }
-      function findCurrentHostFiberImpl(node2) {
-        if (node2.tag === HostComponent || node2.tag === HostText) {
-          return node2;
+      function findCurrentHostFiberImpl(node) {
+        if (node.tag === HostComponent || node.tag === HostText) {
+          return node;
         }
-        var child = node2.child;
+        var child = node.child;
         while (child !== null) {
           var match = findCurrentHostFiberImpl(child);
           if (match !== null) {
@@ -16356,11 +16361,11 @@ var require_react_dom_development = __commonJS((exports) => {
         var currentParent = findCurrentFiberUsingSlowPath(parent);
         return currentParent !== null ? findCurrentHostFiberWithNoPortalsImpl(currentParent) : null;
       }
-      function findCurrentHostFiberWithNoPortalsImpl(node2) {
-        if (node2.tag === HostComponent || node2.tag === HostText) {
-          return node2;
+      function findCurrentHostFiberWithNoPortalsImpl(node) {
+        if (node.tag === HostComponent || node.tag === HostText) {
+          return node;
         }
-        var child = node2.child;
+        var child = node.child;
         while (child !== null) {
           if (child.tag !== HostPortal) {
             var match = findCurrentHostFiberWithNoPortalsImpl(child);
@@ -18486,13 +18491,13 @@ var require_react_dom_development = __commonJS((exports) => {
           return getInstIfValueChanged(targetInst);
         }
       }
-      function handleControlledInputBlur(node2) {
-        var state = node2._wrapperState;
-        if (!state || !state.controlled || node2.type !== "number") {
+      function handleControlledInputBlur(node) {
+        var state = node._wrapperState;
+        if (!state || !state.controlled || node.type !== "number") {
           return;
         }
         {
-          setDefaultValue(node2, "number", node2.value);
+          setDefaultValue(node, "number", node.value);
         }
       }
       function extractEvents$1(dispatchQueue, domEventName, targetInst, nativeEvent, nativeEventTarget, eventSystemFlags, targetContainer) {
@@ -18623,36 +18628,36 @@ var require_react_dom_development = __commonJS((exports) => {
         }
         return true;
       }
-      function getLeafNode(node2) {
-        while (node2 && node2.firstChild) {
-          node2 = node2.firstChild;
+      function getLeafNode(node) {
+        while (node && node.firstChild) {
+          node = node.firstChild;
         }
-        return node2;
+        return node;
       }
-      function getSiblingNode(node2) {
-        while (node2) {
-          if (node2.nextSibling) {
-            return node2.nextSibling;
+      function getSiblingNode(node) {
+        while (node) {
+          if (node.nextSibling) {
+            return node.nextSibling;
           }
-          node2 = node2.parentNode;
+          node = node.parentNode;
         }
       }
       function getNodeForCharacterOffset(root2, offset) {
-        var node2 = getLeafNode(root2);
+        var node = getLeafNode(root2);
         var nodeStart = 0;
         var nodeEnd = 0;
-        while (node2) {
-          if (node2.nodeType === TEXT_NODE) {
-            nodeEnd = nodeStart + node2.textContent.length;
+        while (node) {
+          if (node.nodeType === TEXT_NODE) {
+            nodeEnd = nodeStart + node.textContent.length;
             if (nodeStart <= offset && nodeEnd >= offset) {
               return {
-                node: node2,
+                node,
                 offset: offset - nodeStart
               };
             }
             nodeStart = nodeEnd;
           }
-          node2 = getLeafNode(getSiblingNode(node2));
+          node = getLeafNode(getSiblingNode(node));
         }
       }
       function getOffsets(outerNode) {
@@ -18677,29 +18682,29 @@ var require_react_dom_development = __commonJS((exports) => {
         var end = -1;
         var indexWithinAnchor = 0;
         var indexWithinFocus = 0;
-        var node2 = outerNode;
+        var node = outerNode;
         var parentNode = null;
         outer:
           while (true) {
             var next = null;
             while (true) {
-              if (node2 === anchorNode && (anchorOffset === 0 || node2.nodeType === TEXT_NODE)) {
+              if (node === anchorNode && (anchorOffset === 0 || node.nodeType === TEXT_NODE)) {
                 start = length + anchorOffset;
               }
-              if (node2 === focusNode && (focusOffset === 0 || node2.nodeType === TEXT_NODE)) {
+              if (node === focusNode && (focusOffset === 0 || node.nodeType === TEXT_NODE)) {
                 end = length + focusOffset;
               }
-              if (node2.nodeType === TEXT_NODE) {
-                length += node2.nodeValue.length;
+              if (node.nodeType === TEXT_NODE) {
+                length += node.nodeValue.length;
               }
-              if ((next = node2.firstChild) === null) {
+              if ((next = node.firstChild) === null) {
                 break;
               }
-              parentNode = node2;
-              node2 = next;
+              parentNode = node;
+              node = next;
             }
             while (true) {
-              if (node2 === outerNode) {
+              if (node === outerNode) {
                 break outer;
               }
               if (parentNode === anchorNode && ++indexWithinAnchor === anchorOffset) {
@@ -18708,13 +18713,13 @@ var require_react_dom_development = __commonJS((exports) => {
               if (parentNode === focusNode && ++indexWithinFocus === focusOffset) {
                 end = length;
               }
-              if ((next = node2.nextSibling) !== null) {
+              if ((next = node.nextSibling) !== null) {
                 break;
               }
-              node2 = parentNode;
-              parentNode = node2.parentNode;
+              node = parentNode;
+              parentNode = node.parentNode;
             }
-            node2 = next;
+            node = next;
           }
         if (start === -1 || end === -1) {
           return null;
@@ -18724,14 +18729,14 @@ var require_react_dom_development = __commonJS((exports) => {
           end
         };
       }
-      function setOffsets(node2, offsets) {
-        var doc = node2.ownerDocument || document;
+      function setOffsets(node, offsets) {
+        var doc = node.ownerDocument || document;
         var win = doc && doc.defaultView || window;
         if (!win.getSelection) {
           return;
         }
         var selection = win.getSelection();
-        var length = node2.textContent.length;
+        var length = node.textContent.length;
         var start = Math.min(offsets.start, length);
         var end = offsets.end === undefined ? start : Math.min(offsets.end, length);
         if (!selection.extend && start > end) {
@@ -18739,8 +18744,8 @@ var require_react_dom_development = __commonJS((exports) => {
           end = start;
           start = temp;
         }
-        var startMarker = getNodeForCharacterOffset(node2, start);
-        var endMarker = getNodeForCharacterOffset(node2, end);
+        var startMarker = getNodeForCharacterOffset(node, start);
+        var endMarker = getNodeForCharacterOffset(node, end);
         if (startMarker && endMarker) {
           if (selection.rangeCount === 1 && selection.anchorNode === startMarker.node && selection.anchorOffset === startMarker.offset && selection.focusNode === endMarker.node && selection.focusOffset === endMarker.offset) {
             return;
@@ -18757,8 +18762,8 @@ var require_react_dom_development = __commonJS((exports) => {
           }
         }
       }
-      function isTextNode(node2) {
-        return node2 && node2.nodeType === TEXT_NODE;
+      function isTextNode(node) {
+        return node && node.nodeType === TEXT_NODE;
       }
       function containsNode(outerNode, innerNode) {
         if (!outerNode || !innerNode) {
@@ -18777,8 +18782,8 @@ var require_react_dom_development = __commonJS((exports) => {
           return false;
         }
       }
-      function isInDocument(node2) {
-        return node2 && node2.ownerDocument && containsNode(node2.ownerDocument.documentElement, node2);
+      function isInDocument(node) {
+        return node && node.ownerDocument && containsNode(node.ownerDocument.documentElement, node);
       }
       function isSameOriginFrame(iframe) {
         try {
@@ -18876,14 +18881,14 @@ var require_react_dom_development = __commonJS((exports) => {
       var activeElementInst$1 = null;
       var lastSelection = null;
       var mouseDown = false;
-      function getSelection$1(node2) {
-        if ("selectionStart" in node2 && hasSelectionCapabilities(node2)) {
+      function getSelection$1(node) {
+        if ("selectionStart" in node && hasSelectionCapabilities(node)) {
           return {
-            start: node2.selectionStart,
-            end: node2.selectionEnd
+            start: node.selectionStart,
+            end: node.selectionEnd
           };
         } else {
-          var win = node2.ownerDocument && node2.ownerDocument.defaultView || window;
+          var win = node.ownerDocument && node.ownerDocument.defaultView || window;
           var selection = win.getSelection();
           return {
             anchorNode: selection.anchorNode,
@@ -19252,20 +19257,20 @@ var require_react_dom_development = __commonJS((exports) => {
         if ((eventSystemFlags & IS_EVENT_HANDLE_NON_MANAGED_NODE) === 0 && (eventSystemFlags & IS_NON_DELEGATED) === 0) {
           var targetContainerNode = targetContainer;
           if (targetInst !== null) {
-            var node2 = targetInst;
+            var node = targetInst;
             mainLoop:
               while (true) {
-                if (node2 === null) {
+                if (node === null) {
                   return;
                 }
-                var nodeTag = node2.tag;
+                var nodeTag = node.tag;
                 if (nodeTag === HostRoot || nodeTag === HostPortal) {
-                  var container = node2.stateNode.containerInfo;
+                  var container = node.stateNode.containerInfo;
                   if (isMatchingRootContainer(container, targetContainerNode)) {
                     break;
                   }
                   if (nodeTag === HostPortal) {
-                    var grandNode = node2.return;
+                    var grandNode = node.return;
                     while (grandNode !== null) {
                       var grandTag = grandNode.tag;
                       if (grandTag === HostRoot || grandTag === HostPortal) {
@@ -19284,13 +19289,13 @@ var require_react_dom_development = __commonJS((exports) => {
                     }
                     var parentTag = parentNode.tag;
                     if (parentTag === HostComponent || parentTag === HostText) {
-                      node2 = ancestorInst = parentNode;
+                      node = ancestorInst = parentNode;
                       continue mainLoop;
                     }
                     container = container.parentNode;
                   }
                 }
-                node2 = node2.return;
+                node = node.return;
               }
           }
         }
@@ -19535,8 +19540,8 @@ var require_react_dom_development = __commonJS((exports) => {
       }
       function noop() {
       }
-      function trapClickOnNonInteractiveElement(node2) {
-        node2.onclick = noop;
+      function trapClickOnNonInteractiveElement(node) {
+        node.onclick = noop;
       }
       function setInitialDOMProperties(tag, domElement, rootContainerElement, nextProps, isCustomComponentTag) {
         for (var propKey in nextProps) {
@@ -19625,11 +19630,11 @@ var require_react_dom_development = __commonJS((exports) => {
           } else {
             domElement = ownerDocument.createElement(type);
             if (type === "select") {
-              var node2 = domElement;
+              var node = domElement;
               if (props.multiple) {
-                node2.multiple = true;
+                node.multiple = true;
               } else if (props.size) {
-                node2.size = props.size;
+                node.size = props.size;
               }
             }
           }
@@ -20580,11 +20585,11 @@ var require_react_dom_development = __commonJS((exports) => {
         }
       }
       function clearSuspenseBoundary(parentInstance, suspenseInstance) {
-        var node2 = suspenseInstance;
+        var node = suspenseInstance;
         var depth = 0;
         do {
-          var nextNode = node2.nextSibling;
-          parentInstance.removeChild(node2);
+          var nextNode = node.nextSibling;
+          parentInstance.removeChild(node);
           if (nextNode && nextNode.nodeType === COMMENT_NODE) {
             var data = nextNode.data;
             if (data === SUSPENSE_END_DATA) {
@@ -20599,8 +20604,8 @@ var require_react_dom_development = __commonJS((exports) => {
               depth++;
             }
           }
-          node2 = nextNode;
-        } while (node2);
+          node = nextNode;
+        } while (node);
         retryIfBlockedOn(suspenseInstance);
       }
       function clearSuspenseBoundaryFromContainer(container, suspenseInstance) {
@@ -20686,14 +20691,14 @@ var require_react_dom_development = __commonJS((exports) => {
       function registerSuspenseInstanceRetry(instance, callback) {
         instance._reactRetry = callback;
       }
-      function getNextHydratable(node2) {
-        for (;node2 != null; node2 = node2.nextSibling) {
-          var nodeType = node2.nodeType;
+      function getNextHydratable(node) {
+        for (;node != null; node = node.nextSibling) {
+          var nodeType = node.nodeType;
           if (nodeType === ELEMENT_NODE || nodeType === TEXT_NODE) {
             break;
           }
           if (nodeType === COMMENT_NODE) {
-            var nodeData = node2.data;
+            var nodeData = node.data;
             if (nodeData === SUSPENSE_START_DATA || nodeData === SUSPENSE_FALLBACK_START_DATA || nodeData === SUSPENSE_PENDING_START_DATA) {
               break;
             }
@@ -20702,7 +20707,7 @@ var require_react_dom_development = __commonJS((exports) => {
             }
           }
         }
-        return node2;
+        return node;
       }
       function getNextHydratableSibling(instance) {
         return getNextHydratable(instance.nextSibling);
@@ -20736,14 +20741,14 @@ var require_react_dom_development = __commonJS((exports) => {
         precacheFiberNode(internalInstanceHandle, suspenseInstance);
       }
       function getNextHydratableInstanceAfterSuspenseInstance(suspenseInstance) {
-        var node2 = suspenseInstance.nextSibling;
+        var node = suspenseInstance.nextSibling;
         var depth = 0;
-        while (node2) {
-          if (node2.nodeType === COMMENT_NODE) {
-            var data = node2.data;
+        while (node) {
+          if (node.nodeType === COMMENT_NODE) {
+            var data = node.data;
             if (data === SUSPENSE_END_DATA) {
               if (depth === 0) {
-                return getNextHydratableSibling(node2);
+                return getNextHydratableSibling(node);
               } else {
                 depth--;
               }
@@ -20751,19 +20756,19 @@ var require_react_dom_development = __commonJS((exports) => {
               depth++;
             }
           }
-          node2 = node2.nextSibling;
+          node = node.nextSibling;
         }
         return null;
       }
       function getParentSuspenseInstance(targetInstance) {
-        var node2 = targetInstance.previousSibling;
+        var node = targetInstance.previousSibling;
         var depth = 0;
-        while (node2) {
-          if (node2.nodeType === COMMENT_NODE) {
-            var data = node2.data;
+        while (node) {
+          if (node.nodeType === COMMENT_NODE) {
+            var data = node.data;
             if (data === SUSPENSE_START_DATA || data === SUSPENSE_FALLBACK_START_DATA || data === SUSPENSE_PENDING_START_DATA) {
               if (depth === 0) {
-                return node2;
+                return node;
               } else {
                 depth--;
               }
@@ -20771,7 +20776,7 @@ var require_react_dom_development = __commonJS((exports) => {
               depth++;
             }
           }
-          node2 = node2.previousSibling;
+          node = node.previousSibling;
         }
         return null;
       }
@@ -20885,24 +20890,24 @@ var require_react_dom_development = __commonJS((exports) => {
       var internalEventHandlersKey = "__reactEvents$" + randomKey;
       var internalEventHandlerListenersKey = "__reactListeners$" + randomKey;
       var internalEventHandlesSetKey = "__reactHandles$" + randomKey;
-      function detachDeletedInstance(node2) {
-        delete node2[internalInstanceKey];
-        delete node2[internalPropsKey];
-        delete node2[internalEventHandlersKey];
-        delete node2[internalEventHandlerListenersKey];
-        delete node2[internalEventHandlesSetKey];
+      function detachDeletedInstance(node) {
+        delete node[internalInstanceKey];
+        delete node[internalPropsKey];
+        delete node[internalEventHandlersKey];
+        delete node[internalEventHandlerListenersKey];
+        delete node[internalEventHandlesSetKey];
       }
-      function precacheFiberNode(hostInst, node2) {
-        node2[internalInstanceKey] = hostInst;
+      function precacheFiberNode(hostInst, node) {
+        node[internalInstanceKey] = hostInst;
       }
-      function markContainerAsRoot(hostRoot, node2) {
-        node2[internalContainerInstanceKey] = hostRoot;
+      function markContainerAsRoot(hostRoot, node) {
+        node[internalContainerInstanceKey] = hostRoot;
       }
-      function unmarkContainerAsRoot(node2) {
-        node2[internalContainerInstanceKey] = null;
+      function unmarkContainerAsRoot(node) {
+        node[internalContainerInstanceKey] = null;
       }
-      function isContainerMarkedAsRoot(node2) {
-        return !!node2[internalContainerInstanceKey];
+      function isContainerMarkedAsRoot(node) {
+        return !!node[internalContainerInstanceKey];
       }
       function getClosestInstanceFromNode(targetNode) {
         var targetInst = targetNode[internalInstanceKey];
@@ -20931,8 +20936,8 @@ var require_react_dom_development = __commonJS((exports) => {
         }
         return null;
       }
-      function getInstanceFromNode(node2) {
-        var inst = node2[internalInstanceKey] || node2[internalContainerInstanceKey];
+      function getInstanceFromNode(node) {
+        var inst = node[internalInstanceKey] || node[internalContainerInstanceKey];
         if (inst) {
           if (inst.tag === HostComponent || inst.tag === HostText || inst.tag === SuspenseComponent || inst.tag === HostRoot) {
             return inst;
@@ -20948,16 +20953,16 @@ var require_react_dom_development = __commonJS((exports) => {
         }
         throw new Error("getNodeFromInstance: Invalid argument.");
       }
-      function getFiberCurrentPropsFromNode(node2) {
-        return node2[internalPropsKey] || null;
+      function getFiberCurrentPropsFromNode(node) {
+        return node[internalPropsKey] || null;
       }
-      function updateFiberProps(node2, props) {
-        node2[internalPropsKey] = props;
+      function updateFiberProps(node, props) {
+        node[internalPropsKey] = props;
       }
-      function getEventListenerSet(node2) {
-        var elementListenerSet = node2[internalEventHandlersKey];
+      function getEventListenerSet(node) {
+        var elementListenerSet = node[internalEventHandlersKey];
         if (elementListenerSet === undefined) {
-          elementListenerSet = node2[internalEventHandlersKey] = new Set;
+          elementListenerSet = node[internalEventHandlersKey] = new Set;
         }
         return elementListenerSet;
       }
@@ -21187,21 +21192,21 @@ var require_react_dom_development = __commonJS((exports) => {
           if (!isFiberMounted(fiber) || fiber.tag !== ClassComponent) {
             throw new Error("Expected subtree parent to be a mounted class component. This error is likely caused by a bug in React. Please file an issue.");
           }
-          var node2 = fiber;
+          var node = fiber;
           do {
-            switch (node2.tag) {
+            switch (node.tag) {
               case HostRoot:
-                return node2.stateNode.context;
+                return node.stateNode.context;
               case ClassComponent: {
-                var Component2 = node2.type;
+                var Component2 = node.type;
                 if (isContextProvider(Component2)) {
-                  return node2.stateNode.__reactInternalMemoizedMergedChildContext;
+                  return node.stateNode.__reactInternalMemoizedMergedChildContext;
                 }
                 break;
               }
             }
-            node2 = node2.return;
-          } while (node2 !== null);
+            node = node.return;
+          } while (node !== null);
           throw new Error("Found unexpected detached subtree parent. This error is likely caused by a bug in React. Please file an issue.");
         }
       }
@@ -21749,12 +21754,12 @@ var require_react_dom_development = __commonJS((exports) => {
       {
         var findStrictRoot = function(fiber) {
           var maybeStrictRoot = null;
-          var node2 = fiber;
-          while (node2 !== null) {
-            if (node2.mode & StrictLegacyMode) {
-              maybeStrictRoot = node2;
+          var node = fiber;
+          while (node !== null) {
+            if (node.mode & StrictLegacyMode) {
+              maybeStrictRoot = node;
             }
-            node2 = node2.return;
+            node = node.return;
           }
           return maybeStrictRoot;
         };
@@ -21981,24 +21986,24 @@ var require_react_dom_development = __commonJS((exports) => {
         }
       }
       function scheduleContextWorkOnParentPath(parent, renderLanes2, propagationRoot) {
-        var node2 = parent;
-        while (node2 !== null) {
-          var alternate = node2.alternate;
-          if (!isSubsetOfLanes(node2.childLanes, renderLanes2)) {
-            node2.childLanes = mergeLanes(node2.childLanes, renderLanes2);
+        var node = parent;
+        while (node !== null) {
+          var alternate = node.alternate;
+          if (!isSubsetOfLanes(node.childLanes, renderLanes2)) {
+            node.childLanes = mergeLanes(node.childLanes, renderLanes2);
             if (alternate !== null) {
               alternate.childLanes = mergeLanes(alternate.childLanes, renderLanes2);
             }
           } else if (alternate !== null && !isSubsetOfLanes(alternate.childLanes, renderLanes2)) {
             alternate.childLanes = mergeLanes(alternate.childLanes, renderLanes2);
           }
-          if (node2 === propagationRoot) {
+          if (node === propagationRoot) {
             break;
           }
-          node2 = node2.return;
+          node = node.return;
         }
         {
-          if (node2 !== propagationRoot) {
+          if (node !== propagationRoot) {
             error("Expected to find the propagation root when scheduling context work. This error is likely caused by a bug in React. Please file an issue.");
           }
         }
@@ -22214,7 +22219,7 @@ var require_react_dom_development = __commonJS((exports) => {
             warnAboutUpdateOnNotYetMountedFiberInDEV(sourceFiber);
           }
         }
-        var node2 = sourceFiber;
+        var node = sourceFiber;
         var parent = sourceFiber.return;
         while (parent !== null) {
           parent.childLanes = mergeLanes(parent.childLanes, lane);
@@ -22228,11 +22233,11 @@ var require_react_dom_development = __commonJS((exports) => {
               }
             }
           }
-          node2 = parent;
+          node = parent;
           parent = parent.return;
         }
-        if (node2.tag === HostRoot) {
-          var root2 = node2.stateNode;
+        if (node.tag === HostRoot) {
+          var root2 = node.stateNode;
           return root2;
         } else {
           return null;
@@ -24018,37 +24023,37 @@ var require_react_dom_development = __commonJS((exports) => {
         }
       }
       function findFirstSuspended(row) {
-        var node2 = row;
-        while (node2 !== null) {
-          if (node2.tag === SuspenseComponent) {
-            var state = node2.memoizedState;
+        var node = row;
+        while (node !== null) {
+          if (node.tag === SuspenseComponent) {
+            var state = node.memoizedState;
             if (state !== null) {
               var dehydrated = state.dehydrated;
               if (dehydrated === null || isSuspenseInstancePending(dehydrated) || isSuspenseInstanceFallback(dehydrated)) {
-                return node2;
+                return node;
               }
             }
-          } else if (node2.tag === SuspenseListComponent && node2.memoizedProps.revealOrder !== undefined) {
-            var didSuspend = (node2.flags & DidCapture) !== NoFlags;
+          } else if (node.tag === SuspenseListComponent && node.memoizedProps.revealOrder !== undefined) {
+            var didSuspend = (node.flags & DidCapture) !== NoFlags;
             if (didSuspend) {
-              return node2;
+              return node;
             }
-          } else if (node2.child !== null) {
-            node2.child.return = node2;
-            node2 = node2.child;
+          } else if (node.child !== null) {
+            node.child.return = node;
+            node = node.child;
             continue;
           }
-          if (node2 === row) {
+          if (node === row) {
             return null;
           }
-          while (node2.sibling === null) {
-            if (node2.return === null || node2.return === row) {
+          while (node.sibling === null) {
+            if (node.return === null || node.return === row) {
               return null;
             }
-            node2 = node2.return;
+            node = node.return;
           }
-          node2.sibling.return = node2.return;
-          node2 = node2.sibling;
+          node.sibling.return = node.return;
+          node = node.sibling;
         }
         return null;
       }
@@ -26163,13 +26168,13 @@ var require_react_dom_development = __commonJS((exports) => {
         }
       }
       function getNearestSuspenseBoundaryToCapture(returnFiber) {
-        var node2 = returnFiber;
+        var node = returnFiber;
         do {
-          if (node2.tag === SuspenseComponent && shouldCaptureSuspense(node2)) {
-            return node2;
+          if (node.tag === SuspenseComponent && shouldCaptureSuspense(node)) {
+            return node;
           }
-          node2 = node2.return;
-        } while (node2 !== null);
+          node = node.return;
+        } while (node !== null);
         return null;
       }
       function markSuspenseBoundaryShouldCapture(suspenseBoundary, returnFiber, sourceFiber, root2, rootRenderLanes) {
@@ -26737,10 +26742,10 @@ var require_react_dom_development = __commonJS((exports) => {
             enterHydrationState(workInProgress2);
             var child = mountChildFibers(workInProgress2, null, nextChildren, renderLanes2);
             workInProgress2.child = child;
-            var node2 = child;
-            while (node2) {
-              node2.flags = node2.flags & ~Placement | Hydrating;
-              node2 = node2.sibling;
+            var node = child;
+            while (node) {
+              node.flags = node.flags & ~Placement | Hydrating;
+              node = node.sibling;
             }
           }
         } else {
@@ -27315,31 +27320,31 @@ var require_react_dom_development = __commonJS((exports) => {
         scheduleContextWorkOnParentPath(fiber.return, renderLanes2, propagationRoot);
       }
       function propagateSuspenseContextChange(workInProgress2, firstChild, renderLanes2) {
-        var node2 = firstChild;
-        while (node2 !== null) {
-          if (node2.tag === SuspenseComponent) {
-            var state = node2.memoizedState;
+        var node = firstChild;
+        while (node !== null) {
+          if (node.tag === SuspenseComponent) {
+            var state = node.memoizedState;
             if (state !== null) {
-              scheduleSuspenseWorkOnFiber(node2, renderLanes2, workInProgress2);
+              scheduleSuspenseWorkOnFiber(node, renderLanes2, workInProgress2);
             }
-          } else if (node2.tag === SuspenseListComponent) {
-            scheduleSuspenseWorkOnFiber(node2, renderLanes2, workInProgress2);
-          } else if (node2.child !== null) {
-            node2.child.return = node2;
-            node2 = node2.child;
+          } else if (node.tag === SuspenseListComponent) {
+            scheduleSuspenseWorkOnFiber(node, renderLanes2, workInProgress2);
+          } else if (node.child !== null) {
+            node.child.return = node;
+            node = node.child;
             continue;
           }
-          if (node2 === workInProgress2) {
+          if (node === workInProgress2) {
             return;
           }
-          while (node2.sibling === null) {
-            if (node2.return === null || node2.return === workInProgress2) {
+          while (node.sibling === null) {
+            if (node.return === null || node.return === workInProgress2) {
               return;
             }
-            node2 = node2.return;
+            node = node.return;
           }
-          node2.sibling.return = node2.return;
-          node2 = node2.sibling;
+          node.sibling.return = node.return;
+          node = node.sibling;
         }
       }
       function findLastContentRow(firstChild) {
@@ -27908,28 +27913,28 @@ var require_react_dom_development = __commonJS((exports) => {
       var updateHostText$1;
       {
         appendAllChildren = function(parent, workInProgress2, needsVisibilityToggle, isHidden) {
-          var node2 = workInProgress2.child;
-          while (node2 !== null) {
-            if (node2.tag === HostComponent || node2.tag === HostText) {
-              appendInitialChild(parent, node2.stateNode);
-            } else if (node2.tag === HostPortal)
+          var node = workInProgress2.child;
+          while (node !== null) {
+            if (node.tag === HostComponent || node.tag === HostText) {
+              appendInitialChild(parent, node.stateNode);
+            } else if (node.tag === HostPortal)
               ;
-            else if (node2.child !== null) {
-              node2.child.return = node2;
-              node2 = node2.child;
+            else if (node.child !== null) {
+              node.child.return = node;
+              node = node.child;
               continue;
             }
-            if (node2 === workInProgress2) {
+            if (node === workInProgress2) {
               return;
             }
-            while (node2.sibling === null) {
-              if (node2.return === null || node2.return === workInProgress2) {
+            while (node.sibling === null) {
+              if (node.return === null || node.return === workInProgress2) {
                 return;
               }
-              node2 = node2.return;
+              node = node.return;
             }
-            node2.sibling.return = node2.return;
-            node2 = node2.sibling;
+            node.sibling.return = node.return;
+            node = node.sibling;
           }
         };
         updateHostContainer = function(current2, workInProgress2) {
@@ -29059,33 +29064,33 @@ var require_react_dom_development = __commonJS((exports) => {
           }
         }
       }
-      function reappearLayoutEffectsOnFiber(node2) {
-        switch (node2.tag) {
+      function reappearLayoutEffectsOnFiber(node) {
+        switch (node.tag) {
           case FunctionComponent:
           case ForwardRef:
           case SimpleMemoComponent: {
-            if (node2.mode & ProfileMode) {
+            if (node.mode & ProfileMode) {
               try {
                 startLayoutEffectTimer();
-                safelyCallCommitHookLayoutEffectListMount(node2, node2.return);
+                safelyCallCommitHookLayoutEffectListMount(node, node.return);
               } finally {
-                recordLayoutEffectDuration(node2);
+                recordLayoutEffectDuration(node);
               }
             } else {
-              safelyCallCommitHookLayoutEffectListMount(node2, node2.return);
+              safelyCallCommitHookLayoutEffectListMount(node, node.return);
             }
             break;
           }
           case ClassComponent: {
-            var instance = node2.stateNode;
+            var instance = node.stateNode;
             if (typeof instance.componentDidMount === "function") {
-              safelyCallComponentDidMount(node2, node2.return, instance);
+              safelyCallComponentDidMount(node, node.return, instance);
             }
-            safelyAttachRef(node2, node2.return);
+            safelyAttachRef(node, node.return);
             break;
           }
           case HostComponent: {
-            safelyAttachRef(node2, node2.return);
+            safelyAttachRef(node, node.return);
             break;
           }
         }
@@ -29093,59 +29098,59 @@ var require_react_dom_development = __commonJS((exports) => {
       function hideOrUnhideAllChildren(finishedWork, isHidden) {
         var hostSubtreeRoot = null;
         {
-          var node2 = finishedWork;
+          var node = finishedWork;
           while (true) {
-            if (node2.tag === HostComponent) {
+            if (node.tag === HostComponent) {
               if (hostSubtreeRoot === null) {
-                hostSubtreeRoot = node2;
+                hostSubtreeRoot = node;
                 try {
-                  var instance = node2.stateNode;
+                  var instance = node.stateNode;
                   if (isHidden) {
                     hideInstance(instance);
                   } else {
-                    unhideInstance(node2.stateNode, node2.memoizedProps);
+                    unhideInstance(node.stateNode, node.memoizedProps);
                   }
                 } catch (error2) {
                   captureCommitPhaseError(finishedWork, finishedWork.return, error2);
                 }
               }
-            } else if (node2.tag === HostText) {
+            } else if (node.tag === HostText) {
               if (hostSubtreeRoot === null) {
                 try {
-                  var _instance3 = node2.stateNode;
+                  var _instance3 = node.stateNode;
                   if (isHidden) {
                     hideTextInstance(_instance3);
                   } else {
-                    unhideTextInstance(_instance3, node2.memoizedProps);
+                    unhideTextInstance(_instance3, node.memoizedProps);
                   }
                 } catch (error2) {
                   captureCommitPhaseError(finishedWork, finishedWork.return, error2);
                 }
               }
-            } else if ((node2.tag === OffscreenComponent || node2.tag === LegacyHiddenComponent) && node2.memoizedState !== null && node2 !== finishedWork)
+            } else if ((node.tag === OffscreenComponent || node.tag === LegacyHiddenComponent) && node.memoizedState !== null && node !== finishedWork)
               ;
-            else if (node2.child !== null) {
-              node2.child.return = node2;
-              node2 = node2.child;
+            else if (node.child !== null) {
+              node.child.return = node;
+              node = node.child;
               continue;
             }
-            if (node2 === finishedWork) {
+            if (node === finishedWork) {
               return;
             }
-            while (node2.sibling === null) {
-              if (node2.return === null || node2.return === finishedWork) {
+            while (node.sibling === null) {
+              if (node.return === null || node.return === finishedWork) {
                 return;
               }
-              if (hostSubtreeRoot === node2) {
+              if (hostSubtreeRoot === node) {
                 hostSubtreeRoot = null;
               }
-              node2 = node2.return;
+              node = node.return;
             }
-            if (hostSubtreeRoot === node2) {
+            if (hostSubtreeRoot === node) {
               hostSubtreeRoot = null;
             }
-            node2.sibling.return = node2.return;
-            node2 = node2.sibling;
+            node.sibling.return = node.return;
+            node = node.sibling;
           }
         }
       }
@@ -29240,30 +29245,30 @@ var require_react_dom_development = __commonJS((exports) => {
         return fiber.tag === HostComponent || fiber.tag === HostRoot || fiber.tag === HostPortal;
       }
       function getHostSibling(fiber) {
-        var node2 = fiber;
+        var node = fiber;
         siblings:
           while (true) {
-            while (node2.sibling === null) {
-              if (node2.return === null || isHostParent(node2.return)) {
+            while (node.sibling === null) {
+              if (node.return === null || isHostParent(node.return)) {
                 return null;
               }
-              node2 = node2.return;
+              node = node.return;
             }
-            node2.sibling.return = node2.return;
-            node2 = node2.sibling;
-            while (node2.tag !== HostComponent && node2.tag !== HostText && node2.tag !== DehydratedFragment) {
-              if (node2.flags & Placement) {
+            node.sibling.return = node.return;
+            node = node.sibling;
+            while (node.tag !== HostComponent && node.tag !== HostText && node.tag !== DehydratedFragment) {
+              if (node.flags & Placement) {
                 continue siblings;
               }
-              if (node2.child === null || node2.tag === HostPortal) {
+              if (node.child === null || node.tag === HostPortal) {
                 continue siblings;
               } else {
-                node2.child.return = node2;
-                node2 = node2.child;
+                node.child.return = node;
+                node = node.child;
               }
             }
-            if (!(node2.flags & Placement)) {
-              return node2.stateNode;
+            if (!(node.flags & Placement)) {
+              return node.stateNode;
             }
           }
       }
@@ -29291,11 +29296,11 @@ var require_react_dom_development = __commonJS((exports) => {
             throw new Error("Invalid host parent fiber. This error is likely caused by a bug in React. Please file an issue.");
         }
       }
-      function insertOrAppendPlacementNodeIntoContainer(node2, before, parent) {
-        var tag = node2.tag;
+      function insertOrAppendPlacementNodeIntoContainer(node, before, parent) {
+        var tag = node.tag;
         var isHost = tag === HostComponent || tag === HostText;
         if (isHost) {
-          var stateNode = node2.stateNode;
+          var stateNode = node.stateNode;
           if (before) {
             insertInContainerBefore(parent, stateNode, before);
           } else {
@@ -29304,7 +29309,7 @@ var require_react_dom_development = __commonJS((exports) => {
         } else if (tag === HostPortal)
           ;
         else {
-          var child = node2.child;
+          var child = node.child;
           if (child !== null) {
             insertOrAppendPlacementNodeIntoContainer(child, before, parent);
             var sibling = child.sibling;
@@ -29315,11 +29320,11 @@ var require_react_dom_development = __commonJS((exports) => {
           }
         }
       }
-      function insertOrAppendPlacementNode(node2, before, parent) {
-        var tag = node2.tag;
+      function insertOrAppendPlacementNode(node, before, parent) {
+        var tag = node.tag;
         var isHost = tag === HostComponent || tag === HostText;
         if (isHost) {
-          var stateNode = node2.stateNode;
+          var stateNode = node.stateNode;
           if (before) {
             insertBefore(parent, stateNode, before);
           } else {
@@ -29328,7 +29333,7 @@ var require_react_dom_development = __commonJS((exports) => {
         } else if (tag === HostPortal)
           ;
         else {
-          var child = node2.child;
+          var child = node.child;
           if (child !== null) {
             insertOrAppendPlacementNode(child, before, parent);
             var sibling = child.sibling;
@@ -30667,10 +30672,10 @@ var require_react_dom_development = __commonJS((exports) => {
         }
       }
       function isRenderConsistentWithExternalStores(finishedWork) {
-        var node2 = finishedWork;
+        var node = finishedWork;
         while (true) {
-          if (node2.flags & StoreConsistency) {
-            var updateQueue = node2.updateQueue;
+          if (node.flags & StoreConsistency) {
+            var updateQueue = node.updateQueue;
             if (updateQueue !== null) {
               var checks = updateQueue.stores;
               if (checks !== null) {
@@ -30689,23 +30694,23 @@ var require_react_dom_development = __commonJS((exports) => {
               }
             }
           }
-          var child = node2.child;
-          if (node2.subtreeFlags & StoreConsistency && child !== null) {
-            child.return = node2;
-            node2 = child;
+          var child = node.child;
+          if (node.subtreeFlags & StoreConsistency && child !== null) {
+            child.return = node;
+            node = child;
             continue;
           }
-          if (node2 === finishedWork) {
+          if (node === finishedWork) {
             return true;
           }
-          while (node2.sibling === null) {
-            if (node2.return === null || node2.return === finishedWork) {
+          while (node.sibling === null) {
+            if (node.return === null || node.return === finishedWork) {
               return true;
             }
-            node2 = node2.return;
+            node = node.return;
           }
-          node2.sibling.return = node2.return;
-          node2 = node2.sibling;
+          node.sibling.return = node.return;
+          node = node.sibling;
         }
         return true;
       }
@@ -31975,50 +31980,50 @@ var require_react_dom_development = __commonJS((exports) => {
           if (foundHostInstances) {
             return;
           }
-          var node2 = fiber;
+          var node = fiber;
           while (true) {
-            switch (node2.tag) {
+            switch (node.tag) {
               case HostComponent:
-                hostInstances.add(node2.stateNode);
+                hostInstances.add(node.stateNode);
                 return;
               case HostPortal:
-                hostInstances.add(node2.stateNode.containerInfo);
+                hostInstances.add(node.stateNode.containerInfo);
                 return;
               case HostRoot:
-                hostInstances.add(node2.stateNode.containerInfo);
+                hostInstances.add(node.stateNode.containerInfo);
                 return;
             }
-            if (node2.return === null) {
+            if (node.return === null) {
               throw new Error("Expected to reach root first.");
             }
-            node2 = node2.return;
+            node = node.return;
           }
         }
       }
       function findChildHostInstancesForFiberShallowly(fiber, hostInstances) {
         {
-          var node2 = fiber;
+          var node = fiber;
           var foundHostInstances = false;
           while (true) {
-            if (node2.tag === HostComponent) {
+            if (node.tag === HostComponent) {
               foundHostInstances = true;
-              hostInstances.add(node2.stateNode);
-            } else if (node2.child !== null) {
-              node2.child.return = node2;
-              node2 = node2.child;
+              hostInstances.add(node.stateNode);
+            } else if (node.child !== null) {
+              node.child.return = node;
+              node = node.child;
               continue;
             }
-            if (node2 === fiber) {
+            if (node === fiber) {
               return foundHostInstances;
             }
-            while (node2.sibling === null) {
-              if (node2.return === null || node2.return === fiber) {
+            while (node.sibling === null) {
+              if (node.return === null || node.return === fiber) {
                 return foundHostInstances;
               }
-              node2 = node2.return;
+              node = node.return;
             }
-            node2.sibling.return = node2.return;
-            node2 = node2.sibling;
+            node.sibling.return = node.return;
+            node = node.sibling;
           }
         }
         return false;
@@ -33061,11 +33066,11 @@ var require_react_dom_development = __commonJS((exports) => {
         }
         return new ReactDOMHydrationRoot(root2);
       }
-      function isValidContainer(node2) {
-        return !!(node2 && (node2.nodeType === ELEMENT_NODE || node2.nodeType === DOCUMENT_NODE || node2.nodeType === DOCUMENT_FRAGMENT_NODE || !disableCommentsAsDOMContainers));
+      function isValidContainer(node) {
+        return !!(node && (node.nodeType === ELEMENT_NODE || node.nodeType === DOCUMENT_NODE || node.nodeType === DOCUMENT_FRAGMENT_NODE || !disableCommentsAsDOMContainers));
       }
-      function isValidContainerLegacy(node2) {
-        return !!(node2 && (node2.nodeType === ELEMENT_NODE || node2.nodeType === DOCUMENT_NODE || node2.nodeType === DOCUMENT_FRAGMENT_NODE || node2.nodeType === COMMENT_NODE && node2.nodeValue === " react-mount-point-unstable "));
+      function isValidContainerLegacy(node) {
+        return !!(node && (node.nodeType === ELEMENT_NODE || node.nodeType === DOCUMENT_NODE || node.nodeType === DOCUMENT_FRAGMENT_NODE || node.nodeType === COMMENT_NODE && node.nodeValue === " react-mount-point-unstable "));
       }
       function warnIfReactDOMContainerInDEV(container) {
         {
@@ -33369,7 +33374,7 @@ var require_react_dom_development = __commonJS((exports) => {
   }
 });
 
-// node_modules/@reactful/server/n
+// node_modules/react-dom/index.js
 var require_react_dom = __commonJS((exports, module) => {
   var react_dom_development = __toESM(require_react_dom_development(), 1);
   if (false) {
@@ -33378,7 +33383,7 @@ var require_react_dom = __commonJS((exports, module) => {
   }
 });
 
-// node_modules/@reactful/server/np
+// node_modules/react-dom/client.js
 var require_client = __commonJS((exports) => {
   var m = __toESM(require_react_dom(), 1);
   if (false) {
@@ -33404,7 +33409,7 @@ var require_client = __commonJS((exports) => {
   var i;
 });
 
-// node_modules/@reactful/server/npm/props/formAuth.
+// node_modules/@reactful/server/npm/state/shared.js
 function createProxyState(store, index) {
   if (store[PROXY])
     return store;
@@ -33448,9 +33453,9 @@ var init_shared = __esm(() => {
   DELAY_RENDER = 9;
 });
 
-// node_modules/@reactful/server/npm/props/formAuth
+// node_modules/@reactful/server/npm/state/props.js
 function useProps(react, child, path) {
-  const stateless = Object.keys(clients2).filter((k) => clients2[k].off).some((k) => k == path);
+  const stateless = Object.keys(clients).filter((k) => clients[k].off).some((k) => k == path);
   child.props = { ...child.props, uid: ++binding3.count };
   if (stateless)
     return child.props;
@@ -33462,17 +33467,17 @@ function useProps(react, child, path) {
   child.type["fresh"] = () => react(new Date().getTime());
   return binding3.state[index];
 }
-var binding3, clients2;
+var binding3, clients;
 var init_props = __esm(() => {
   init_npm2();
   init_shared();
   init_npm2();
   "use client";
   ({ binding: binding3 } = env.settings);
-  clients2 = globalThis[GLOBAL_KEY];
+  clients = globalThis[GLOBAL_KEY];
 });
 
-// node_modules/@reactful/server/npm/props/formAuth
+// node_modules/@reactful/server/npm/state/feeds.js
 function useFeeds(hook, href) {
   if (binding4.ready)
     return context3;
@@ -33490,24 +33495,24 @@ var init_feeds = __esm(() => {
   ({ context: context3, binding: binding4 } = env.settings);
 });
 
-// node_modules/@reactful/server/npm/props/formAuth
-function mountState(href, hook, node2, path) {
+// node_modules/@reactful/server/npm/state/mount.js
+function mountState(args) {
   if (IS_SERVER_SIDE3)
-    return [node2.props, context4];
-  const stateProps = useProps(hook[1], node2, path);
-  const stateFeeds = useFeeds(hook[1], href);
+    return [args.jsx.props, context4];
+  const stateProps = useProps(args.set[1], args.jsx, args.dir);
+  const stateFeeds = useFeeds(args.set[1], args.url);
   return [stateProps, stateFeeds];
 }
-var context4, binding5, IS_SERVER_SIDE3;
+var context4, IS_SERVER_SIDE3;
 var init_mount = __esm(() => {
   init_props();
   init_feeds();
   init_npm2();
-  ({ context: context4, binding: binding5 } = env.settings);
+  ({ context: context4 } = env.settings);
   IS_SERVER_SIDE3 = !globalThis.document;
 });
 
-// node_modules/@reactful/server/npm/props/formAuth.j
+// node_modules/@reactful/server/npm/state/refocus.js
 function refocus(timeout2) {
   if (IS_SERVER_SIDE4)
     return true;
@@ -33528,19 +33533,19 @@ var init_refocus = __esm(() => {
   IS_SERVER_SIDE4 = !globalThis.document;
 });
 
-// node_modules/@reactful/server/npm/props/formAuth
+// node_modules/@reactful/server/npm/state/index.js
 var init_state = __esm(() => {
   init_mount();
   init_refocus();
   "use client";
 });
 
-// node_modules/@reactful/server/npm/props/formAuth.
-function styler(node2, path) {
-  if (!node2 || !path || typeof node2.type != "string")
-    return node2;
-  const child = createElementFromJSX(node2);
-  const style = { ...node2.props.style };
+// node_modules/@reactful/server/npm/guest/styler.js
+function styler(node, path) {
+  if (!node || !path || typeof node.type != "string")
+    return node;
+  const child = createElementFromJSX(node);
+  const style = { ...node.props.style };
   for (const rule of getCssRules(path).map((x) => x)) {
     if (rule instanceof CSSStyleRule == false)
       continue;
@@ -33561,8 +33566,8 @@ function styler(node2, path) {
 var createElementFromJSX, fromKebabCaseToCamelCase, getCssRules, parseStyleSheetText, settings;
 var init_styler = __esm(() => {
   init_npm2();
-  createElementFromJSX = function(node2) {
-    const htmlString = JSXON.htmlfy(node2);
+  createElementFromJSX = function(node) {
+    const htmlString = JSXON.htmlfy(node);
     const div = document.createElement("div");
     div.innerHTML = htmlString.trim();
     return div.firstChild;
@@ -33591,7 +33596,7 @@ var init_styler = __esm(() => {
   settings = env.settings;
 });
 
-// node_modules/@reactful/server/npm/props/formAuth.jsj
+// node_modules/@reactful/server/npm/props/bindProps.js
 var IS_SERVER_SIDE5, bindProps;
 var init_bindProps = __esm(() => {
   "use client";
@@ -33615,7 +33620,7 @@ var init_bindProps = __esm(() => {
   };
 });
 
-// node_modules/@reactful/server/npm/props/formAuth.jsjs.js
+// node_modules/@reactful/server/npm/props/formValidator.js
 async function onSubmitValidate(props2, e) {
   context5.fails = [];
   const founds = document.querySelectorAll(":invalid");
@@ -33660,7 +33665,7 @@ var init_formValidator = __esm(() => {
   ({ context: context5, binding: storage } = env.settings);
 });
 
-// node_modules/@reactful/server/npm/props/formAuth.jsjs
+// node_modules/@reactful/server/npm/props/formShared.js
 function defaultError(code) {
   return code <= 400 ? "Invalid request" : code == 404 ? "URL not found" : code >= 400 && code < 500 ? "Error" : "Internal serve error...";
 }
@@ -33727,12 +33732,12 @@ var init_formAuth = __esm(() => {
   IS_SERVER_SIDE6 = !globalThis.document;
 });
 
-// node_modules/@reactful/server/npm/props/formAuth.jsjs
+// node_modules/@reactful/server/npm/props/formAction.js
 async function action(args) {
   const { props: props2, fetch: caller } = args;
   const config = authenticate(props2);
   context6.await = true;
-  binding6.fresh();
+  binding5.fresh();
   try {
     const result = await fetch(props2.action, config);
     if (!result.ok)
@@ -33747,18 +33752,18 @@ async function action(args) {
     errors.filter((e) => !e.error).forEach((e, i) => delete errors[i]);
     errors.filter((e) => errors.filter((x) => e.error == x.error).length > 1).forEach((e, i) => delete errors[i]);
     context6.await = false;
-    binding6.fresh();
+    binding5.fresh();
   }
 }
-var context6, binding6;
+var context6, binding5;
 var init_formAction = __esm(() => {
   init_formShared();
   init_formAuth();
   init_npm2();
-  ({ context: context6, binding: binding6 } = env.settings);
+  ({ context: context6, binding: binding5 } = env.settings);
 });
 
-// node_modules/@reactful/server/npm/props/formAuth.js
+// node_modules/@reactful/server/npm/props/formBind.js
 function fixProps(props2) {
   const p = { ...props2 };
   delete p["onAwait"];
@@ -33790,17 +33795,17 @@ function onBinding(args) {
     action(args);
   if (submit)
     submit(props2.data, params2.ioc);
-  binding7.fresh();
+  binding6.fresh();
 }
-var binding7;
+var binding6;
 var init_formBind = __esm(() => {
   init_formValidator();
   init_npm2();
   init_formAction();
-  ({ binding: binding7 } = env.settings);
+  ({ binding: binding6 } = env.settings);
 });
 
-// node_modules/@reactful/server/npm/props/formAuth.jsj
+// node_modules/@reactful/server/npm/props/formProps.js
 function formProps(props2, params2) {
   if (IS_SERVER_SIDE7)
     return props2;
@@ -33819,7 +33824,7 @@ var init_formProps = __esm(() => {
   IS_SERVER_SIDE7 = !globalThis.document;
 });
 
-// node_modules/@reactful/server/npm/props/formAuth.jsjs
+// node_modules/@reactful/server/npm/props/styleProps.js
 var gridProps, globalTag, styleProps;
 var init_styleProps = __esm(() => {
   gridProps = function(props2, params2) {
@@ -33857,7 +33862,7 @@ var init_styleProps = __esm(() => {
   };
 });
 
-// node_modules/@reactful/server/npm/props/formAuth.jsjs
+// node_modules/@reactful/server/npm/props/routeProps.js
 var settings2, context7, IS_SERVER_SIDE8, routeProps;
 var init_routeProps = __esm(() => {
   init_npm2();
@@ -33886,7 +33891,40 @@ var init_routeProps = __esm(() => {
   };
 });
 
-// node_modules/@reactful/server/npm/props/formAuth
+// node_modules/@reactful/server/npm/props/awaitProps.js
+var warn, LACK_OF_METADATA, INVALID_AWAIT_PROPS, NO_ASYNC_AWAIT_PROPS, awaitProps;
+var init_awaitProps = __esm(() => {
+  init_npm();
+  init_npm2();
+  warn = function(message) {
+    console.warn(message);
+    return true;
+  };
+  LACK_OF_METADATA = "[await] props requires an exported component";
+  INVALID_AWAIT_PROPS = "[await] props must be functional component";
+  NO_ASYNC_AWAIT_PROPS = "[await] props must be a Promise";
+  awaitProps = function(props2, params2) {
+    const asyncComponent = props2.await;
+    const componentPath = asyncComponent?.metadata?.path;
+    const isNotFunction = typeof asyncComponent != "function";
+    if (env.is("CLIENT") || !asyncComponent)
+      return props2;
+    if (isNotFunction)
+      return warn(INVALID_AWAIT_PROPS) && props2;
+    if (!componentPath)
+      return warn(LACK_OF_METADATA) && props2;
+    if (!asyncComponent.isAsync())
+      return warn(NO_ASYNC_AWAIT_PROPS) && props2;
+    const clientSideAwaitProps = JSON.stringify({
+      name: (props2.await.name || "default").replace(/\$$/, ""),
+      path: componentPath
+    });
+    return (props2.await = clientSideAwaitProps) && props2;
+    return props2;
+  };
+});
+
+// node_modules/@reactful/server/npm/props/index.js
 function proper(props2, params2) {
   const reducer = (props3, apply) => apply(props3, params2);
   const propers = library.concat(env.settings?.propers ?? []);
@@ -33899,15 +33937,17 @@ var init_props2 = __esm(() => {
   init_formProps();
   init_styleProps();
   init_routeProps();
+  init_awaitProps();
   library = [
     bindProps,
     formProps,
     styleProps,
-    routeProps
+    routeProps,
+    awaitProps
   ];
 });
 
-// node_modules/@reactful/server/npm/props/formAuth.
+// node_modules/@reactful/server/npm/guest/parser.js
 async function parser(root, path, href) {
   return await new Parser(root, path, href).render();
 }
@@ -33960,20 +34000,21 @@ class Parser {
     return resulted;
   }
   component(jsx, own) {
-    const retype = (attrs) => {
-      const [state2, feeds2] = rebind(attrs);
+    const retype = (arg, ref) => {
+      const [state2, feeds2] = rebind(arg, ref);
       const child = jsx.type(state2, feeds2);
-      const props3 = reprop(child, attrs);
+      const props3 = reprop(child);
       return { ...child, props: props3, key: fixKey(child) };
     };
-    const rebind = (attrs) => {
+    const rebind = (arg, ref) => {
       const set3 = import_react2.default.useState(0);
       const [dir, url] = [this.path, this.href];
-      const [state2, feeds2] = mountState(url, set3, jsx, dir);
-      state2.children ||= attrs.children;
+      const [state2, feeds2] = mountState({ url, set: set3, jsx, dir });
+      feeds2.ref ||= ref ?? undefined;
+      state2.children ||= arg.children;
       return [latest = state2, feeds2];
     };
-    const reprop = (child, attrs) => {
+    const reprop = (child) => {
       if (!child?.props)
         return {};
       const label = jsx.type.name;
@@ -34010,7 +34051,16 @@ var init_parser = __esm(() => {
   fixKey = (child) => child.key && child.key.includes(".") ? null : child.key;
 });
 
-// node_modules/@reactful/server/npm/props/formAuth.
+// node_modules/@reactful/server/npm/guest/stream.js
+async function streamJSX(url, tag = "default") {
+  const response = await fetch(`${url}?jsx=true&tag=${tag}`);
+  const textHTML = await response.text();
+  return textHTML;
+}
+var init_stream = __esm(() => {
+});
+
+// node_modules/@reactful/server/npm/guest/client.js
 var exports_client = {};
 __export(exports_client, {
   default: () => {
@@ -34029,7 +34079,7 @@ async function onRoute(route2) {
   const entry = document.querySelector(settings4.queryId);
   if (model?.mode == "dynamic") {
     lazed && (entry.innerHTML = lazed);
-    await streamJSX(entry, route2);
+    entry.innerHTML = await streamJSX(route2);
   } else if (inner)
     entry.innerHTML = inner;
   else
@@ -34037,17 +34087,13 @@ async function onRoute(route2) {
   document.title = title || settings4.initial;
   await partialHydrationClientSideOnly();
 }
-async function streamJSX(entry, route2) {
-  const response = await fetch(`${route2}?jsx=true`);
-  const textHTML = await response.text();
-  entry.innerHTML = textHTML;
-}
 async function partialHydrationClientSideOnly() {
   const querier = (x) => document.querySelectorAll(x);
-  const clients = querier("jsx");
+  const clients2 = querier("jsx");
   const retries = querier("[retry]");
+  const waiting = querier("[await]");
   await awaiting(99);
-  clients.forEach(async function(elm) {
+  clients2.forEach(async function(elm) {
     try {
       const url = location.pathname;
       const src = elm.getAttribute("src");
@@ -34061,23 +34107,18 @@ async function partialHydrationClientSideOnly() {
     }
   });
   await awaiting(99);
-  retries.forEach(async function(node2) {
+  retries.forEach(async function(node) {
     const entry = document.querySelector(settings4.queryId);
-    const route2 = node2.getAttribute("retry");
-    await streamJSX(entry, route2);
+    const route2 = node.getAttribute("retry");
+    entry.innerHTML = await streamJSX(route2);
   });
-  clients.forEach((x) => x.hidden = false);
+  clients2.forEach((x) => x.hidden = false);
   retries.forEach((x) => x.hidden = false);
-  for (const item of settings4.caching) {
-    if (item.type != "wait")
-      continue;
-    const find = `[uid='${item.name}']`;
-    const node = document.querySelector(find);
-    const func = eval(item.data);
-    if (!node || !func)
-      continue;
-    func().then((jsx) => node.innerHTML = JSXON.htmlfy(jsx));
-  }
+  waiting.forEach(async function(node) {
+    const json2 = node.getAttribute("await");
+    const { path, name } = JSON.parse(json2);
+    node.innerHTML = await streamJSX(path, name);
+  });
 }
 async function client_default() {
   if (!window.document)
@@ -34101,6 +34142,7 @@ var init_client = __esm(() => {
   client = __toESM(require_client(), 1);
   init_npm2();
   init_parser();
+  init_stream();
   onBack = function(e) {
     onRoute(location.pathname);
   };
@@ -34120,7 +34162,7 @@ var init_client = __esm(() => {
   awaiting = async (delay2) => new Promise((resolve) => setTimeout(resolve, delay2));
 });
 
-// node_modules/@reactful/server/npm/props/form
+// node_modules/@reactful/web/npm/extensions.js
 var import_react3, IS_SERVER_SIDE9;
 var init_extensions = __esm(() => {
   import_react3 = __toESM(require_react(), 1);
@@ -34160,7 +34202,7 @@ var init_extensions = __esm(() => {
   };
 });
 
-// node_modules/@reactful/server/npm/props/formAuth
+// node_modules/@reactful/web/npm/render/@client.js
 var import_react4, rce2, IS_CLIENT_SIDE, client2;
 var init__client = __esm(() => {
   import_react4 = __toESM(require_react(), 1);
@@ -34182,7 +34224,7 @@ var init__client = __esm(() => {
   };
 });
 
-// node_modules/@reactful/server/npm/props/formAuth
+// node_modules/@reactful/web/npm/render/@server.js
 var SERVER_PATH_ERROR, IS_CLIENT_SIDE2;
 var init__server = __esm(() => {
   init_npm2();
@@ -34192,16 +34234,16 @@ var init__server = __esm(() => {
   IS_CLIENT_SIDE2 = !!globalThis.document;
 });
 
-// node_modules/@reactful/server/npm/props/formAut
+// node_modules/@reactful/web/npm/router/@route.js
 var init__route = __esm(() => {
   init_npm2();
 });
 
-// node_modules/@reactful/server/npm/props/formAut
+// node_modules/@reactful/web/npm/router/@error.js
 var init__error = __esm(() => {
 });
 
-// node_modules/@reactful/server/npm/props/formAut
+// node_modules/@reactful/web/npm/styler/@style.js
 var settings5, IS_SERVER_SIDE10;
 var init__style = __esm(() => {
   init_npm2();
@@ -34209,9 +34251,11 @@ var init__style = __esm(() => {
   IS_SERVER_SIDE10 = !globalThis.document;
 });
 
-// node_modules/@reactful/server/npm/props/formAut
+// node_modules/@reactful/web/npm/binder/@state.js
 function state2(value2) {
   return function(module, caller) {
+    if (env.is("SERVER"))
+      return caller;
     const index = value2[GUID];
     const store = env.settings.binding.store;
     store.react[index] ||= [];
@@ -34224,7 +34268,7 @@ var init__state = __esm(() => {
   init_npm();
 });
 
-// node_modules/@reactful/server/npm/props/formA
+// node_modules/@reactful/web/npm/render/@seo.js
 function seo(title, metadata) {
   const isString = typeof metadata === "string";
   const isCharSet = isString && charsets.includes(metadata);
@@ -34246,7 +34290,7 @@ var init__seo = __esm(() => {
   charsets = ["UTF-8", "UTF-16"];
 });
 
-// node_modules/@reactful/server/npm/props/form
+// node_modules/@reactful/web/npm/decorators.js
 var init_decorators = __esm(() => {
   init__client();
   init__server();
@@ -34257,10 +34301,10 @@ var init_decorators = __esm(() => {
   init__seo();
 });
 
-// node_modules/@reactful/server/npm/props/formA
+// node_modules/@reactful/web/npm/binder/hook.js
 function useStore(value2) {
-  const index = ++binding8.store.count;
-  const state3 = binding8.store.state;
+  const index = ++binding7.store.count;
+  const state3 = binding7.store.state;
   const exist = !!state3[index];
   if (exist && state3[index][PROXY])
     return state3[index];
@@ -34268,7 +34312,7 @@ function useStore(value2) {
     state3[index] = createProxy(value2, index);
   return state3[index];
 }
-var createProxy, refreshing, binding8;
+var createProxy, refreshing, binding7;
 var init_hook = __esm(() => {
   init_npm2();
   init_npm2();
@@ -34284,29 +34328,29 @@ var init_hook = __esm(() => {
       set(refer, field2, value2) {
         refer[field2] = value2;
         const refresh = () => refreshing(index);
-        binding8.timer && clearTimeout(binding8.timer);
-        binding8.timer = setTimeout(refresh, 33);
+        binding7.timer && clearTimeout(binding7.timer);
+        binding7.timer = setTimeout(refresh, 33);
         return true;
       }
     });
   };
   refreshing = function(index) {
-    const components = binding8.store.react[index];
+    const components = binding7.store.react[index];
     for (const component of components)
       if (typeof component["fresh"] == "function")
         setTimeout(component.fresh, 11);
   };
-  ({ binding: binding8 } = env.settings);
+  ({ binding: binding7 } = env.settings);
 });
 
-// node_modules/@reactful/server/npm/props
+// node_modules/@reactful/web/npm/index.js
 var init_npm3 = __esm(() => {
   init_extensions();
   init_decorators();
   init_hook();
 });
 
-// node_modules/@reactful/server
+// experiment/routes/counter.tsx
 var exports_counter = {};
 __export(exports_counter, {
   default: () => {
@@ -34344,11 +34388,11 @@ var init_counter = __esm(() => {
   CountButton["metadata"].path = "/mnt/b/Repositorios/reactful/experiment/routes/counter.tsx";
 });
 
-// node_modules/@reactful/server/np
+// experiment/routes/forms/form.css
 var init_form = __esm(() => {
 });
 
-// node_modules/@reactful/server/np
+// experiment/routes/forms/form.tsx
 var exports_form = {};
 __export(exports_form, {
   default: () => {
@@ -34411,9 +34455,13 @@ var init_form2 = __esm(() => {
   form_default = default$2;
   modeValidate["metadata"] ||= {};
   modeValidate["metadata"].path = "/mnt/b/Repositorios/reactful/experiment/routes/forms/form.tsx";
+  onSubmit["metadata"] ||= {};
+  onSubmit["metadata"].path = "/mnt/b/Repositorios/reactful/experiment/routes/forms/form.tsx";
+  onValidate["metadata"] ||= {};
+  onValidate["metadata"].path = "/mnt/b/Repositorios/reactful/experiment/routes/forms/form.tsx";
 });
 
-// node_modules/@reactful/server/np
+// experiment/components/header.tsx
 var import_react7, Header;
 var init_header = __esm(() => {
   import_react7 = __toESM(require_react(), 1);
@@ -34424,7 +34472,7 @@ var init_header = __esm(() => {
   Header["metadata"].path = "/mnt/b/Repositorios/reactful/experiment/components/header.tsx";
 });
 
-// node_modules/@reactful/serv
+// experiment/routes/hello.tsx
 var exports_hello = {};
 __export(exports_hello, {
   default: () => {
@@ -34433,36 +34481,30 @@ __export(exports_hello, {
     }
   }
 });
-var import_react8, SubGlobal, SubLocal, SubOrbital, orbital1, orbital2, Hello, hello_default;
+var import_react8, orbital1, orbital2, SubGlobal, SubLocal, SubOrbital, Hello, hello_default;
 var init_hello = __esm(() => {
   import_react8 = __toESM(require_react(), 1);
   init_npm3();
   init_header();
   init_npm();
-  SubGlobal = function(props3, { store }) {
-    return import_react8.default.createElement("input", {
-      ...props3,
-      data: store,
-      bind: "value"
-    });
-  };
-  SubLocal = function(props3) {
-    return import_react8.default.createElement(import_react8.default.Fragment, null, import_react8.default.createElement("input", {
-      ...props3,
-      data: props3,
-      bind: "value"
-    }), import_react8.default.createElement("label", null, " = ", props3.value));
-  };
-  SubOrbital = function(props3) {
-    return import_react8.default.createElement("input", {
-      ...props3,
-      data: orbital1,
-      bind: "value"
-    });
-  };
   orbital1 = useStore({ value: 0 });
   orbital2 = useStore({ value: 1 });
-  Hello = seo("Hello", "Hello forms...")(import.meta, state2(orbital2)(import.meta, state2(orbital1)(import.meta, client2(true)(import.meta, function Hello2(props3, { store }) {
+  SubGlobal = (props3, { store }) => import_react8.default.createElement("input", {
+    ...props3,
+    data: store,
+    bind: "value"
+  });
+  SubLocal = (props3) => import_react8.default.createElement(import_react8.default.Fragment, null, import_react8.default.createElement("input", {
+    ...props3,
+    data: props3,
+    bind: "value"
+  }), import_react8.default.createElement("label", null, " = ", props3.value));
+  SubOrbital = (props3) => import_react8.default.createElement("input", {
+    ...props3,
+    data: orbital1,
+    bind: "value"
+  });
+  Hello = seo("Hello", "Hello forms...")(import.meta, state2(orbital2)(import.meta, state2(orbital1)(import.meta, state2(orbital1)(import.meta, client2(true)(import.meta, function Hello2(props3, { store }) {
     if (globalThis.document)
       globalThis.props = props3;
     return import_react8.default.createElement(import_react8.default.Fragment, null, import_react8.default.createElement(Header, null, "Hello Forms"), import_react8.default.createElement("main", {
@@ -34509,13 +34551,19 @@ var init_hello = __esm(() => {
     }, store.value), import_react8.default.createElement("br", null), import_react8.default.createElement("strong", null, "orbital"), ": ", import_react8.default.createElement("label", {
       id: "l3"
     }, orbital1.value)));
-  }))));
+  })))));
+  SubGlobal["metadata"] ||= {};
+  SubGlobal["metadata"].path = "/mnt/b/Repositorios/reactful/experiment/routes/hello.tsx";
+  SubLocal["metadata"] ||= {};
+  SubLocal["metadata"].path = "/mnt/b/Repositorios/reactful/experiment/routes/hello.tsx";
+  SubOrbital["metadata"] ||= {};
+  SubOrbital["metadata"].path = "/mnt/b/Repositorios/reactful/experiment/routes/hello.tsx";
   Hello["metadata"] ||= {};
   Hello["metadata"].path = "/mnt/b/Repositorios/reactful/experiment/routes/hello.tsx";
   hello_default = Hello;
 });
 
-// node_modules/@reactful/serv
+// experiment/routes/login.tsx
 var exports_login = {};
 __export(exports_login, {
   default: () => {
@@ -34556,11 +34604,11 @@ var init_login = __esm(() => {
   login_default = default$3;
 });
 
-// node_modules/@reactful/server/npm/pr
+// experiment/routes/profile/detail.css
 var init_detail = __esm(() => {
 });
 
-// node_modules/@reactful/server/npm/pr
+// experiment/routes/profile/tester.tsx
 var exports_tester = {};
 __export(exports_tester, {
   Tester: () => {
@@ -34579,7 +34627,7 @@ var init_tester = __esm(() => {
   Tester["metadata"].path = "/mnt/b/Repositorios/reactful/experiment/routes/profile/tester.tsx";
 });
 
-// node_modules/@reactful/server/npm/pr
+// experiment/routes/profile/detail.tsx
 var exports_detail = {};
 __export(exports_detail, {
   Detail: () => {
@@ -34614,7 +34662,7 @@ var init_detail2 = __esm(() => {
   Detail["metadata"].path = "/mnt/b/Repositorios/reactful/experiment/routes/profile/detail.tsx";
 });
 
-// node_modules/@reactful/serv
+// experiment/builds/bundle.ts
 init_npm2();
 await Promise.resolve().then(() => (init_client(), exports_client)).then((x) => x.default());
 globalThis[GLOBAL_KEY].clients ||= {};

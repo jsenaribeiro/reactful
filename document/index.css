@@ -78,19 +78,6 @@ h2 > code {
 h2::before { content:'' }
 
 h1 { font-family: quicksand }
-[specs] a { font-family: agave !important; font-weight: 100; }
-[specs] tr td:nth-of-type(3) { font-size: 13px; white-space: nowrap }
-[specs] tr td:nth-of-type(3) { opacity:0.65 }
-[specs] tr td:nth-of-type(2) { font-size: 13px; }
-[specs] tr td:not(:nth-of-type(1)) { padding:0 10px; margin:0 }
-[specs] tr { line-height: 23px; }
-[specs] tr:not(:last-of-type) td { border-bottom: solid 1px grey !important; }
-[specs] tr td:nth-of-type(1) {
-   /* transform: rotate(-90deg); */
-   font-family: quicksand;
-   font-weight: bolder;
-   font-size: 1.2rem;
-}
 
 legend::before { content:'' }
 legend:hover { cursor:pointer; filter: brightness(1) }
@@ -164,4 +151,14 @@ main[iframe] > iframe {
    height: 100%;
    padding: 0;
    border: 0;
+}
+
+blockquote[index] {
+   font-size: 1.7rem !important;
+   line-height: 2.2rem;
+   margin-top: -25px;   
+}
+
+a[index] {
+   font-size: 1.5rem;
 }

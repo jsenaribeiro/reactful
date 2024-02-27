@@ -214,6 +214,11 @@ body.marp-vscode blockquote {
 <style>@import url(./index.css);</style>
 <article>
 <embed type='text/html' src='./header.html' />
+<h1 title> 
+   <a href='#' onclick="goto('./overview.html')">overview</a> 
+   | <a href='#' onclick="goto('./preview.html#router')">preview</a> 
+   | <b>review</b>
+</h1>
 <header>ranker optimizing</header>
 <blockquote>
 <p>simple folder routing • routing decorator • route params<br/>props routing • extended HTML • markdown support<br/>  lazy components • prefetch route • nested routes</p>
@@ -320,16 +325,21 @@ body.marp-vscode blockquote {
 </table>
 </aside>
 <h2 id="async-components">Async components</h2>
-<p>React server components and Suspense API are supported for async components.</p>
-<pre><code class="language-tsx"><span class="hljs-keyword">const</span> <span class="hljs-title function_">AsyncComponent</span> = <span class="hljs-keyword">async</span> props =&gt; ...loaded
-<span class="hljs-keyword">const</span> <span class="hljs-title function_">SuspenseApi</span> = <span class="hljs-keyword">async</span> props =&gt; <span class="language-xml"><span class="hljs-tag">&lt;&gt;</span>
-   <span class="hljs-tag">&lt;<span class="hljs-name">Suspense</span> <span class="hljs-attr">fallback</span>=<span class="hljs-string">{</span>&lt;<span class="hljs-attr">Loading</span>/&gt;</span>}&gt;
+<p>React server components, enabling async components and easier data fetching.</p>
+<pre><code class="language-tsx"><span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">AsyncComponent</span>(<span class="hljs-params">props</span>) {
+   <span class="hljs-keyword">const</span> text = <span class="hljs-keyword">await</span> <span class="hljs-title function_">fetch</span>(<span class="hljs-string">&#x27;url....&#x27;</span>)
+   <span class="hljs-keyword">return</span> <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>...loaded { text }<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span>
+}
+</code></pre>
+<p>Reactful async components supports React Suspense API.</p>
+<pre><code class="language-tsx"><span class="hljs-keyword">const</span> <span class="hljs-title function_">SuspenseApi</span> = <span class="hljs-keyword">async</span> props =&gt; <span class="language-xml"><span class="hljs-tag">&lt;&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-name">Suspense</span> <span class="hljs-attr">fallback</span>=<span class="hljs-string">{</span>&lt;<span class="hljs-attr">h1</span>&gt;</span>loading...<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>}&gt;
       <span class="hljs-tag">&lt;<span class="hljs-name">AsyncComponent</span> /&gt;</span>
    <span class="hljs-tag">&lt;/<span class="hljs-name">Suspense</span>&gt;</span>
 <span class="hljs-tag">&lt;/&gt;</span></span>
 </code></pre>
-<p>It also introduces await props as a simpler props-driven  Suspense API alternative.</p>
-<pre><code class="language-tsx"><span class="hljs-keyword">const</span> <span class="hljs-title function_">AwaitProps</span> = <span class="hljs-keyword">async</span> props =&gt; <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span> <span class="hljs-attr">await</span>=<span class="hljs-string">{Loading}</span>&gt;</span>...<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span>
+<p>It introduces Suspense API simpler alternative as await props. It replaces the element children with resolved component promise with a inverse approach.</p>
+<pre><code class="language-tsx"><span class="hljs-keyword">const</span> <span class="hljs-title function_">AwaitProps</span> = <span class="hljs-keyword">async</span> props =&gt; <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span> <span class="hljs-attr">await</span>=<span class="hljs-string">{AsyncComponent}</span>&gt;</span>loading...<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span>
 </code></pre>
 <h2 id="dynamic-routes">Dynamic routes</h2>
 <p>The @route functions decorator support route params with priority above folder routing.</p>

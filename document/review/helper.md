@@ -3,6 +3,13 @@
 
 <article>
 <embed type='text/html' src='./header.html' />
+
+<h1 title> 
+   <a href='#' onclick="goto('./overview.html')">overview</a> 
+   | <a href='#' onclick="goto('./preview.html#helper')">preview</a> 
+   | <b>review</b>
+</h1>
+
 <header>helper utilities</header>
 
 > function • object • string<br/>number • JSON • array
@@ -107,4 +114,4 @@ JSON.scriptify(myObject)
 </aside>
 
 </article>
-<br/><br/>
+<br/>

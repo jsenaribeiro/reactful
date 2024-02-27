@@ -17,6 +17,9 @@
 
 # <a href='#' onclick='goto("./overview.html")'>overview</a> | **preview** | <a href='#'>review</a>
 
+> server rendering • styler scoping • storer handling<br/>ranker mechanism • router modeling<br/>binder props • helper utilities
+
+
 <fieldset id='server' onclick='onPreview(this.id)'>
 <legend><b>SERVER</b> rendering</legend>
 

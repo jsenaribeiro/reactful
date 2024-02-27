@@ -32,7 +32,11 @@ export class File /*implements IFile*/ {
 
    public exists() { return this.blob.exists ? this.blob.exists() : Promise.resolve(false) }
    
-   public async save(text: string) { return await Bun.write(this.path, text) }
+   public async save(text: string) { 
+      const result = await Bun.write(this.path, text) 
+      await new Promise(resolve => setTimeout(resolve, 9))
+      return result
+   }
 
    public async load(error?: string, decode?: boolean) {   
       if (!this.path) return ''

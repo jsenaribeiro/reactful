@@ -36,7 +36,8 @@ async function renderize(call, href) {
 }
 const isRoute = (request) => isRequestRoute(request)
     && isPathRoute(new Path(request.url))
-    && request.url.equal(/\.[\w\d]+$/) == false;
+    && request.url.equal(/\.[\w\d]+$/) == false
+    && request.url.includes('?jsx=true') == false;
 const isRequestRoute = (request) => isStream(request) == false;
 const isPathRoute = (path) => path.href.startsWith("/")
     && !path.href.startsWith("/api/")

@@ -45,6 +45,7 @@ const isRoute = (request: Request) =>
       isRequestRoute(request) 
    && isPathRoute(new Path(request.url))
    && request.url.equal(/\.[\w\d]+$/) == false
+   && request.url.includes('?jsx=true') == false
 
 const isRequestRoute = (request: Request) => isStream(request) == false
 

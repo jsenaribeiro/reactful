@@ -2,10 +2,16 @@
 
 div[title] { margin-top:-19px; }
 
-h1[title] {
+/* h1[title] {
    border:0;
    margin-top:-10px;
    margin-bottom: 10px;
+} */
+
+h1[title] {
+   border: 0;
+   margin-top: -110px;
+   margin-bottom: 57px;
 }
 
 h2 {
@@ -23,6 +29,14 @@ header {
    text-align: center;
    color: wheat;
 
+}
+
+blockquote {
+   font-size: 13px !important;
+   text-align: center;
+   margin-top: -15px;
+   margin-left: -3px;   
+   line-height: 20px;
 }
 
 [menu-top] { margin-bottom: -5px; }

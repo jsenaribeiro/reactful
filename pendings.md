@@ -1,20 +1,16 @@
-FIXINGS
-- fix playwright tests
-- hot loading not working
-- custom form[data] client validationApi only after first render
-
 PENDINGS
+- playwright tests is failing
+- custom form[data] client validationApi only after first render
 - article: problems, foundations, etc
-- peerDependence: react react-dom
 - mounting markdown lib css
-- remote states for stater
-- individual suspenses + await props (requires exports)
 
 FUTURES
 - DI de dom.id
-- recursive reactiveness
+- recursive reactivity
+- remote states for stater
 
-WARNINGS
+DISCLAMERS
+- inner components must be declared before outer components
 - function decorator intelisense warning (pending)
 - custom props directive no support imports
 - modular CSS not support pseudo-selectors
@@ -46,5 +42,14 @@ function Component(props) {
    const onClick = () => Component(props)
 
    return <div id='myDiv'>testing</div>
+}
+```
+
+await props (requires export)
+
+```tsx
+@client(true)
+function Component(props) {
+   return <div await={AsyncComponent}>loading...</div>
 }
 ```

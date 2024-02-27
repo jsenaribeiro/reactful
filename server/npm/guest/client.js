@@ -1,7 +1,8 @@
 "use client";
 import { createRoot } from 'react-dom/client';
-import { JSXON, env } from '@reactful/commons';
+import { env } from '@reactful/commons';
 import { parser } from './parser';
+import { streamJSX } from './stream';
 const settings = env.settings;
 export default async function () {
     if (!window.document)
@@ -44,7 +45,7 @@ async function onRoute(route) {
     const entry = document.querySelector(settings.queryId);
     if (model?.mode == "dynamic") {
         lazed && (entry.innerHTML = lazed);
-        await streamJSX(entry, route);
+        entry.innerHTML = await streamJSX(route);
     }
     else if (inner)
         entry.innerHTML = inner;
@@ -54,15 +55,11 @@ async function onRoute(route) {
     await partialHydrationClientSideOnly();
 }
 const awaiting = async (delay) => new Promise(resolve => setTimeout(resolve, delay));
-async function streamJSX(entry, route) {
-    const response = await fetch(`${route}?jsx=true`);
-    const textHTML = await response.text();
-    entry.innerHTML = textHTML;
-}
 async function partialHydrationClientSideOnly() {
     const querier = x => document.querySelectorAll(x);
     const clients = querier('jsx');
     const retries = querier('[retry]');
+    const waiting = querier('[await]');
     await awaiting(99);
     clients.forEach(async function (elm) {
         try {
@@ -82,19 +79,14 @@ async function partialHydrationClientSideOnly() {
     retries.forEach(async function (node) {
         const entry = document.querySelector(settings.queryId);
         const route = node.getAttribute('retry');
-        await streamJSX(entry, route);
+        entry.innerHTML = await streamJSX(route);
     });
     clients.forEach(x => x.hidden = false);
     retries.forEach(x => x.hidden = false);
-    for (const item of settings.caching) {
-        if (item.type != "wait")
-            continue;
-        const find = `[uid='${item.name}']`;
-        const node = document.querySelector(find);
-        const func = eval(item.data);
-        if (!node || !func)
-            continue;
-        func().then(jsx => node.innerHTML = JSXON.htmlfy(jsx));
-    }
+    waiting.forEach(async function (node) {
+        const json = node.getAttribute('await');
+        const { path, name } = JSON.parse(json);
+        node.innerHTML = await streamJSX(path, name);
+    });
 }
 //# sourceMappingURL=client.js.map

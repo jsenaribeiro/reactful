@@ -213,6 +213,11 @@ body.marp-vscode blockquote {
 <style>@import url(./index.css);</style>
 <article>
 <embed type='text/html' src='./header.html' />
+<h1 title> 
+   <a href='#' onclick="goto('./overview.html')">overview</a> 
+   | <a href='#' onclick="goto('./preview.html#binder')">preview</a> 
+   | <b>review</b>
+</h1>
 <header>binder properting</header>
 <blockquote>
 <p>data binding • form binding • props directives<br/>RESTful actions • validation api</p>
@@ -268,7 +273,7 @@ body.marp-vscode blockquote {
    errors.<span class="hljs-title function_">push</span>({ <span class="hljs-attr">error</span>: <span class="hljs-string">&#x27;some custom error message&#x27;</span> })
 }
 </code></pre>
-<h2 id="restful-server-actions">RESTful actions</h2>
+<h2 id="restful-actions">RESTful actions</h2>
 <p>With <code>form[data]</code>, the <code>[action]</code> props is made RESTful, sending data object as a JSON as resolving response errors with fails array as dependency injection.</p>
 <pre><code class="language-tsx"><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> <span class="hljs-title function_">Todo</span> = (<span class="hljs-params">props, { fails }</span>) =&gt; <span class="language-xml"><span class="hljs-tag">&lt;&gt;</span>
    <span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">action</span>=<span class="hljs-string">&#x27;http://www.api.com&#x27;</span> <span class="hljs-attr">method</span>=<span class="hljs-string">&#x27;POST&#x27;</span> &gt;</span> 

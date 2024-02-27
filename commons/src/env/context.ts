@@ -18,6 +18,7 @@ const binding: Binding = {
 }
 
 const context: Feeds = { 
+   ref: undefined,
    fails: [ ], 
    store: { }, 
    param: { }, 

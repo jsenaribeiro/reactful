@@ -19,7 +19,6 @@ export interface IEnvironment {
         (type: "meta", path: string, name: string, html: MetaTags): void;
         (type: "html", path: string, html: `<${string}</${string}>`): any;
         (type: "lazy", path: string, name: string, html: `<${string}</${string}>`): void;
-        (type: "wait", path: string, guid: string, html: string): any;
     };
     let: (route: RouteString) => {
         href: string;

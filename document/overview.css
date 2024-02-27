@@ -38,3 +38,21 @@ a[review] {
    margin-top: -29px;
    font-weight: bold;
 }
+
+[specs] a { font-family: agave !important; font-weight: 100; }
+[specs] tr td:nth-of-type(3) { font-size: 13px; white-space: nowrap }
+[specs] tr td:nth-of-type(3) { opacity:0.65 }
+[specs] tr td:nth-of-type(2) { font-size: 13px; }
+[specs] tr td:not(:nth-of-type(1)) { padding:0 10px; margin:0 }
+[specs] tr { line-height: 23px; }
+[specs] tr:not(:last-of-type) td { border-bottom: solid 1px grey !important; }
+[specs] tr td:nth-of-type(1) {
+   font-family: quicksand;
+   font-weight: 100 !important;
+   font-size: 1.2rem;
+   padding: 0 0 0 10px;
+}
+
+center[index] h1 {
+   letter-spacing: 7px;
+}

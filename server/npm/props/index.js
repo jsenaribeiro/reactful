@@ -3,11 +3,13 @@ import { bindProps } from './bindProps';
 import { formProps } from './formProps';
 import { styleProps } from './styleProps';
 import { routeProps } from './routeProps';
+import { awaitProps } from './awaitProps';
 const library = [
     bindProps,
     formProps,
     styleProps,
-    routeProps
+    routeProps,
+    awaitProps
 ];
 export default function proper(props, params) {
     const reducer = (props, apply) => apply(props, params);

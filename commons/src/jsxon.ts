@@ -45,11 +45,16 @@ function wrapper(value: RRE|any[]|any) {
    if (typed != "function" || named == "retype") return value
 
    function retype(p, f){
-      const child = value.type({ ...props, ...p }, { ...feeds, ...f})            
-      const split = Object.entries(child.props)
-         .map(([key, obj]) => [key, wrapper(obj)])
-
-      return { ...child, props: Object.fromEntries(split) }
+      try {
+         const child = value.type({ ...props, ...p }, { ...feeds, ...f})            
+         const split = Object.entries(child?.props || { })
+            .map(([key, obj]) => [key, wrapper(obj)])
+   
+         return { ...child, props: Object.fromEntries(split) }
+      }
+      catch(ex) {
+         throws(ex, import.meta)
+      }
    }
 
    return { ...value, type: retype }

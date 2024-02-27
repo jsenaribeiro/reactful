@@ -26,24 +26,30 @@
 
 |  | | |
 |:-:|-|-|
-| <a href='#' onclick='goto("./preview.html#server")'>server</a> | Full SSR with JSX, markdown and extended HTML support |
-| <a href='#' onclick='goto("./preview.html#styler")'>styler</a> | Scoped CSS with @style decorator, global className tag, and fixed modular CSS imports | 
-| <a href='#' onclick='goto("./preview.html#storer")'>storer</a> | Simple alternative stateful proxy objects with multiple local, global and modular scope | 
-| <a href='#' onclick='goto("./preview.html#ranker")'>ranker</a> | Easy SEO by function decorators with metatags and open graph protocol support |
-| <a href='#' onclick='goto("./preview.html#router")'>router</a> | Folder, props and decorator routing with route params and nesting route support |
-| <a href='#' onclick='goto("./preview.html#binder")'>binder</a> | Props bindings for vanilla-like controlled and uncontrolled components approach | 
-| <a href='#' onclick='goto("./preview.html#helper")'>helper</a> | Multiple prototype extensions for object, array, number, string, function, promise, etc  | 
+| <a href='#' onclick='goto("./preview.html#server")'>server</a> | full SSR with JSX, markdown and extended HTML support |
+| <a href='#' onclick='goto("./preview.html#styler")'>styler</a> | scoped CSS with @style decorator, global className tag, and fixed modular CSS imports | 
+| <a href='#' onclick='goto("./preview.html#storer")'>storer</a> | stateful handling with proxy objects for local, global and 'orbital' component scope | 
+| <a href='#' onclick='goto("./preview.html#ranker")'>ranker</a> | SEO using function decorators with metatags and open graph protocol support |
+| <a href='#' onclick='goto("./preview.html#router")'>router</a> | advanced routing with props, folder and decorator routing declarative approaches |
+| <a href='#' onclick='goto("./preview.html#binder")'>binder</a> | props bindings for simplified controlled and uncontrolled components approach | 
+| <a href='#' onclick='goto("./preview.html#helper")'>helper</a> | types, retypes and prototypes extensions for typed and extended resources  | 
 
-<br/>
+<center index style='zoom:0.7'>
+
+# Getting started...
+
+</center>
+
+The `@reactful/create` package enables easy project scaffold with multiple templates, flat folder structure and full settings for vscode with debug ready support with no extra configuration.
 
 <aside cols='4:5' style='zoom:0.9'>
 
-```cmd
-$ bun create reactful
+```ps
+$ bunx @reactful/create@latest
 
-- template? empty | minimal | sampling
-- project name? my-project
-- vs code IDE? [Y/n] y
+- template? empty|minimal|sampling
+- project name? Sample
+- vs code IDE? (Y/n) y
 - install? yes
 ```
 
@@ -58,5 +64,3 @@ $ bun create reactful
 
 </section>
 </article>
-
-<br/>

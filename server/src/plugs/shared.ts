@@ -85,7 +85,7 @@ export function getModuleFunctions({ code, path }: Args): FunctionExpression[] {
       else ts.forEachChild(node, traverse);
 
       if (isFunction && !isNesting && !isInternal) 
-         return functions.push({ name, body, expr, args,
+         functions.push({ name, body, expr, args,
             path, full, sign, none, mods, sync, type })
    }
 
