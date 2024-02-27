@@ -252,17 +252,17 @@ body.marp-vscode blockquote {
 </tr>
 <tr>
 <td>/routes/sample.html</td>
-<td>localhost:3000/sample/</td>
+<td>localhost:3000/sample</td>
 <td>filename HTML</td>
 </tr>
 <tr>
 <td>/routes/example.md</td>
-<td>localhost:3000/example/</td>
+<td>localhost:3000/example</td>
 <td>filename markdown</td>
 </tr>
 <tr>
 <td>/routes/profile/index.tsx</td>
-<td>localhost:3000/profile/</td>
+<td>localhost:3000/profile</td>
 <td>subfolder index JSX</td>
 </tr>
 </tbody>
@@ -326,20 +326,20 @@ body.marp-vscode blockquote {
 </aside>
 <h2 id="async-components">Async components</h2>
 <p>React server components, enabling async components and easier data fetching.</p>
-<pre><code class="language-tsx"><span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">AsyncComponent</span>(<span class="hljs-params">props</span>) {
-   <span class="hljs-keyword">const</span> text = <span class="hljs-keyword">await</span> <span class="hljs-title function_">fetch</span>(<span class="hljs-string">&#x27;url....&#x27;</span>)
-   <span class="hljs-keyword">return</span> <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>...loaded { text }<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span>
+<pre><code class="language-tsx"><span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">AsyncSample</span>(<span class="hljs-params">props</span>) {
+   <span class="hljs-keyword">const</span> text = <span class="hljs-keyword">await</span> <span class="hljs-title function_">fetch</span>(<span class="hljs-string">&#x27;http://www.some-url.com&#x27;</span>)
+   <span class="hljs-keyword">return</span> <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>awaited content = { text }<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span>
 }
 </code></pre>
 <p>Reactful async components supports React Suspense API.</p>
-<pre><code class="language-tsx"><span class="hljs-keyword">const</span> <span class="hljs-title function_">SuspenseApi</span> = <span class="hljs-keyword">async</span> props =&gt; <span class="language-xml"><span class="hljs-tag">&lt;&gt;</span>
-   <span class="hljs-tag">&lt;<span class="hljs-name">Suspense</span> <span class="hljs-attr">fallback</span>=<span class="hljs-string">{</span>&lt;<span class="hljs-attr">h1</span>&gt;</span>loading...<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>}&gt;
-      <span class="hljs-tag">&lt;<span class="hljs-name">AsyncComponent</span> /&gt;</span>
+<pre><code class="language-tsx"><span class="hljs-keyword">const</span> <span class="hljs-title function_">SuspenseSample</span> = <span class="hljs-keyword">async</span> props =&gt; <span class="language-xml"><span class="hljs-tag">&lt;&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-name">Suspense</span> <span class="hljs-attr">fallback</span>=<span class="hljs-string">{</span>&lt;<span class="hljs-attr">b</span>&gt;</span>loading...<span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span>}&gt;
+      <span class="hljs-tag">&lt;<span class="hljs-name">AsyncSample</span> /&gt;</span>
    <span class="hljs-tag">&lt;/<span class="hljs-name">Suspense</span>&gt;</span>
 <span class="hljs-tag">&lt;/&gt;</span></span>
 </code></pre>
-<p>It introduces Suspense API simpler alternative as await props. It replaces the element children with resolved component promise with a inverse approach.</p>
-<pre><code class="language-tsx"><span class="hljs-keyword">const</span> <span class="hljs-title function_">AwaitProps</span> = <span class="hljs-keyword">async</span> props =&gt; <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span> <span class="hljs-attr">await</span>=<span class="hljs-string">{AsyncComponent}</span>&gt;</span>loading...<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span>
+<p>It introduces an inverse props-driven Suspense alternative as await props. It works replacing its children after its await component is loaded by component streaming.</p>
+<pre><code class="language-tsx"><span class="hljs-keyword">const</span> <span class="hljs-title function_">AwaitPropsSample</span> = <span class="hljs-keyword">async</span> props =&gt; <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span> <span class="hljs-attr">await</span>=<span class="hljs-string">{AsyncSample}</span>&gt;</span>loading...<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span>
 </code></pre>
 <h2 id="dynamic-routes">Dynamic routes</h2>
 <p>The @route functions decorator support route params with priority above folder routing.</p>
