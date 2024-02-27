@@ -1,2 +1,10 @@
-export declare function startState(): void;
-export declare function mountState(href: string, hook: UseState<any>, node: FCE, path: string): any[];
+export type StateResult = [record & {
+    children: any;
+}, Feeds];
+export interface StateArgs {
+    url: string;
+    set: UseState<any>;
+    jsx: FCE;
+    dir: string;
+}
+export declare function mountState(args: StateArgs): StateResult;

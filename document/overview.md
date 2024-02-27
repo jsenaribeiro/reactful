@@ -16,7 +16,7 @@
 
 # **overview** | <a href='#' onclick='goto("./preview.html")'>preview</a> | <a href='#'>review</a>
 
-> server-side rendering • stateful handling • versatile routing <br/>route authorization • search engine optimization
+> server-side rendering • stateful objects • props directives • scoped CSS • dependency injection<br/>advanced routing • search engine optimization • function decorator • reactive forms<br/>api routes • props binding • JSX-in-HTML • RESTful action • delayed render<br/>markdown support • lazy components • fallback routing
 
 <style>
    [specs] tr td:nth-of-type(3) { zoom:0.9; line-height:15px; }

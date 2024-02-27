@@ -33419,9 +33419,7 @@ function createProxyState(store, index) {
     },
     set(refer, field2, value2) {
       refer[field2] = value2;
-      if (field2 == "route")
-        return true;
-      if (field2 == "children")
+      if (IGNOREDS.includes(field2))
         return true;
       if (typeof value2 == "function")
         return true;
@@ -33437,7 +33435,7 @@ async function refreshAll() {
     react(new Date().getTime());
   }
 }
-var refreshOne, binding2, DELAY_RENDER;
+var refreshOne, IGNOREDS, binding2, DELAY_RENDER;
 var init_shared = __esm(() => {
   init_npm2();
   refreshOne = function(index) {
@@ -33445,6 +33443,7 @@ var init_shared = __esm(() => {
     const react = binding2.react[index];
     react(value2);
   };
+  IGNOREDS = ["await", "route", "children"];
   ({ binding: binding2 } = env.settings);
   DELAY_RENDER = 9;
 });
@@ -33887,26 +33886,6 @@ var init_routeProps = __esm(() => {
   };
 });
 
-// node_modules/@reactful/server/npm/props/formAuth.jsjs
-var INVALID_AWAIT_PROPS, IS_CLIENT_SIDE, awaitProps;
-var init_awaitProps = __esm(() => {
-  init_npm();
-  init_npm2();
-  INVALID_AWAIT_PROPS = "[await] props must be functional component Promise";
-  IS_CLIENT_SIDE = !!globalThis.document;
-  awaitProps = function(props2, params2) {
-    if (!props2.await || IS_CLIENT_SIDE)
-      return props2;
-    if (typeof props2.await != "function" || !props2.await.isAsync) {
-      console.warn(INVALID_AWAIT_PROPS);
-      return props2;
-    }
-    env.set("wait", "*", params2.uid.toString(), JSON.scriptify(props2.await));
-    props2.await = undefined;
-    return props2;
-  };
-});
-
 // node_modules/@reactful/server/npm/props/formAuth
 function proper(props2, params2) {
   const reducer = (props3, apply) => apply(props3, params2);
@@ -33920,13 +33899,11 @@ var init_props2 = __esm(() => {
   init_formProps();
   init_styleProps();
   init_routeProps();
-  init_awaitProps();
   library = [
     bindProps,
     formProps,
     styleProps,
-    routeProps,
-    awaitProps
+    routeProps
   ];
 });
 
@@ -34184,14 +34161,14 @@ var init_extensions = __esm(() => {
 });
 
 // node_modules/@reactful/server/npm/props/formAuth
-var import_react4, rce2, IS_CLIENT_SIDE2, client2;
+var import_react4, rce2, IS_CLIENT_SIDE, client2;
 var init__client = __esm(() => {
   import_react4 = __toESM(require_react(), 1);
   init_npm2();
   rce2 = import_react4.default.createElement;
-  IS_CLIENT_SIDE2 = !!globalThis.document;
+  IS_CLIENT_SIDE = !!globalThis.document;
   client2 = (stateful) => (meta, call) => {
-    if (!meta || !call || IS_CLIENT_SIDE2)
+    if (!meta || !call || IS_CLIENT_SIDE)
       return call;
     const path = meta.url.replaceAll("file://", "");
     const html = { __html: JSXON.htmlfy(rce2(call)) };
@@ -34206,13 +34183,13 @@ var init__client = __esm(() => {
 });
 
 // node_modules/@reactful/server/npm/props/formAuth
-var SERVER_PATH_ERROR, IS_CLIENT_SIDE3;
+var SERVER_PATH_ERROR, IS_CLIENT_SIDE2;
 var init__server = __esm(() => {
   init_npm2();
   init_npm2();
   init_npm();
   SERVER_PATH_ERROR = `${PREFIX_ERROR}@server ` + IS_ONLY_FOR_ROUTE;
-  IS_CLIENT_SIDE3 = !!globalThis.document;
+  IS_CLIENT_SIDE2 = !!globalThis.document;
 });
 
 // node_modules/@reactful/server/npm/props/formAut

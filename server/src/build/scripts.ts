@@ -10,11 +10,10 @@ export async function createCliteSideScripts() {
    const withNoFunction = x => ([ field ]: any) => typeof x[field] != "function"
    const removeFunctions = x => Object.parse(x).filter(withNoFunction(x)).toObject()
    const isNotFailure = (x: { path: string }) => env.settings.faileds.some(y => y.href != x.path)
-   const isNotWaitTypeOrFailure = x => x.type != "wait" && isNotFailure(x)
 
    const rootTag = `queryId:'${settings.queryId}'`
    const renders = settings.renders.map(removeFunctions)
-   const caching = settings.caching.filter(isNotWaitTypeOrFailure)
+   const caching = settings.caching.filter(isNotFailure)
    const scripts = `
       const GLOBAL_KEY = ${JSON.scriptify(GLOBAL_KEY)}
       const process = { env: ${JSON.scriptify(process.env)} }

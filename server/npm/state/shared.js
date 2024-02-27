@@ -1,4 +1,5 @@
 import { env, PROXY } from '@reactful/commons';
+const IGNOREDS = ["await", "route", "children"];
 const { binding } = env.settings;
 const DELAY_RENDER = 9;
 export function createProxyState(store, index) {
@@ -16,9 +17,7 @@ export function createProxyState(store, index) {
         },
         set(refer, field, value) {
             refer[field] = value;
-            if (field == "route")
-                return true;
-            if (field == "children")
+            if (IGNOREDS.includes(field))
                 return true;
             if (typeof value == "function")
                 return true;

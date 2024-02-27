@@ -1,27 +1,24 @@
 FIXINGS
 - fix playwright tests
 - hot loading not working
-- custom form[validation] only after first render
+- custom form[data] client validationApi only after first render
 
 PENDINGS
-- peerDependence: react react-dom
 - article: problems, foundations, etc
+- peerDependence: react react-dom
 - mounting markdown lib css
 - remote states for stater
-- individual suspenses?
-- await props
+- individual suspenses + await props (requires exports)
 
 FUTURES
 - DI de dom.id
 - recursive reactiveness
-- fallback routing
 
 WARNINGS
 - function decorator intelisense warning (pending)
 - custom props directive no support imports
 - modular CSS not support pseudo-selectors
 - no inner async component intelisense 
-
 
 AWAIT DESIGNING
 

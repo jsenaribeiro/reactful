@@ -1,5 +1,6 @@
 import React, { Suspense } from 'react'
-import { server, seo } from '@reactful/web'
+import { server, seo, client } from '@reactful/web'
+import '@reactful/extensions'
 
 const loading = <h3>Loading content...</h3>
 const address = "https://timeapi.io/api/Time/current/zone?timeZone=Europe/Amsterdam"
@@ -23,12 +24,21 @@ async function TimeZone() {
       <h1>World Clock</h1>
       <h2>Europe/Amistedan timezone</h2>
       <h3 style={{color:'yellow'}}> {date} {time} </h3>
-      {/* <h4 await={InnerAsyncComponent}>loading...</h4> */}
+      <h4 await={InnerAsyncComponent}>loading...</h4>
    </React.Fragment>
 }
 
-async function InnerAsyncComponent() {
+async function InnerAsyncComponent(props, feeds) {
    await new Promise(promise => setTimeout(promise, 1000))
-   return <code><mark>I'm a inner subcomponent !!!</mark></code>
+   return <>
+      <code><mark>Server async inner subcomponent !!!</mark></code>
+      <h4 await={ClientInnerAsyncComponent}>loading...</h4>
+   </>
+}
+
+@client(true)
+async function ClientInnerAsyncComponent(props, feeds) {
+   await new Promise(promise => setTimeout(promise, 1000))
+   return <code><mark>Client async inner subcomponent !!!</mark></code>
 }
 

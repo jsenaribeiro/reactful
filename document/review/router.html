@@ -319,6 +319,18 @@ body.marp-vscode blockquote {
 </tbody>
 </table>
 </aside>
+<h2 id="async-components">Async components</h2>
+<p>React server components and Suspense API are supported for async components.</p>
+<pre><code class="language-tsx"><span class="hljs-keyword">const</span> <span class="hljs-title function_">AsyncComponent</span> = <span class="hljs-keyword">async</span> props =&gt; ...loaded
+<span class="hljs-keyword">const</span> <span class="hljs-title function_">SuspenseApi</span> = <span class="hljs-keyword">async</span> props =&gt; <span class="language-xml"><span class="hljs-tag">&lt;&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-name">Suspense</span> <span class="hljs-attr">fallback</span>=<span class="hljs-string">{</span>&lt;<span class="hljs-attr">Loading</span>/&gt;</span>}&gt;
+      <span class="hljs-tag">&lt;<span class="hljs-name">AsyncComponent</span> /&gt;</span>
+   <span class="hljs-tag">&lt;/<span class="hljs-name">Suspense</span>&gt;</span>
+<span class="hljs-tag">&lt;/&gt;</span></span>
+</code></pre>
+<p>It also introduces await props as a simpler props-driven  Suspense API alternative.</p>
+<pre><code class="language-tsx"><span class="hljs-keyword">const</span> <span class="hljs-title function_">AwaitProps</span> = <span class="hljs-keyword">async</span> props =&gt; <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span> <span class="hljs-attr">await</span>=<span class="hljs-string">{Loading}</span>&gt;</span>...<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span>
+</code></pre>
 <h2 id="dynamic-routes">Dynamic routes</h2>
 <p>The @route functions decorator support route params with priority above folder routing.</p>
 <pre><code class="language-tsx"><span class="hljs-keyword">import</span> { route } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@reactful/web&#x27;</span>

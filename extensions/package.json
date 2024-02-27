@@ -1,6 +1,6 @@
 {
    "type": "module",
-   "version": "0.0.82",
+   "version": "0.0.91",
    "main": "npm/index.js",
    "types": "src/index.d.ts",
    "name": "@reactful/extensions",

@@ -2,7 +2,7 @@
 
 import React from "react"
 import { env, PROXY, params } from "@reactful/commons"
-import { mountState, refocus } from "../state"
+import { StateArgs, mountState, refocus } from "../state"
 import { styler } from "./styler"
 import proper from "../props"
 
@@ -98,23 +98,26 @@ class Parser implements SyncParser {
    }
 
    public component(jsx: FCE, own: string) {
-      const retype = attrs => {
-         const [state, feeds] = rebind(attrs)     
+      const retype = (arg, ref) => {
+         const [state, feeds] = rebind(arg, ref)     
          const child = jsx.type(state, feeds) as RRE
-         const props = reprop(child, attrs)
+         const props = reprop(child)
 
          return { ...child, props, key: fixKey(child) }
       }
       
-      const rebind = attrs => {
+      const rebind = (arg, ref) => {
          const set = React.useState(0)     
          const [dir, url] = [this.path, this.href]
-         const [state, feeds] = mountState(url, set, jsx, dir)    
-         state.children ||= attrs.children
+         const [state, feeds] = mountState({ url, set, jsx, dir })
+
+         feeds.ref ||= (ref ?? undefined)
+         state.children ||= arg.children
+
          return [latest = state, feeds]
       }
       
-      const reprop = (child, attrs) => {
+      const reprop = child => {
          if (!child?.props) return { }
 
          const label = jsx.type.name

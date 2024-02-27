@@ -50,6 +50,7 @@ declare global {
       await: boolean
       fails: Invalid[]
       store: Record<string | symbol, any>
+      ref: any
    }
 
    type CacheKey = "html" | "meta" | "lazy" | "href" | "wait"

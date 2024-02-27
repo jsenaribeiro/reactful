@@ -1,4 +1,5 @@
 const ioc = {
+    ref: undefined,
     await: false,
     logon: '',
     fails: [],

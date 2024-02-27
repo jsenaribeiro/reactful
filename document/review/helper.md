@@ -3,7 +3,7 @@
 
 <article>
 <embed type='text/html' src='./header.html' />
-<header>helper prototyping</header>
+<header>helper utilities</header>
 
 > function • object • string<br/>number • JSON • array
 
@@ -12,7 +12,7 @@
 The `isAsync()` function method returns true if the the function is a promise without the need that the target function be called to be checked its result is a promise.
 
 ```ts
-import 'reactful/extensions'
+import '@reactful/extensions'
 
 const myAsyncFunction = () => new Promise()
 
@@ -24,7 +24,7 @@ const isAsync = myAsyncFunction.isAsync() // true
 The `Object.valueOf` overrides allows to get or set a object using dot syntax.
 
 ```ts
-import 'reactful/extensions'
+import '@reactful/extensions'
 
 const myObject = { name: 'john', address: { postalCode: 123 }  }
 
@@ -38,7 +38,7 @@ myObject.valueOf('address.postalCode', 0123456789) // changing
 The `Number.format` enable numeric format with comma separator and decimal digits.
 
 ```ts
-import 'reactful/extensions'
+import '@reactful/extensions'
 
 const myNumber = 123456789
 
@@ -88,7 +88,7 @@ The `JSON.scriptify` is a variation of `JSON.stringify` that generates a valid j
 <aside cols=2>
 
 ```ts
-import 'reactful/extensions'
+import '@reactful/extensions'
 
 const myObject = { 
    name: 'hi',

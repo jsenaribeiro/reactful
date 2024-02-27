@@ -1,16 +1,13 @@
 import { useProps } from './props';
 import { useFeeds } from './feeds';
 import { env } from '@reactful/commons';
-const { context, binding } = env.settings;
+const { context } = env.settings;
 const IS_SERVER_SIDE = !globalThis.document;
-export function startState() {
-    binding.state = {};
-}
-export function mountState(href, hook, node, path) {
+export function mountState(args) {
     if (IS_SERVER_SIDE)
-        return [node.props, context];
-    const stateProps = useProps(hook[1], node, path);
-    const stateFeeds = useFeeds(hook[1], href);
+        return [args.jsx.props, context];
+    const stateProps = useProps(args.set[1], args.jsx, args.dir);
+    const stateFeeds = useFeeds(args.set[1], args.url);
     return [stateProps, stateFeeds];
 }
 //# sourceMappingURL=mount.js.map

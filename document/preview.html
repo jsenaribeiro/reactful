@@ -223,11 +223,6 @@ body.marp-vscode blockquote {
 • <a href="#">nice</a></p>
 </section>
 <h1 id="overview--preview--review"><a href='#' onclick='goto("./overview.html")'>overview</a> | <strong>preview</strong> | <a href='#'>review</a></h1>
-<center style='text-align: center !important'>
-<blockquote>
-<p>partial hydration • prefetch route • render streaming <br/>render refocus • dependency injection • restiful actions <br/>props directive • function decorators</p>
-</blockquote>
-</center>
 <fieldset id='server' onclick='onPreview(this.id)'>
 <legend><b>SERVER</b> rendering</legend>
 <p>Full server-side rendering with simple function @decorators.</p>
@@ -352,6 +347,10 @@ body.marp-vscode blockquote {
 &lt;/!-&gt;
 </span></code></pre>
 </aside>
+<p>It supports async components with Suspense component or by the new await props.</p>
+<pre><code class="language-tsx"><span class="hljs-keyword">const</span> <span class="hljs-title function_">SuspenseApi</span> = <span class="hljs-keyword">async</span> props =&gt; <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">Suspense</span> <span class="hljs-attr">fallback</span>=<span class="hljs-string">{</span>&lt;<span class="hljs-attr">Loading</span>/&gt;</span>}&gt;<span class="hljs-tag">&lt;<span class="hljs-name">Async</span> /&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">Suspense</span>&gt;</span></span>
+<span class="hljs-keyword">const</span> <span class="hljs-title function_">AwaitProps</span> = <span class="hljs-keyword">async</span> props =&gt; <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span> <span class="hljs-attr">await</span>=<span class="hljs-string">{Loading}</span>&gt;</span>...<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span> 
+</code></pre>
 <p>Go to <a href='#' onclick='goto("./review/router.html")'>review</a> section for more details.</p>
 </fieldset>
 <fieldset id='binder' onclick='onPreview(this.id)'>
@@ -377,46 +376,18 @@ declare <span class="hljs-variable language_">module</span> <span class="hljs-st
 <p>Go to <a href='#' onclick='goto("./review/binder.html")'>review</a> section for more details.</p>
 </fieldset>
 <fieldset id='helper' onclick='onPreview(this.id)'>
-<legend><b>HELPER</b> prototyping</legend>
-<p>Prototype extensions used by framework is available in <code>reactful/extensions</code>.</p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Function</td>
-<td><code>isAsync()</code></td>
-</tr>
-<tr>
-<td>JSON</td>
-<td><code>scriptify(object)</code></td>
-</tr>
-<tr>
-<td>Promise</td>
-<td><code>asLazyComponent(member: string)</code></td>
-</tr>
-<tr>
-<td>Object</td>
-<td><code>valueOf(field: string, value?: any)</code></td>
-</tr>
-<tr>
-<td>Number</td>
-<td><code>format(commas: boolean, digits: number)</code></td>
-</tr>
-<tr>
-<td>String</td>
-<td><code>toArray()</code>, <code>toObject()</code>, <code>toNumber()</code></td>
-</tr>
-<tr>
-<td>Array</td>
-<td><code>distinct()</code>, <code>first()</code>, <code>pairs()</code>, <code>Array.range()</code></td>
-</tr>
-</tbody>
-</table>
+<legend><b>HELPER</b> utilities</legend>
+<p>Type, retype and prototypes are available with <code>@reactful/extensions</code> npm package.</p>
+<pre><code class="language-ts"><span class="hljs-keyword">import</span> <span class="hljs-string">`@reactful/extensions`</span>
+   
+<span class="hljs-keyword">interface</span> <span class="hljs-title class_">Function</span> { <span class="hljs-title function_">isAsync</span>() }
+<span class="hljs-keyword">interface</span> <span class="hljs-title class_">JSON</span>     { <span class="hljs-title function_">scriptify</span>(<span class="hljs-built_in">object</span>) }
+<span class="hljs-keyword">interface</span> <span class="hljs-title class_">Promise</span>  { <span class="hljs-title function_">asLazyComponent</span>(<span class="hljs-attr">member</span>: <span class="hljs-built_in">string</span>) }
+<span class="hljs-keyword">interface</span> <span class="hljs-title class_">Object</span>   { <span class="hljs-title function_">valueOf</span>(<span class="hljs-attr">field</span>: <span class="hljs-built_in">string</span>, value?: <span class="hljs-built_in">any</span>) }
+<span class="hljs-keyword">interface</span> <span class="hljs-title class_">Number</span>   { <span class="hljs-title function_">format</span>(<span class="hljs-attr">commas</span>: <span class="hljs-built_in">boolean</span>, <span class="hljs-attr">digits</span>: <span class="hljs-built_in">number</span>) }
+<span class="hljs-keyword">interface</span> <span class="hljs-title class_">String</span>   { <span class="hljs-title function_">toArray</span>(), <span class="hljs-title function_">toObject</span>(), <span class="hljs-title function_">toNumber</span>() }
+<span class="hljs-keyword">interface</span> <span class="hljs-title class_">Array</span>    { <span class="hljs-title function_">distinct</span>(), <span class="hljs-title function_">first</span>(), <span class="hljs-title function_">pairs</span>(), <span class="hljs-title class_">Array</span>.<span class="hljs-title function_">range</span>() }
+</code></pre>
 <p>Go to <a href='#' onclick='goto("./review/helper.html")'>review</a> section for more details.</p>
 </fieldset>
 </article>

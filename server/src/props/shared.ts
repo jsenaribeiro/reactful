@@ -6,6 +6,7 @@ export interface InputProps {
 }
 
 const ioc: Feeds = {
+   ref: undefined,
    await: false,
    logon: '',
    fails: [],

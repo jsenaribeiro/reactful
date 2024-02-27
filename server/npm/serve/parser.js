@@ -2,7 +2,7 @@
 import React from "react";
 import proper from '../props';
 import { logger as log } from "../extra";
-import { SELF_CLOSE_TAGS } from "@reactful/commons";
+import { SELF_CLOSE_TAGS, throws } from "@reactful/commons";
 import { env, params, JSXON } from "@reactful/commons";
 import { styler } from "./styler";
 const raw = x => typeof x != "object";
@@ -88,6 +88,7 @@ class Parser {
             const attrs = params(jsx.type, own, ++uid);
             const props = proper(jsx.props, attrs);
             const style = styler({ ...jsx, props }, this.path);
+            jsx = await this.awaiting(jsx, attrs);
             const internal = jsx.props?.children;
             const isClosed = SELF_CLOSE_TAGS.includes(jsx.type);
             const children = isClosed ? undefined : await this.parent(internal, own);
@@ -145,5 +146,33 @@ class Parser {
             return { ...child, props };
         }
     }
+    async awaiting(jsx, params) {
+        if (!jsx.props.await)
+            return jsx;
+        if (typeof jsx.props.await != "function")
+            throws(`[await] props must be a function`);
+        if (!jsx.props.await.isAsync())
+            throws(`[await] props function requires a promise`);
+        jsx.props.children = await jsx.props.await(jsx.props, params);
+        if (typeof jsx.props.children != "object")
+            throws(`[await] props not return a valid JSX element`);
+        return jsx;
+    }
 }
+const INVALID_AWAIT_PROPS = '[await] props must be functional component Promise';
+export const awaitProps = function (props, params) {
+    if (!props.await || env.is("CLIENT"))
+        return props;
+    if (typeof props.await != "function" || !props.await.isAsync) {
+        console.warn(INVALID_AWAIT_PROPS);
+        return props;
+    }
+    props.await(props, params.ioc).then(jsx => {
+        const guid = params.uid.toString();
+        const html = JSXON.htmlfy(jsx);
+        env.set("wait", "*", guid, html);
+    });
+    props.await = undefined;
+    return props;
+};
 //# sourceMappingURL=parser.js.map

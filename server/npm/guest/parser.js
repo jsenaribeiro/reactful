@@ -68,17 +68,18 @@ class Parser {
         return resulted;
     }
     component(jsx, own) {
-        const retype = attrs => {
-            const [state, feeds] = rebind(attrs);
+        const retype = (arg, ref) => {
+            const [state, feeds] = rebind(arg, ref);
             const child = jsx.type(state, feeds);
-            const props = reprop(child, attrs);
+            const props = reprop(child, arg);
             return { ...child, props, key: fixKey(child) };
         };
-        const rebind = attrs => {
+        const rebind = (arg, ref) => {
             const set = React.useState(0);
             const [dir, url] = [this.path, this.href];
-            const [state, feeds] = mountState(url, set, jsx, dir);
-            state.children ||= attrs.children;
+            const [state, feeds] = mountState({ url, set, jsx, dir });
+            feeds.ref ||= (ref ?? undefined);
+            state.children ||= arg.children;
             return [latest = state, feeds];
         };
         const reprop = (child, attrs) => {

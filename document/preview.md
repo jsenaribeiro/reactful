@@ -17,12 +17,6 @@
 
 # <a href='#' onclick='goto("./overview.html")'>overview</a> | **preview** | <a href='#'>review</a>
 
-<center style='text-align: center !important'>
-
-> partial hydration • prefetch route • render streaming <br/>render refocus • dependency injection • restiful actions <br/>props directive • function decorators
-
-</center>
-
 <fieldset id='server' onclick='onPreview(this.id)'>
 <legend><b>SERVER</b> rendering</legend>
 
@@ -214,6 +208,13 @@ const Menu = (props) => <>
 ```
 </aside>
 
+It supports async components with Suspense component or by the new await props.
+
+```tsx
+const SuspenseApi = async props => <Suspense fallback={<Loading/>}><Async /></Suspense>
+const AwaitProps = async props => <h1 await={Loading}>...</h1> 
+```
+
 Go to <a href='#' onclick='goto("./review/router.html")'>review</a> section for more details.
 
 </fieldset>
@@ -253,19 +254,21 @@ Go to <a href='#' onclick='goto("./review/binder.html")'>review</a> section for 
 </fieldset>
 
 <fieldset id='helper' onclick='onPreview(this.id)'>
-<legend><b>HELPER</b> prototyping</legend>
+<legend><b>HELPER</b> utilities</legend>
 
-Prototype extensions used by framework is available in `reactful/extensions`.
+Type, retype and prototypes are available with `@reactful/extensions` npm package.
 
-| | |
-|-|-|
-| Function | `isAsync()` |
-| JSON | `scriptify(object)` |
-| Promise | `asLazyComponent(member: string)` |
-| Object | `valueOf(field: string, value?: any)` |
-| Number | `format(commas: boolean, digits: number)` |
-| String | `toArray()`, `toObject()`, `toNumber()` |
-| Array | `distinct()`, `first()`, `pairs()`, `Array.range()` |
+```ts
+import `@reactful/extensions`
+   
+interface Function { isAsync() }
+interface JSON     { scriptify(object) }
+interface Promise  { asLazyComponent(member: string) }
+interface Object   { valueOf(field: string, value?: any) }
+interface Number   { format(commas: boolean, digits: number) }
+interface String   { toArray(), toObject(), toNumber() }
+interface Array    { distinct(), first(), pairs(), Array.range() }
+```
 
 Go to <a href='#' onclick='goto("./review/helper.html")'>review</a> section for more details.
 

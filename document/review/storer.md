@@ -17,7 +17,7 @@ Stateful props bring out-of-the-box local state handling as SRO component props.
 
 ```tsx
 const Hello = props => <>   
-   Local Hello { props.name } !
+   Hello { props.name } !
    <input value={props.name} {onChange} />
 </>
 
@@ -26,28 +26,32 @@ const onChange = e => props.name = e.taget.value
 
 ## Global state injection
 
-The global state is passed in server settings as storage field.
+Global state is injected in Reactful server and resolved as store in component 2nd argument.
+
+<aside cols='4:5'>
 
 ```tsx
-import { server } from 'reactful/server'
+import server from '@reactful/server'
 
-const user = { name: 'world', now: new Date() } 
+const user = { name: 'world' } 
 const settings = { storage: user }
 
 await server("/routes", settings)
      .render("#root")
 ```
 
-DI is resolve in 2nd functional component arg by stores object deconstrution.
-
 ```tsx
-const Hello = (props, { store }) => <>   
-   Local Hello { store.name } !
-   <input value={store.name} {onChange} />
-</>
+function Hello(p, { store }) {
+   const on = e => p.name = e.target.value
 
-const onChange = e => props.name = e.target.value
+   return <>   
+      Hello { store.name } !
+      <input value={store.name} onChange={on} />
+   </>
+}
 ```
+
+</aside>
 
 ## Orbital modular states
 
@@ -57,7 +61,7 @@ This escope enables a Redux semantics with contextual subtree of components for 
 export const myStore = useStore({ guid: 0, name: 'john', date: new Date() })
 ```
 
-After useStore object is changed, the render only will call in components where @state maps.
+After useStore changed, the render calls in components where @state maps.
 
 ```tsx
 import { state } from '@reactful/web'
@@ -65,12 +69,46 @@ import { myStore } from './stores'
 
 @state(myStore)
 const Hello = props => <>   
-   Local Hello { store.name } !
+   Hello { store.name } !
    <input value={store.name} {onChange} />
 </>
 
 // it will trigger the render inside a component
 const onChange = e => props.name = e.taget.value
+```
+
+## IoC Container + forwardRef
+
+As shown in global state, reactful has a IoC container wher DI is resolved by 2nd functional component argument deconstrution. This 2nd argument is typed as Feeds interface. 
+
+<aside cols='2'>
+
+```tsx
+import '@reactful/extensions'
+
+function Sample(props, feeds: Feeds) {  
+   return <>...etc</>
+}
+```
+
+```ts
+interface Feeds {
+   param: record    // route params
+   store: record    // global state
+   logon: record    // logged user
+   await: boolean   // pending fetch
+   fails: Invalid[] // fetch errors
+   ref: any         // forwardRef
+}
+```
+</aside>
+
+The React19 2nd argument ref is handled as ref field inside feeds object.
+
+```tsx
+function React19(props, ref) {  return <>...etc</> }
+
+function Reactful(props, { ref }) {  return <>...etc</> }
 ```
 
 <br/><br/>
