@@ -7,15 +7,23 @@ import path from 'path'
 import * as tar from 'tar'
 import fs from 'fs'
 
+const CIANO = '\x1b[36m'
 const GREEN = '\x1b[32m'
 const RESET = '\x1b[0m'
 const prefix = `${GREEN}+${RESET}`
-const line = '─'.repeat(51)
+const char = '─'
+const line = char.repeat(51)
 const decor = '-'.repeat(18)
 
+
+console.log('___________________________________________________')
+console.log('')
+console.log(`                ${GREEN}REACTful${RESET} scaffold                 `)
+console.log(`                    ${CIANO}version 1.0${RESET}                    `)
+//console.log(`${decor}( ${GREEN}reactful${RESET}.js )${decor}`)
+console.log('___________________________________________________')
 // console.log(line)
-console.log(`${decor}( ${GREEN}reactful${RESET}.js )${decor}`)
-// console.log(line)
+console.log('')
 
 const templates = ['empty', 'minimal', 'sampling']
 const questions = [{
