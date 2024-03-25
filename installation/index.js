@@ -134,7 +134,7 @@ function removeDirectory(directory) {
 function copyPath(source, target) {
    if (!fs.existsSync(target)) fs.mkdirSync(target)
 
-   fs.readdirSync(source).forEach(function (file) {
+   fs.readdirSync(source).forEach(function(file) {
       const sourcePath = path.join(source, file)
       const targetPath = path.join(target, file)
       const statusPath = fs.lstatSync(sourcePath)
