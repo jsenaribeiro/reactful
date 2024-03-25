@@ -135,12 +135,12 @@ function copyPath(source, target) {
    if (!fs.existsSync(target)) fs.mkdirSync(target)
 
    fs.readdirSync(source).forEach(function (file) {
-      const currentPath = path.join(source, file)
+      const sourcePath = path.join(source, file)
       const targetPath = path.join(target, file)
+      const statusPath = fs.lstatSync(sourcePath)
+      const folderPath = statusPath.isDirectory()
 
-      if (fs.lstatSync(currentPath).isDirectory())
-         copyPath(currentPath, targetPath)
-
-      else fs.copyFileSync(currentPath, targetPath)
+      if (folderPath) copyPath(sourcePath, targetPath)
+      else fs.copyFileSync(sourcePath, targetPath)
    })
 }

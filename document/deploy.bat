@@ -1,21 +1,22 @@
 deno run -A deploy.js
 
-set "BASIC_DIR=B:\Repositorios\reactful\document"
-set "SLIDE_DIR=B:\Repositorios\jsenaribeiro.github.io\slideme"
-set "INDEX_DIR=B:\Repositorios\jsenaribeiro.github.io\readme"
+set "ORIGIN=B:\Repositorios\reactful\document"
+set "SOURCE=B:\Repositorios\jsenaribeiro.github.io"
 
-copy %BASIC_DIR%\overview.* %INDEX_DIR%
-copy %BASIC_DIR%\preview.* %INDEX_DIR%
-copy %BASIC_DIR%\avi\intro.mp4 %INDEX_DIR%\avi\intro.mp4
-xcopy %BASIC_DIR%\review %INDEX_DIR%\review /y /s /e
+copy %ORIGIN%\overview.* %SOURCE%\readme
+copy %ORIGIN%\preview.* %SOURCE%\readme
+copy %ORIGIN%\avi\intro.mp4 %SOURCE%\readme\avi\intro.mp4
+xcopy %ORIGIN%\review %SOURCE%\readme\review /y /s /e
 
-copy %BASIC_DIR%\favicon.ico %INDEX_DIR%
-copy %BASIC_DIR%\default.* %INDEX_DIR%
-copy %BASIC_DIR%\index.* %INDEX_DIR%
-copy %BASIC_DIR%\main.* %INDEX_DIR%
+copy %ORIGIN%\favicon.ico %SOURCE%\readme
+copy %ORIGIN%\default.* %SOURCE%\readme
+copy %ORIGIN%\index.* %SOURCE%\readme
+copy %ORIGIN%\main.* %SOURCE%\readme
 
-copy %BASIC_DIR%\slideme.* %SLIDE_DIR%
-copy %BASIC_DIR%\img\*.* %SLIDE_DIR%\img
+copy %ORIGIN%\slideme\*.* %SOURCE%\slideme
+copy %ORIGIN%\img\*.* %SOURCE%\img
+
+copy %ORIGIN%\proposal\*.* %SOURCE%\proposal
 
 cd ../../jsenaribeiro.github.io
 
@@ -23,4 +24,4 @@ git add .
 git commit -m 'doc....'
 git push
 
-cd %BASIC_DIR%
+cd %ORIGIN%

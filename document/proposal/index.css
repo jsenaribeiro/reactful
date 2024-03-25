@@ -1,0 +1,20 @@
+body {
+   width: 700px !important;
+   margin: 0 auto !important;
+   background: transparent !important;
+}
+
+body > * { margin-right: 20px; }
+
+[subtitle] {
+   font-weight: 400;
+   text-align: center !important;
+   margin-top:-23px; 
+   font-size:17px;
+   color: #BBB;
+}
+
+table { zoom: 0.9 }
+table th { font-weight:100 }
+
+h1 { font-weight: bolder !important; }

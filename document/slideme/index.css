@@ -12,11 +12,25 @@ strong { color: #E3E3E3; }
 
 [text] { padding-right:20px; }
 
+[small] { 
+   font-size:0.8em !important; 
+   font-weight: normal !important;
+   color: #BBB !important;
+}
+
+p[subtitle] { 
+   margin-top:-30px !important; 
+   margin-bottom:30px !important;
+   color: #999 !important;
+}
+
 [cols] { display:grid }
 [cols='2'] { grid-template-columns: 1fr 1fr; }
 [cols='2:5'] { grid-template-columns: 2fr 5fr; }
 [cols='3:5'] { grid-template-columns: 3fr 5fr; }
 [cols='4:5'] { grid-template-columns: 4fr 5fr; }
+[cols='5:4'] { grid-template-columns: 5fr 4fr; }
+[cols='5:3'] { grid-template-columns: 5fr 3fr; }
 
 img[src$='reactful.png'] { width:100px; margin:0 auto; }
 

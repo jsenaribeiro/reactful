@@ -14,7 +14,7 @@
 
 > data binding • form binding • props directives<br/>RESTful actions • validation api
 
-## Data binding props
+## Data binding
 
 The `[data]` and `[bind]` props directive enables data binding in read-write input elements, where `[data]` props is a target stateful object and `[bind]` props its mapped member field.
 
@@ -46,7 +46,7 @@ export const Form = props => <form>
 The props directive maps in background each value and event with its correct type. When the stateful object is the props, the `[data]` is optional (props is its default).
 
 
-## Form binding props
+## Form binding
 
 Form binding enables uncontrolled components binding approach with `form[data]` and `children[bind]`, with full HTML `validation API` support.
 
